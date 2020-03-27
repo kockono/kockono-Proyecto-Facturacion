@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
         nombre: req.body.nombre,
         posicion: req.body.posicion,
         office: req.body.office,
-        salario: req.body.salario,
+        rfc: req.body.rfc,
         direccion: req.body.direccion
     });
     emp.save((err, doc)=>{
