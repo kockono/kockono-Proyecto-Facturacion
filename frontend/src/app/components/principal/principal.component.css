@@ -1,0 +1,129 @@
+.arriba{
+  background-color:#e5e5e500;
+  text-align:left;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  margin-left: 5%;
+}
+
+
+
+  /*Contenedor de informacion*/
+.abajo{  /*ContenedorBlanco*/
+  overflow: auto;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  min-height: 10em;
+  width: 98%;
+  height: 70%;
+  position: fixed;
+  padding: 3%;
+  }
+
+.partes{ /*ContenedorGris*/
+  overflow: auto;
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 10em;
+  width: 95%;
+  padding: 3%;
+margin-bottom: 1em;
+
+}
+
+  /*BOTONES*/
+.añadir{
+  background-color: #214296;
+border: none;
+color: white;
+padding: 16px 32px;
+display: inline-block;
+font-size: 16px;
+margin: 15px 2px;
+transition-duration: 0.4s;
+cursor: pointer;
+border-radius: 20px;
+margin-right:5%;
+}
+.añadir:hover {
+  background-color:rgb(15, 42, 110);
+  transform: scale(1.1);
+  color: white;
+  }
+
+.mod{/*Boton Modificar*/
+  background-color: #0bb18d;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  display: inline-block;
+  font-size: 14px;
+  margin: 15px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-right:50%;
+  margin-top: 1%;
+}
+.mod:hover {
+  background-color:#086e58;
+  transform: scale(1.1);
+  color: white;
+  }
+  .eli{/*Boton Eliminar*/
+
+    background-color: #b11818;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    display: inline-block;
+    font-size: 14px;
+    margin: 15px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-right:50%;
+    margin-top: 1%;
+  }
+  .eli:hover {
+    background-color:#8d0d0d;
+    transform: scale(1.1);
+    color: white;
+    }
+
+
+  /*BUSCADOR*/
+input[type=text] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('/assets/img/buscar.png');
+  background-position: 20px 15px;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 70%;
+}
+

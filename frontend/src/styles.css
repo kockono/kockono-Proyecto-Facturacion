@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --azul1:  #042989;
+    --azul2:  #A9E0D3;
+  }
+  
+  body{
+    height: 100vh;
+    margin: 0;
+    background: -webkit-linear-gradient(top, var(--azul2),var(--azul1));
+    background-repeat: no-repeat;
+    display: grid;
+  }
+  

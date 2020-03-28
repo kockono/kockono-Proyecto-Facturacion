@@ -2,7 +2,7 @@ const { Router } = require('express');
 const Usuarios = require('../models/admins');
 const jwt = require('jsonwebtoken');
 const router = Router();
-const bcrypt = require('bcryptjs');
+const bcryptjs = require('bcryptjs');
 
 
 router.get('/', (req,res) => {
@@ -15,7 +15,7 @@ router.post('/signup', async(req, res) => {
 
     const newUser = new Usuarios ({
     email,
-    password: bcrypt.hashSync(password, 10),
+    password: bcryptjs.hashSync(password, 10),
     oficina,
     altas,
     lectura,
@@ -34,7 +34,13 @@ router.post('/signin', async(req, res) => {
 
     const user = await Usuarios.findOne({email})
     if(!user) return res.status(401).send("El Email No Existe");
-    if(user.password !== password) return res.status(401).send("Contraseña Erronea");
+    
+    const passCorrecto = await bcryptjs.compare(password, user.password);
+   
+    if(!passCorrecto) {
+        return res.status(400).json({msg: 'Password Incorrecto' })
+    }
+    // if(password !== passCorrecto) return res.status(401).send("Contraseña Erronea");
 
     const token = jwt.sign({_id: user._id}, 'secreto');
     return res.status(200).json({token});

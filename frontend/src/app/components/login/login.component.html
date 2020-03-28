@@ -1,0 +1,18 @@
+<div class="contenedor">
+
+  <h2>Iniciar Sesión</h2>
+  <form  #empleadoForm="ngForm" (submit)="signIn()">
+<h4>Correo:</h4>
+<input type="text" id="fname" name="fname"><br><br>
+<h4>Contraseña:</h4>
+<input type="password" id="fname" name="fname"><br><br>
+<div class="botones">
+  			<input type="email" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email" required autofocus/>
+			<input type="password" type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password" required/>
+			<a href="#">Olvidaste tu contraseña?</a>
+			<button type="submit" [disabled]="!empleadoForm.valid">Ingresar</button>
+<button class="login" type="submit" routerLink="/principal">Entrar</button>
+<button class="login" type="submit" routerLink="/registro">Registro</button>
+</div>
+  </form>
+</div>

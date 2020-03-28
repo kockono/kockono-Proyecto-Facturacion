@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { NumberSymbol } from '@angular/common';
 
@@ -28,13 +28,6 @@ export class SignupComponent implements OnInit {
     private router: Router
   ) {
     this.countPassword = this.countPassword;
-    // let regexp = new RegExp('ab+c');
-    // let regexpNumber = new RegExp('^[+ 0-9]{5}$');
-    // console.log(regexpNumber.test('12345'));
-    // // expected output: true
-    // console.log(regexpNumber.test('1234f'));
-    // // expected output: false
-    // console.log(regexpNumber.test('123456'));
 
   }
 
@@ -44,13 +37,13 @@ export class SignupComponent implements OnInit {
 
   signUp() {
     if (this.user.password === this.user.password2) {
-      if (this.user.password.length < 8) {
+      if (this.user.password.length <= 8) {
         if (this.user.password.length >= 6) {
           this.authService.signUp(this.user)
             .subscribe(res => {
               console.log(res);
               localStorage.setItem('token', res.token);
-              this.router.navigate(['/playlist'])
+              this.router.navigate(['/login'])
             }, err => {
               console.log(err);
               M.toast({ html: 'Correo Existente O No valido', classes: 'rounded' });
