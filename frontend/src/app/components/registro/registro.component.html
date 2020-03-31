@@ -1,14 +1,17 @@
 <div class="contenedor">
 
   <h2>Registro</h2>
-  <form>
+  <form #empleadoForm="ngForm" (submit)="signUp()" required>
 <h4>Correo:</h4>
-<input type="email" id="fname" name="fname"><br><br>
+<input type="email" [(ngModel)]="user.email" id="fname" name="email"placeholder="Correo" required autofocus><br><br>
 <h4>Contraseña:</h4>
-<input type="" id="fname" name="fname"><br><br>
+<input type="password" id="fname" [(ngModel)]="user.password" name="password" pattern="^(?=(?:.*\d){1})(?=((?:.*\W){1}))(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})\S{8,}$"><br><br>
+<h4>Confirmar Contraseña:</h4>
+<input type="password" id="fname" [(ngModel)]="user.password2" name="password" pattern="^(?=(?:.*\d){1})(?=((?:.*\W){1}))(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})\S{8,}$"><br><br>
 <div class="botones">
-<button class="login" type="submit">Registrarse</button>
+<button class="login" type="submit" [disabled]="!empleadoForm.valid" >Registrarse</button>
 </div>
 
   </form>
 </div>
+

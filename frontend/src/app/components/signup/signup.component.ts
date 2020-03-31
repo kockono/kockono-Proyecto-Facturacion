@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { NumberSymbol } from '@angular/common';
-
-// let regexp: RegExp = /ab+c/;
-// let regexpNumber: RegExp = /^[+ 0-9]{5}$/;
-
 
 declare var M: any;
 
