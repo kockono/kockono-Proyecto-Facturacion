@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit {
     .subscribe( res => {
       console.log(res);
       localStorage.setItem('token', res.token);
-      this.router.navigate(['/playlist']);
+      this.router.navigate(['/principal']);
       
     }, err => {
       console.log(err);
-      M.toast({html: 'Contraseña Incorrecta O Correo No Valido', classes: 'rounded'});
+      window.alert("Contraseña Incorrecta O Correo No Valido");
     })
   }
 
