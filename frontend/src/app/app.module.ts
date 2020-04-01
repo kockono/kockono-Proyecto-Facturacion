@@ -16,7 +16,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 
 // Seguridad
 import { AuthGuard } from './auth.guard';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { DatosEmpresaComponent } from './components/datos-empresa/datos-empresa.component';
+import { BarraComponent } from './shared/barra/barra.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     PrincipalComponent,
     SignupComponent,
     FormularioComponent,
-    NavbarComponent
+    NavbarComponent,
+    DatosEmpresaComponent,
+    BarraComponent
 
   ],
   imports: [

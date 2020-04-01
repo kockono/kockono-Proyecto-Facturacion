@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       
     }, err => {
       console.log(err);
-      M.toast({html: 'Contraseña Incorrecta O Correo No Valido', classes: 'rounded'});
+      window.alert("Contraseña Incorrecta O Correo No Valido");
     })
   }
 
