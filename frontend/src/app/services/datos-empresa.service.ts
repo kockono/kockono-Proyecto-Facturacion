@@ -9,7 +9,7 @@ export class DatosEmpresaService {
   selectEmpresa: DatosEmpresa;
   DatosEmpresa: DatosEmpresa[];
 
-  readonly baseURL = 'http://localhost:3500/Empresa'
+  readonly baseURL = 'http://localhost:3500/empresa'
 
   constructor(private http: HttpClient) { }
 
