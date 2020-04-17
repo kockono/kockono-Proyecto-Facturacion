@@ -37,6 +37,7 @@ export class RegistroComponent implements OnInit {
               localStorage.setItem('token', res.token);
               this.router.navigate(['/formulario'])
             }, err => {
+              console.log(err);
             })
         
   }else{

@@ -1,5 +1,5 @@
-const express = require('express');
-let router = express.Router();
+const { Router } = require('express');
+const router = Router();
 let ObjectId = require('mongoose').Types.ObjectId;
 
 let  datosEmpresa  = require('../models/datosDeEmpresa');

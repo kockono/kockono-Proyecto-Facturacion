@@ -11,14 +11,21 @@ import { RegistroComponent } from './Components/registro/registro.component';
 import { PrincipalComponent } from './Components/principal/principal.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
-import { TokenInterceptorService } from './services/token-interceptor.service';
 
 // Seguridad
+import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthGuard } from './auth.guard';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 import { DatosEmpresaComponent } from './components/datos-empresa/datos-empresa.component';
 import { BarraComponent } from './shared/barra/barra.component';
+import { PoliticasprivacidadComponent } from './components/politicasprivacidad/politicasprivacidad.component';
+import { DatosComponent } from './components/datos/datos.component';
+import { DatosEmisorComponent } from './components/datos-emisor/datos-emisor.component';
+import { DatosReceptorComponent } from './components/datos-receptor/datos-receptor.component';
+import { OlvidoPassComponent } from './components/olvido-pass/olvido-pass.component';
+import { ReceptorComponent } from './components/receptor/receptor.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +37,14 @@ import { BarraComponent } from './shared/barra/barra.component';
     FormularioComponent,
     NavbarComponent,
     DatosEmpresaComponent,
-    BarraComponent
+    BarraComponent,
+    CardsComponent,
+    PoliticasprivacidadComponent,
+    DatosComponent,
+    DatosEmisorComponent,
+    DatosReceptorComponent,
+    OlvidoPassComponent,
+    ReceptorComponent
 
   ],
   imports: [

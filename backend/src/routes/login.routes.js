@@ -1,7 +1,7 @@
 const { Router } = require('express');
+const router = Router();
 const Usuarios = require('../models/admins');
 const jwt = require('jsonwebtoken');
-const router = Router();
 const bcryptjs = require('bcryptjs');
 
 router.post('/signup', async(req, res) => {

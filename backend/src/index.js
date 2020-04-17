@@ -14,6 +14,10 @@ app.use(express.json()); // parse application/json
 app.use(express.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
 
 
-app.use(require('./routes/login.routes')); //app.use('/api', require('./routes/login.routes'));1
-app.use('/empresa', require('./controllers/datosEmpresa'))
+app.use('/api', require('./routes/login.routes'));
+app.use('/empresa', require('./controllers/datosEmpresa'));
+// app.use('/emisor', require('./controllers/datosEmpresa'));
+// app.use('/receptor', require('./controllers/datosEmpresa'));
+
+
 app.listen(PORT, () => console.log(`Escuchando por el puerto ${PORT}`) );

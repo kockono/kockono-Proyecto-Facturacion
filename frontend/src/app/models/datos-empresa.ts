@@ -11,6 +11,7 @@ export class DatosEmpresa {
     importe:string;
     folio:string;
     numExterior:string;
+    // numInterior:string;
     cp:string;
     rfc:string;
     municipio:string;
