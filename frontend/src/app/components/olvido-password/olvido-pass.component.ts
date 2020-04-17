@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OlvidoPassComponent implements OnInit {
 
+  recovery = {
+    password: '',
+    password2: ''
+  }
+
   constructor() { }
+
+  recover(){
+
+  }
 
   ngOnInit() {
   }

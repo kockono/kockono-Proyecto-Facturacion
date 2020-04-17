@@ -7,15 +7,25 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { AuthGuard } from './auth.guard';
 import { DatosEmpresaComponent } from './components/datos-empresa/datos-empresa.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { DatosEmisorComponent } from './components/datos-emisor/datos-emisor.component';
+import { OlvidoPassComponent } from './components/olvido-password/olvido-pass.component';
+import { PoliticasprivacidadComponent } from './components/politicasprivacidad/politicasprivacidad.component';
+import { ReceptorComponent } from './components/receptor/receptor.component';
 
 
 const routes: Routes = [
  {path: '', redirectTo:'/login', pathMatch:'full'},
- {path:'registro',component:RegistroComponent},
- {path:'login',component: LoginComponent},
- {path:'principal',component: PrincipalComponent, canActivate:[AuthGuard]},
- {path:'signup', component: SignupComponent},
- {path:'formulario', component: FormularioComponent, canActivate:[AuthGuard]},
+ {path: 'registro',component:RegistroComponent},
+ {path: 'login',component: LoginComponent},
+ {path: 'signup', component: SignupComponent},
+ {path: 'cards', component: CardsComponent},
+ {path: 'datos', component: DatosEmisorComponent},
+ {path: 'recovery', component: OlvidoPassComponent},
+ {path: 'politicas', component: PoliticasprivacidadComponent},
+ {path: 'receptor', component: ReceptorComponent},
+ {path: 'principal',component: PrincipalComponent, canActivate:[AuthGuard]},
+ {path: 'formulario', component: FormularioComponent, canActivate:[AuthGuard]},
  {path: 'datos-empresa', component: DatosEmpresaComponent, canActivate:[AuthGuard]}
 
 ];

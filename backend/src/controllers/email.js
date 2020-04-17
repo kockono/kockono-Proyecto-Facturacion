@@ -14,20 +14,33 @@ const transporter = nodemailer.createTransport({
     },
   });
 
-let pin = Math.floor(Math.random(1000, 9999)*10000);
+  router.post('/recover', (req, res) => {
+      
+      let pin = Math.floor(Math.random(1000, 9999)*10000);
+      let correo = req.body.email;
+      let pinUsuario = req.body.pin;
+      
+      setTimeout(function() { 
+          pin = null; 
+        }, 3600000); //Milisegundos
 
-let mailOptions = {
-    from: 'sidddarta@gmail.com',
-    to: 'ozdroidz@gmail.com',
-    subject: 'Nodemailer test',
-    text: `Tu pin es: ${pin}`
-}
+      let mailOptions = {
+          from: 'sidddarta@gmail.com',
+          to: `${correo}`,
+          subject: 'Nodemailer test',
+          text: `<h1> Recuperacion De Contraseña</h1>
+          <h2>El Pin expirara en 1 hora</h2>
+          Para restablecer su contraseña, ingrese el siguiente código de verificación cuando se le indique:${pin}
+          `
+      }
+      if(pin != null || pinUsuario) {}
+      transporter.sendMail(mailOptions, function (err, res) {
+      
+          if(err){
+              console.log("no se logro");
+          } else {
+              console.log('Email Enviado');
+          }
+      })
 
-transporter.sendMail(mailOptions, function (err, res) {
-
-    if(err){
-        console.log("no se logro");
-    } else {
-        console.log('Email Enviado');
-    }
-})
+});

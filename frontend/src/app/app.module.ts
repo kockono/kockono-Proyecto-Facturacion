@@ -23,7 +23,6 @@ import { BarraComponent } from './shared/barra/barra.component';
 import { PoliticasprivacidadComponent } from './components/politicasprivacidad/politicasprivacidad.component';
 import { DatosComponent } from './components/datos/datos.component';
 import { DatosEmisorComponent } from './components/datos-emisor/datos-emisor.component';
-import { DatosReceptorComponent } from './components/datos-receptor/datos-receptor.component';
 import { OlvidoPassComponent } from './components/olvido-password/olvido-pass.component';
 import { ReceptorComponent } from './components/receptor/receptor.component';
 
@@ -42,7 +41,6 @@ import { ReceptorComponent } from './components/receptor/receptor.component';
     PoliticasprivacidadComponent,
     DatosComponent,
     DatosEmisorComponent,
-    DatosReceptorComponent,
     OlvidoPassComponent,
     ReceptorComponent
 
