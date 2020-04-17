@@ -24,7 +24,7 @@ import { PoliticasprivacidadComponent } from './components/politicasprivacidad/p
 import { DatosComponent } from './components/datos/datos.component';
 import { DatosEmisorComponent } from './components/datos-emisor/datos-emisor.component';
 import { DatosReceptorComponent } from './components/datos-receptor/datos-receptor.component';
-import { OlvidoPassComponent } from './components/olvido-pass/olvido-pass.component';
+import { OlvidoPassComponent } from './components/olvido-password/olvido-pass.component';
 import { ReceptorComponent } from './components/receptor/receptor.component';
 
 @NgModule({
