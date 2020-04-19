@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegistroComponent } from './Components/registro/registro.component';
 import { PrincipalComponent } from './Components/principal/principal.component';
-import { SignupComponent } from './components/signup/signup.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -32,7 +31,6 @@ import { ReceptorComponent } from './components/receptor/receptor.component';
     LoginComponent,
     RegistroComponent,
     PrincipalComponent,
-    SignupComponent,
     FormularioComponent,
     NavbarComponent,
     DatosEmpresaComponent,

@@ -19,9 +19,7 @@ export class RegistroComponent implements OnInit {
 
   countPassword: number = 6;
 
-  constructor(private authService: AuthService,
-    private router: Router
-  ) {
+  constructor(private authService: AuthService, private router: Router) {
     this.countPassword = this.countPassword;
 
   }
