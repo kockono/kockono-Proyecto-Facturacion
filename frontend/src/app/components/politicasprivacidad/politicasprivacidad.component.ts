@@ -9,7 +9,7 @@ export class PoliticasprivacidadComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

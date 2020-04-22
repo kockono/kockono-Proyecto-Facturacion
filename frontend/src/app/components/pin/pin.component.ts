@@ -1,31 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RecuperacionPasswordService } from '../../services/recuperacion-password.service';
-
 @Component({
-  selector: 'app-olvido-pass',
-  templateUrl: './olvido-pass.component.html',
-  styleUrls: ['./olvido-pass.component.css'],
+  selector: 'app-pin',
+  templateUrl: './pin.component.html',
+  styleUrls: ['./pin.component.css']
 })
-export class OlvidoPassComponent implements OnInit {
+export class PinComponent implements OnInit {
 
-  recovery = {
-    correo: '',
+  number = {
+    pinUsuario: ''
   }
 
   constructor(private recuperacionPassword: RecuperacionPasswordService, private router: Router) { }
-
   recover(){
-    
-    this.recuperacionPassword.recoverPassword(this.recovery)
+    console.log(this.number.pinUsuario);
+    this.recuperacionPassword.recoverPassword(this.number)
     .subscribe(res => {
       console.log(res);
     }, err => {
       console.log(err);
     })
   }
-
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

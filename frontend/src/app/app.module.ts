@@ -24,6 +24,8 @@ import { DatosComponent } from './components/datos/datos.component';
 import { DatosEmisorComponent } from './components/datos-emisor/datos-emisor.component';
 import { OlvidoPassComponent } from './components/olvido-password/olvido-pass.component';
 import { ReceptorComponent } from './components/receptor/receptor.component';
+import { PinComponent } from './components/pin/pin.component';
+import { PasswordComponent } from './components/password/password.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { ReceptorComponent } from './components/receptor/receptor.component';
     DatosComponent,
     DatosEmisorComponent,
     OlvidoPassComponent,
-    ReceptorComponent
+    ReceptorComponent,
+    PinComponent,
+    PasswordComponent
 
   ],
   imports: [

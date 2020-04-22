@@ -11,6 +11,7 @@ import { DatosEmisorComponent } from './components/datos-emisor/datos-emisor.com
 import { OlvidoPassComponent } from './components/olvido-password/olvido-pass.component';
 import { PoliticasprivacidadComponent } from './components/politicasprivacidad/politicasprivacidad.component';
 import { ReceptorComponent } from './components/receptor/receptor.component';
+import { PinComponent } from './components/pin/pin.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
  {path: 'registro',component:RegistroComponent},
  {path: 'login',component: LoginComponent},
  {path: 'cards', component: CardsComponent},
+ {path: 'pin', component: PinComponent},
  {path: 'datos', component: DatosEmisorComponent},
  {path: 'recovery', component: OlvidoPassComponent},
  {path: 'politicas', component: PoliticasprivacidadComponent},

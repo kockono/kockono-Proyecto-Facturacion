@@ -17,13 +17,12 @@ const transporter = nodemailer.createTransport({
 router.post('/', async(req, res) => {
       
     let pin = Math.floor(Math.random(1000, 9999)*10000);
-    const { password, password2, pinUsuario } = req.body;
+    const { password, password2, pinUsuario, correo } = req.body;
+      console.log(correo);
 
-      console.log(password);
-      console.log(password2);
-    //   setTimeout(function() { 
-    //       pin = null; 
-    //     }, 3600000); //Milisegundos
+      setTimeout(function() { 
+          pin = null; 
+        }, 3600000); //Milisegundos
 
     //   let mailOptions = {
     //       from: 'sidddarta@gmail.com',

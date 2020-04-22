@@ -3,16 +3,16 @@ import { Router } from '@angular/router';
 import { RecuperacionPasswordService } from '../../services/recuperacion-password.service';
 
 @Component({
-  selector: 'app-olvido-pass',
-  templateUrl: './olvido-pass.component.html',
-  styleUrls: ['./olvido-pass.component.css'],
+  selector: 'app-password',
+  templateUrl: './password.component.html',
+  styleUrls: ['./password.component.css']
 })
-export class OlvidoPassComponent implements OnInit {
+export class PasswordComponent implements OnInit {
 
   recovery = {
-    correo: '',
+    password: '',
+    password2: ''
   }
-
   constructor(private recuperacionPassword: RecuperacionPasswordService, private router: Router) { }
 
   recover(){
@@ -25,7 +25,8 @@ export class OlvidoPassComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
+
+  ngOnInit(): void {
   }
 
 }

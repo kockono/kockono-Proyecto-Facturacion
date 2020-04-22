@@ -1,15 +1,12 @@
 <div class="contenedor">
-    <h4>Para solicitar una nueva contraseña ingrese lo siguiente:</h4>
+  <img  src="../assets/img/LogoFinal.png">
+    <h4>Para solicitar una nueva contraseña ingrese su correo:</h4>
     <br>
     <form #empresaForm="ngForm" (submit)="recover()" required>
       <div class="form-group">
-        <div class="form-group">
-          <h5>Usuario:</h5>
-          <input type="text" [(ngModel)]="recovery.password" name="password" class="form-control" >
-        </div>
   
         <h5>Correo:</h5>
-        <input type="text" [(ngModel)]="recovery.password2" name="password2" class="form-control" >
+        <input type="text" [(ngModel)]="recovery.correo" name="correo" class="form-control" >
       </div>
   
   <div class="botones">
