@@ -81,7 +81,6 @@ color: white;
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
 .recordar input {
   position: absolute;
   opacity: 0;
@@ -90,7 +89,6 @@ color: white;
   width: 0;
 }
 
-/* Create a custom checkbox */
 .checkbox {
   border: 1px solid #5783F3;
   position: absolute;
@@ -101,29 +99,24 @@ color: white;
   background-color: #eee;
 }
 
-/* On mouse-over, add a grey background color */
 .recordar:hover input ~ .checkbox {
   background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
 .recordar input:checked ~ .checkbox {
   background-color: #2196F3;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkbox:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
 .recordar input:checked ~ .checkbox:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
 .recordar .checkbox:after {
   left: 9px;
   top: 5px;

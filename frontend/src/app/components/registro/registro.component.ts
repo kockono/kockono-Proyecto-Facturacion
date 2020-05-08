@@ -33,7 +33,7 @@ export class RegistroComponent implements OnInit {
           this.authService.signUp(this.user)
             .subscribe(res => {
               localStorage.setItem('token', res.token);
-              this.router.navigate(['/formulario'])
+              this.router.navigate(['/principal'])
             }, err => {
               console.log(err);
             })

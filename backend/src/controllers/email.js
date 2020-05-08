@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const nodemailer = require('nodemailer');
+// const { randomPin } = require("../helpers/pin");
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -13,27 +14,32 @@ const transporter = nodemailer.createTransport({
       accessToken: 'ya29.a0Ae4lvC34dSXm6AvkdpauPVTWuLz6PIc6m0oUja53bcT5bzD1LrWiQUPawOGleLzNn9NGNC6w6mnXHxsig04DClDcItUBsSNXLcc4VMCZzb9hzJK-EW0al2iA61RSeXjSoS0RpwmcvYpwAtqo6CKP0v71FSP_TMfTAus',
     },
   });
+  
+function randomPin(){
+    
+  let pin = Math.floor(Math.random(1000, 9999)*10000);
 
-router.post('/', async(req, res) => {
+  return pin;
+};
+
+
+
+router.post('/correo', async(req, res) => {
+  let pin = randomPin();
       
-    let pin = Math.floor(Math.random(1000, 9999)*10000);
-    const { password, password2, pinUsuario, correo } = req.body;
-      console.log(correo);
-
-      setTimeout(function() { 
-          pin = null; 
-        }, 3600000); //Milisegundos
-
+    // let {correo} = await req.body;
+    // let { pinUsuario} = await req.body;
+    // await console.log(pinUsuario);
+    // await console.log(correo);
     //   let mailOptions = {
     //       from: 'sidddarta@gmail.com',
     //       to: `${correo}`,
     //       subject: 'Nodemailer test',
     //       text: `<h1> Recuperacion De Contraseña</h1>
     //       <h2>El Pin expirara en 1 hora</h2>
-    //       Para restablecer su contraseña, ingrese el siguiente código de verificación cuando se le indique:${pin}
+          // Para restablecer su contraseña, ingrese el siguiente código de verificación cuando se le indique:${pin}
     //       `
     //   }
-    //   if(pin != null || pinUsuario) {}
     //   transporter.sendMail(mailOptions, function (err, res) {
       
     //       if(err){
@@ -43,6 +49,40 @@ router.post('/', async(req, res) => {
     //       }
     //   })
 
-});
+    
+    
+  });
+
+
+  router.post('/pin', async(req, res) => {
+    const { pinUsuario } = req.body;
+    console.log(pinUsuario);
+      if(pin === pinUsuario) {
+
+      }else{
+
+      }
+
+
+  });
+  
+
 
 module.exports = router;
+
+
+
+// console.log("Funciono!" + pinUsuario);
+// let pin;
+// pin = setInterval(hola, 2000);
+// console.log(pin);
+//  pin = setInterval((callback) => { 
+//   let pin = randomPin();
+//   console.log(pin);
+//   callback(pin);
+
+// }, 15000);
+
+// setTimeout(function() { 
+//   pin = null; 
+// }, 15000); //Milisegundos 3600000 1 hora

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm }   from '@angular/forms';
+import { DatosEmpresaService } from '../../services/datos-empresa.service';
+import { DatosEmisor } from '../../models/datos-emisor';
 
 @Component({
   selector: 'app-datos-emisor',

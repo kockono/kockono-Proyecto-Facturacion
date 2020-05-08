@@ -17,7 +17,7 @@ export class OlvidoPassComponent implements OnInit {
 
   recover(){
     
-    this.recuperacionPassword.recoverPassword(this.recovery)
+    this.recuperacionPassword.correo(this.recovery)
     .subscribe(res => {
       console.log(res);
     }, err => {

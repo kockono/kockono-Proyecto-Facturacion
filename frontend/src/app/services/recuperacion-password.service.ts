@@ -15,10 +15,18 @@ export class RecuperacionPasswordService {
 
   constructor(private http: HttpClient, private router: Router) { 
   }
+  
   recoverPassword(recovery){
-    return this.http.post<any>(this.URL, recovery);
+    return this.http.post<any>(this.URL + '/password', recovery);
 
   }
+  pin(recovery){
+    return this.http.post<any>(this.URL + '/correo', recovery);
 
+  }
+  correo(recovery){
+    return this.http.post<any>(this.URL + '/correo', recovery);
+
+  }
 
 }

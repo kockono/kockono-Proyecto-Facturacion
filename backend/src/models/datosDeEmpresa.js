@@ -7,22 +7,13 @@ const userSchema = new Schema ({
     calle:{ type:String },
     colonia:{ type:String },
     estado:{ type:String },
-    lugarExpedicion:{ type:String },
-    descripcion:{ type:String },
-    valorUnitario:{type:String },
-    importe:{ type:String },
-    folio:{ type:String },
     numExterior:{ type:String },
     cp:{ type:Number },
     rfc:{ type:String },
-    fechaEmision:{ type:String },
-    cantidad:{ type:String },
-    importeConLetra:{ type:String },
-    metodoPago:{ type:String },
     pais:{ type:String },
     telefono:{ type:String },
     municipio:{ type:String },
-    unidad:{ type:String },
+    localidad:{ type:String },
     backup:{ type:Boolean, default:true}
 
 },{

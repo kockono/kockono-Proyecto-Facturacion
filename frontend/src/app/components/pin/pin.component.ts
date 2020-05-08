@@ -14,8 +14,8 @@ export class PinComponent implements OnInit {
 
   constructor(private recuperacionPassword: RecuperacionPasswordService, private router: Router) { }
   recover(){
-    console.log(this.number.pinUsuario);
-    this.recuperacionPassword.recoverPassword(this.number)
+   
+    this.recuperacionPassword.pin(this.number)
     .subscribe(res => {
       console.log(res);
     }, err => {

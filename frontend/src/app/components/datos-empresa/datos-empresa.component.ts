@@ -1,4 +1,4 @@
-import { DatosEmpresa } from './../../models/datos-empresa';
+import { DatosEmisor } from '../../models/datos-emisor';
 import { Component, OnInit } from '@angular/core';
 import { NgForm }   from '@angular/forms';
 import { DatosEmpresaService } from '../../services/datos-empresa.service';
@@ -31,22 +31,13 @@ export class DatosEmpresaComponent implements OnInit {
       calle: "",
       colonia: "",
       estado: "",
-      lugarExpedicion:  "",
-      descripcion: "",
-      valorUnitario: "",
-      importe: "",
-      folio: "",
       numExterior: "",
+      numInterior: "",
       cp: "",
       rfc: "",
       municipio: "",
-      fechaEmision: "",
-      cantidad: "",
-      importeConLetra: "",
-      metodoPago: "",
       pais: "",
       telefono: null,
-      unidad: "",
       backup: true
     }
     
@@ -54,7 +45,7 @@ export class DatosEmpresaComponent implements OnInit {
   
   refrescarListaDeEmpresa() {
     this.datosEmpresaService.getEmpleadoList().subscribe((res) => {
-        this.datosEmpresaService.DatosEmpresa = res as DatosEmpresa[];
+        this.datosEmpresaService.DatosEmpresa = res as DatosEmisor[];
     });
   }
 

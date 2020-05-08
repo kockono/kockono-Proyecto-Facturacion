@@ -26,11 +26,13 @@ router.post('/signup', async(req, res) => {
 
 router.post('/signin', async(req, res) => {
     const { email, password} = req.body;
-    console.log(email + password);
+    
     const user = await Usuarios.findOne({email})
     if(!user) return res.status(401).send("El Email No Existe");
     
     const passCorrecto = await bcryptjs.compare(password, user.password);
+
+    console.log(password +" "+passCorrecto);
    
     if(!passCorrecto) {
         return res.status(400).json({msg: 'Password Incorrecto' })

@@ -1,4 +1,3 @@
-import { DatosEmpresa } from './../../models/datos-empresa';
 import { Component, OnInit } from '@angular/core';
 import { NgForm }   from '@angular/forms';
 import { DatosEmpresaService } from '../../services/datos-empresa.service';

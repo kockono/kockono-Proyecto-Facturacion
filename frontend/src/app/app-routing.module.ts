@@ -12,6 +12,7 @@ import { OlvidoPassComponent } from './components/olvido-password/olvido-pass.co
 import { PoliticasprivacidadComponent } from './components/politicasprivacidad/politicasprivacidad.component';
 import { ReceptorComponent } from './components/receptor/receptor.component';
 import { PinComponent } from './components/pin/pin.component';
+import { PasswordComponent } from './components/password/password.component';
 
 
 const routes: Routes = [
@@ -20,10 +21,11 @@ const routes: Routes = [
  {path: 'login',component: LoginComponent},
  {path: 'cards', component: CardsComponent},
  {path: 'pin', component: PinComponent},
- {path: 'datos', component: DatosEmisorComponent},
+ {path: 'datos-emisor', component: DatosEmisorComponent},
  {path: 'recovery', component: OlvidoPassComponent},
  {path: 'politicas', component: PoliticasprivacidadComponent},
  {path: 'receptor', component: ReceptorComponent},
+ {path: 'password', component: PasswordComponent},
  {path: 'principal',component: PrincipalComponent, canActivate:[AuthGuard]},
  {path: 'formulario', component: FormularioComponent, canActivate:[AuthGuard]},
  {path: 'datos-empresa', component: DatosEmpresaComponent, canActivate:[AuthGuard]}
