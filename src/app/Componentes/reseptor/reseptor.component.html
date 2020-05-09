@@ -1,0 +1,59 @@
+<p>reseptor works!</p>
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                SignUp
+            </div>
+            <div class="card-body">
+                <form (submit)="reseptor()">
+                    <div class="form-group"> <!-- Vas a llenarme el dato del componente user a email -->
+                        <input type="text" [(ngModel)]="datosreseptor.Nombre" name="Nombre" class="form-control" placeholder="Nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.RFC" name="RFC" class="form-control" placeholder="RFC">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.Estatus" name="Estatus" class="form-control" placeholder="Estatus">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.NumSerie" name="NumSerie" class="form-control" placeholder="NumSerie">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.Calle" name="calle" class="form-control" placeholder="Calle">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.Colonia" name="Colonia" class="form-control" placeholder="Colonia">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.NumExt" name="NumExt" class="form-control" placeholder="NumExt">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.NumInt" name="NumInt" class="form-control" placeholder="NumInt">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.CodigoPostal" name="CodigoPostal" class="form-control" placeholder="CodigoPostal">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.Municipio" name="Municipio" class="form-control" placeholder="Municipio">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.Localidad" name="Localidad" class="form-control" placeholder="Localidad">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.Estado" name="Estado" class="form-control" placeholder="Estado">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="datosreseptor.RazonS" name="RazonS" class="form-control" placeholder="RazonS">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Submits
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
