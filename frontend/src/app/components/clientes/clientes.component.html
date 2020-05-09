@@ -1,0 +1,72 @@
+<app-sidebar></app-sidebar>
+
+<div class="main">
+  
+    <app-cards></app-cards>
+    <div class="skip">   </div>
+    <div class="plus">
+      <button class="button button1" type="submit" routerLink="/DatosReceptor"><strong>+</strong></button>
+    </div>
+   
+<div class="contenedor">
+  <p style="text-align:center; font-size: 30px;"><strong>Clientes</strong></p>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Email</th>
+        <th scope="col">CP</th>
+        <th scope="col">Municipio</th>
+        <th scope="col">Calle</th>
+        <th scope="col">Colonia</th>
+        <th scope="col">Estado</th>
+        <th scope="col">N.Exterior</th>
+        <th scope="col">N.Interior</th>
+        <th scope="col">RFC</th>
+        <th scope="col">Pais</th>
+        <th scope="col">Localidad</th>
+        <th scope="col">Acciones</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
+
+      </form>
+      <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{emp.nombreDeLaEmpresa}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.cp}}</td>
+        <td>{{emp.municipio}}</td>
+        <td>{{emp.calle}}</td>
+        <td>{{emp.colonia}}</td>
+        <td>{{emp.estado}}</td>
+        <td>{{emp.numExterior}}</td>
+        <td>{{emp.numExterior}}</td>
+        <td>{{emp.rfc}}</td>
+        <td>{{emp.pais}}</td>
+        <td>{{emp.localidad}}</td>
+        <td class="b1" > 
+          <a 
+          href="/datos-emisor"><button class="button button2" ><img src="./../../../assets/img/mod.png" height="15px" widht="15px" ></button>
+        </a></td>
+        <td class="b2">
+          <a class="action-btn" (click)="onDelete(emp._id, empresaForm)">
+            <button class="button button3" ><img src="./../../../assets/img/basura.png" height="15px" widht="15px" ></button>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</div>
+
+
+</div>
+
+

@@ -84,24 +84,13 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Artista</th>
-                                <th>Genero</th>
-                                <th>Album</th>
-                                <th>Año</th>
                             </tr>
                         </thead>
                         <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa">
                             <td>{{emp.nombreDeLaEmpresa}}</td>
-                            <td>{{emp.email}}</td>
-                            <td>{{emp.localidad}}</td>
-                            <td>{{emp.cp}}</td>
-                            <td>{{emp.municipio}}</td>
                             <td>
-                                <a class="action-btn" (click)="onEdit(emp)">
-                                    <i class="material-icons">edit</i>
-                                  </a>
-                                  <a class="action-btn" (click)="onDelete(emp._id, empresaForm)">
-                                    <i class="material-icons">delete</i>
+                                <a  style="cursor: pointer;" class="action-btn" (click)="onEdit(emp)"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" >
+                                   
                                   </a>
                             </td>
                         </tr>

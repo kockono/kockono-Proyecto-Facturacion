@@ -13,7 +13,7 @@ import { PoliticasprivacidadComponent } from './components/politicasprivacidad/p
 import { ReceptorComponent } from './components/receptor/receptor.component';
 import { PinComponent } from './components/pin/pin.component';
 import { PasswordComponent } from './components/password/password.component';
-
+import { ClientesComponent } from './components/clientes/clientes.component';
 
 const routes: Routes = [
  {path: '', redirectTo:'/login', pathMatch:'full'},
@@ -27,6 +27,7 @@ const routes: Routes = [
  {path: 'receptor', component: ReceptorComponent},
  {path: 'password', component: PasswordComponent},
  {path: 'principal',component: PrincipalComponent, canActivate:[AuthGuard]},
+ {path: 'clientes',component: ClientesComponent, canActivate:[AuthGuard]},
  {path: 'formulario', component: FormularioComponent, canActivate:[AuthGuard]},
  {path: 'datos-empresa', component: DatosEmpresaComponent, canActivate:[AuthGuard]}
 

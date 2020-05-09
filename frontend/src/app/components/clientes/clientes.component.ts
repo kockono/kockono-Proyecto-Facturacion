@@ -4,18 +4,26 @@ import { DatosEmpresaService } from '../../services/datos-empresa.service';
 import { DatosEmisor } from '../../models/datos-emisor';
 
 @Component({
-  selector: 'app-datos-emisor',
-  templateUrl: './datos-emisor.component.html',
-  styleUrls: ['./datos-emisor.component.css'],
+  selector: 'app-clientes',
+  templateUrl: './clientes.component.html',
+  styleUrls: ['./clientes.component.css'],
   providers: [DatosEmpresaService]
 })
-export class DatosEmisorComponent implements OnInit {
+export class ClientesComponent implements OnInit {
 
   constructor(public datosEmpresaService: DatosEmpresaService) { }
 
-  ngOnInit() {
+  ngOnInit(){
     this.resetForm();
     this.refrescarListaDeEmpresa();
+  }
+  refrescarListaDeEmpresa() {
+    this.datosEmpresaService.getDatosList().subscribe((res) => {
+        this.datosEmpresaService.DatosEmpresa = res as DatosEmisor[];
+    });
+  }
+  onEdit(emp: DatosEmisor) {
+    this.datosEmpresaService.selectEmpresa = emp;
   }
 
   resetForm(form?: NgForm) {
@@ -39,13 +47,6 @@ export class DatosEmisorComponent implements OnInit {
       backup: true
     }
   }
-
-  refrescarListaDeEmpresa() {
-    this.datosEmpresaService.getDatosList().subscribe((res) => {
-        this.datosEmpresaService.DatosEmpresa = res as DatosEmisor[];
-    });
-  }
-
   onSubmit(form: NgForm){
     if(form.value._id == ""){
       this.datosEmpresaService.postDatos(form.value).subscribe((res) => {
@@ -62,11 +63,14 @@ export class DatosEmisorComponent implements OnInit {
       });
     }
   }
-
-  onEdit(emp: DatosEmisor) {
-    this.datosEmpresaService.selectEmpresa = emp;
+  onDelete(_id: string, form: NgForm) {
+    if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
+      this.datosEmpresaService.deleteDato(_id).subscribe((res) =>{
+        this.refrescarListaDeEmpresa();
+        // this.resetForm(form);
+        window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });
+        
+      });
+    }
   }
-
-
-
 }

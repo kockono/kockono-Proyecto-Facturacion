@@ -26,6 +26,8 @@ import { OlvidoPassComponent } from './components/olvido-password/olvido-pass.co
 import { ReceptorComponent } from './components/receptor/receptor.component';
 import { PinComponent } from './components/pin/pin.component';
 import { PasswordComponent } from './components/password/password.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { PasswordComponent } from './components/password/password.component';
     OlvidoPassComponent,
     ReceptorComponent,
     PinComponent,
-    PasswordComponent
+    PasswordComponent,
+    SidebarComponent,
+    ClientesComponent
 
   ],
   imports: [
