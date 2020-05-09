@@ -13,17 +13,17 @@ export class DatosEmpresaService {
 
   constructor(private http: HttpClient) { }
 
-  postEmpleado(emp: DatosEmisor){
+  postDatos(emp: DatosEmisor){
     return this.http.post(this.URL, emp)
   }
-  getEmpleadoList(){
+  getDatosList(){
     return this.http.get(this.URL);
   }
 
-  putEmpleado(emp: DatosEmisor) {
+  putDatos(emp: DatosEmisor) {
     return this.http.put(this.URL + `/${emp._id}`, emp);
   }
-  // deleteEmpleado(_id: string){
-  //   return this.http.delete(this.URL + `/${_id}`);
-  // }
+  deleteDato(_id: string){
+    return this.http.delete(this.URL + `/${_id}`);
+  }
 }

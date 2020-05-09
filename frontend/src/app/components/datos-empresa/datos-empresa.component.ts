@@ -36,6 +36,7 @@ export class DatosEmpresaComponent implements OnInit {
       cp: "",
       rfc: "",
       municipio: "",
+      localidad: "",
       pais: "",
       telefono: null,
       backup: true
@@ -44,20 +45,20 @@ export class DatosEmpresaComponent implements OnInit {
   }
   
   refrescarListaDeEmpresa() {
-    this.datosEmpresaService.getEmpleadoList().subscribe((res) => {
+    this.datosEmpresaService.getDatosList().subscribe((res) => {
         this.datosEmpresaService.DatosEmpresa = res as DatosEmisor[];
     });
   }
 
   onSubmit(form: NgForm){
     if(form.value._id == ""){
-      this.datosEmpresaService.postEmpleado(form.value).subscribe((res) => {
+      this.datosEmpresaService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         window.alert("Se Guardo Correctamente");
         window.location.reload();
       });
     }else{
-      this.datosEmpresaService.putEmpleado(form.value).subscribe((res)=>{
+      this.datosEmpresaService.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
         window.alert("Se Actualizo Correctamente");

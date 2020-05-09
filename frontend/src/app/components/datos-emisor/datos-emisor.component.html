@@ -1,79 +1,111 @@
 <app-barra></app-barra>
 <div class="contenedor">
 
-    <legend class="center"> Datos de la Empresa</legend>
+    <legend class="center"> Datos de la Empresas</legend>
   
-    <form>
+    <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
+      <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
+
     <div class="form-row">
       <div class="form-group col-md-7">
         <label for="inputEmail4" >Nombre de la empresa:</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="">
+        <input type="email" class="form-control" id="inputEmail4" name="nombreDeLaEmpresa" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa" placeholder="Nombre" required autofocus >
       </div>
   
       <div class="form-group col-md-5">
         <label for="inputZip">Telefono</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip" name="telefono" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono" placeholder="Telefono">
       </div>
   
       <div class="form-group col-md-7">
         <label for="inputEmail4" >E-mail</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="">
+        <input type="email" class="form-control" id="inputEmail4"  name="email" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.email" placeholder="Email@gmail.com">
       </div>
   
-      <div class="form-group col-md-5">
+      <div class="form-group col-md-5"  >
         <label for="inputZip">RFC:</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip" #name="ngModel" name="rfc" [(ngModel)]="datosEmpresaService.selectEmpresa.rfc" placeholder="RFC">
       </div>
   
       <legend class="center"><h4>     Dirección    </h4></legend>
-  
       <div class="form-group col-md-6">
         <label for="inputZip">Calle</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip" name="calle" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.calle" placeholder="Calle">
       </div>
   
       <div class="form-group col-md-4">
         <label for="inputZip">Colonia:</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip"  name="colonia" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.colonia" placeholder="Colonia">
       </div>
   
       <div class="form-group col-md-1">
         <label for="inputZip">Num.Int:</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip"  name="numInterior" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.numInterior" placeholder="">
       </div>
   
       <div class="form-group col-md-1">
         <label for="inputZip">Num.Ext:</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip"  name="numExterior" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.numExterior" placeholder="">
       </div>
   
       <div class="form-group col-md-1">
         <label for="inputZip">C.P:</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip"  name="cp" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.cp" placeholder="">
       </div>
   
       <div class="form-group col-md-2">
         <label for="inputZip">Municipio:</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip" name="municipio" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.municipio" placeholder="">
       </div>
   
       <div class="form-group col-md-2">
         <label for="inputZip">Localidad:</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip" name="localidad" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.localidad" placeholder="">
       </div>
   
       <div class="form-group col-md-2">
         <label for="inputZip">Estado:</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip"  name="estado"  #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.estado" placeholder="">
       </div>
   
       <div class="form-group col-md-2">
         <label for="inputZip">Pais:</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip" name="pais" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.pais" placeholder="">
       </div>
-  
     </div>
-    <button class="boton" type="submit" routerLink="/principal">Finalizar</button>
+    <button class="btn btn-custom right" type="button"  (click)="resetForm(empresaForm)" > Reset </button>
+    <button class="boton" type="submit" [disabled]="!empresaForm.valid" >Finalizar</button>
   </form>
   </div>
+  <section>
+
+    <div class="col-s7">
+                    <table class="responsive-table highlight">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Artista</th>
+                                <th>Genero</th>
+                                <th>Album</th>
+                                <th>Año</th>
+                            </tr>
+                        </thead>
+                        <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa">
+                            <td>{{emp.nombreDeLaEmpresa}}</td>
+                            <td>{{emp.email}}</td>
+                            <td>{{emp.localidad}}</td>
+                            <td>{{emp.cp}}</td>
+                            <td>{{emp.municipio}}</td>
+                            <td>
+                                <a class="action-btn" (click)="onEdit(emp)">
+                                    <i class="material-icons">edit</i>
+                                  </a>
+                                  <a class="action-btn" (click)="onDelete(emp._id, empresaForm)">
+                                    <i class="material-icons">delete</i>
+                                  </a>
+                            </td>
+                        </tr>
+                    </table>
+        </div>
+</section>
   

@@ -12,5 +12,6 @@ export class DatosEmisor {
     municipio:string;
     pais:string;
     telefono:number;
+    localidad:string;
     backup:boolean;  
   }
