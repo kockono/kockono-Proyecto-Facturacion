@@ -1,11 +1,11 @@
 const { Router } = require('express');
 const router = Router();
 let ObjectId = require('mongoose').Types.ObjectId;
-
-let  datosEmisor  = require('../models/datos-emisor');
+let emisorBackup = require('../backup/datos-emisor')
+let datosEmisor  = require('../models/datos-emisor');
 
 router.post('/', (req, res) => {
-    console.log("LLego peticion");
+
     let empresa = new datosEmisor ({
 
         nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
@@ -24,6 +24,25 @@ router.post('/', (req, res) => {
         backup:req.body.backup,
     });
 
+    let empresaBackup = new emisorBackup ({
+
+        nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
+        email: req.body.email,
+        calle: req.body.calle,
+        colonia: req.body.colonia,
+        estado: req.body.estado,
+        numExterior:req.body.numExterior,
+        numInterior:req.body.numInterior,
+        cp:req.body.cp,
+        rfc:req.body.rfc,
+        pais:req.body.pais,
+        telefono:req.body.telefono,
+        municipio:req.body.municipio,
+        localidad:req.body.localidad,
+        backup:req.body.backup,
+    });
+    empresaBackup.save();
+    
     empresa.save((err, doc)=>{
         if(!err) {res.send(doc)}
         else {console.log('Error recibiendo datosEmpresa' + JSON.stringify(err, undefined, 2));}
