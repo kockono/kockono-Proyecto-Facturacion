@@ -1,0 +1,16 @@
+<div class="contenedor">
+  <img  src="../assets/img/LogoFinal.png">
+  <br>
+  <form  #empresaForm="ngForm" (submit)="recover()">
+    <div class="form-group">
+      <div class="form-group">
+        <h5>Escriba su Pin:</h5>
+        <input type="text" class="form-control" [(ngModel)]="number.pinUsuario" name="pinUsuario" >
+
+      </div>
+    </div>
+<div class="botones">
+<button class="login" type="submit" >Verificar</button>
+</div>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+<nav>
+    <div class="nav-wrapper blue-grey darken-4">
+      <a href="/principal" class="brand-logo">Principal</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+          
+          <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="Active" routerLink="/registro">Registro</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="Active" routerLink="/login">Inicia Sesión</a>
+          </li>
+        </ng-container>
+
+        <ng-template #loggedIn>
+            <li class="nav-item">
+                <a class="nav-link"  routerLink="/formulario" >Facturacion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/datos-empresa" >Datos De Empresa</a>
+           </li>
+            <li class="nav-item">
+                <a class="nav-link" style="cursor: pointer;" (click)="authService.logOut()" >Cerrar Sesión </a>
+            </li>          
+        </ng-template>
+
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">Sass</a></li>
+    <li><a href="badges.html">Components</a></li>
+    <li><a href="collapsible.html">Javascript</a></li>
+    <li><a href="mobile.html">Mobile</a></li>
+  </ul>

@@ -1,0 +1,28 @@
+<app-barra></app-barra>
+
+<div class="contenedor">
+  <img  src="../assets/img/LogoFinal2.png">
+  
+  <form  #empleadoForm="ngForm" (submit)="signIn()">
+    <div class="form-group">
+      <h4>Correo:</h4>
+      <input type="email"  class="form-control" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email" required autofocus><br>
+    </div>
+
+    <div class="form-group">
+      <h4>Contraseña:</h4>
+      <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" required><br>
+    </div>
+
+<label class="recordar"> <h5>Recordar Contraseña</h5>
+  <input type="checkbox">
+  <span class="checkbox"></span>
+</label>
+
+<h5 ><a href="/recovery">¿Olvido su contraseña?</a></h5>
+  <div class="botones">  			
+<button class="login" type="submit" [disabled]="!empleadoForm.valid">Entrar</button>
+<button class="login" type="submit" routerLink="/registro">Registro</button>
+</div>
+  </form>
+</div>
