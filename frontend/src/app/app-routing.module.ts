@@ -18,6 +18,7 @@ import { ProvComponent } from './components/prov/prov.component';
 import { ClienteVerComponent } from './components/cliente-ver/cliente-ver.component';
 import { DatosEmisorProvComponent} from './components/datos-emisor-prov/datos-emisor-prov.component';
 import { FactComponent } from './components/fact/fact.component';
+import { CrearFactComponent } from './components/crear-fact/crear-fact.component';
 
 const routes: Routes = [
  {path: '', redirectTo:'/login', pathMatch:'full'},
@@ -37,7 +38,8 @@ const routes: Routes = [
  {path: 'prov', component: ProvComponent, canActivate:[AuthGuard]},
  {path: 'cliente-ver', component: ClienteVerComponent, canActivate:[AuthGuard]},
  {path: 'datos-emisor-prov', component: DatosEmisorProvComponent, canActivate:[AuthGuard]},
- {path: 'fact', component: FactComponent,canActivate:[AuthGuard]}
+ {path: 'fact', component: FactComponent,canActivate:[AuthGuard]},
+ {path: 'crear-fact', component: CrearFactComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

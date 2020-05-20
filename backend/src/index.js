@@ -19,6 +19,8 @@ app.use('/empresa', require('./controllers/datosEmpresa'));
 app.use('/recover', require('./controllers/email'));
 app.use('/emisor', require('./controllers/datos-emisor'));
 app.use('/emisor-prov', require('./controllers/datos-emisor-prov'));
+app.use('/emisor-fact', require('./controllers/datos-fact'));
+
 // app.use('/receptor', require('./controllers/datosEmpresa'));
 
 

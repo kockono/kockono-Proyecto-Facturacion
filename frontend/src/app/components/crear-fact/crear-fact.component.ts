@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm }   from '@angular/forms';
-import { DatosEmpresaService } from '../../services/datos-prov.service';
-import { DatosEmisorProv } from '../../models/datos-emisor-prov';
+import { DatosEmpresaService } from '../../services/datos-fact.service';
+import { DatosFact } from '../../models/datos-fact';
 @Component({
-  selector: 'app-datos-emisor-prov',
-  templateUrl: './datos-emisor-prov.component.html',
-  styleUrls: ['./datos-emisor-prov.component.css']
+  selector: 'app-crear-fact',
+  templateUrl: './crear-fact.component.html',
+  styleUrls: ['./crear-fact.component.css']
 })
-export class DatosEmisorProvComponent implements OnInit {
+export class CrearFactComponent implements OnInit {
 
-  
   constructor(public datosEmpresaService: DatosEmpresaService) { }
 
   ngOnInit() {
@@ -45,7 +44,7 @@ export class DatosEmisorProvComponent implements OnInit {
 
   refrescarListaDeEmpresa() {
     this.datosEmpresaService.getDatosList().subscribe((res) => {
-        this.datosEmpresaService.DatosEmpresa = res as DatosEmisorProv[];
+        this.datosEmpresaService.DatosEmpresa = res as DatosFact[];
     });
   }
 
@@ -66,7 +65,7 @@ export class DatosEmisorProvComponent implements OnInit {
     }
   }
 
-  onEdit(emp: DatosEmisorProv) {
+  onEdit(emp: DatosFact) {
     this.datosEmpresaService.selectEmpresa = emp;
   }
 

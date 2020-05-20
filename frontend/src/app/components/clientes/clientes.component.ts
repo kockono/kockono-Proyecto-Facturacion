@@ -14,6 +14,7 @@ export class ClientesComponent implements OnInit {
   constructor(public datosEmpresaService: DatosEmpresaService) { }
   monstrar = true;
   ver = true;
+  fact=true;
   
   ngOnInit(){
     this.resetForm();

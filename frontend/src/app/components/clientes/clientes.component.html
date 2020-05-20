@@ -20,6 +20,7 @@
         <th scope="col">Ver</th>
         <th scope="col">Editar</th>
         <th scope="col">Borrar</th>
+        <th scope="col">Fact</th>
         
       </tr>
     </thead>
@@ -45,6 +46,11 @@
           <td class="b3">
             <a class="action-btn" (click)="onDelete(emp._id, empresaForm)">
               <button class="button button3" ><img src="./../../../assets/img/basura.png" height="15px" widht="15px" ></button>
+            </a>
+          </td>
+          <td class="b4">
+            <a class="action-btn" (click)="onEdit(emp)" (click)="fact=!fact ">
+              <button class="button button1" ><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
             </a>
           </td>
         
@@ -242,4 +248,34 @@
 </div>
 <br>
 
+<div class="contenedor" *ngIf="!fact">
+  <div class="contenedor">
+    <p style="text-align:center; font-size: 30px;"><strong>Facturas</strong></p>
+    <table class="table">
+      <thead class="thead">
+        <tr>
+  
+          <th scope="col">#</th>
+          <th scope="col">Folio</th>
+          <th scope="col">Estatus</th>
+          <th scope="col">Cliente</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
+  
+        </form>
+        <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{emp.nombreDeLaEmpresa}}</td>
+          <td>{{emp.estatus}}</td>
+          <td>{{emp.telefono}}</td>
+          
+      </tbody>
+      
+    </table>
+  </div>
+</div>
+<br>
 

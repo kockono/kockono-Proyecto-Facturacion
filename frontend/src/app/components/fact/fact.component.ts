@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgForm }   from '@angular/forms';
-import { DatosEmpresaService } from '../../services/datos-empresa.service';
-import { DatosEmisor } from '../../models/datos-emisor';
+import { DatosEmpresaService } from '../../services/datos-fact.service';
+import { DatosFact } from '../../models/datos-fact';
 
 @Component({
   selector: 'app-fact',
@@ -22,10 +22,10 @@ export class FactComponent implements OnInit {
   }
   refrescarListaDeEmpresa() {
     this.datosEmpresaService.getDatosList().subscribe((res) => {
-        this.datosEmpresaService.DatosEmpresa = res as DatosEmisor[];
+        this.datosEmpresaService.DatosEmpresa = res as DatosFact[];
     });
   }
-  onEdit(emp: DatosEmisor) {
+  onEdit(emp: DatosFact) {
     this.datosEmpresaService.selectEmpresa = emp;
   }
 

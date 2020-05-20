@@ -32,6 +32,7 @@ import { ProvComponent } from './components/prov/prov.component';
 import { ClienteVerComponent } from './components/cliente-ver/cliente-ver.component';
 import { DatosEmisorProvComponent } from './components/datos-emisor-prov/datos-emisor-prov.component';
 import { FactComponent } from './components/fact/fact.component';
+import { CrearFactComponent } from './components/crear-fact/crear-fact.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { FactComponent } from './components/fact/fact.component';
     ClienteVerComponent,
     DatosEmisorProvComponent,
     FactComponent,
+    CrearFactComponent,
 
   ],
   imports: [
