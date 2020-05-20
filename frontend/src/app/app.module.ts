@@ -31,6 +31,7 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { ProvComponent } from './components/prov/prov.component';
 import { ClienteVerComponent } from './components/cliente-ver/cliente-ver.component';
 import { DatosEmisorProvComponent } from './components/datos-emisor-prov/datos-emisor-prov.component';
+import { FactComponent } from './components/fact/fact.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DatosEmisorProvComponent } from './components/datos-emisor-prov/datos-e
     ProvComponent,
     ClienteVerComponent,
     DatosEmisorProvComponent,
+    FactComponent,
 
   ],
   imports: [
