@@ -1,4 +1,4 @@
-<app-sidebar></app-sidebar>
+<app-sidebar></app-sidebar> 
 
 <div class="main">
   
@@ -151,9 +151,7 @@
     <button class="boton" type="submit" [disabled]="!empresaForm.valid" >Finalizar</button>
   </form>
   </div>
-
 <br>
-
   <div class="contenedor" *ngIf="!ver">
     <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
       <div class="form-row" >
@@ -245,37 +243,30 @@
       </form>
       </div>
 
-</div>
 <br>
-
 <div class="contenedor" *ngIf="!fact">
-  <div class="contenedor">
     <p style="text-align:center; font-size: 30px;"><strong>Facturas</strong></p>
     <table class="table">
       <thead class="thead">
         <tr>
-  
           <th scope="col">#</th>
           <th scope="col">Folio</th>
           <th scope="col">Estatus</th>
           <th scope="col">Cliente</th>
-          
         </tr>
       </thead>
+      <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
       <tbody>
-        <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
-  
-        </form>
-        <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa; let i = index">
-          <th scope="row">{{i+1}}</th>
-          <td>{{emp.nombreDeLaEmpresa}}</td>
-          <td>{{emp.estatus}}</td>
-          <td>{{emp.telefono}}</td>
-          
+        <tr *ngFor="let emp2 of datosEmpresaService2.DatosEmpresa; let i = index">
+          <th *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString();" scope="row">{{i+1}}</th>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString()" >{{emp2.nombreDeLaEmpresa}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString()">{{emp2.estatus}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString()">{{datosEmpresaService.selectEmpresa.nombreDeLaEmpresa}}</td>
+      </tr>
       </tbody>
       
     </table>
-  </div>
+</div>
 </div>
 <br>
 

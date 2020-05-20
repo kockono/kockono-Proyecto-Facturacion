@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm }   from '@angular/forms';
-import { DatosEmpresaService } from '../../services/datos-fact.service';
+import { DatosEmpresaService2 } from '../../services/datos-fact.service';
 import { DatosFact } from '../../models/datos-fact';
 @Component({
   selector: 'app-crear-fact',
@@ -9,7 +9,7 @@ import { DatosFact } from '../../models/datos-fact';
 })
 export class CrearFactComponent implements OnInit {
 
-  constructor(public datosEmpresaService: DatosEmpresaService) { }
+  constructor(public datosEmpresaService: DatosEmpresaService2) { }
 
   ngOnInit() {
     this.resetForm();

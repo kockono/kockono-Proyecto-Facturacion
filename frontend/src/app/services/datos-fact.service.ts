@@ -4,7 +4,7 @@ import { DatosFact } from '../models/datos-fact';
 @Injectable({
   providedIn: 'root'
 })
-export class DatosEmpresaService {
+export class DatosEmpresaService2 {
 
   selectEmpresa: DatosFact;
   DatosEmpresa: DatosFact[];

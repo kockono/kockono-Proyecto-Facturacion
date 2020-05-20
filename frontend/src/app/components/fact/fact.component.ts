@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgForm }   from '@angular/forms';
-import { DatosEmpresaService } from '../../services/datos-fact.service';
+import { DatosEmpresaService2 } from '../../services/datos-fact.service';
 import { DatosFact } from '../../models/datos-fact';
 
 @Component({
   selector: 'app-fact',
   templateUrl: './fact.component.html',
   styleUrls: ['./fact.component.css'],
-  providers: [DatosEmpresaService]
+  providers: [DatosEmpresaService2],
 })
 export class FactComponent implements OnInit {
 
-  constructor(public datosEmpresaService: DatosEmpresaService) { }
+  constructor(public datosEmpresaService: DatosEmpresaService2) { }
   monstrar = true;
   ver = true;
   
