@@ -9,7 +9,7 @@
     </div>
    
 <div class="contenedor">
-  <p style="text-align:center; font-size: 30px;"><strong>Provedores</strong></p>
+  <p style="text-align:center; font-size: 30px;"><strong>Proveedores</strong></p>
   <table class="table">
     <thead class="thead">
       <tr>
@@ -34,11 +34,11 @@
         <td class="b1">
             <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
             <a class="action-btn" >
-              <button class="button button1" ><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
+              <button class="button button1"  (click)="onEdit(emp)" (click)="ver=!ver"><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
             </a>        
           </td>
           <td class="b2" > 
-            <a class="action-btn" (click)="onEdit(emp)">
+            <a class="action-btn" (click)="onEdit(emp)" (click)="monstrar=!monstrar">
               <button class="button button2"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" ></button>
             </a>
           </td>
@@ -52,48 +52,46 @@
     
   </table>
 </div>
-<br>
-<div class="contenedor">
-
-    <legend class="center"> Datos del Proveedor</legend>
+<br><div class="contenedor" *ngIf="!monstrar">
+    <legend class="center"> Editar los Datos del Proveedor</legend>
   
     <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
       <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
 
     <div class="form-row">
-      <div class="form-group col-md-7">
+      <div class="form-group col-md-8">
         <label for="inputEmail4" >Nombre de la empresa:</label>
         <input type="text" class="form-control" id="inputEmail4" name="nombreDeLaEmpresa" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa" placeholder="Nombre" required autofocus >
       </div>
-      <div class="form-group col-md-5">
-        <label for="inputZip">Estatus</label>
+      <div class="form-group col-md-4">
+        <label for="inputZip">Estatus:</label>
         <input type="text" class="form-control" id="inputEstatus" name="estatus" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.estatus" placeholder="Estatus">
       </div>
-      <div class="form-group col-md-5">
-        <label for="inputZip">Correo</label>
+      <div class="form-group col-md-8">
+        <label for="inputZip">Correo:</label>
         <input type="email" class="form-control" id="inputCorreo" name="email" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.email" placeholder="Email">
       </div>
-      <div class="form-group col-md-5">
-        <label for="inputZip">Telefono</label>
-        <input type="telefono" class="form-control" id="inputTel" name="telefono" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono" placeholder="Telefono">
+      <div class="form-group col-md-4">
+        <label for="inputZip">Teléfono:</label>
+        <input type="telefono" class="form-control" id="inputTel" name="telefono" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono" placeholder="Teléfono">
       </div>
       <div class="form-group col-md-5">
-        <label for="inputZip">Metodo</label>
+        <label for="inputZip">Método:</label>
         <input type="text" class="form-control" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" placeholder="Metodo">
       </div>
-      <div class="form-group col-md-5">
-        <label for="inputZip">Dias</label>
-        <input type="number" class="form-control" id="inputDias" name="dias" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.dias" placeholder="Dias">
+      <div class="form-group col-md-2">
+        <label for="inputZip">Días:</label>
+        <input type="number" class="form-control" id="inputDias" name="dias" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.dias" placeholder="Días">
       </div>
-      <div class="form-group col-md-5">
-        <label for="inputZip">Razon</label>
-        <input type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.razon" placeholder="Razon">
-      </div>  
-  
       <div class="form-group col-md-5"  >
         <label for="inputZip">RFC:</label>
         <input type="text" class="form-control" id="inputRFC" #name="ngModel" name="rfc" [(ngModel)]="datosEmpresaService.selectEmpresa.rfc" placeholder="RFC">
       </div>
+      <div class="form-group col-md-7">
+        <label for="inputZip">Razón Social:</label>
+        <input type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.razon" placeholder="Razón Social">
+      </div>  
+  
   
       <legend class="center"><h4>     Dirección    </h4></legend>
       <div class="form-group col-md-6">
@@ -145,6 +143,97 @@
     <button class="boton" type="submit" [disabled]="!empresaForm.valid" >Finalizar</button>
   </form>
   </div>
+
+<br><div class="contenedor" *ngIf="!ver">
+    <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
+      <div class="form-row" >
+        <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
+    
+    
+          <legend class="center">Ver los Datos del Proveedor</legend>
+          <div class="form-group col-md-8">
+            <label for="inputEmail4" >Nombre de la empresa:</label>
+            <a type="text" class="form-control" id="inputEmail4" name="nombreDeLaEmpresa" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa"  >{{datosEmpresaService.selectEmpresa.nombreDeLaEmpresa}}
+          </a></div>
+          <div class="form-group col-md-4">
+            <label for="inputZip">Estatus</label>
+            <a type="text" class="form-control" id="inputEstatus" name="estatus" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.estatus" placeholder="Estatus">{{datosEmpresaService.selectEmpresa.estatus}}</a>
+          </div>
+          <div class="form-group col-md-8">
+            <label for="inputZip">Correo</label>
+            <a type="email" class="form-control" id="inputCorreo" name="email" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.email" placeholder="Email">{{datosEmpresaService.selectEmpresa.email}}</a>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputZip">Teléfono:</label>
+            <a type="telefono" class="form-control" id="inputTel" name="telefono" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono" placeholder="Teléfono">{{datosEmpresaService.selectEmpresa.telefono}}</a>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="inputZip">Método:</label>
+            <a type="text" class="form-control" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" placeholder="Método:">{{datosEmpresaService.selectEmpresa.metodo}}</a>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Días:</label>
+            <a type="number" class="form-control" id="inputDias" name="dias" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.dias" placeholder="Días">{{datosEmpresaService.selectEmpresa.dias}}</a>
+          </div>
+          <div class="form-group col-md-5"  >
+            <label for="inputZip">RFC:</label>
+            <a type="text" class="form-control" id="inputRFC" #name="ngModel" name="rfc" [(ngModel)]="datosEmpresaService.selectEmpresa.rfc" placeholder="RFC">{{datosEmpresaService.selectEmpresa.rfc}}</a>
+          </div>
+          <div class="form-group col-md-7">
+            <label for="inputZip">Razón Social:</label>
+            <a type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.razon" placeholder="Razón Social">{{datosEmpresaService.selectEmpresa.razon}}</a>
+          </div>  
+      
+     
+      
+          <legend class="center"><h4>     Dirección    </h4></legend>
+          <div class="form-group col-md-6">
+            <label for="inputZip">Calle</label>
+            <a type="text" class="form-control" id="inputCalle" name="calle" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.calle" placeholder="Calle">{{datosEmpresaService.selectEmpresa.calle}}</a>
+          </div>
+      
+          <div class="form-group col-md-4">
+            <label for="inputZip">Colonia:</label>
+            <a type="text" class="form-control" id="inputCol"  name="colonia" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.colonia" placeholder="Colonia">{{datosEmpresaService.selectEmpresa.colonia}}</a>
+          </div>
+      
+          <div class="form-group col-md-1">
+            <label for="inputZip">Num.Int:</label>
+            <a type="text" class="form-control" id="inputNI"  name="numInterior" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.numInterior" placeholder="">{{datosEmpresaService.selectEmpresa.numInterior}}</a>
+          </div>
+      
+          <div class="form-group col-md-1">
+            <label for="inputZip">Num.Ext:</label>
+            <a type="text" class="form-control" id="inputNE"  name="numExterior" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.numExterior" placeholder="">{{datosEmpresaService.selectEmpresa.numExterior}}</a>
+          </div>
+      
+          <div class="form-group col-md-1">
+            <label for="inputZip">C.P:</label>
+            <a type="text" class="form-control" id="inputZip"  name="cp" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.cp" placeholder="">{{datosEmpresaService.selectEmpresa.cp}}</a>
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Municipio:</label>
+            <a type="text" class="form-control" id="inputZip" name="municipio" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.municipio" placeholder="">{{datosEmpresaService.selectEmpresa.municipio}}</a>
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Localidad:</label>
+            <a type="text" class="form-control" id="inputZip" name="localidad" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.localidad" placeholder="">{{datosEmpresaService.selectEmpresa.localidad}}</a>
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Estado:</label>
+            <a type="text" class="form-control" id="inputZip"  name="estado"  #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.estado" placeholder="">{{datosEmpresaService.selectEmpresa.estado}}</a>
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Pais:</label>
+            <a type="text" class="form-control" id="inputZip" name="pais" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.pais" placeholder="">{{datosEmpresaService.selectEmpresa.pais}}</a>
+          </div>
+        </div>
+      </form>
+      </div>
 
 </div>
 <br>

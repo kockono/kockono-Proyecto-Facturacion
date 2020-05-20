@@ -11,26 +11,30 @@
         <a type="text" class="form-control" id="inputEmail4" name="nombreDeLaEmpresa" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa" placeholder="Nombre" required autofocus >
         </a></div>
       <div class="col-md-5">
-        <label for="inputZip">Estatus</label>
+        <label for="inputZip">Estatus:</label>
         <a type="text" class="form-control" id="inputEstatus" name="estatus" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.estatus" placeholder="Estatus">
         </a></div>
       <div class="form-group col-md-7">
-        <label for="inputZip">Correo</label>
+        <label for="inputZip">Correo:</label>
         <a type="email" class="form-control" id="inputCorreo" name="correo" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.email" placeholder="Email">
         </a></div>
       <div class="form-group col-md-5">
-        <label for="inputZip">Telefono</label>
-        <a type="telefono" class="form-control" id="inputTel" name="telefono" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono" placeholder="Telefono">
+        <label for="inputZip">Teléfono:</label>
+        <a type="telefono" class="form-control" id="inputTel" name="telefono" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono" placeholder="Teléfono">
         </a></div>
       <div class="form-group col-md-4">
-        <label for="inputZip">Metodo</label>
-        <a type="text" class="form-control" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" placeholder="Estatus">
+        <label for="inputZip">Método:</label>
+        <a type="text" class="form-control" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" placeholder="Método">
         </a></div>
       <div class="form-group col-md-2">
-        <label for="inputZip">Dias( si a credito)</label>
-        <a type="number" class="form-control" id="inputDias" name="dias" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.dias" placeholder="Estatus">
+        <label for="inputZip">Días:(si a crédito)</label>
+        <a type="number" class="form-control" id="inputDias" name="dias" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.dias" placeholder="Días">
         </a></div>
-      
+        <div class="form-group col-md-5">
+          <label for="inputZip">Razón Social:</label>
+          <a type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.razon" placeholder="Razón Social">
+          </a></div>
+  </div>
   
       <div class="form-group col-md-6"  >
         <label for="inputZip">RFC:</label>
@@ -82,11 +86,7 @@
         <label for="inputZip">Pais:</label>
         <a type="text" class="form-control" id="inputZip" name="pais" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.pais" placeholder="">
         </a></div>
-        <div class="form-group col-md-5">
-            <label for="inputZip">Razon</label>
-            <a type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.razon" placeholder="Estatus">
-            </a></div>
-    </div>
+   
     </form>
 </div>
   

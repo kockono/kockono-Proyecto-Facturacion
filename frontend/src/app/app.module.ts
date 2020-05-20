@@ -54,7 +54,7 @@ import { DatosEmisorProvComponent } from './components/datos-emisor-prov/datos-e
     ClientesComponent,
     ProvComponent,
     ClienteVerComponent,
-    DatosEmisorProvComponent
+    DatosEmisorProvComponent,
 
   ],
   imports: [

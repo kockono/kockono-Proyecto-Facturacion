@@ -10,9 +10,11 @@ import { DatosEmisor } from '../../models/datos-emisor';
   providers: [DatosEmpresaService]
 })
 export class ClientesComponent implements OnInit {
-
+  
   constructor(public datosEmpresaService: DatosEmpresaService) { }
-
+  monstrar = true;
+  ver = true;
+  
   ngOnInit(){
     this.resetForm();
     this.refrescarListaDeEmpresa();
@@ -64,6 +66,7 @@ export class ClientesComponent implements OnInit {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
         window.alert("Se Actualizo Correctamente");
+        this.monstrar=!this.monstrar;
       });
     }
   }

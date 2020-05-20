@@ -67,7 +67,6 @@
 
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
 
@@ -190,6 +189,24 @@
   color: rgb(231, 24, 24);
 }
 
+.boton {
+  background-color: #214296;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+  text-align: center;
+ }
+
+  .boton:hover {
+  background-color:rgb(15, 42, 110);
+  transform: scale(1.1);
+  color: white;
+  }
 
 
 

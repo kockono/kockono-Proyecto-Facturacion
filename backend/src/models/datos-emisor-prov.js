@@ -10,6 +10,7 @@ const FacturasSchema = new Schema({
     dias:{type:Number},
     razon:{type:String},
     metodo:{type:String},
+    
     email: { type: String, unique: true, trim: true, required: true },
     telefono:{type:String},
 

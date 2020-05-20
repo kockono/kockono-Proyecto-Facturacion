@@ -12,7 +12,9 @@ import { DatosEmisorProv } from '../../models/datos-emisor-prov';
 export class ProvComponent implements OnInit {
 
   constructor(public datosEmpresaService: DatosEmpresaService) { }
-
+  monstrar = true;
+  ver = true;
+  
   ngOnInit(){
     this.resetForm();
     this.refrescarListaDeEmpresa();
@@ -66,6 +68,8 @@ export class ProvComponent implements OnInit {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
         window.alert("Se Actualizo Correctamente");
+        
+        this.monstrar=!this.monstrar;
       });
     }
   }
