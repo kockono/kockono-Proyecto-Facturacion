@@ -7,7 +7,7 @@
   width: 300px;
   transition: transform .2s;
   margin-left: 7%;
-      font-size: 24px; /* Increased text to enable scrolling */
+  font-size: 24px; /* Increased text to enable scrolling */
 
 }
 .card:hover {

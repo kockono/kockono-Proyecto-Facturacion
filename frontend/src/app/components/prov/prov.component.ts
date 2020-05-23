@@ -14,6 +14,7 @@ export class ProvComponent implements OnInit {
   constructor(public datosEmpresaService: DatosEmpresaService) { }
   monstrar = true;
   ver = true;
+  filterpost = '';
   
   ngOnInit(){
     this.resetForm();
@@ -28,7 +29,7 @@ export class ProvComponent implements OnInit {
     this.datosEmpresaService.selectEmpresa = emp;
                                 
   }
-  
+
   resetForm(form?: NgForm) {
     if(form)
       form.reset();
@@ -68,7 +69,6 @@ export class ProvComponent implements OnInit {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
         window.alert("Se Actualizo Correctamente");
-        
         this.monstrar=!this.monstrar;
       });
     }

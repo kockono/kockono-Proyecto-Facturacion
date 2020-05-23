@@ -3,10 +3,15 @@
 <div class="main">
   
     <app-cards></app-cards>
+
+    <br>
+    <input type="text" class="form-control" name="filterpost" placeholder="Buscar" [(ngModel)]="filterpost">
     <div class="plus">
       <button class="button button1" type="submit" routerLink="/datos-emisor-prov"><strong>Agregar</strong></button>
       <a></a>
     </div>
+
+
    
 <div class="contenedor">
   <p style="text-align:center; font-size: 30px;"><strong>Proveedores</strong></p>
@@ -27,7 +32,7 @@
       <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
 
       </form>
-      <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa; let i = index">
+      <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa  | filter:filterpost; let i = index">
         <th scope="row">{{i+1}}</th>
         <td>{{emp.nombreDeLaEmpresa}}</td>
         <td>{{emp.estatus}}</td>

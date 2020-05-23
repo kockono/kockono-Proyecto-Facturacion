@@ -14,6 +14,8 @@ import { DatosFact } from '../../models/datos-fact';
 export class ClientesComponent implements OnInit {
   
   constructor(public datosEmpresaService: DatosEmpresaService, public datosEmpresaService2: DatosEmpresaService2) { }
+  filterpost = '';
+
   monstrar = true;
   ver = true;
   fact = true;
@@ -101,8 +103,8 @@ export class ClientesComponent implements OnInit {
       this.datosEmpresaService.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
+        this.monstrar = !this.monstrar;
         window.alert("Se Actualizo Correctamente");
-        this.monstrar=!this.monstrar;
       });
     }
   }

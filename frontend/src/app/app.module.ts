@@ -33,6 +33,8 @@ import { ClienteVerComponent } from './components/cliente-ver/cliente-ver.compon
 import { DatosEmisorProvComponent } from './components/datos-emisor-prov/datos-emisor-prov.component';
 import { FactComponent } from './components/fact/fact.component';
 import { CrearFactComponent } from './components/crear-fact/crear-fact.component';
+import { FilterPipe } from './pipes/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { CrearFactComponent } from './components/crear-fact/crear-fact.component
     DatosEmisorProvComponent,
     FactComponent,
     CrearFactComponent,
+    FilterPipe,
 
   ],
   imports: [

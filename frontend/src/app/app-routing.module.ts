@@ -20,6 +20,7 @@ import { DatosEmisorProvComponent} from './components/datos-emisor-prov/datos-em
 import { FactComponent } from './components/fact/fact.component';
 import { CrearFactComponent } from './components/crear-fact/crear-fact.component';
 
+
 const routes: Routes = [
  {path: '', redirectTo:'/login', pathMatch:'full'},
  {path: 'registro',component:RegistroComponent},
