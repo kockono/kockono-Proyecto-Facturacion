@@ -188,7 +188,17 @@
     background-color: #803030;
     color: rgb(231, 24, 24);
   }
- 
+  .button4 {
+    background-color:  #C2C61D; 
+    color: black; 
+    border: 2px solid #000000;
+  }
+  
+  .button4:hover {
+    background-color: rgb(147, 150, 17);
+    color: rgb(231, 24, 24);
+  }
+
   .boton {
   background-color: #214296;
   border: none;

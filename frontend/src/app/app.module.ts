@@ -34,11 +34,20 @@ import { DatosEmisorProvComponent } from './components/datos-emisor-prov/datos-e
 import { FactComponent } from './components/fact/fact.component';
 import { CrearFactComponent } from './components/crear-fact/crear-fact.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {DemoMaterialModule} from './components/crear-fact/material-module';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+
+import {SelectFormExample} from './components/crear-fact/select-form';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    SelectFormExample,
     LoginComponent,
     RegistroComponent,
     PrincipalComponent,
@@ -69,6 +78,12 @@ import { FilterPipe } from './pipes/filter.pipe';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    DemoMaterialModule,
   ],
   providers: [
     AuthGuard,
