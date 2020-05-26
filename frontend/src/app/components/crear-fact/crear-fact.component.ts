@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatosEmpresaService2 } from '../../services/datos-fact.service';
 import { DatosFact } from '../../models/datos-fact';
-
+import { Router } from '@angular/router';
 import { DatosEmpresaService } from '../../services/datos-empresa.service';
 import { DatosEmisor } from '../../models/datos-emisor';
 
@@ -18,7 +18,7 @@ export class CrearFactComponent implements OnInit {
   selectedCar: string;
   folio: number;
   i: number;
-  constructor(public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService) { }
+  constructor(private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -98,6 +98,7 @@ export class CrearFactComponent implements OnInit {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa);
         window.alert("Se Guardo Correctamente");
+        this.router.navigateByUrl('/fact');
         // window.location.reload();
       });
     }else{

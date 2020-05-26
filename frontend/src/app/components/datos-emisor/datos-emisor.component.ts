@@ -3,6 +3,8 @@ import { NgForm }   from '@angular/forms';
 import { DatosEmpresaService } from '../../services/datos-empresa.service';
 import { DatosEmisor } from '../../models/datos-emisor';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-datos-emisor',
   templateUrl: './datos-emisor.component.html',
@@ -11,7 +13,7 @@ import { DatosEmisor } from '../../models/datos-emisor';
 })
 export class DatosEmisorComponent implements OnInit {
 
-  constructor(public datosEmpresaService: DatosEmpresaService) { }
+  constructor(private router: Router,public datosEmpresaService: DatosEmpresaService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -56,6 +58,7 @@ export class DatosEmisorComponent implements OnInit {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
         window.alert("Se Guardo Correctamente");
+        this.router.navigateByUrl('/clientes');
         // window.location.reload();
       });
     }else{
