@@ -15,7 +15,7 @@ import { DatosEmisor } from '../../models/datos-emisor';
 export class CrearFactComponent implements OnInit {
 
   selectedValue: string;
-  selectedCar: string;
+  selectedCar: string;                      
   folio: number;
   i: number;
   constructor(private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService) { }
@@ -27,11 +27,11 @@ export class CrearFactComponent implements OnInit {
     this.refrescarListaDeEmpresa2();
     this.folio = 0;
   }
-  counter() {
-    for (let emp of this.datosEmpresaService.DatosEmpresa) {
-      this.folio++;
-    }
-  }
+  counter(int) {
+      this.folio = int;
+      console.log(this.folio);
+ }
+  
   refrescarListaDeEmpresa() {
     this.datosEmpresaService.getDatosList().subscribe((res) => {
         this.datosEmpresaService.DatosEmpresa = res as DatosEmisor[];
@@ -94,6 +94,9 @@ export class CrearFactComponent implements OnInit {
   }
   onSubmit(form: NgForm){
     if(form.value._id == ""){
+      if(this.folio==0){this.folio=1}
+      form.value.nombreDeLaEmpresa = this.folio.toString();
+      // this.datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa=this.folio.toString();
       this.datosEmpresaService2.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa);

@@ -4,6 +4,7 @@
 <app-cards></app-cards>
 <div class="contenedor">
   <div  *ngFor="let emp of datosEmpresaService2.DatosEmpresa; let i = index">
+    {{counter(i+2)}}
   </div>
     <legend class="center"> Generar Factura </legend>
     <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
@@ -11,7 +12,7 @@
       <div class="form-row">
         <div class="form-group col-md-8">
           <label for="inputEmail4" >Folio:</label>
-          <a type="number" >{{folio}}</a>
+          <a type="text"class="form-control" id="inputEmail4" name="nombreDeLaEmpresa" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa">{{folio}}</a>
         </div>
         <div class="form-group col-md-4">
           <label for="inputZip">Estatus:</label>
