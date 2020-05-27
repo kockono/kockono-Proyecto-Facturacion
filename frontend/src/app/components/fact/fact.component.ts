@@ -71,6 +71,7 @@ export class FactComponent implements OnInit {
       });
     }
   }
+
   onDelete(_id: string, form: NgForm) {
     if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
       this.datosEmpresaService.deleteDato(_id).subscribe((res) =>{
@@ -80,5 +81,11 @@ export class FactComponent implements OnInit {
         
       });
     }
+  }
+  cambiarEstatus(emp: DatosFact){
+    this.datosEmpresaService.selectEmpresa = emp;
+    this.datosEmpresaService.selectEmpresa.estatus = 'Cancelado';
+    // this.datosEmpresaService.putDatos(emp);
+    this.monstrar=!this.monstrar;
   }
 }
