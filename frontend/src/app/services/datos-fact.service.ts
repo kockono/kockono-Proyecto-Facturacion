@@ -26,4 +26,8 @@ export class DatosEmpresaService2 {
   deleteDato(_id: string){
     return this.http.delete(this.URL + `/${_id}`);
   }
+
+  putCancelado(emp: DatosFact){
+    return this.http.put(this.URL + `/${emp._id}`, emp);
+  }
 }

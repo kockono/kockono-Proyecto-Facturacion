@@ -85,7 +85,6 @@ export class FactComponent implements OnInit {
   cambiarEstatus(emp: DatosFact){
     this.datosEmpresaService.selectEmpresa = emp;
     this.datosEmpresaService.selectEmpresa.estatus = 'Cancelado';
-    // this.datosEmpresaService.putDatos(emp);
-    this.monstrar=!this.monstrar;
+    this.datosEmpresaService.putCancelado(emp).subscribe();
   }
 }
