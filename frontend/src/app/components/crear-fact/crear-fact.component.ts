@@ -5,6 +5,7 @@ import { DatosFact } from '../../models/datos-fact';
 import { Router } from '@angular/router';
 import { DatosEmpresaService } from '../../services/datos-empresa.service';
 import { DatosEmisor } from '../../models/datos-emisor';
+import { WeekDay } from '@angular/common';
 
 
 @Component({
@@ -19,7 +20,23 @@ export class CrearFactComponent implements OnInit {
   folio: number;
   i: number;
   mid:string;
-  constructor(private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService) { }
+
+  year:any;
+  month:any;
+  day:any;
+  hours:any;
+  minutes:any;
+  time:any;
+  seconds:any;
+  constructor(private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService ) {
+    this.day = new Date().getDate();
+    this.month = new Date().getMonth()+1;
+    this.year = new Date().getUTCDate();
+    this.hours = new Date().getHours();
+    this.minutes = new Date().getMinutes();
+    this.seconds = new Date().getSeconds();
+   }
+
 
   ngOnInit() {
     this.resetForm();

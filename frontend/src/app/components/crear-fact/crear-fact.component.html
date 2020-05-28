@@ -36,7 +36,7 @@
 
         <div class="form-group col-md-5">
           <label for="inputZip">Fecha:</label>
-          <input type="date" class="form-control" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.metodo" placeholder="Fecha">
+          <a type="text" class="form-control" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.metodo" placeholder="Fecha">{{day+"/"+month+"/"+year +" "+hours+":"+minutes+" UTC"}}</a>
         </div>
         <div class="form-group col-md-7">
           <label for="inputZip">Razón Social:</label>
