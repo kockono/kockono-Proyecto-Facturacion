@@ -69,7 +69,7 @@ export class FactComponent implements OnInit {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
         window.alert("Se Actualizo Correctamente");
-        // this.monstrar=!this.monstrar;
+        this.monstrar=!this.monstrar;
       });
     }
   }
