@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
-import { NgForm }   from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { DatosEmpresaService2 } from '../../services/datos-fact.service';
 import { DatosFact } from '../../models/datos-fact';
+import { Router } from '@angular/router';
+import { DatosEmpresaService } from '../../services/datos-empresa.service';
+import { DatosEmisor } from '../../models/datos-emisor';
 
 @Component({
   selector: 'app-fact',
@@ -78,7 +80,6 @@ export class FactComponent implements OnInit {
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);
         window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });
-        
       });
     }
   }
