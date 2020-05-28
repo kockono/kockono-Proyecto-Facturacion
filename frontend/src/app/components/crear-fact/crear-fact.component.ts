@@ -18,6 +18,7 @@ export class CrearFactComponent implements OnInit {
   selectedCar: string;                      
   folio: number;
   i: number;
+  mid:string;
   constructor(private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService) { }
 
   ngOnInit() {
@@ -26,7 +27,9 @@ export class CrearFactComponent implements OnInit {
     this.refrescarListaDeEmpresa();
     this.refrescarListaDeEmpresa2();
     this.folio = 0;
+    this.mid="";
   }
+  
   counter(int) {
       this.folio = int;
       console.log(this.folio);
@@ -92,10 +95,19 @@ export class CrearFactComponent implements OnInit {
       backup: true
     }
   }
+  pepes(string){
+    this.mid==string;
+    console.log("oeoeoeoeo");
+  }
   onSubmit(form: NgForm){
     if(form.value._id == ""){
       if(this.folio==0){this.folio=1}
       form.value.nombreDeLaEmpresa = this.folio.toString();
+      for(let emp of this.datosEmpresaService.DatosEmpresa){
+        if(emp.nombreDeLaEmpresa==this.folio.toString()){
+          form.value.nombreDeLaEmpresa = emp._id;
+        }
+      }
       // this.datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa=this.folio.toString();
       this.datosEmpresaService2.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();

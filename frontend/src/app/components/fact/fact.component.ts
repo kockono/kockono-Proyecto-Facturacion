@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
-import { NgForm }   from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { DatosEmpresaService2 } from '../../services/datos-fact.service';
 import { DatosFact } from '../../models/datos-fact';
+import { Router } from '@angular/router';
+import { DatosEmpresaService } from '../../services/datos-empresa.service';
+import { DatosEmisor } from '../../models/datos-emisor';
 
 @Component({
   selector: 'app-fact',
@@ -67,7 +69,7 @@ export class FactComponent implements OnInit {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
         window.alert("Se Actualizo Correctamente");
-        this.monstrar=!this.monstrar;
+        // this.monstrar=!this.monstrar;
       });
     }
   }
@@ -78,7 +80,6 @@ export class FactComponent implements OnInit {
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);
         window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });
-        
       });
     }
   }
@@ -86,6 +87,6 @@ export class FactComponent implements OnInit {
     this.datosEmpresaService.selectEmpresa = emp;
     this.datosEmpresaService.selectEmpresa.estatus = 'Cancelado';
     // this.datosEmpresaService.putDatos(emp);
-    this.monstrar=!this.monstrar;
+    this.monstrar = !this.monstrar;
   }
 }

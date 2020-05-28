@@ -31,17 +31,26 @@
             <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
             <a class="action-btn" >
               <button class="button button1"  (click)="onEdit(emp)" (click)="ver=!ver "><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
-            </a>        
+            </a>
           </td>
-          <td class="b2" > 
+          <td class="b2" >
             <a class="action-btn" (click)="onEdit(emp)" (click)="monstrar=!monstrar">
               <button class="button button2"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" ></button>
             </a>
           </td>
           <td class="b3">
-            <a class="action-btn" (click)="onDelete(emp._id, empresaForm)">
-              <button class="button button3" ><img src="./../../../assets/img/basura.png" height="15px" widht="15px" ></button>
-            </a>
+            <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
+              <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
+              <input type="hidden" id="inputEmail4" name="nombreDeLaEmpresa" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa"  >
+              <input type="hidden" id="inputRazon" name="razon"     #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.razon" >
+              <input type="hidden" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo">
+              <input type="hidden" id="inputTel" name="telefono" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono">
+              <input type="hidden" id="inputCorreo" name="email" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.email" >
+              <input type="hidden" id="inputEstatus" name="estatus" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.estatus">
+              <!-- <a class="action-btn" (click)="cambiarEstatus(emp)" (click)="monstrar=!monstrar"> -->
+              <button class="button button3" type="submit"  (click)="cambiarEstatus(emp)"  [disabled]="!empresaForm.valid"><img src="./../../../assets/img/basura.png" height="15px" widht="15px" ></button>
+            <!-- </a> --> 
+          </form>
           </td>        
     </tbody>
   </table>
@@ -63,10 +72,17 @@
         <label for="inputZip">Monto:</label>
         <input type="email" class="form-control" id="inputCorreo" name="email" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.email" placeholder="Email">
       </div>
-      <div class="form-group col-md-4">
+      <!-- <div class="form-group col-md-4">
         <label for="inputZip">Cliente:</label>
-        <input type="telefono" class="form-control" id="inputTel" name="telefono" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono" placeholder="Teléfono">
-      </div>
+        <div>
+          <mat-form-field>
+            <select matNativeControl [(ngModel)]="datosEmpresaService2.selectEmpresa.telefono" name="car" class="form-control" id="inputTel" name="telefono" #name="ngModel">
+              <option value="" selected></option>
+              <option *ngFor="let emp of datosEmpresaService.DatosEmpresa" >
+                {{emp.nombreDeLaEmpresa}}
+              </option>
+            </select>
+          </mat-form-field></div></div> -->
       <div class="form-group col-md-5">
         <label for="inputZip">Fecha:</label>
         <input type="text" class="form-control" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" placeholder="Método">
@@ -76,8 +92,8 @@
         <input type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.razon" placeholder="Razon">
       </div>  
     </div>
-    <button class="btn btn-custom right" type="button"  (click)="resetForm(empresaForm)" > Reset </button>
-    <button class="boton" type="submit" [disabled]="!empresaForm.valid" >Finalizar</button>
+    <button class="btn btn-custom right" type="button"  (click)="resetForm(empresaForm)" >Reset</button>
+    <button class="boton" type="submit" [disabled]="!empresaForm.valid">Finalizar</button>
   </form>
   </div>
 <br>
