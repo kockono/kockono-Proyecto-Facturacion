@@ -63,17 +63,16 @@
         <label for="inputZip">Monto:</label>
         <input type="email" class="form-control" id="inputCorreo" name="email" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.email" placeholder="Email">
       </div>
-      <!-- <div class="form-group col-md-4">
-        <label for="inputZip">Cliente:</label>
-        <div>
-          <mat-form-field>
-            <select matNativeControl [(ngModel)]="datosEmpresaService2.selectEmpresa.telefono" name="car" class="form-control" id="inputTel" name="telefono" #name="ngModel">
-              <option value="" selected></option>
-              <option *ngFor="let emp of datosEmpresaService.DatosEmpresa" >
-                {{emp.nombreDeLaEmpresa}}
-              </option>
-            </select>
-          </mat-form-field></div></div> -->
+
+        <div class="form-group col-md-4">
+          <label for="inputState">Cliente: </label>
+          <select id="inputState" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono" class="form-control">
+            <option *ngFor="let emp of datosEmpresaService.DatosEmpresa">{{emp.nombreDeLaEmpresa}}
+
+            </option>
+
+          </select>
+        </div>
       <div class="form-group col-md-5">
         <label for="inputZip">Fecha:</label>
         <input type="text" class="form-control" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" placeholder="Método">
@@ -111,7 +110,7 @@
           </div>
           <div class="form-group col-md-5">
             <label for="inputZip">Fecha:</label>
-            <a type="text" class="form-control" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" placeholder="Método">{{datosEmpresaService.selectEmpresa.metodo}}</a>
+            <a type="date" class="form-control" id="inputMetodo" name="metodo" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" placeholder="Método">{{datosEmpresaService.selectEmpresa.metodo}}</a>
           </div>     
           <div class="form-group col-md-7">
             <label for="inputZip">Razón Social:</label>
