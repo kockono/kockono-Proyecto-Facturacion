@@ -250,3 +250,23 @@ th, td {
     margin-bottom: 20px;
   }
 }
+  input[type=text] {
+    width: 10%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('/assets/img/buscar.png');
+    background-position: 15px 8px;
+    background-size: 1.5rem;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-left: 1%;
+  }
+  
+  input[type=text]:focus {
+    width: 98%;
+  }
