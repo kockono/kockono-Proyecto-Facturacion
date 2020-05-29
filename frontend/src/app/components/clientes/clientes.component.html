@@ -251,7 +251,7 @@
     <table class="table">
       <thead class="thead">
         <tr>
-          <th scope="col">#</th>
+         
           <th scope="col">Folio</th>
           <th scope="col">Estatus</th>
           <th scope="col">Cliente</th>
@@ -260,7 +260,6 @@
       <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
       <tbody>
         <tr *ngFor="let emp2 of datosEmpresaService2.DatosEmpresa; let i = index">
-          <th *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString();" scope="row">{{i+1}}</th>
           <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString()" >{{emp2.nombreDeLaEmpresa}}</td>
           <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString()">{{emp2.estatus}}</td>
           <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString()">{{datosEmpresaService.selectEmpresa.nombreDeLaEmpresa}}</td>
