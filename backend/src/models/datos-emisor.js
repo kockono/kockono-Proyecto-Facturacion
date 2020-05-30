@@ -11,7 +11,7 @@ const FacturasSchema = new Schema({
     razon:{type:String},
     metodo:{type:String},
     
-    email: { type: String, unique: true, trim: true, required: true },
+    email: { type: String, unique: true,  trim: true, required: true },
     telefono:{type:String},
 
     calle : { type: String, requireString: true},

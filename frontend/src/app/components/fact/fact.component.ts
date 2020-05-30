@@ -13,7 +13,7 @@ import { DatosEmisor } from '../../models/datos-emisor';
   providers: [DatosEmpresaService2],
 })
 export class FactComponent implements OnInit {
-
+/* El servicio de Facturas se guardo en una variable: datosEmpresaService */
   constructor(public datosEmpresaService: DatosEmpresaService2) { }
   monstrar = true;
   ver = true;
@@ -34,26 +34,30 @@ export class FactComponent implements OnInit {
   resetForm(form?: NgForm) {
     if(form)
       form.reset();
+      /* El servicio de Facturas se guardo en una variable: datosEmpresaService */
     this.datosEmpresaService.selectEmpresa = {
-      _id: "",
-      nombreDeLaEmpresa: "",
-      email: "",
-      calle: "",
-      colonia: "",
-      estado: "",
-      metodo:"",
-      estatus:"",
-      razon:"",
-      dias:null,
-      numExterior: "",
-      numInterior: "",
-      cp: "",
-      rfc: "",
-      municipio: "",
-      pais: "",
-      localidad: "",
-      telefono: null,
-      backup: true
+      _id: '',
+      nombreDeLaEmpresa: '',
+      metodo:'',
+      estatus:'',
+      razon:'',
+      fecha:'',
+      monto:null,
+      folio:null,
+      /* Nuevos campos agregados en base a la factura ejemplo */
+      ordenDeCompra: '',
+      condiciones: '',	
+      vendedor: '',
+      viaDeEmbarque: '',
+      unidades:null,
+      articulo: '',	
+      nombre: '',
+      precio:null,
+      descuento:null,
+      uMed: '',
+      importe:null,	
+      subtotal:null,
+      total:null
     }
   }
   onSubmit(form: NgForm){

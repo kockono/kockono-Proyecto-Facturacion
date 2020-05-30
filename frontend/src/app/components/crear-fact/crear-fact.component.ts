@@ -20,7 +20,6 @@ export class CrearFactComponent implements OnInit {
   folio: number;
   i: number;
   mid:string;
-
   year:any;
   month:any;
   day:any;
@@ -31,7 +30,7 @@ export class CrearFactComponent implements OnInit {
   constructor(private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService ) {
     this.day = new Date().getDate();
     this.month = new Date().getMonth()+1;
-    this.year = new Date().getUTCDate();
+    this.year = new Date().getFullYear();
     this.hours = new Date().getHours();
     this.minutes = new Date().getMinutes();
     this.seconds = new Date().getSeconds();
@@ -39,12 +38,10 @@ export class CrearFactComponent implements OnInit {
 
 
   ngOnInit() {
-    this.resetForm();
     this.resetForm2();
     this.refrescarListaDeEmpresa();
     this.refrescarListaDeEmpresa2();
     this.folio = 0;
-    this.mid="";
   }
   
   counter(int) {
@@ -62,6 +59,7 @@ export class CrearFactComponent implements OnInit {
         this.datosEmpresaService2.DatosEmpresa = res as DatosFact[];
     });
   }
+  /* MODELO DEL CLIENTE */
   resetForm(form?: NgForm) {
     if(form)
       form.reset();
@@ -87,44 +85,45 @@ export class CrearFactComponent implements OnInit {
       backup: true
     }
   }
+  /* MODELO DE LA FACTURA */
   resetForm2(form?: NgForm) {
     if(form)
       form.reset();
-    this.datosEmpresaService2.selectEmpresa = {
+      this.datosEmpresaService2.selectEmpresa = {
       _id: '',
       nombreDeLaEmpresa: '',
-      metodo: '',
-      razon: '',
-      estatus: '',
-      dias: null,
-      email: '',
-      calle: '',
-      colonia: '',
-      estado: '',
-      numExterior: '',
-      numInterior: '',
-      cp: '',
-      rfc: '',
-      municipio: '',
-      pais: '',
-      localidad: '',
-      telefono: null,
-      backup: true
+      metodo:'',
+      estatus:'',
+      razon:'',
+      fecha:'',
+      monto:null,
+      folio:null,
+      /* Nuevos campos agregados en base a la factura ejemplo */
+      ordenDeCompra: '',
+      condiciones: '',	
+      vendedor: '',
+      viaDeEmbarque: '',
+      unidades:null,
+      articulo: '',	
+      nombre: '',
+      precio:null,
+      descuento:null,
+      uMed: '',
+      importe:null,	
+      subtotal:null,
+      total:null
     }
   }
-  pepes(string){
-    this.mid==string;
-    console.log("oeoeoeoeo");
+  /* De momento no quitar funcion nada */
+  nada(){
+    
   }
   onSubmit(form: NgForm){
     if(form.value._id == ""){
       if(this.folio==0){this.folio=1}
-      form.value.nombreDeLaEmpresa = this.folio.toString();
-      for(let emp of this.datosEmpresaService.DatosEmpresa){
-        if(emp.nombreDeLaEmpresa==this.folio.toString()){
-          form.value.nombreDeLaEmpresa = emp._id;
-        }
-      }
+      form.value.folio = this.folio.toString();
+      form.value.estatus = "Habilitado";
+      form.value.fecha = this.day+"/"+this.month+"/"+this.year+"  "+this.hours+":"+this.minutes;
       // this.datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa=this.folio.toString();
       this.datosEmpresaService2.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
@@ -141,10 +140,10 @@ export class CrearFactComponent implements OnInit {
       });
     }
   }
-  onEdit(emp: DatosFact) {
+  onEdit(emp: DatosEmisor) {
     this.datosEmpresaService.selectEmpresa = emp;
   }
-  onEdit2(emp: DatosEmisor) {
+  onEdit2(emp: DatosFact) {
     this.datosEmpresaService2.selectEmpresa = emp;
   }
 }

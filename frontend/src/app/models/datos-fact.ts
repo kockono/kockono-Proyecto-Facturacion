@@ -1,21 +1,24 @@
 export class DatosFact {
     _id: string;
-    email: string;
     nombreDeLaEmpresa: string;
-    calle: string;
-    colonia: string;
-    estado: string;
     metodo:string;
     estatus:string;
-    dias:number;
-    numExterior:string;
-    numInterior:string;
-    cp:string;
-    rfc:string;
-    municipio:string;
-    pais:string;
-    telefono:number;
-    localidad:string;
     razon:string;
-    backup:boolean;
+    fecha:any;
+    monto:number;
+    folio:number;
+    /* Nuevos campos agregados en base a la factura ejemplo */
+    ordenDeCompra:string;
+    condiciones:string;	
+    vendedor:string;
+    viaDeEmbarque:string;
+    unidades:number;
+    articulo:string;	
+    nombre:string;
+    precio:number;
+    descuento:number;
+    uMed:string;
+    importe:number;
+    subtotal:number;
+    total:number;
   }

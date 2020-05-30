@@ -247,25 +247,28 @@
 
 <br>
 <div class="contenedor" *ngIf="!fact">
+  
     <p style="text-align:center; font-size: 30px;"><strong>Facturas</strong></p>
     <table class="table">
       <thead class="thead">
         <tr>
-         
           <th scope="col">Folio</th>
           <th scope="col">Estatus</th>
+          <th scope="col">Monto</th>
+          <th scope="col">Fecha</th>
           <th scope="col">Cliente</th>
         </tr>
       </thead>
       <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
       <tbody>
         <tr *ngFor="let emp2 of datosEmpresaService2.DatosEmpresa; let i = index">
-          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString()" >{{emp2.nombreDeLaEmpresa}}</td>
-          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString()">{{emp2.estatus}}</td>
-          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.telefono.toString()">{{datosEmpresaService.selectEmpresa.nombreDeLaEmpresa}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()" >{{emp2.folio}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{emp2.estatus}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{emp2.monto}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{emp2.fecha}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{datosEmpresaService.selectEmpresa.nombreDeLaEmpresa}}</td>
       </tr>
       </tbody>
-      
     </table>
 </div>
 </div>

@@ -33,7 +33,7 @@ export class ClientesComponent implements OnInit {
   }
   refrescarListaDeEmpresa2() {
     this.datosEmpresaService2.getDatosList().subscribe((res) => {
-        this.datosEmpresaService2.DatosEmpresa = res as DatosEmisor[];
+        this.datosEmpresaService2.DatosEmpresa = res as DatosFact[];
     });
   }
   onEdit(emp: DatosEmisor) {
@@ -70,25 +70,28 @@ export class ClientesComponent implements OnInit {
     if(form)
       form.reset();
     this.datosEmpresaService2.selectEmpresa = {
-      _id: "",
-      nombreDeLaEmpresa: "",
-      email: "",
-      calle: "",
-      colonia: "",
-      estado: "",
-      metodo:"",
-      estatus:"",
-      razon:"",
-      dias:null,
-      numExterior: "",
-      numInterior: "",
-      cp: "",
-      rfc: "",
-      municipio: "",
-      pais: "",
-      localidad: "",
-      telefono: null,
-      backup: true
+      _id: '',
+      nombreDeLaEmpresa: '',
+      metodo:'',
+      estatus:'',
+      razon:'',
+      fecha:'',
+      monto:null,
+      folio:null,
+      /* Nuevos campos agregados en base a la factura ejemplo */
+      ordenDeCompra: '',
+      condiciones: '',	
+      vendedor: '',
+      viaDeEmbarque: '',
+      unidades:null,
+      articulo: '',	
+      nombre: '',
+      precio:null,
+      descuento:null,
+      uMed: '',
+      importe:null,	
+      subtotal:null,
+      total:null
     }
   }
   onSubmit(form: NgForm){
