@@ -1,11 +1,13 @@
 
-
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
   align-items: center;
   width: 300px;
   transition: transform .2s;
+  margin-left: 7%;
+  font-size: 24px; 
+  margin-top: 0%;
 }
 .card:hover {
   transform: scale(1.1); }

@@ -1,0 +1,110 @@
+<app-sidebar></app-sidebar>
+<main class="s-layout__content">
+  <div class="centrarcards">
+    <app-cards></app-cards>
+  </div>
+<div class="contenedor">
+  <div  *ngFor="let emp of datosEmpresaService2.DatosEmpresa; let i = index">
+    {{counter(i+2)}}
+  </div>
+    <legend class="center"> Generar Factura </legend>
+    <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
+      <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa._id">
+      <div class="form-row">
+
+        <div class="form-group col-md-2">
+          <label for="inputZip" >Folio:</label>
+          <a type="text"class="form-control" id="inputFolio" name="folio" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.folio">{{folio}}</a>
+        </div>
+        <div class="form-group col-md-5">
+          <label for="inputZip">Fecha:</label>
+          <a type="text" class="form-control" id="inputFecha" name="fecha" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.fecha" placeholder="Fecha">{{day+"/"+month+"/"+year +" "+hours+":"+minutes+" UTC"}}</a>
+        </div>
+        
+        <div class="form-group col-md-4">
+          <label for="inputState">Cliente: </label>
+          <input type="text" list="Clientes" class="form-control busqueda" name="nombreDeLaEmpresa" [(ngModel)]='selected' (change)="selectEmpresa(selected)">
+          <datalist  id="Clientes">
+            <!-- <select> -->
+              <option  *ngFor="let emp of datosEmpresaService.DatosEmpresa" [value]="emp.nombreDeLaEmpresa"></option>  
+            <!-- </select> -->
+          </datalist>
+        </div>
+        
+        <div class="form-group col-md-3">
+          <label for="inputZip">Orden de compra:</label>
+          <input type="text" class="form-control"   id="inputordenDeCompra" name="ordenDeCompra" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.ordenDeCompra"  placeholder="Razon">
+        </div> 
+        <div class="form-group col-md-4">
+          <label for="inputZip">Condiciones:</label>
+          <input type="text" class="form-control"   id="inputCondiciones" name="condiciones" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.condiciones"  placeholder="Condiciones">
+        </div> 
+        <div class="form-group col-md-7">
+          <label for="inputZip">Vendedor:</label>
+          <input type="text" class="form-control"   id="inputVendedor" name="vendedor" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.vendedor"  placeholder="Vendedor">
+        </div> 
+        <div class="form-group col-md-5">
+          <label for="inputZip">Via de embarque:</label>
+          <input type="text" class="form-control"   id="inputViaDeEmbarque" name="viaDeEmbarque" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.viaDeEmbarque"   placeholder="Via de embarque">
+        </div> 
+
+        <div class="form-group col-md-12">
+          <label for="inputZip">Monto:</label>
+          <input type="number" class="form-control" id="inputMonto" name="monto" #name="ngModel" 
+          [(ngModel)]="datosEmpresaService2.selectEmpresa.monto" placeholder="Monto">
+        </div>
+        <div class="form-group col-md-1">
+          <label for="inputZip">Unidades:</label>
+          <input type="text" class="form-control"   id="inputUnidades" name="unidades" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.unidades"  placeholder="Unidades">
+        </div> 
+        <div class="form-group col-md-2">
+          <label for="inputZip">Articulo:</label>
+          <input type="text" class="form-control"   id="inputArticulo" name="articulo" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.articulo"  placeholder="Articulo">
+        </div> 
+        <div class="form-group col-md-4">
+          <label for="inputZip">Nombre:</label>
+          <input type="text" class="form-control"   id="inputNombre" name="nombre" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.nombre"   placeholder="Nombre">
+        </div> 
+        
+        <div class="form-group col-md-1">
+          <label for="inputZip">Precio:</label>
+          <input type="text" class="form-control"   id="inputPrecio" name="precio" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.precio"   placeholder="Precio">
+        </div> 
+        <div class="form-group col-md-1">
+          <label for="inputZip">Descto.:</label>
+          <input type="text" class="form-control"   id="inputDescuento" name="descuento" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.descuento"  placeholder="Descto">
+        </div> 
+        <div class="form-group col-md-1">
+          <label for="inputZip">U.Med:</label>
+          <input type="text" class="form-control"   id="inputUMed" name="uMed" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.uMed"  placeholder="U.Med">
+        </div> 
+        <div class="form-group col-md-1">
+          <label for="inputZip">Agregar</label>
+          <button class="btn btn-custom right" type="button"  (click)="nada()" >+</button>
+        </div> 
+        <div class="form-group col-md-2">
+          <label for="inputZip">Importe:</label>
+          <input type="text" class="form-control"  id="inputImporte" name="importe" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.importe"  placeholder="Importe">
+        </div> 
+        <div class="form-group col-md-7">
+          <label for="inputZip">Subtotal:</label>
+          <input type="text" class="form-control"  id="inputSubtotal" name="subtotal" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.subtotal"  placeholder="Subtotal">
+        </div> 
+        <div class="form-group col-md-7">
+          <label for="inputZip">Total:</label>
+          <input type="text" class="form-control"  id="inputTotal" name="total" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.total"   placeholder="Total">
+        </div> 
+        <div class="form-group col-md-7">
+          <label for="inputZip">Razón Social:</label>
+          <input type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.razon" placeholder="Razon">
+        </div>  
+        
+        
+      </div>
+      <button class="btn btn-custom right" type="button"  (click)="resetForm(empresaForm)" > Reset </button>
+      <button class="boton" type="submit" [disabled]="!empresaForm.valid" >Finalizar</button>
+    </form>
+  </div>
+</main>
+
+  

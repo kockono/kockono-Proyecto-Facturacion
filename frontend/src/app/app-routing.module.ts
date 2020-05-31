@@ -3,17 +3,21 @@ import { LoginComponent } from './Components/login/login.component';
 import { RegistroComponent } from './Components/registro/registro.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormularioComponent } from './components/formulario/formulario.component';
 import { AuthGuard } from './auth.guard';
-import { DatosEmpresaComponent } from './components/datos-empresa/datos-empresa.component';
 import { CardsComponent } from './components/cards/cards.component';
-import { DatosEmisorComponent } from './components/datos-emisor/datos-emisor.component';
+import { DatosEmisorComponent } from './components/datos-clientes/datos-emisor.component';
 import { OlvidoPassComponent } from './components/olvido-password/olvido-pass.component';
-import { PoliticasprivacidadComponent } from './components/politicasprivacidad/politicasprivacidad.component';
-import { ReceptorComponent } from './components/receptor/receptor.component';
+import { PoliticasprivacidadComponent } from './components/politicas-privacidad/politicasprivacidad.component';
 import { PinComponent } from './components/pin/pin.component';
 import { PasswordComponent } from './components/password/password.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
+import { ProvComponent } from './components/provedores/prov.component';
+import { DatosEmisorProvComponent} from './components/crear-provedor/datos-emisor-prov.component';
+import { FactComponent } from './components/facturas/fact.component';
+import { CrearFactComponent } from './components/crear-fact/crear-fact.component';
+import { DatosMiEmpresaComponent } from './components/datos-mi-empresa/datos-mi-empresa.component';
+
+
 
 const routes: Routes = [
  {path: '', redirectTo:'/login', pathMatch:'full'},
@@ -21,16 +25,17 @@ const routes: Routes = [
  {path: 'login',component: LoginComponent},
  {path: 'cards', component: CardsComponent},
  {path: 'pin', component: PinComponent},
- {path: 'datos-emisor', component: DatosEmisorComponent},
+ {path: 'datos-emisor', component: DatosEmisorComponent,canActivate:[AuthGuard]},
  {path: 'recovery', component: OlvidoPassComponent},
  {path: 'politicas', component: PoliticasprivacidadComponent},
- {path: 'receptor', component: ReceptorComponent},
  {path: 'password', component: PasswordComponent},
  {path: 'principal',component: PrincipalComponent, canActivate:[AuthGuard]},
  {path: 'clientes',component: ClientesComponent, canActivate:[AuthGuard]},
- {path: 'formulario', component: FormularioComponent, canActivate:[AuthGuard]},
- {path: 'datos-empresa', component: DatosEmpresaComponent, canActivate:[AuthGuard]}
-
+ {path: 'prov', component: ProvComponent, canActivate:[AuthGuard]},
+ {path: 'datos-emisor-prov', component: DatosEmisorProvComponent, canActivate:[AuthGuard]},
+ {path: 'fact', component: FactComponent,canActivate:[AuthGuard]},
+ {path: 'crear-fact', component: CrearFactComponent,canActivate:[AuthGuard]},
+ {path: 'datos-mi-empresa', component: DatosMiEmpresaComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

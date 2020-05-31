@@ -1,242 +1,197 @@
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+
+.plus{
+  text-align:left;
+  font-size: 30px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  right: 0;
+  left: 0;
+  min-width: 110px;
+  margin-right: 8%;
+  margin-left: 1%;
+  margin-bottom: -5%;
+  margin-top: 3%;
+  width: 5%;
+  height: 5%;
+  padding-left: 0%;
+  padding-top: 0%;
+  padding-right: 5%;
+  padding-bottom: 4%;
+}
+.button {
+  background-color: rgb(49, 110, 180); /* Green */
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.button1 {
+  background-color: rgb(49, 110, 180);
+  color: black; 
+  border: 2px solid rgb(0, 0, 0);
+  
+  border-radius: 10px;
+}
+
+.button1:hover {
+  background-color: rgb(9, 60, 119);
+  color:  rgb(49, 110, 180); 
+  
+  border-radius: 10px;
+}
+
+.button2 {
+  background-color: rgb(50, 153, 96);
+  color: black; 
+  border: 2px solid rgb(0, 0, 0);
+  
+  border-radius: 10px;
+}
+
+.button2:hover {
+  background-color: rgb(14, 92, 49);
+  color:  rgb(49, 110, 180);
+  
+  border-radius: 10px;
+}
+
+.button3 {
+  background-color: rgb(235, 20, 20); 
+  color: black; 
+  border: 2px solid #000000;
+}
+
+.button3:hover {
+  background-color: #803030;
+  color: rgb(231, 24, 24);
+}
+
+.button4 {
+  background-color:  #C2C61D; 
+  color: black; 
+  border: 2px solid #000000;
+}
+
+.button4:hover {
+  background-color: rgb(147, 150, 17);
+  color: rgb(231, 24, 24);
+}
+
+
+.boton {
+  background-color: #214296;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+  text-align: center;
+ }
+
+  .boton:hover {
+  background-color:rgb(15, 42, 110);
+  transform: scale(1.1);
+  color: white;
   }
+
+
+
+.contenedor{
+  overflow: auto;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0%;
+  width: 98%;
+  height: 75%;
+  margin-top: 0%;
+  min-height: 10em;
+  padding: 1%;
   
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color:  rgb(22, 42, 77);
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 7px 7px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color:  rgb(32, 60, 109);
-    color: black;
-  
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-    background-color:  rgb(10, 23, 44);
-    color: black;
-  
-  }
-  
-  
-  /*DESPLEGABLE*/
-  
-  /* BARRA */
-  
-  .sidenav {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background: -webkit-linear-gradient(top,  rgb(103, 138, 130),rgb(35, 59, 75));
-    overflow-x: hidden;
-    padding-top: 15px;
-  }
-  
-  .sidenav a {
-    padding: 20px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 16px;
-    color: #ffffff;
-    display: block;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-    font-weight: bold;
-  
-  }
-  
-  .main {
-    margin-left: 160px; /* Same as the width of the sidenav */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-  
-  
-  
-  
-  
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    background-color: white;
-    align-items: center;
-    min-height: 150px;
-    min-width: 150px;
-  
-  
-    transition: transform .2s;
-  }
-  .card:hover {
-    transform: scale(1.1); }
-  
+  font-size: 20px;
+}
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+
+
+@media screen and (max-width: 600px) {
   .column {
     width: 25%;
-    padding: 0 10px;
+    display: block;
+    margin-bottom: 20px;
   }
-  
-  .row {
-    margin: 0 -5px;
-    margin-top: 2%;
-  }
-  
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  
-  .skip{
-    scroll-padding-top: 5%;
-  }
-
-  .plus{
-    text-align:left;
-    font-size: 30px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    right: 0;
-    left: 0;
-    min-width: 70px;
-    margin-right: 8%;
-    margin-left: 1%;
-    margin-bottom: -5%;
-    margin-top: 3%;
-    width: 5%;
-    height: 5%;
-    padding-left: 0%;
-    padding-top: 0%;
-    padding-right: 5%;
-    padding-bottom: 4%;
-  }
-  .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+}
+  .busqueda {
+    width: 11%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
     font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    border-radius: 45px;
-  }
-  .button1 {
-    background-color: rgb(85, 161, 89); 
-    color: black; 
-    border: 2px solid rgb(0, 0, 0);
-    
-    border-radius: 45px;
+    background-color: white;
+    background-image: url('/assets/img/buscar.png');
+    background-position: 15px 8px;
+    background-size: 1.5rem;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-left: 1%;
   }
   
-  .button1:hover {
-    background-color: rgb(255, 255, 255);
-    color:  rgb(85, 161, 89); 
-    
-    border-radius: 45px;
-  }
-  
-  .button2 {
-    background-color: rgb(85, 161, 89); 
-    color: black; 
-    border: 2px solid rgb(0, 0, 0);
-    
-    border-radius: 45px;
-  }
-  
-  .button2:hover {
-    background-color: rgb(57, 78, 58);
-    color:  rgb(85, 161, 89); 
-    
-    border-radius: 45px;
-  }
-  
-  .button3 {
-    background-color: rgb(235, 20, 20); 
-    color: black; 
-    border: 2px solid #000000;
-  }
-  
-  .button3:hover {
-    background-color: #803030;
-    color: rgb(231, 24, 24);
-  }
- 
-   .b3{
-    background: rgb(85, 161, 89); 
-    text-align: center;
-    border-radius: 45px;
-    margin-left: -5%;
-    /* width: 8%; */
-  } 
-
-  
-  
-  .contenedor{
-    overflow: auto;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 0%;
+  .busqueda:focus {
     width: 98%;
-    height: 75%;
-    margin-top: 0%;
-    min-height: 10em;
-    padding: 3%;
-    
-    font-size: 20px;
   }
-  
-  
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
+
+  /* Layout */
+.s-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 0%;
+}
+
+.centrarcards{
+  margin-left: 20px;
+}
+.s-layout__content {
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+@media (min-width: 42em) {
+  .s-layout__content {
+     margin-left: 2em;
   }
+}
   
-  th, td {
-    text-align: left;
-    padding: 8px;
+@media (min-width: 68em) {
+  .s-layout__content {
+     margin-left: 10em;
   }
-  
-  
-  
-  @media screen and (max-width: 600px) {
-    .column {
-      width: 25%;
-      display: block;
-      margin-bottom: 20px;
-    }
-  }
-  
+}

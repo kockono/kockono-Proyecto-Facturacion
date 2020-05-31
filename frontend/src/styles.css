@@ -1,13 +1,20 @@
 :root {
-    --azul1:  #042989;
-    --azul2:  #A9E0D3;
-  }
-  
-  body{
-    height: 126vh;
-    margin: 0;
-    background: -webkit-linear-gradient(top, var(--azul2),var(--azul1));
-    background-repeat: no-repeat;
-    display: grid;
-  }
-  
+  --azul1:  rgb(30, 88, 155);
+  --azul2:  #A9E0D3;
+}
+
+/* #042989 */
+
+body{
+  height: 100vh;
+  margin: 0;
+  background: -webkit-linear-gradient(top, var(--azul2),var(--azul1));
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center ;
+  display: grid;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

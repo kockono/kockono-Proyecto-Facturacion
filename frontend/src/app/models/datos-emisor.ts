@@ -5,6 +5,9 @@ export class DatosEmisor {
     calle: string;
     colonia: string;
     estado: string;
+    metodo:string;
+    estatus:string;
+    dias:number;
     numExterior:string;
     numInterior:string;
     cp:string;
@@ -13,5 +16,6 @@ export class DatosEmisor {
     pais:string;
     telefono:number;
     localidad:string;
-    backup:boolean;  
+    razon:string;
+    backup:boolean;
   }
