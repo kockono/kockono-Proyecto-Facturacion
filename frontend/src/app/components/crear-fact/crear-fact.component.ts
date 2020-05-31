@@ -19,14 +19,10 @@ export class CrearFactComponent implements OnInit {
   folio: number;
   i: number;
   mid:string;
-  year:any;
-  month:any;
-  day:any;
-  hours:any;
-  minutes:any;
-  time:any;
-  seconds:any;
-  constructor(private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService ) {
+
+  year:any;   month:any;  day:any;  hours:any;  minutes:any;  time:any;  seconds:any;
+
+    constructor(private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService ) {
     this.day = new Date().getDate();
     this.month = new Date().getMonth()+1;
     this.year = new Date().getFullYear();
@@ -35,7 +31,7 @@ export class CrearFactComponent implements OnInit {
     this.seconds = new Date().getSeconds();
    }
    filterpost = '';
-
+   selected: string = "";
 
   ngOnInit() {
     this.resetForm2();
@@ -146,4 +142,9 @@ export class CrearFactComponent implements OnInit {
   onEdit2(emp: DatosFact) {
     this.datosEmpresaService2.selectEmpresa = emp;
   }
+
+  selectEmpresa(name) {
+    console.log(name);
+    console.log(this.selected);
+}
 }

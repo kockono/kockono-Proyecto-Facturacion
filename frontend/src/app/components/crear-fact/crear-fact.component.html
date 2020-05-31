@@ -23,11 +23,12 @@
         
         <div class="form-group col-md-4">
           <label for="inputState">Cliente: </label>
-          <input type="text" class="form-control busqueda" name="filterpost" placeholder="Buscar" [(ngModel)]="filterpost">
-          <select id="inputState" [(ngModel)]="datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa"  id="inputnombreDeLaEmpresa" name="nombreDeLaEmpresa" #name="ngModel" class="form-control">
-            <option  *ngFor="let emp of datosEmpresaService.DatosEmpresa | filter:filterpost">{{emp.nombreDeLaEmpresa}}
-            </option>  
-          </select>
+          <input type="text" list="Clientes" class="form-control busqueda" name="nombreDeLaEmpresa" [(ngModel)]='selected' (change)="selectEmpresa(selected)">
+          <datalist  id="Clientes">
+            <!-- <select> -->
+              <option  *ngFor="let emp of datosEmpresaService.DatosEmpresa" [value]="emp.nombreDeLaEmpresa"></option>  
+            <!-- </select> -->
+          </datalist>
         </div>
         
         <div class="form-group col-md-3">
