@@ -35,6 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { DatosMiEmpresaComponent } from './components/datos-mi-empresa/datos-mi-empresa.component';
 
 
 
@@ -60,6 +61,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     FactComponent,
     CrearFactComponent,
     FilterPipe,
+    DatosMiEmpresaComponent,
 
   ],
   imports: [

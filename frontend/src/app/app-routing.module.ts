@@ -16,6 +16,8 @@ import { ClienteVerComponent } from './components/cliente-ver/cliente-ver.compon
 import { DatosEmisorProvComponent} from './components/datos-emisor-prov/datos-emisor-prov.component';
 import { FactComponent } from './components/fact/fact.component';
 import { CrearFactComponent } from './components/crear-fact/crear-fact.component';
+import { DatosMiEmpresaComponent } from './components/datos-mi-empresa/datos-mi-empresa.component';
+
 
 
 const routes: Routes = [
@@ -34,7 +36,8 @@ const routes: Routes = [
  {path: 'cliente-ver', component: ClienteVerComponent, canActivate:[AuthGuard]},
  {path: 'datos-emisor-prov', component: DatosEmisorProvComponent, canActivate:[AuthGuard]},
  {path: 'fact', component: FactComponent,canActivate:[AuthGuard]},
- {path: 'crear-fact', component: CrearFactComponent,canActivate:[AuthGuard]}
+ {path: 'crear-fact', component: CrearFactComponent,canActivate:[AuthGuard]},
+ {path: 'datos-mi-empresa', component: DatosMiEmpresaComponent}
 ];
 
 @NgModule({

@@ -5,7 +5,6 @@ import { DatosFact } from '../../models/datos-fact';
 import { Router } from '@angular/router';
 import { DatosEmpresaService } from '../../services/datos-empresa.service';
 import { DatosEmisor } from '../../models/datos-emisor';
-import { WeekDay } from '@angular/common';
 
 
 @Component({
@@ -35,6 +34,7 @@ export class CrearFactComponent implements OnInit {
     this.minutes = new Date().getMinutes();
     this.seconds = new Date().getSeconds();
    }
+   filterpost = '';
 
 
   ngOnInit() {
