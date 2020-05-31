@@ -9,7 +9,7 @@ export class DatosEmpresaService2 {
   selectEmpresa: DatosFact;
   DatosEmpresa: DatosFact[];
 
-  readonly URL = 'http://localhost:3500/emisor-fact'
+  readonly URL = 'http://localhost:3500/facturas'
 
   constructor(private http: HttpClient) { }
 

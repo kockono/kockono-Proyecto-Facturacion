@@ -9,7 +9,7 @@ export class DatosEmpresaService {
   selectEmpresa: DatosEmisorProv;
   DatosEmpresa: DatosEmisorProv[];
 
-  readonly URL = 'http://localhost:3500/emisor-prov'
+  readonly URL = 'http://localhost:3500/provedores'
 
   constructor(private http: HttpClient) { }
 

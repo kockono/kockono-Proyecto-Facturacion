@@ -1,35 +1,55 @@
 const { Router } = require('express');
 const router = Router();
 let ObjectId = require('mongoose').Types.ObjectId;
-let datosEmisor  = require('../models/datos-fact');
+let emisorBackup = require('../backup/datos-clientes')
+let datosEmisor  = require('../models/datos-clientes');
 
 router.post('/', (req, res) => {
 
     let empresa = new datosEmisor ({
 
         nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
+        email: req.body.email,
         metodo:req.body.metodo,
         razon:req.body.razon,
+        dias:req.body.dias,
         estatus:req.body.estatus,
-        fecha:req.body.fecha,
-        monto:req.body.monto,
-        folio:req.body.folio,
-        /* Nuevos campos agregados en base a la factura ejemplo */
-        ordenDeCompra:req.body.ordenDeCompra,
-        condiciones:req.body.condiciones,	
-        vendedor:req.body.vendedor,
-        viaDeEmbarque:req.body.viaDeEmbarque,
-        unidades:req.body.unidades,
-        articulo:req.body.articulo,	
-        nombre:req.body.nombre,
-        precio:req.body.precio,
-        descuento:req.body.descuento,
-        uMed:req.body.uMed,
-        importe:req.body.importe,	
-        subtotal:req.body.subtotal,
-        total:req.body.total
+        calle: req.body.calle,
+        colonia: req.body.colonia,
+        estado: req.body.estado,
+        numExterior:req.body.numExterior,
+        numInterior:req.body.numInterior,
+        cp:req.body.cp,
+        rfc:req.body.rfc,
+        pais:req.body.pais,
+        telefono:req.body.telefono,
+        municipio:req.body.municipio,
+        localidad:req.body.localidad,
+        backup:req.body.backup,
     });
 
+    let empresaBackup = new emisorBackup ({
+
+        nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
+        email: req.body.email,
+        calle: req.body.calle,
+        metodo:req.body.metodo,
+        razon:req.body.razon,
+        dias:req.body.dias,
+        estatus:req.body.estatus,
+        colonia: req.body.colonia,
+        estado: req.body.estado,
+        numExterior:req.body.numExterior,
+        numInterior:req.body.numInterior,
+        cp:req.body.cp,
+        rfc:req.body.rfc,
+        pais:req.body.pais,
+        telefono:req.body.telefono,
+        municipio:req.body.municipio,
+        localidad:req.body.localidad,
+        backup:req.body.backup,
+    });
+    empresaBackup.save();
     
     empresa.save((err, doc)=>{
         if(!err) {res.send(doc)}
@@ -45,26 +65,23 @@ router.put('/:id', (req, res) => {
         let empresa =  ({
 
             nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
+            email: req.body.email,
             metodo:req.body.metodo,
             razon:req.body.razon,
+            dias:req.body.dias,
             estatus:req.body.estatus,
-            fecha:req.body.fecha,
-            monto:req.body.monto,
-            folio:req.body.folio,
-            /* Nuevos campos agregados en base a la factura ejemplo */
-            ordenDeCompra:req.body.ordenDeCompra,
-            condiciones:req.body.condiciones,	
-            vendedor:req.body.vendedor,
-            viaDeEmbarque:req.body.viaDeEmbarque,
-            unidades:req.body.unidades,
-            articulo:req.body.articulo,	
-            nombre:req.body.nombre,
-            precio:req.body.precio,
-            descuento:req.body.descuento,
-            uMed:req.body.uMed,
-            importe:req.body.importe,	
-            subtotal:req.body.subtotal,
-            total:req.body.total
+            calle: req.body.calle,
+            colonia: req.body.colonia,
+            estado: req.body.estado,
+            numExterior:req.body.numExterior,
+            numInterior:req.body.numInterior,
+            cp:req.body.cp,
+            rfc:req.body.rfc,
+            pais:req.body.pais,
+            telefono:req.body.telefono,
+            municipio:req.body.municipio,
+            localidad:req.body.localidad,
+            backup:req.body.backup,
         });
 
     let ID = req.params.id;

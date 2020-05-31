@@ -15,9 +15,9 @@ app.use(express.urlencoded({ extended: true })); // parse application/x-www-form
 // Rutas
 app.use('/api', require('./routes/login.routes'));
 app.use('/recover', require('./controllers/email'));
-app.use('/emisor', require('./controllers/datos-emisor'));
-app.use('/emisor-prov', require('./controllers/datos-emisor-Prov'));
-app.use('/emisor-fact', require('./controllers/datos-fact'));
+app.use('/clientes', require('./controllers/datos-clientes'));
+app.use('/provedores', require('./controllers/datos-provedor'));
+app.use('/facturas', require('./controllers/datos-facturas'));
 
 // Servidor
 app.listen(PORT, () => console.log(`Escuchando por el puerto ${PORT}`) );

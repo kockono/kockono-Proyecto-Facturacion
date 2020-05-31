@@ -1,12 +1,12 @@
 const { Router } = require('express');
 const router = Router();
 let ObjectId = require('mongoose').Types.ObjectId;
-let emisorBackup = require('../backup/datos-emisor')
-let datosEmisor  = require('../models/datos-emisor');
+let provedorBackup = require('../backup/datos-provedor')
+let datosProvedor  = require('../models/datos-provedor');
 
 router.post('/', (req, res) => {
 
-    let empresa = new datosEmisor ({
+    let empresa = new datosProvedor ({
 
         nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
         email: req.body.email,
@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
         backup:req.body.backup,
     });
 
-    let empresaBackup = new emisorBackup ({
+    let empresaBackup = new provedorBackup ({
 
         nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
         email: req.body.email,
@@ -67,9 +67,9 @@ router.put('/:id', (req, res) => {
             nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
             email: req.body.email,
             metodo:req.body.metodo,
-            razon:req.body.razon,
-            dias:req.body.dias,
-            estatus:req.body.estatus,
+        razon:req.body.razon,
+        dias:req.body.dias,
+        estatus:req.body.estatus,
             calle: req.body.calle,
             colonia: req.body.colonia,
             estado: req.body.estado,
@@ -85,7 +85,7 @@ router.put('/:id', (req, res) => {
         });
 
     let ID = req.params.id;
-    datosEmisor.findByIdAndUpdate(ID, {$set: empresa}, {new:true},(err, doc) => {
+    datosProvedor.findByIdAndUpdate(ID, {$set: empresa}, {new:true},(err, doc) => {
         if(!err) {res.send(doc)}
           else { console.log(`Error en encontrar el empleado: `+ JSON.stringify(err, undefined, 2));}
 
@@ -96,16 +96,16 @@ router.delete('/:id', (req, res) => {
     if(!ObjectId.isValid(req.params.id))
     return res.status(400).send(`No se encontro la id: ${req.params.id}`);
 
-    datosEmisor.findByIdAndRemove(req.params.id, (err, doc) => {
+    datosProvedor.findByIdAndRemove(req.params.id, (err, doc) => {
         if(!err) {res.send(doc)}
           else { console.log(`Error en encontrar el empleado: `+ JSON.stringify(err, undefined, 2));}
     });
 });
 
 router.get('/', (req,res) => {
-    datosEmisor.find((err,doc) => {
+    datosProvedor.find((err,doc) => {
         if(!err) {res.send(doc)}
-        else {console.log('Error recibiendo datosEmisor' + JSON.stringify(err, undefined, 2));}
+        else {console.log('Error recibiendo datosProvedor' + JSON.stringify(err, undefined, 2));}
     });
 });
 
@@ -113,7 +113,7 @@ router.get('/:id', (req, res) => {
     if(!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No se encontro la id: ${req.params.id}`);
 
-        datosEmisor.findById(req.params.id, (err, doc) => {
+        datosProvedor.findById(req.params.id, (err, doc) => {
             if(!err) {res.send(doc);}
                 else { console.log(`Error en encontrar el empleado: `+ JSON.stringify(err, undefined, 2));}
         });

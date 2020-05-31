@@ -23,4 +23,4 @@ const FacturasSchema = new Schema({
     backup : { type: String, require: false},
 })
 
-module.exports = model('EmisorBackup', FacturasSchema);
+module.exports = model('Backup-Clientes', FacturasSchema);
