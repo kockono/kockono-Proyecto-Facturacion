@@ -1,6 +1,8 @@
 <app-sidebar></app-sidebar>
-<div class="main">
-<app-cards></app-cards>
+<main class="s-layout__content">
+  <div class="centrarcards">
+    <app-cards></app-cards>
+  </div>
 <div class="contenedor">
   <div  *ngFor="let emp of datosEmpresaService2.DatosEmpresa; let i = index">
     {{counter(i+2)}}
@@ -101,22 +103,6 @@
       <button class="boton" type="submit" [disabled]="!empresaForm.valid" >Finalizar</button>
     </form>
   </div>
-</div>
-<section>
-  <div class="col-s7">
-    <table class="responsive-table highlight">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-        </tr>
-      </thead>
-        <tr *ngFor="let emp of datosEmpresaService2.DatosEmpresa">
-          <td>{{emp.nombreDeLaEmpresa}}</td>
-          <td>
-            <a  style="cursor: pointer;" class="action-btn" (click)="onEdit(emp)"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" ></a>
-        </td>
-      </tr>
-    </table>
-  </div>
-</section>
+</main>
+
   

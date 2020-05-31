@@ -98,24 +98,3 @@
   </form>
   </div>
 </div>
-  <section>
-
-    <div class="col-s7">
-                    <table class="responsive-table highlight">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                            </tr>
-                        </thead>
-                        <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa">
-                            <td>{{emp.nombreDeLaEmpresa}}</td>
-                            <td>
-                                <a  style="cursor: pointer;" class="action-btn" (click)="onEdit(emp)"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" >
-                                   
-                                  </a>
-                            </td>
-                        </tr>
-                    </table>
-        </div>
-</section>
-  

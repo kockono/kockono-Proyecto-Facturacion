@@ -1,10 +1,10 @@
 <app-sidebar></app-sidebar> 
-
-<div class="main">
-  
+<main class="s-layout__content">
+  <div class="centrarcards">
     <app-cards></app-cards>
+  </div>
            <br>
-    <input type="text" class="form-control" name="filterpost" placeholder="Buscar" [(ngModel)]="filterpost">
+    <input type="text" class="form-control busqueda" name="filterpost" placeholder="Buscar" [(ngModel)]="filterpost">
     <div class="plus">
       <button class="button button1" type="submit" routerLink="/datos-emisor"><strong>Agregar</strong></button>
       <a></a>
@@ -271,6 +271,4 @@
       </tbody>
     </table>
 </div>
-</div>
-<br>
-
+</main>

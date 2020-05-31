@@ -61,7 +61,30 @@
     transform: scale(1.1);
     color: white;
     }
-    .main {
-      margin-left: 130px; /* Same as the width of the sidenav */
-      padding: 0px 8px;
+  /* Layout */
+  .s-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 0%;
+  }
+  
+  .centrarcards{
+    margin-left: 20px;
+  }
+  .s-layout__content {
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+  @media (min-width: 42em) {
+    .s-layout__content {
+       margin-left: 2em;
     }
+  }
+    
+  @media (min-width: 68em) {
+    .s-layout__content {
+       margin-left: 10em;
+    }
+  }

@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="sidenav">
   <a > <img height="100%" width="125px" src="../assets/img/LogoFinal2.png"></a>
 
@@ -6,10 +6,69 @@
       <div class="dropdown-content">
         <a style="cursor: pointer;"  (click)="authService.logOut()">Cerrar Sesion</a>
         </div>
-
   </a>
   <a  routerLink="/principal" >Inicio</a>
   <a  routerLink="/reportes">Reportes</a>
   <a  routerLink="/configuracion">Configuración</a>
   <a  routerLink="/ayuda">Ayuda</a>
 </div>
+ -->
+
+ <div class="s-layout">
+  <div class="s-layout__sidebar">
+    <a class="s-sidebar__trigger" >
+        <img class="barras"src="../assets/img/barras.png">
+    </a>
+  
+    <nav class="s-sidebar__nav">
+       <ul>
+         
+          <li>
+             <a class="s-sidebar__nav-link text-center"  routerLink="">
+              <img src="../assets/img/LogoFinal2.png">
+             </a>
+          </li>
+          
+          <li>
+            <a class="s-sidebar__nav-link"  routerLink="/principal">
+               <i class="fa fa-home"></i><em>Inicio</em>
+            </a>
+         </li>
+         <li>
+          <a class="s-sidebar__nav-link" routerLink="" >
+            <i class="fa fa-user"></i><em>Nombre Usuario</em>
+          </a>
+       </li>
+
+          <li>
+             <a class="s-sidebar__nav-link" routerLink="/reportes">
+               <i class="fa fa-archive"></i><em>Reportes</em>
+             </a>
+          </li>
+          <li>
+            <a class="s-sidebar__nav-link" routerLink="/configuracion">
+              <i class="fa fa-cog"></i><em>Configuración</em>
+            </a>
+         </li>
+         <li>
+          <a class="s-sidebar__nav-link" routerLink="/ayuda"  >
+            <i class="fa fa-info-circle"></i><em>Ayuda</em>
+          </a>
+       </li>
+      
+
+          <li>
+            <a class="s-sidebar__nav-link" style="cursor: pointer;" (click)="authService.logOut()">
+              <i class="fas fa-sign-out-alt"></i><em >Salir</em>
+            </a>
+         </li>
+
+        
+       </ul>
+    </nav>
+  </div>
+  
+  <!-- Content -->
+ 
+  </div>
+ 

@@ -1,6 +1,8 @@
 <app-sidebar></app-sidebar>
-<div class="main">
+<main class="s-layout__content">
+  <div class="centrarcards">
     <app-cards></app-cards>
+  </div>
     <div class="plus">
       <button class="button button1" type="submit" routerLink="/crear-fact"><strong>Generar</strong></button>
       <a></a>
@@ -48,6 +50,7 @@
     </tbody>
   </table>
 </div>
+<br>
   <div class="contenedor" *ngIf="!ver">
     <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
       <div class="form-row" >
@@ -136,7 +139,5 @@
         </div>
       </form>
       </div>
-</div>
-<br>
-<br>
-
+    </main >
+     

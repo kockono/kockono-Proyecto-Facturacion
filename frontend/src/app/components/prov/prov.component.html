@@ -1,10 +1,11 @@
 <app-sidebar></app-sidebar>
+<main class="s-layout__content">
+<div class="centrarcards">
+  <app-cards></app-cards>
+</div>
 
-<div class="main">
-  
-    <app-cards></app-cards>
-    <br>
-    <input type="text" class="form-control" name="filterpost" placeholder="Buscar" [(ngModel)]="filterpost">
+    <br> 
+    <input type="text" class="form-control busqueda" name="filterpost" placeholder="Buscar" [(ngModel)]="filterpost">
     <div class="plus">
       <button class="button button1" type="submit" routerLink="/datos-emisor-prov"><strong>Agregar</strong></button>
       <a></a>
@@ -57,7 +58,7 @@
   </table>
 </div>
 <br><div class="contenedor" *ngIf="!monstrar">
-    <legend class="center"> Editar los Datos del Proveedor</legend>
+    <legend > Editar los Datos del Proveedor</legend>
   
     <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
       <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
@@ -238,8 +239,6 @@
         </div>
       </form>
       </div>
-
-</div>
-<br>
+    </main>
 
 
