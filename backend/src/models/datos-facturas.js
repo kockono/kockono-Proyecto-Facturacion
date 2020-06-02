@@ -23,6 +23,7 @@ const FacturasSchema = new Schema({
     importe	:{type:Number},
     subtotal:{type:Number},
     total:{type:Number},
+    iva:{type:Number}
 })
 
 module.exports = model('Fact', FacturasSchema);

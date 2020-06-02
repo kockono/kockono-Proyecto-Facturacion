@@ -27,7 +27,8 @@ router.post('/', (req, res) => {
         uMed:req.body.uMed,
         importe:req.body.importe,	
         subtotal:req.body.subtotal,
-        total:req.body.total
+        total:req.body.total,
+        iva:req.body.iva
     });
 
     
@@ -64,7 +65,8 @@ router.put('/:id', (req, res) => {
             uMed:req.body.uMed,
             importe:req.body.importe,	
             subtotal:req.body.subtotal,
-            total:req.body.total
+            total:req.body.total,
+            iva:req.body.iva
         });
 
     let ID = req.params.id;

@@ -50,12 +50,12 @@
 
         <div class="form-group col-md-12">
           <label for="inputZip">Monto:</label>
-          <input type="number" class="form-control" id="inputMonto" name="monto" #name="ngModel" 
+          <input type="text" class="form-control" id="inputMonto" name="monto" #name="ngModel" 
           [(ngModel)]="datosEmpresaService2.selectEmpresa.monto" placeholder="Monto">
         </div>
         <div class="form-group col-md-1">
           <label for="inputZip">Unidades:</label>
-          <input type="text" class="form-control"   id="inputUnidades" name="unidades" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.unidades"  placeholder="Unidades">
+          <input type="number" class="form-control"   id="inputUnidades" name="unidades" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.unidades"  placeholder="Unidades">
         </div> 
         <div class="form-group col-md-2">
           <label for="inputZip">Articulo:</label>
@@ -82,19 +82,23 @@
           <label for="inputZip">Agregar</label>
           <button class="btn btn-custom right" type="button"  (click)="nada()" >+</button>
         </div> 
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
           <label for="inputZip">Importe:</label>
           <input type="text" class="form-control"  id="inputImporte" name="importe" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.importe"  placeholder="Importe">
         </div> 
-        <div class="form-group col-md-7">
+        <div class="form-group col-md-3">
           <label for="inputZip">Subtotal:</label>
           <input type="text" class="form-control"  id="inputSubtotal" name="subtotal" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.subtotal"  placeholder="Subtotal">
         </div> 
-        <div class="form-group col-md-7">
+        <div class="form-group col-md-3">
+          <label for="inputZip">IVA:</label>
+          <input type="text" class="form-control"  id="inputIVA" name="iva" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.iva"  placeholder="IVA">
+        </div> 
+        <div class="form-group col-md-5">
           <label for="inputZip">Total:</label>
           <input type="text" class="form-control"  id="inputTotal" name="total" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.total"   placeholder="Total">
         </div> 
-        <div class="form-group col-md-7">
+        <div class="form-group col-md-5">
           <label for="inputZip">Razón Social:</label>
           <input type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.razon" placeholder="Razon">
         </div>  

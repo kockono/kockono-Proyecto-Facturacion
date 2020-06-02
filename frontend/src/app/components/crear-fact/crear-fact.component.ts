@@ -107,7 +107,8 @@ export class CrearFactComponent implements OnInit {
       uMed: '',
       importe:null,	
       subtotal:null,
-      total:null
+      total:null,
+      iva:null
     }
   }
   /* De momento no quitar funcion nada */

@@ -73,7 +73,8 @@ a:hover {
   position: fixed;
   top: 0;
   left: -10em;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   transition: all .3s ease-in;
   width: 10em;
   height: 100%;

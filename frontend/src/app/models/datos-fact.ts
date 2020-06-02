@@ -21,4 +21,5 @@ export class DatosFact {
     importe:number;
     subtotal:number;
     total:number;
+    iva: number;
   }
