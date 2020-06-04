@@ -19,6 +19,7 @@ app.use('/clientes', require('./controllers/datos-clientes'));
 app.use('/provedores', require('./controllers/datos-provedor'));
 app.use('/facturas', require('./controllers/datos-facturas'));
 app.use('/datos-mi-empresa', require('./controllers/datos-mi-empresa'))
+app.use('/articulos-y-servicios', require('./controllers/articulos-y-servicios'))
 
 // Servidor
 app.listen(PORT, () => console.log(`Escuchando por el puerto ${PORT}`) );

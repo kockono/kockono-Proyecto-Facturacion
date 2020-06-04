@@ -1,0 +1,47 @@
+<app-sidebar></app-sidebar>
+<main class="s-layout__content">
+  <div class="centrarcards">
+    <app-cards></app-cards>
+<div class="cartas">
+</div>
+<div class="contenedor">
+
+    <legend class="center">Nuevo Articulos y servicios</legend>
+  
+    <form #ArtServForm="ngForm" (ngSubmit)="onSubmit(ArtServForm)">
+      <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ._id">
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputZip">Articulo o Servicio:</label>
+        <input type="text" class="form-control"   id="inputArticuloServicio" name="articuloServicio" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.articuloServicio" placeholder="Ejem: Gabinete, Monitor, Agua">
+      </div> 
+      <div class="form-group col-md-6">
+        <label for="inputZip">Nombre:</label>
+        <input type="text" class="form-control"   id="inputNombre" name="nombre" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.nombre" placeholder="Ejem: Laptop">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputZip">Precio:</label>
+        <input type="text" class="form-control"   id="inputPrecio" name="precio" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.precio" placeholder="Ejem: 1000">
+      </div> 
+      <div class="form-group col-md-3">
+        <label for="inputZip">U.Med:</label>
+        <input type="text" class="form-control"   id="inputUMed" name="uMed" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.uMed" placeholder="Ejem: Kg, Metros, NA">
+      </div> 
+    </div>
+    <button class="btn btn-custom right" type="button"  (click)="resetForm(ArtServForm)" > Reset </button>
+    <button class="boton" type="submit" [disabled]="!ArtServForm.valid" >Finalizar</button>
+  </form>
+  </div>
+</div>
+</main>
+     
+    
+
+
+
+
+
+
+
+    

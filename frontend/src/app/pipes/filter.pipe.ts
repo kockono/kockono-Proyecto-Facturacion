@@ -11,7 +11,7 @@ export class FilterPipe implements PipeTransform {
 
     for(const post of value) {
 
-      if(post.nombreDeLaEmpresa.toLowerCase().indexOf(arg.toLowerCase()) > -1){
+      if(post.nombreDeLaEmpresa.toLowerCase().indexOf(arg.toLowerCase())  > -1){
         resultadoPosts.push(post);
         console.log("Sip");
       }

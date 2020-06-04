@@ -24,6 +24,8 @@ import { ProvComponent } from './components/provedores/prov.component';
 import { DatosEmisorProvComponent } from './components/crear-provedor/datos-emisor-prov.component';
 import { FactComponent } from './components/facturas/fact.component';
 import { CrearFactComponent } from './components/crear-fact/crear-fact.component';
+import { ArticulosYServiciosComponent } from './components/articulos-y-servicios/articulos-y-servicios.component';
+import { CrearArticulosYServiciosComponent } from './components/crear-articulos-y-servicios/crear-articulos-y-servicios.component';
 
 // Seguridad
 import { TokenInterceptorService } from './services/token-interceptor.service';
@@ -62,6 +64,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     CrearFactComponent,
     FilterPipe,
     DatosMiEmpresaComponent,
+    ArticulosYServiciosComponent,
+    CrearArticulosYServiciosComponent,
 
   ],
   imports: [
