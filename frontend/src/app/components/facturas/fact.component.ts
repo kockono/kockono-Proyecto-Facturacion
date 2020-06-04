@@ -89,8 +89,10 @@ export class FactComponent implements OnInit {
     }
   }
   cambiarEstatus(emp: DatosFact){
+    if (confirm('Estas seguro que deseas cancelarlo ?') == true) {
     this.datosEmpresaService.selectEmpresa = emp;
     this.datosEmpresaService.selectEmpresa.estatus = 'Cancelado';
     this.datosEmpresaService.putCancelado(emp).subscribe();
+    }
   }
 }
