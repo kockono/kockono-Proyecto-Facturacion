@@ -1,51 +1,110 @@
 <app-sidebar></app-sidebar> 
 <main class="s-layout__content">
-  <div class="centrarcards">
-    <div class="contenedor">
+    <div class="contenedor" >
           <legend class="center"> Datos de mi empresa </legend>
-        <form >
+        <form #empresaForm="ngForm" (ngSubmit)="onEnvioDatosEmpresa()">
+          <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="TodosDatos._id">
+
           <div class="form-row">
             <div class="form-group col-md-7">
               <label for="inputZip">Nombre de mi empresa:</label>
-              <input type="text" class="form-control"   id="inputNombreDeMiEmpresa"  placeholder="Nombre de mi empresa">
+              <input type="text" class="form-control" name="nombreDeLaEmpresa"  id="inputNombreDeMiEmpresa"  placeholder="Nombre de mi empresa" #name="ngModel" [(ngModel)]="TodosDatos.nombreDeLaEmpresa">
             </div> 
             <div class="form-group col-md-5">
+              <label for="inputZip">Correo:</label>
+              <input type="text" class="form-control"  name="email" id="inputEmail" placeholder="Correo" #name="ngModel" [(ngModel)]="TodosDatos.email">
+            </div>
+            <div class="form-group col-md-5">
               <label for="inputZip">Calle:</label>
-              <input type="text" class="form-control"   id="inputCalle" placeholder="Calle">
+              <input type="text" class="form-control"    name="calle" id="inputCalle" placeholder="Calle" #name="ngModel" [(ngModel)]="TodosDatos.calle">
             </div>
             <div class="form-group col-md-3">
               <label for="inputZip">Numero:</label>
-              <input type="text" class="form-control"   id="inputNumero" placeholder="Numero">
+              <input type="text" class="form-control"    name="numero" id="inputNumero" placeholder="Numero" #name="ngModel" [(ngModel)]="TodosDatos.numero">
             </div> 
             <div class="form-group col-md-4">
               <label for="inputZip">Colonia:</label>
-              <input type="text" class="form-control"   id="inputUnidades" placeholder="Colonia">
+              <input type="text" class="form-control"   name="colonia"  id="inputUnidades" placeholder="Colonia" #name="ngModel" [(ngModel)]="TodosDatos.colonia">
             </div> 
             <div class="form-group col-md-5">
               <label for="inputZip">Pais:</label>
-              <input type="text" class="form-control"   id="inputPais"  placeholder="Pais">
+              <input type="text" class="form-control"    name="pais" id="inputPais"  placeholder="Pais" #name="ngModel" [(ngModel)]="TodosDatos.pais">
             </div> 
             <div class="form-group col-md-3">
               <label for="inputZip">Estado:</label>
-              <input type="text" class="form-control"   id="inputEstado" placeholder="Estado">
+              <input type="text" class="form-control"  name="estado"   id="inputEstado" placeholder="Estado" #name="ngModel" [(ngModel)]="TodosDatos.estado">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
               <label for="inputZip">Municipio:</label>
-              <input type="text" class="form-control"  id="inputMunicipio" placeholder="Municipio">
+              <input type="text" class="form-control"   name="municipio" id="inputMunicipio" placeholder="Municipio" #name="ngModel" [(ngModel)]="TodosDatos.municipio">
             </div> 
             <div class="form-group col-md-3">
                 <label for="inputZip">CP:</label>
-                <input type="text" class="form-control"  id="inputCodigoPostal" placeholder="Codigo postal">
+                <input type="text" class="form-control"   name="codigoPostal" id="inputCodigoPostal" placeholder="Codigo postal" #name="ngModel" [(ngModel)]="TodosDatos.codigoPostal">
               </div> 
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-5">
                 <label for="inputZip">RFC:</label>
-                <input type="text" class="form-control"  id="inputRFC" placeholder="RFC">
+                <input type="text" class="form-control"  name="rfc"  id="inputRFC" placeholder="RFC" #name="ngModel" [(ngModel)]="TodosDatos.rfc">
               </div> 
           </div>
-          <button class="btn btn-custom right" type="button"  > Reset </button>
-          <button class="boton" type="submit"  >Finalizar</button>
+          <button class="btn btn-custom right" type="button"  (click)="resetForm(empresaForm)" > Reset </button>
+          <button class="boton" type="submit" [disabled]="!empresaForm.valid" >Finalizar</button>
         </form>
       </div>
-    </div>
     
+    
+     <div class="contenedor" >
+      <form *ngFor="let dato of datosMiEmpresaService.DatosEmpresa"> 
+        <div class="form-row" >
+            <legend class="center"> Ver los datos del Cliente</legend>
+            <div class="form-group col-md-7">
+              <label  >Nombre de la empresa:</label>
+              <a type="text" class="form-control"  name="nombreDeLaEmpresa">{{dato.nombreDeLaEmpresa}}
+            </a></div>
+            <div class="form-group col-md-5">
+              <label >Correo:</label>
+              <a type="email" class="form-control" placeholder="Email">{{dato.email}}</a>
+            </div>
+            <div class="form-group col-md-5">
+              <label >Calle:</label>
+              <a type="text" class="form-control" name="calle" >{{dato.calle}}</a>
+            </div>
+            <div class="form-group col-md-5">
+              <label >Numero:</label>
+              <a type="text" class="form-control"  name="numero" >{{dato.numero}}</a>
+            </div>
+            <div class="form-group col-md-3">
+              <label >Colonia:</label>
+              <a type="number" class="form-control"  name="colonia" >{{dato.colonia}}</a>
+            </div>
+            <div class="form-group col-md-4"  >
+              <label >Pais:</label>
+              <a type="text" class="form-control" >{{dato.pais}}</a>
+            </div>
+            <div class="form-group col-md-5">
+              <label >Estado:</label>
+              <a type="text" class="form-control" name="estado" >{{dato.estado}}</a>
+            </div>  
+        
+            <div class="form-group col-md-6">
+              <label >Municipio</label>
+              <a type="text" class="form-control"  name="municipio">{{dato.municipio}}</a>
+            </div>
+        
+            <div class="form-group col-md-1">
+              <label >C.P:</label>
+              <a type="text" class="form-control" name="codigoPostal">{{dato.codigoPostal}}</a>
+            </div>
+            <div class="form-group col-md-2">
+              <label >RFC:</label>
+              <a type="text" class="form-control" name="rfc" >{{dato.rfc}}</a>
+            </div>
+          </div>
+        </form>
+        </div> 
+    <br> 
+
+   
+
+
     </main>

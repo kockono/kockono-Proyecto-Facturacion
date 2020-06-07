@@ -25,7 +25,7 @@
     <tbody>
       <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
       </form>
-      <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa; let i = index" [ngStyle]="{'background-color' : (emp.estatus == 'Cancelado') ? '#DEDEDE' : 'white'}">
+      <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa; let i = index" [ngStyle]="{'background-color' : (emp.estatus == 'Cancelado') ? '#BCBCBC' : 'white'}">
         <th scope="row">{{i+1}}</th>
         <td>{{emp.folio}}</td>
         <td>{{emp.nombreDeLaEmpresa}}</td>

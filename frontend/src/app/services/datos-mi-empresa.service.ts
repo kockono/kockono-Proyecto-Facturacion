@@ -13,8 +13,8 @@ export class DatosMiEmpresaService {
   
     constructor(private http: HttpClient) { }
   
-    postDatos(emp: DatosMiEmpresa){
-      return this.http.post(this.URL, emp)
+    postDatos(empresa){
+      return this.http.post(this.URL, empresa)
     }
     getDatosList(){
       return this.http.get(this.URL);

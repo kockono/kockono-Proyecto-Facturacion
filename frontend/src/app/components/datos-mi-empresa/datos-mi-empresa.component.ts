@@ -12,10 +12,24 @@ import { DatosMiEmpresa } from '../../models/datos-mi-empresa';
 export class DatosMiEmpresaComponent implements OnInit {
 
   constructor(public datosMiEmpresaService: DatosMiEmpresaService) { }
-  monstrar = true;
-  ver = true;
-  filterpost = '';
+  mostrar= false;
+
   
+  TodosDatos= {
+    _id: "",
+      nombreDeLaEmpresa: "",
+      ver:true,
+      email: "",
+      calle: "",
+      numero: null,
+      colonia: "",
+      pais: "",
+      estado: "",
+      municipio: "",
+      codigoPostal: null,
+      rfc: ""
+  };
+
   ngOnInit(){
     this.resetForm();
     this.refrescarListaDeEmpresa();
@@ -26,8 +40,7 @@ export class DatosMiEmpresaComponent implements OnInit {
     });
   }
   onEdit(emp: DatosMiEmpresa) {
-    this.datosMiEmpresaService.selectEmpresa = emp;
-                                
+    this.datosMiEmpresaService.selectEmpresa = emp;                             
   }
 
   resetForm(form?: NgForm) {
@@ -36,6 +49,8 @@ export class DatosMiEmpresaComponent implements OnInit {
     this.datosMiEmpresaService.selectEmpresa = {
       _id: "",
       nombreDeLaEmpresa: "",
+      ver:true,
+      email: "",
       calle: "",
       numero: null,
       colonia: "",
@@ -47,33 +62,14 @@ export class DatosMiEmpresaComponent implements OnInit {
     }
   }
   
-  onSubmit(form: NgForm){
-    if(form.value._id == ""){
-      this.datosMiEmpresaService.postDatos(form.value).subscribe((res) => {
-        this.refrescarListaDeEmpresa();
-        console.log(this.datosMiEmpresaService.selectEmpresa.nombreDeLaEmpresa);
+  onEnvioDatosEmpresa(){
+        this.datosMiEmpresaService.postDatos(this.TodosDatos).subscribe();
         window.alert("Se Guardo Correctamente");
-        // window.location.reload();
-      });
-    }else{
-      this.datosMiEmpresaService.putDatos(form.value).subscribe((res)=>{
-        this.resetForm(form);
-        this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizo Correctamente");
-        this.monstrar=!this.monstrar;
-      });
-    }
-  }
-  onDelete(_id: string, form: NgForm) {
-    if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
-      this.datosMiEmpresaService.deleteDato(_id).subscribe((res) =>{
-        this.refrescarListaDeEmpresa();
-        // this.resetForm(form);
-        window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });
-        
-      });
-    }
-  }
+}
+
+
+  
+
 
 }
 
