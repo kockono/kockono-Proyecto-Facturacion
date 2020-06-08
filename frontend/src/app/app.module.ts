@@ -26,6 +26,8 @@ import { FactComponent } from './components/facturas/fact.component';
 import { CrearFactComponent } from './components/crear-fact/crear-fact.component';
 import { ArticulosYServiciosComponent } from './components/articulos-y-servicios/articulos-y-servicios.component';
 import { CrearArticulosYServiciosComponent } from './components/crear-articulos-y-servicios/crear-articulos-y-servicios.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
+
 
 // Seguridad
 import { TokenInterceptorService } from './services/token-interceptor.service';
@@ -39,6 +41,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+
 
 
 
@@ -66,6 +69,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     DatosMiEmpresaComponent,
     ArticulosYServiciosComponent,
     CrearArticulosYServiciosComponent,
+    ReportesComponent,
 
   ],
   imports: [
@@ -78,6 +82,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    
   ],
   providers: [
     AuthGuard,

@@ -18,7 +18,7 @@ import { CrearFactComponent } from './components/crear-fact/crear-fact.component
 import { DatosMiEmpresaComponent } from './components/datos-mi-empresa/datos-mi-empresa.component';
 import { ArticulosYServiciosComponent } from './components/articulos-y-servicios/articulos-y-servicios.component';
 import { CrearArticulosYServiciosComponent } from './components/crear-articulos-y-servicios/crear-articulos-y-servicios.component';
-
+import { ReportesComponent } from './components/reportes/reportes.component';
 
 
 const routes: Routes = [
@@ -39,7 +39,8 @@ const routes: Routes = [
  {path: 'crear-fact', component: CrearFactComponent,canActivate:[AuthGuard]},
  {path: 'datos-mi-empresa', component: DatosMiEmpresaComponent, canActivate:[AuthGuard]},
  {path: 'articulos-y-servicios', component: ArticulosYServiciosComponent, canActivate:[AuthGuard]},
- {path: 'crear-articulos-y-servicios', component: CrearArticulosYServiciosComponent, canActivate:[AuthGuard]}
+ {path: 'crear-articulos-y-servicios', component: CrearArticulosYServiciosComponent, canActivate:[AuthGuard]},
+ {path: 'reportes', component: ReportesComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

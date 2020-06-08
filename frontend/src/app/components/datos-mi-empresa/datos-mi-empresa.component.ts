@@ -6,8 +6,7 @@ import { DatosMiEmpresa } from '../../models/datos-mi-empresa';
 @Component({
   selector: 'app-datos-mi-empresa',
   templateUrl: './datos-mi-empresa.component.html',
-  styleUrls: ['./datos-mi-empresa.component.css'],
-  providers: [DatosMiEmpresaService]
+  styleUrls: ['./datos-mi-empresa.component.css']
 })
 export class DatosMiEmpresaComponent implements OnInit {
 
