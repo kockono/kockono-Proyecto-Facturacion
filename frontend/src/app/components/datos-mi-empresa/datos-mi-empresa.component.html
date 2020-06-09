@@ -1,59 +1,60 @@
-<app-sidebar></app-sidebar>
+<app-sidebar></app-sidebar> 
 <main class="s-layout__content">
-    <div class="contenedor" >
+    <div class="contenedor"  >
           <legend class="center"> Datos de mi empresa </legend>
-        <form #empresaForm="ngForm" (ngSubmit)="onEnvioDatosEmpresa()">
-          <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="TodosDatos._id">
+        <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
+          <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa._id">
 
           <div class="form-row">
             <div class="form-group col-md-7">
               <label for="inputZip">Nombre de mi empresa:</label>
-              <input type="text" class="form-control" name="nombreDeLaEmpresa"  id="inputNombreDeMiEmpresa"  placeholder="Nombre de mi empresa" #name="ngModel" [(ngModel)]="TodosDatos.nombreDeLaEmpresa">
+              <input type="text" class="form-control" name="nombreDeLaEmpresa"  id="inputNombreDeMiEmpresa"  placeholder="Nombre de mi empresa" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa.nombreDeLaEmpresa">
             </div> 
             <div class="form-group col-md-5">
               <label for="inputZip">Correo:</label>
-              <input type="text" class="form-control"  name="email" id="inputEmail" placeholder="Correo" #name="ngModel" [(ngModel)]="TodosDatos.email">
+              <input type="text" class="form-control"  name="email" id="inputEmail" placeholder="Correo" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa.email">
             </div>
             <div class="form-group col-md-5">
               <label for="inputZip">Calle:</label>
-              <input type="text" class="form-control"    name="calle" id="inputCalle" placeholder="Calle" #name="ngModel" [(ngModel)]="TodosDatos.calle">
+              <input type="text" class="form-control"    name="calle" id="inputCalle" placeholder="Calle" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa.calle">
             </div>
             <div class="form-group col-md-3">
               <label for="inputZip">Numero:</label>
-              <input type="text" class="form-control"    name="numero" id="inputNumero" placeholder="Numero" #name="ngModel" [(ngModel)]="TodosDatos.numero">
+              <input type="text" class="form-control"    name="numero" id="inputNumero" placeholder="Numero" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa.numero">
             </div> 
             <div class="form-group col-md-4">
               <label for="inputZip">Colonia:</label>
-              <input type="text" class="form-control"   name="colonia"  id="inputUnidades" placeholder="Colonia" #name="ngModel" [(ngModel)]="TodosDatos.colonia">
+              <input type="text" class="form-control"   name="colonia"  id="inputUnidades" placeholder="Colonia" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa.colonia">
             </div> 
             <div class="form-group col-md-5">
               <label for="inputZip">Pais:</label>
-              <input type="text" class="form-control"    name="pais" id="inputPais"  placeholder="Pais" #name="ngModel" [(ngModel)]="TodosDatos.pais">
+              <input type="text" class="form-control"    name="pais" id="inputPais"  placeholder="Pais" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa.pais">
             </div> 
             <div class="form-group col-md-3">
               <label for="inputZip">Estado:</label>
-              <input type="text" class="form-control"  name="estado"   id="inputEstado" placeholder="Estado" #name="ngModel" [(ngModel)]="TodosDatos.estado">
+              <input type="text" class="form-control"  name="estado"   id="inputEstado" placeholder="Estado" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa.estado">
             </div>
             <div class="form-group col-md-4">
               <label for="inputZip">Municipio:</label>
-              <input type="text" class="form-control"   name="municipio" id="inputMunicipio" placeholder="Municipio" #name="ngModel" [(ngModel)]="TodosDatos.municipio">
+              <input type="text" class="form-control"   name="municipio" id="inputMunicipio" placeholder="Municipio" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa.municipio">
             </div> 
             <div class="form-group col-md-3">
                 <label for="inputZip">CP:</label>
-                <input type="text" class="form-control"   name="codigoPostal" id="inputCodigoPostal" placeholder="Codigo postal" #name="ngModel" [(ngModel)]="TodosDatos.codigoPostal">
+                <input type="text" class="form-control"   name="codigoPostal" id="inputCodigoPostal" placeholder="Codigo postal" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa.codigoPostal">
               </div> 
               <div class="form-group col-md-5">
                 <label for="inputZip">RFC:</label>
-                <input type="text" class="form-control"  name="rfc"  id="inputRFC" placeholder="RFC" #name="ngModel" [(ngModel)]="TodosDatos.rfc">
+                <input type="text" class="form-control"  name="rfc"  id="inputRFC" placeholder="RFC" #name="ngModel" [(ngModel)]="datosMiEmpresaService.selectEmpresa.rfc">
               </div> 
           </div>
-          <button class="btn btn-custom right" type="button"  (click)="resetForm(empresaForm)" > Reset </button>
+          <button class="btn btn-custom right" type="button"  (click)="resetForm(empresaForm)" > Reset </button>  
           <button class="boton" type="submit" [disabled]="!empresaForm.valid" >Finalizar</button>
         </form>
-      </div>
+      </div> 
     
-    
-     <div class="contenedor" >
+
+         
+     <div class="contenedor">
       <form *ngFor="let dato of datosMiEmpresaService.DatosEmpresa"> 
         <div class="form-row" >
             <legend class="center"> Ver los datos del Cliente</legend>
@@ -69,42 +70,43 @@
               <label >Calle:</label>
               <a type="text" class="form-control" name="calle" >{{dato.calle}}</a>
             </div>
-            <div class="form-group col-md-5">
+            <div class="form-group col-md-3">
               <label >Numero:</label>
               <a type="text" class="form-control"  name="numero" >{{dato.numero}}</a>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4"> 
               <label >Colonia:</label>
               <a type="number" class="form-control"  name="colonia" >{{dato.colonia}}</a>
             </div>
-            <div class="form-group col-md-4"  >
+            <div class="form-group col-md-5"  >
               <label >Pais:</label>
               <a type="text" class="form-control" >{{dato.pais}}</a>
             </div>
-            <div class="form-group col-md-5">
+            <div class="form-group col-md-3">
               <label >Estado:</label>
               <a type="text" class="form-control" name="estado" >{{dato.estado}}</a>
             </div>  
         
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
               <label >Municipio</label>
               <a type="text" class="form-control"  name="municipio">{{dato.municipio}}</a>
             </div>
         
-            <div class="form-group col-md-1">
+            <div class="form-group col-md-3">
               <label >C.P:</label>
               <a type="text" class="form-control" name="codigoPostal">{{dato.codigoPostal}}</a>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-5">
               <label >RFC:</label>
               <a type="text" class="form-control" name="rfc" >{{dato.rfc}}</a>
             </div>
           </div>
+          <a class="action-btn" (click)="onEdit(dato)" (click)="editar=!editar">
+            <button class="boton boton2"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" >  Actualizar</button>
+          </a>
         </form>
         </div> 
-    <br> 
-
-   
 
 
-    </main>
+        <br> 
+         </main>

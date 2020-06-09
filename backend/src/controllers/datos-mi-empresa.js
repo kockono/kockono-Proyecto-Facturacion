@@ -4,7 +4,6 @@ let ObjectId = require('mongoose').Types.ObjectId;
 let datosMiEmpresa  = require('../models/datos-mi-empresa');
 
 router.post('/', (req, res) => {
-   console.log("ya esta");
     let empresa = new datosMiEmpresa ({
 
         nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
@@ -66,7 +65,6 @@ router.delete('/:id', (req, res) => {
 });
 
 router.get('/', (req,res) => {
-    console.log("ya esta 1");
 
     datosMiEmpresa.find((err,doc) => {
         if(!err) {res.send(doc)}
@@ -75,7 +73,6 @@ router.get('/', (req,res) => {
 });
 
 router.get('/:id', (req, res) => {
-    console.log("ya esta 2");
 
     if(!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No se encontro la id: ${req.params.id}`);

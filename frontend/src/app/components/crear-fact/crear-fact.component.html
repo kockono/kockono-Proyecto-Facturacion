@@ -98,10 +98,10 @@
           <button class="btn btn-custom right" type="button"  (click)="nada(empresaForm)" >+</button>
         </div> 
 
-        <div class="row" *ngFor="let row of te">
-          <div class="col form-group col-md-1" *ngFor="let col of row">
-           <div class="form-group col-md-1">
-            <input for="inputZip" value="{{col}}">
+        <div class="row" *ngFor="let row of te"><!--  <-- te es el arreglo de articulos  y row es donde guarda los articulos-->
+          <div class="col form-group col-md-1" *ngFor="let col of row"> <!-- col es donde guarda el arreglo de arreglos de ariculos de row -->
+           <div class="form-group col-md-1">  
+            <input for="inputZip" value="{{col}}"><!-- aqui estan los datos de cada arreglo  -->
             </div>
           </div>
         </div>  

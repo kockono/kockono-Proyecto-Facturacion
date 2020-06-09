@@ -3,19 +3,22 @@
   <div class="centrarcards">
     <app-cards></app-cards>
   </div>
+  <br>
   <a href=""></a>
   <input type="text" class="form-control busqueda" name="filterpost" placeholder="Buscar" [(ngModel)]="filterpost">
+  <br>
 <div class="contenedor">
   <input type="radio" name="filtro" id="todo" checked>
-  <label for="todo">Todos </label>
+  <label for="todo">Todos</label>
   <input type="radio" name="filtro" id="cliente">
-  <label for="cliente">Clientes </label>
+  <label for="cliente">Clientes</label>
   <input type="radio" name="filtro" id="total">
-  <label for="total">Total </label>
+  <label for="total">Total</label>
   <input type="radio" name="filtro" id="estatus">
-  <label for="estatus">Estatus </label>
+  <label for="estatus">Estatus</label>
   <input type="radio" name="filtro" id="folio">
-  <label for="folio">Folio </label>
+  <label for="folio">Folio</label>
+
   <p style="text-align:center; font-size: 30px;"><strong>Reporte de Facturas</strong></p>
   <table class="table" id="reportes">
     <thead class="thead" id="reportes">
@@ -33,7 +36,7 @@
     <tbody id="reportes">
       <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
       </form>
-      <tr *ngFor="let emp of datosEmpresaService2.DatosEmpresa | filter:filterpost; let i = index" [ngStyle]="{'background-color' : (emp.estatus == 'Cancelado') ? '#DEDEDE' : 'white'}">
+      <tr *ngFor="let emp of datosEmpresaService2.DatosEmpresa | filter:filterpost; let i = index" [ngStyle]="{'background-color' : (emp.estatus == 'Cancelado') ? '#BCBCBC' : 'white'}">
         <th scope="row">{{i+1}}</th>
           <td class="folio">{{emp.folio}}</td>
           <td class="cliente">{{emp.nombreDeLaEmpresa}}</td>

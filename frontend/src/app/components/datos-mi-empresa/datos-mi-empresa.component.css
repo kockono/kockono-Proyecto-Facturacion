@@ -61,6 +61,24 @@
     transform: scale(1.1);
     color: white;
     }
+    .boton2 {
+      background-color: rgb(50, 153, 96);
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      display: inline-block;
+      font-size: 16px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 20px;
+      text-align: center;
+     }
+    
+      .boton2:hover {
+      background-color:rgb(14, 92, 49);
+      transform: scale(1.1);
+      color: white;
+      }
   /* Layout */
   .s-layout {
     display: flex;
