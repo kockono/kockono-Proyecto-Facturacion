@@ -22,4 +22,5 @@ export class DatosFact {
     subtotal:number;
     total:number;
     iva: number;
+    artarr: any[];
   }

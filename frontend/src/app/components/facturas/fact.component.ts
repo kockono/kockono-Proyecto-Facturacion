@@ -58,7 +58,8 @@ export class FactComponent implements OnInit {
       importe:null,	
       subtotal:null,
       total:null,
-      iva:null
+      iva:null,
+      artarr:[null]
     }
   }
   onSubmit(form: NgForm){

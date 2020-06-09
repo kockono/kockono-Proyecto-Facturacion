@@ -186,26 +186,26 @@ th, td {
 
 
 
-#cliente:checked ~ #reportes .articulo, #cliente:checked ~ 
+#cliente:checked ~ #reportes .total, #cliente:checked ~ 
 #reportes .estatus, #cliente:checked ~ 
 #reportes .folio {
   display: none;
 }
 
-#articulo:checked ~ #reportes .cliente, #articulo:checked ~ 
-#reportes .estatus, #articulo:checked ~ 
+#total:checked ~ #reportes .cliente, #total:checked ~ 
+#reportes .estatus, #total:checked ~ 
 #reportes .folio {
   display: none;
 }
 
 #estatus:checked ~ #reportes .cliente, #estatus:checked ~ 
-#reportes .articulo, #estatus:checked ~ 
+#reportes .total, #estatus:checked ~ 
 #reportes .folio {
   display: none;
 }
 
 #folio:checked ~ #reportes .cliente, #folio:checked ~ 
-#reportes .articulo, #folio:checked ~ 
+#reportes .total, #folio:checked ~ 
 #reportes .estatus {
   display: none;
 }

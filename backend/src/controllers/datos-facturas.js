@@ -28,7 +28,9 @@ router.post('/', (req, res) => {
         importe:req.body.importe,	
         subtotal:req.body.subtotal,
         total:req.body.total,
-        iva:req.body.iva
+        iva:req.body.iva,
+        /*Nuevo*/
+        artarr:req.body.artarr
     });
 
     
@@ -66,7 +68,9 @@ router.put('/:id', (req, res) => {
             importe:req.body.importe,	
             subtotal:req.body.subtotal,
             total:req.body.total,
-            iva:req.body.iva
+            iva:req.body.iva,
+            /*Nuevo*/
+            artarr:req.body.artarr
         });
 
     let ID = req.params.id;

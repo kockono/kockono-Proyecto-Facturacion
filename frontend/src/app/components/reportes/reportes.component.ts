@@ -69,7 +69,8 @@ export class ReportesComponent implements OnInit {
       importe:null,	
       subtotal:null,
       total:null,
-      iva:null
+      iva:null,
+      artarr:[]
     }
   }
   onSubmit(form: NgForm){

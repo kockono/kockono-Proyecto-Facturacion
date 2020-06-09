@@ -254,7 +254,7 @@
         <tr>
           <th scope="col">Folio</th>
           <th scope="col">Estatus</th>
-          <th scope="col">Monto</th>
+          <th scope="col">Total</th>
           <th scope="col">Fecha</th>
           <th scope="col">Cliente</th>
         </tr>
@@ -264,7 +264,7 @@
         <tr *ngFor="let emp2 of datosEmpresaService2.DatosEmpresa; let i = index" [ngStyle]="{'background-color' : (emp2.estatus == 'Cancelado') ? '#BCBCBC' : 'white'}">
           <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()" >{{emp2.folio}}</td>
           <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{emp2.estatus}}</td>
-          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{emp2.monto}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{emp2.total}}</td>
           <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{emp2.fecha}}</td>
           <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{datosEmpresaService.selectEmpresa.nombreDeLaEmpresa}}</td>
       </tr>

@@ -10,8 +10,8 @@
   <label for="todo">Todos </label>
   <input type="radio" name="filtro" id="cliente">
   <label for="cliente">Clientes </label>
-  <input type="radio" name="filtro" id="articulo">
-  <label for="articulo">Articulos </label>
+  <input type="radio" name="filtro" id="total">
+  <label for="total">Total </label>
   <input type="radio" name="filtro" id="estatus">
   <label for="estatus">Estatus </label>
   <input type="radio" name="filtro" id="folio">
@@ -23,7 +23,7 @@
         <th scope="col" >#</th>
         <th scope="col" class="folio">Folio</th>
         <th scope="col" class="cliente">Cliente</th>
-        <th scope="col" class="articulo">Articulo</th>
+        <th scope="col" class="total">Total</th>
         <th scope="col" class="estatus">Estatus</th>
         <th scope="col">Ver</th>
         <!-- <th scope="col">Editar</th> -->
@@ -37,7 +37,7 @@
         <th scope="row">{{i+1}}</th>
           <td class="folio">{{emp.folio}}</td>
           <td class="cliente">{{emp.nombreDeLaEmpresa}}</td>
-          <td class="articulo">{{emp.nombre}}</td>
+          <td class="total">{{emp.total}}</td>
           <td class="estatus">{{emp.estatus}}</td>
 
         <td class="b1">
@@ -101,37 +101,15 @@
           <div class="form-group col-md-5">
             <label for="inputZip">Via de embarque:</label>
             <a type="text" class="form-control"   id="inputViaDeEmbarque" name="viaDeEmbarque" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.viaDeEmbarque"   placeholder="Via de embarque">{{datosEmpresaService2.selectEmpresa.viaDeEmbarque}}</a>
-          </div> 
-  
-          <div class="form-group col-md-12">
-            <label for="inputZip">Monto:</label>
-            <a type="number" class="form-control" id="inputMonto" name="monto" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.monto" placeholder="Monto">{{datosEmpresaService2.selectEmpresa.monto}}</a>
           </div>
-          <div class="form-group col-md-1">
-            <label for="inputZip">Unidades:</label>
-            <a type="text" class="form-control"   id="inputUnidades" name="unidades" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.unidades"  placeholder="Unidades">{{datosEmpresaService2.selectEmpresa.unidades}}</a>
+          <div class="row" *ngFor="let row of datosEmpresaService2.selectEmpresa.artarr">
+            <div class="col form-group col-md-1" *ngFor="let col of row">
+             <div class="form-group col-md-1">
+              <input for="inputZip" value="{{col}}">
+              </div>
+            </div>
           </div> 
-          <div class="form-group col-md-2">
-            <label for="inputZip">Articulo:</label>
-            <a type="text" class="form-control"   id="inputArticulo" name="articulo" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.articulo"  placeholder="Articulo">{{datosEmpresaService2.selectEmpresa.articulo}}</a>
-          </div> 
-          <div class="form-group col-md-4">
-            <label for="inputZip">Nombre:</label>
-            <a type="text" class="form-control"   id="inputNombre" name="nombre" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.nombre"   placeholder="Nombre">{{datosEmpresaService2.selectEmpresa.nombre}}</a>
-          </div> 
-          
-          <div class="form-group col-md-1">
-            <label for="inputZip">Precio:</label>
-            <a type="text" class="form-control"   id="inputPrecio" name="precio" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.precio"   placeholder="Precio">{{datosEmpresaService2.selectEmpresa.precio}}</a>
-          </div> 
-          <div class="form-group col-md-1">
-            <label for="inputZip">Descto.:</label>
-            <a type="text" class="form-control"   id="inputDescuento" name="descuento" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.descuento"  placeholder="Descuento">{{datosEmpresaService2.selectEmpresa.descuento}}</a>
-          </div> 
-          <div class="form-group col-md-1">
-            <label for="inputZip">U.Med:</label>
-            <a type="text" class="form-control"   id="inputUMed" name="uMed" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.uMed"  placeholder="U.Med">{{datosEmpresaService2.selectEmpresa.uMed}}</a>
-          </div>
+
           <div class="form-group col-md-3">
             <label for="inputZip">Importe:</label>
             <a type="text" class="form-control"  id="inputImporte" name="importe" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.importe"  placeholder="Importe">{{datosEmpresaService2.selectEmpresa.importe}}</a>
