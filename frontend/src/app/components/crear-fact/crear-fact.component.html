@@ -98,13 +98,32 @@
           <button class="btn btn-custom right" type="button"  (click)="nada(empresaForm)" >+</button>
         </div> 
 
-        <div class="row" *ngFor="let row of te"><!--  <-- te es el arreglo de articulos  y row es donde guarda los articulos-->
-          <div class="col form-group col-md-1" *ngFor="let col of row"> <!-- col es donde guarda el arreglo de arreglos de ariculos de row -->
-           <div class="form-group col-md-1">  
-            <input for="inputZip" value="{{col}}"><!-- aqui estan los datos de cada arreglo  -->
-            </div>
+        <div class="row form-group col-md-12" *ngFor="let row of te">
+           
+          <div class="form-group col-md-4">
+           <a type="text" class="form-control">{{row[0]}}</a>
           </div>
-        </div>  
+          <div class="form-group col-md-2">
+            <a type="text" class="form-control">{{row[1]}}</a>
+          </div>
+          <div class="form-group col-md-1">
+            <a type="text" class="form-control">{{row[2]}}</a>
+          </div>
+          <div class="form-group col-md-1">
+            <a type="text" class="form-control">{{row[3]}}</a>
+          </div>
+          <div class="form-group col-md-1">
+            <a type="text" class="form-control">{{row[4]}}</a>
+          </div>
+          
+          <div class="form-group col-md-1">
+            <a type="text" class="form-control" >{{row[5]}}</a>
+          </div>
+          <div class="form-group col-md-1">
+            <a type="text" class="form-control">{{row[2]*row[3]}}</a>
+          </div>
+
+      </div>  
                 
         <!-- <div *ngFor="let emp of te; let i = index; trackBy: trackByFn">
           -{{emp.Unidades}}
