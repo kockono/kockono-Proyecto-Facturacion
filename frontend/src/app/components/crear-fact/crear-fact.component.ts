@@ -28,7 +28,6 @@ export class CrearFactComponent implements OnInit {
   descuento: number  ;
   Umed:  string  ;
   cambio:number;
-  multi:string;
   te=[];
   ta=[];
   tots:number;
@@ -69,9 +68,10 @@ export class CrearFactComponent implements OnInit {
       form.value.articulo,
       form.value.unidades, 
       form.value.precio,
-      form.value.descuento, 
-      form.value.uMed]);
-      this.multi=( form.value.precio*form.value.unidades).toString();
+      form.value.descuento,
+      form.value.uMed,
+      form.value.unidades*form.value.precio  
+      ]);
     this.sumado = +  ( form.value.precio*form.value.unidades)+this.sumado;
     this.tots=+(this.sumado*this.iv);
     console.log(this.tots);
