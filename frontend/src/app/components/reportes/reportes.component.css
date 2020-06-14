@@ -134,26 +134,26 @@ th, td {
     margin-bottom: 20px;
   }
 }
-  .busqueda {
-    width: 11%;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('/assets/img/buscar.png');
-    background-position: 15px 8px;
-    background-size: 1.5rem;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
+.busqueda {
+  width: 11%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('/assets/img/buscar.png');
+  background-position: 15px 8px;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
-    margin-left: 1%;
-  }
+  margin-left: 1%;
+}
   
-  .busqueda:focus {
-    width: 98%;
-  }
+.busqueda:focus {
+  width: 98%;
+}
 
   /* Layout */
 .s-layout {
@@ -183,8 +183,14 @@ th, td {
   }
 }
 
+th.mat-sort-header-sorted {
+  color: black;
+}
 
-
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
 
 #cliente:checked ~ #reportes .total, #cliente:checked ~ 
 #reportes .estatus, #cliente:checked ~ 
@@ -218,8 +224,4 @@ input[type="radio"] {
   background-color: rgb(255, 255, 255);
   border-color: #2196F3;
   color:#2196F3;
-}
-
-label{
-  margin-right: 15px;
 }

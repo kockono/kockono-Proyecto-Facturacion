@@ -2,8 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatosEmpresaService2 } from '../../services/datos-fact.service';
 import { DatosFact } from '../../models/datos-fact';
+import { MatTableDataSource } from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 
-  
 
 @Component({
   selector: 'app-reportes',
@@ -15,19 +17,33 @@ import { DatosFact } from '../../models/datos-fact';
 
 
 export class ReportesComponent implements OnInit {
-  
+  ELEMENT_DATA: DatosFact[];
+  displayedColumns: string[] = ['folio', 'nombreDeLaEmpresa', 'total', 'fecha', 'estatus'];
+  dataSource = new MatTableDataSource<DatosFact>(this.ELEMENT_DATA);
+
   constructor(public datosEmpresaService2: DatosEmpresaService2) { }
-  filterpost = '';
+  
   monstrar = true;
   ver = true;
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
 
   ngOnInit() {
-    this.resetForm();
-    this.refrescarListaDeEmpresa();
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.getAll();
   }
 
+public getAll(){
+  let resp = this.datosEmpresaService2.getDatosList();
+  resp.subscribe(res =>this.dataSource.data = res as DatosFact[])
+}
 
+applyFilter(filterValue: string) {
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+}
 
 /* Funciones para traer datos */
   refrescarListaDeEmpresa() {

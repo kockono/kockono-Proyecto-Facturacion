@@ -181,7 +181,7 @@ export class FactComponent implements OnInit {
     });
 
     doc.output("dataurlnewwindow");//abre  una previsualización del pdf en el navegador sin descargar 
-    // doc.save('Factura-'+this.datosEmpresaService.selectEmpresa.folio + this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa + '.pdf')
+    doc.save('Factura-'+this.datosEmpresaService.selectEmpresa.folio + this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa + '.pdf')
   }
   ngOnInit() {
     this.resetForm();

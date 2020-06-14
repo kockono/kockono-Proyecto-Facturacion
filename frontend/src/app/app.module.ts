@@ -5,6 +5,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
+//Material
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatSortModule } from '@angular/material/sort'
+import { MatInputModule } from '@angular/material/input'
+import { MatFormFieldModule } from '@angular/material'
+
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -82,6 +89,11 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatFormFieldModule
     
   ],
   providers: [
