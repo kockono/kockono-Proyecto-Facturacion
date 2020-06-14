@@ -123,6 +123,8 @@ table {
 th, td {
   text-align: left;
   padding: 8px;
+  font-size: 18px;
+
 }
 
 
@@ -188,8 +190,12 @@ th.mat-sort-header-sorted {
 }
 
 .mat-form-field {
-  font-size: 14px;
+  font-size: 18px;
   width: 100%;
+}
+mat-paginator {
+  font-size: 15px;
+
 }
 
 #cliente:checked ~ #reportes .total, #cliente:checked ~ 
@@ -224,4 +230,8 @@ input[type="radio"] {
   background-color: rgb(255, 255, 255);
   border-color: #2196F3;
   color:#2196F3;
+}
+
+label{
+  margin-right: 20px;
 }

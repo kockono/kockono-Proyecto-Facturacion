@@ -3,6 +3,7 @@
   <div class="centrarcards">
     <app-cards></app-cards>
   </div>
+  <br>
   <div class="plus">
     <button class="button button1" type="submit" routerLink="/crear-fact">
       <strong>Generar</strong>
@@ -77,7 +78,7 @@
   </div>
   <br />
   <div class="contenedor" *ngIf="!ver">
-    <button  class="button button5" (click)="GenerarPDF()">Descargar PDF</button>
+    <button  class="button fact" (click)="GenerarPDF()">Descargar PDF</button>
 
     <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
       <div class="form-row">

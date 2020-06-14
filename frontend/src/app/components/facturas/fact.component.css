@@ -93,7 +93,28 @@
   color: white;
   }
 
-
+  .fact {
+    background-color: rgb(202, 77, 55); 
+    border: none;
+    color: rgb(255, 255, 255); 
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+  .fact:hover {
+    background-color: rgb(160, 57, 39);
+    color: rgb(255, 255, 255); 
+    transform: scale(1.1);
+    border-radius: 10px;
+    font-weight: 500;
+  }
 
 .contenedor{
   overflow: auto;
