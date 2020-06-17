@@ -43,7 +43,10 @@
       box-sizing: border-box;
       }
     
-  
+      .btn-custom{
+        background-color: #68cf5a;
+        border: none;
+      }
     .boton {
     background-color: #214296;
     border: none;
