@@ -37,6 +37,17 @@ export class FactComponent implements OnInit {
   }
   monstrar = true;
   ver = true;
+  calle='';
+  numeroI='';
+  pais=''
+  colonia='';
+  municipio='';
+  Localidad='';
+  codigoP='';
+  RFC='';
+
+
+  empNombre='';
 
   GenerarPDF() {
     // doc.autoTable({
@@ -48,6 +59,8 @@ export class FactComponent implements OnInit {
     //   columns: [{ header: "Aquí va el logo" }],
     //   styles: { halign: "center", valign: "middle", cellWidth: "auto" },
     // });
+    
+    
     doc.autoTable({
       theme: ["plain"],
       startY: 0,
@@ -55,14 +68,14 @@ export class FactComponent implements OnInit {
       tableWidth: 100,
       tableLineWidth: 0,
       body: [
-        { uno: "Ave del Paraíso, 220"},
-        { uno: "Revolución"},
-        { uno: "Chihuahua"+ " , Chihuahua   CP: "+ "31135"},
-        { uno: "RFC: SAHT700529778"}, 
+        { uno: this.datosMiEmpresaService.DatosEmpresa[0].calle+", "+this.datosMiEmpresaService.DatosEmpresa[0].numero},
+        { uno: this.datosMiEmpresaService.DatosEmpresa[0].colonia},
+        { uno: this.datosMiEmpresaService.DatosEmpresa[0].estado+ " , "+this.datosMiEmpresaService.DatosEmpresa[0].municipio+" CP: "+ this.datosMiEmpresaService.DatosEmpresa[0].codigoPostal},
+        { uno: "RFC: "+this.datosMiEmpresaService.DatosEmpresa[0].rfc}, 
         ],
       headStyles: { halign: "left" },
       styles: {cellPadding: 1},
-      columns: [{ header: "Datazone", dataKey: "uno" }],
+      columns: [{ header: this.datosMiEmpresaService.DatosEmpresa[0].nombreDeLaEmpresa, dataKey: "uno" }],
     });
     doc.autoTable({
       theme: ["plain"],
@@ -93,6 +106,19 @@ export class FactComponent implements OnInit {
       ],
       styles: { halign: "rigth", cellWidth: "auto", fontSize: 10 },
     });
+    for(let emp2 of this.datosEmpresaService2.DatosEmpresa){
+      if(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()){
+        this.calle=emp2.calle;
+        this.numeroI=emp2.numExterior;
+        this.colonia=emp2.colonia;
+        this.municipio=emp2.municipio;
+        this.Localidad=emp2.localidad;
+        this.codigoP=emp2.cp;
+        this.RFC=emp2.rfc;
+        this.calle=emp2.calle;
+        this.pais=emp2.pais;
+      }
+    }
     doc.autoTable({
       theme: ["grid"],
       styles: { fontStyle: "normal", fontSize: 10, cellWidth: "auto",cellPadding:1 },
@@ -101,12 +127,22 @@ export class FactComponent implements OnInit {
       margin: { right: 130 },
       pageBreak: "avoid",
 
+      // calle='';
+      // numeroI='';
+      
+      // colonia='';
+      // municipio='';
+      
+      // Localidad='';
+      // codigoP='';
+      
+      // RFC='';
       body: [
-        { client: "Stark Industries S.A. de C.V" },
-        { client:"Juan Valle,  2554"},
-        { client: "Santa María de Guido" },
-        { client: "Japón, Tokyo CP: 21786" },
-        { client: "RFC:  GODM991107576 " },  
+        { client: this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa },
+        { client:this.calle+" "+this.numeroI},
+        { client: this.colonia },
+        { client: this.pais+" "+this.municipio+" CP:"+this.codigoP },
+        { client: "RFC: "+this.RFC },  
         // this.datosEmpresaService.selectEmpresa
       ],
       columns: [{ header: "Cliente", dataKey: "client" }],
@@ -172,11 +208,9 @@ export class FactComponent implements OnInit {
       rowPageBreak: "avoid",
       head: [["Datos SAT", "", ""]],
       body: [
-        [ , "Importe", "$" + this.datosEmpresaService.selectEmpresa.importe],
         [, "Subtotal", "$" + this.datosEmpresaService.selectEmpresa.subtotal],
         [, "IVA", "$" + this.datosEmpresaService.selectEmpresa.iva],
         [, "Total", "$" + this.datosEmpresaService.selectEmpresa.total],
-        [, "Cambio", "$" + (this.datosEmpresaService.selectEmpresa.importe-this.datosEmpresaService.selectEmpresa.total)],
       ],
     });
 
@@ -187,35 +221,14 @@ export class FactComponent implements OnInit {
     this.resetForm();
     this.refrescarListaDeEmpresa();
     this.refrescarListaDatosDatosEmisor();
+    this.refrescarListaEmp();
     console.log(this.datosEmpresaService.selectEmpresa);  
-
-//Definir datos iniciales
-    this.datosMiEmpresaService.selectEmpresa = {
-      _id: "",
-      nombreDeLaEmpresa: "",
-      ver: false,
-    email: "",
-    calle: "",
-    numero: 0,
-    colonia: "",
-    pais: "",
-    estado: "",
-    municipio: "",
-    codigoPostal: 0,
-    rfc: "",
-  //     /* Nuevos campos agregados en base a la factura ejemplo */
-    }
-    this.datosMiEmpresaService.getDatosList()
-  .subscribe(
-      res =>{
-       this.datosMiEmpresaService.selectEmpresa = res as DatosMiEmpresa;
-     },
-     err =>{
-       console.log(err);
-     }   
-  );
   }
-
+ refrescarListaEmp() {
+    this.datosMiEmpresaService.getDatosList().subscribe((res) => {
+      this.datosMiEmpresaService.DatosEmpresa = res as DatosMiEmpresa[]; 
+    });
+  }
   
   refrescarListaDeEmpresa() {
     this.datosEmpresaService.getDatosList().subscribe((res) => {
