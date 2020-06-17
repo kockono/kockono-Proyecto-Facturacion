@@ -5,7 +5,8 @@ import { DatosFact } from '../../models/datos-fact';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-
+import { ArticuloServicio } from '../../models/articulos-y-servicios';
+import { ArticuloServicioService } from '../../services/articulos-y-servicios.service';
 
 @Component({
   selector: 'app-reportes',
@@ -33,10 +34,10 @@ export class ReportesComponent implements OnInit {
   ngOnInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.getAll();
+    this.getAllFact();
   }
 
-public getAll(){
+public getAllFact(){
   let resp = this.datosEmpresaService2.getDatosList();
   resp.subscribe(res =>this.dataSource.data = res as DatosFact[])
 }

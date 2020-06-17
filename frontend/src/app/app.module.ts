@@ -48,6 +48,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { ReportesArticulosComponent } from './components/reportes/reportes-articulos/reportes-articulos.component';
 
 
 
@@ -77,6 +78,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     ArticulosYServiciosComponent,
     CrearArticulosYServiciosComponent,
     ReportesComponent,
+    ReportesArticulosComponent,
 
   ],
   imports: [

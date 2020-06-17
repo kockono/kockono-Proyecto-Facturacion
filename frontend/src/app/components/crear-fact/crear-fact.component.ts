@@ -127,11 +127,11 @@ export class CrearFactComponent implements OnInit {
           this.descuento=0;
           form.value.descuento=this.descuento;
           console.log(form.value.nombre);
-      console.log(form.value.articulo);
-      console.log(form.value.unidades);
-      console.log(form.value.precio);
-      console.log(form.value.descuento);
-      console.log(form.value.uMed);
+          console.log(form.value.articulo);
+          console.log(form.value.unidades);
+          console.log(form.value.precio);
+          console.log(form.value.descuento);
+          console.log(form.value.uMed);
           break;
         }
       }

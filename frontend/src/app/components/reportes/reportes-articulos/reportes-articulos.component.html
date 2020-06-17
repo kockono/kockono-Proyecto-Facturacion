@@ -1,0 +1,53 @@
+<main class="s-layout__content">
+  <br>
+<div class="contenedor">
+  <p style="text-align:center; font-size: 30px;"><strong>Reporte de Articulos</strong></p>
+  <input type="radio" name="filtro" id="todo" checked>
+  <label for="todo">Todos</label>
+  <input type="radio" name="filtro" id="ArtServ">
+  <label for="cliente">Art o Serv</label>
+  <input type="radio" name="filtro" id="codigo">
+  <label for="total">Codigo</label>
+  <input type="radio" name="filtro" id="precio">
+  <label for="estatus">Precio</label>
+  <input type="radio" name="filtro" id="uMed">
+  <label for="folio">U.Med</label>
+<mat-form-field>
+  <mat-label>Buscador</mat-label>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Ej. Cancelado">
+</mat-form-field>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" id="reportes">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Folio Column -->
+  <ng-container matColumnDef="nombre" class="ArtServ">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="ArtServ"> Articulo o Servicio </th>
+    <td mat-cell *matCellDef="let element" class="ArtServ"> {{element.nombre}} </td>
+  </ng-container>
+
+  <!-- Cliente Column -->
+  <ng-container matColumnDef="articuloServicio"  class="codigo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="codigo"> Codigo </th>
+    <td mat-cell *matCellDef="let element" class="codigo"> {{element.articuloServicio}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="precio"  class="precio">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="precio"> Precio </th>
+    <td mat-cell *matCellDef="let element" class="precio"> {{element.precio}} </td>
+  </ng-container>
+
+  <!-- Total Column -->
+  <ng-container matColumnDef="uMed" class="uMed">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="uMed"> U.Med </th>
+    <td mat-cell *matCellDef="let element" class="uMed"> {{element.uMed}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+</main>
