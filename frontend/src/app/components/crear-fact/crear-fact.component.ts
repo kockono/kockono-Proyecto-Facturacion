@@ -70,7 +70,7 @@ export class CrearFactComponent implements OnInit {
     this.minutes = new Date().getMinutes();
     this.seconds = new Date().getSeconds();
     this.sumado=0;
-    this.iva=1.16;
+    this.iva=16;
     this.tots=0;
     
     
@@ -103,7 +103,7 @@ export class CrearFactComponent implements OnInit {
       form.value.unidades*form.value.precio  
       ]);
     this.sumado = +  ( form.value.precio*form.value.unidades)+this.sumado;
-    this.tots=+(this.sumado*this.iva);
+    this.tots=+(this.sumado*((this.iva/100)+1));
     console.log(this.tots);
     this.precio=null;
     this.articulo=null ;
@@ -139,7 +139,7 @@ export class CrearFactComponent implements OnInit {
     }
     ora2(ll: number, form: NgForm){
       this.iva= ll;
-      this.tots=this.sumado*this.iva;
+      this.tots=this.sumado*((this.iva/100)+1);
       console.log(this.tots, this.cambio);
     }
     
