@@ -9,6 +9,8 @@ router.post('/', (req, res) => {
 
         nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
         metodo:req.body.metodo,
+        forma:req.body.forma,
+        cfdi:req.body.cfdi,
         razon:req.body.razon,
         estatus:req.body.estatus,
         fecha:req.body.fecha,
@@ -49,6 +51,8 @@ router.put('/:id', (req, res) => {
 
             nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
             metodo:req.body.metodo,
+            forma:req.body.forma,
+            cfdi:req.body.cfdi,
             razon:req.body.razon,
             estatus:req.body.estatus,
             fecha:req.body.fecha,

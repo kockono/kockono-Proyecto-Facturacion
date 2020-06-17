@@ -73,6 +73,8 @@ export class ClientesComponent implements OnInit {
       _id: '',
       nombreDeLaEmpresa: '',
       metodo:'',
+      forma:'',
+      cfdi:'',
       estatus:'',
       razon:'',
       fecha:'',

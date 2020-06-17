@@ -6,6 +6,8 @@ const FacturasSchema = new Schema({
     estatus:{type:String},
     razon:{type:String},
     metodo:{type:String},
+    forma:{type:String},
+    cfdi:{type:String},
     fecha:{type:String},
     monto:{type:Number},
     folio:{type:Number},

@@ -17,6 +17,32 @@ import { format } from 'url';
 })
 export class CrearFactComponent implements OnInit {
   matrix = [['a', 'b', 'c'],['d', 'e', 'f'],['g', 'h', 'i']];
+  listaMetodo=["Contado (PUE)","Credito (PPD)"];
+  listaForma=["Efectivo","Tarjeta","Vale/Otros","Transferencia electronica", "99 por definir"];
+  listaCFDi=[
+    "G01 Adquisiscion de mercancia",
+    "G02 Devoluciones, Descuentos o Bonificaciones",
+    "G03 Gastos en General",
+    "I01 Construcciones",
+    "I02 Mobiliario y Equipo de Oficina por Inversiones",
+    "I03 Equipo de Transporte",
+    "I04 Equipo de Cómputo y Accesorios",
+    "I05 Dados, Troqueles, Moldes, Matrices y Herramental",
+    "I06 Comunicaciones Telefónicas",
+    "I07 Comunicaciones Satelitales",
+    "I08 Otra Maquinaria y Equipo",
+    "D01 Honorarios Médicos, Dentales y Gastos Hospitalarios",
+    "D02 Gastos Médicos por Incapacidad o Discapacidad",
+    "D03 Gastos Funerales",
+    "D04 Donativos",
+    "D05 Intereses Reales Efectivamente Pagados por Créditos Hipotecarios (Casa Habitación)",
+    "D06 Aportaciones Voluntarias al SAR",
+    "D07 Primas por Seguros de Gastos Médicos",
+    "D08 Gastos de Transportación Escolar Obligatoria",
+    "D09 Depósitos en Cuentas para el Ahorro, Primas que tengan como Base Planes de Pensiones",
+    "D010 Pagos por Servicios Educativos (Colegiaturas)",
+    "P01 Por Definir"
+  ];
   selectedValue: string;
   selectedCar: string;                      
   folio: number;
@@ -31,7 +57,7 @@ export class CrearFactComponent implements OnInit {
   te=[];
   ta=[];
   tots:number;
-  iv:number;
+  iva:number;
 
 
   year:any;   month:any;  day:any;  hours:any;  minutes:any;  time:any;  seconds:any;
@@ -44,13 +70,17 @@ export class CrearFactComponent implements OnInit {
     this.minutes = new Date().getMinutes();
     this.seconds = new Date().getSeconds();
     this.sumado=0;
-    this.iv=1;
+    this.iva=1.16;
     this.tots=0;
+    
     
 
    }
    filterpost = '';
-   selected: string = "";
+   selectedCliente: string = "";
+   selectedMetodo: string = "";
+   selectedForma: string = "";
+   selectedCFDi: string = "";
 
    nada(form: NgForm){
     console.log(form.value.nombre);
@@ -73,7 +103,7 @@ export class CrearFactComponent implements OnInit {
       form.value.unidades*form.value.precio  
       ]);
     this.sumado = +  ( form.value.precio*form.value.unidades)+this.sumado;
-    this.tots=+(this.sumado*this.iv);
+    this.tots=+(this.sumado*this.iva);
     console.log(this.tots);
     this.precio=null;
     this.articulo=null ;
@@ -108,10 +138,11 @@ export class CrearFactComponent implements OnInit {
       
     }
     ora2(ll: number, form: NgForm){
-      this.cambio= ll-this.sumado;
-      this.tots=this.sumado*this.iv;
+      this.iva= ll;
+      this.tots=this.sumado*this.iva;
       console.log(this.tots, this.cambio);
     }
+    
 
   ngOnInit() {
     this.resetForm2();
@@ -188,6 +219,8 @@ export class CrearFactComponent implements OnInit {
       _id: '',
       nombreDeLaEmpresa: '',
       metodo:'',
+      forma: '',
+      cfdi: '',
       estatus:'',
       razon:'',
       fecha:'',
@@ -218,6 +251,8 @@ export class CrearFactComponent implements OnInit {
       _id: '',
       nombreDeLaEmpresa: form.value.nombreDeLaEmpresa,
       metodo: form.value.metodo,
+      forma:form.value.forma,
+      cfdi:form.value.cfdi,
       estatus:form.value.estatus,
       razon:form.value.razon,
       fecha:form.value.fecha,
@@ -237,7 +272,7 @@ export class CrearFactComponent implements OnInit {
       importe:form.value.import,	
       subtotal:form.value.subtotal,
       total:form.value.total,
-      iva:null,
+      iva:form.value.iva,
       artarr:[null]
     }
   }
@@ -253,7 +288,7 @@ export class CrearFactComponent implements OnInit {
       form.value.artarr=this.te;
       form.value.subtotal=this.sumado.toString();
       form.value.total=this.tots.toString();
-      form.value.iva=0;
+      form.value.iva=this.iva;
       this.datosEmpresaService2.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         window.alert("Se Guardo Correctamente");
@@ -278,8 +313,19 @@ export class CrearFactComponent implements OnInit {
     this.articuloServicioService.selectArtServ = emp;
   }
 
-  selectEmpresa(name) {
+  selectCliente(name) {
+    this.selectedCliente=name;
 }
+selectMetodo(name) {
+  this.selectedMetodo=name;
+}
+selectForma(name) {
+  this.selectedForma=name;
+}
+selectCFDi(name) {
+  this.selectedCFDi=name;
+}
+
 selectArt(name) {
 }
 }

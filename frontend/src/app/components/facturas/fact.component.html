@@ -20,7 +20,7 @@
           <th scope="col">#</th>
           <th scope="col">Folio</th>
           <th scope="col">Cliente</th>
-          <th scope="col">Monto</th>
+          <th scope="col">total</th>
           <th scope="col">Estatus</th>
           <th scope="col">Ver</th>
           <!-- <th scope="col">Editar</th> -->
@@ -38,7 +38,7 @@
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ emp.folio }}</td>
           <td>{{ emp.nombreDeLaEmpresa }}</td>
-          <td>{{ emp.monto }}</td>
+          <td>{{ emp.total }}</td>
           <td>{{ emp.estatus }}</td>
           <td class="b1">
             <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
@@ -89,7 +89,7 @@
           [(ngModel)]="datosEmpresaService.selectEmpresa._id"
         />
         <legend class="center">Ver los datos de Factura</legend>
-        <div class="form-group col-md-8">
+        <div class="form-group col-md-4">
           <label for="inputFolio">Folio:</label>
           <a
             type="text"
@@ -128,6 +128,50 @@
             >{{ datosEmpresaService.selectEmpresa.nombreDeLaEmpresa }}</a
           >
         </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputZip">Metodo de Pago:</label>
+          <a
+            type="text"
+            class="form-control"
+            id="inputMetodo"
+            name="Metodo"
+            #name="ngModel"
+            [(ngModel)]="datosEmpresaService.selectEmpresa.metodo"
+            placeholder="Metodo"
+            >{{ datosEmpresaService.selectEmpresa.metodo }}</a
+          >
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputZip">Forma de Pago:</label>
+          <a
+            type="text"
+            class="form-control"
+            id="inputForma"
+            name="Forma"
+            #name="ngModel"
+            [(ngModel)]="datosEmpresaService.selectEmpresa.forma"
+            placeholder="Forma"
+            >{{ datosEmpresaService.selectEmpresa.forma }}</a
+          >
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputZip">CFDi:</label>
+          <a
+            type="text"
+            class="form-control"
+            id="inputCFDi"
+            name="CFDi"
+            #name="ngModel"
+            [(ngModel)]="datosEmpresaService.selectEmpresa.cfdi"
+            placeholder="CFDi"
+            >{{ datosEmpresaService.selectEmpresa.cfdi }}</a
+          >
+        </div>
+
+
+
+
         <div class="form-group col-md-5">
           <label for="inputZip">Fecha:</label>
           <a
@@ -256,20 +300,19 @@
           </div>
 
       </div>  
-
-        <div class="form-group col-md-3">
-          <label for="inputZip">Importe:</label>
-          <a
-            type="text"
-            class="form-control"
-            id="inputImporte"
-            name="importe"
-            #name="ngModel"
-            [(ngModel)]="datosEmpresaService.selectEmpresa.importe"
-            placeholder="Importe"
-            >{{ datosEmpresaService.selectEmpresa.importe }}</a
-          >
-        </div>
+      <div class="form-group col-md-5">
+        <label for="inputZip">Subtotal:</label>
+        <a
+          type="text"
+          class="form-control"
+          id="inputSubtotal"
+          name="subtotal"
+          #name="ngModel"
+          [(ngModel)]="datosEmpresaService.selectEmpresa.subtotal"
+          placeholder="Subtotal"
+          >{{ datosEmpresaService.selectEmpresa.subtotal }}</a
+        >
+      </div>
         <div class="form-group col-md-2">
           <label for="inputZip">IVA:</label>
           <a
@@ -283,19 +326,7 @@
             >{{ datosEmpresaService.selectEmpresa.iva }}</a
           >
         </div>
-        <div class="form-group col-md-5">
-          <label for="inputZip">Subtotal:</label>
-          <a
-            type="text"
-            class="form-control"
-            id="inputSubtotal"
-            name="subtotal"
-            #name="ngModel"
-            [(ngModel)]="datosEmpresaService.selectEmpresa.subtotal"
-            placeholder="Subtotal"
-            >{{ datosEmpresaService.selectEmpresa.subtotal }}</a
-          >
-        </div>
+        
         <div class="form-group col-md-7">
           <label for="inputZip">Total:</label>
           <a

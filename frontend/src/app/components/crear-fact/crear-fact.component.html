@@ -1,5 +1,6 @@
 <app-sidebar></app-sidebar>
 <main class="s-layout__content">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <div class="centrarcards">
     <app-cards></app-cards>
   </div>
@@ -12,6 +13,7 @@
     <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
       <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa._id">
       <div class="form-row">
+       
         <div class="form-group col-md-2">
           <label for="inputZip" >Folio:</label>
           <a type="text"class="form-control" id="inputFolio" name="folio" #name="ngModel" 
@@ -24,13 +26,44 @@
         </div>
         <div class="form-group col-md-4">
           <label for="inputState">Cliente: </label>
-          <input type="text" list="Clientes" class="form-control busqueda" name="nombreDeLaEmpresa" [(ngModel)]='selected' (change)="selectEmpresa(selected)">
+          <input type="text" list="Clientes" class="form-control busqueda" name="nombreDeLaEmpresa" [(ngModel)]='selectedClientes' (change)="selectEmpresa(selectedClientes)">
           <datalist  id="Clientes">
             <!-- <select> -->
               <option  *ngFor="let emp of datosEmpresaService.DatosEmpresa" [value]="emp.nombreDeLaEmpresa"></option>  
             <!-- </select> -->
           </datalist>
         </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">Metodo de pago: </label>
+          <input type="text" list="Metodo" class="form-control busqueda" name="metodo" [(ngModel)]='selectedMetodo' (change)="selectEmpresa(selectedMetodo)">
+          <datalist id="Metodo" >
+            <!-- <select> -->
+              <option *ngFor="let emp of listaMetodo" [value]="emp"></option>  
+              
+            <!-- </select> -->
+          </datalist>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">Forma de pago: </label>
+          <input type="text"  list="Forma" class="form-control busqueda" name="forma"[(ngModel)]='selectedForma' (change)="selectEmpresa(selectedForma)">
+          <datalist id="Forma" >
+            <!-- <select> -->
+              <option *ngFor="let emp of listaForma" [value]="emp"></option>  
+               
+            <!-- </select> -->
+          </datalist>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">CFDi: </label>
+          <input type="text"  list="CFDi" class="form-control busqueda" name="cfdi" [(ngModel)]='selectedCFDi' (change)="selectEmpresa(selectedCFDi)" >
+          <datalist id="CFDi" >
+            <!-- <select> -->
+              <option *ngFor="let emp of listaCFDi" [value]="emp"></option>  
+               
+            <!-- </select> -->
+          </datalist>
+        </div>
+        
         <div class="form-group col-md-3">
           <label for="inputZip">Orden de compra:</label>
           <input type="text" class="form-control"   id="inputordenDeCompra" name="ordenDeCompra" #name="ngModel" 
@@ -129,12 +162,7 @@
           -{{emp.Unidades}}
         </div> -->
         
-        <div class="form-group col-md-3">
-          <label for="inputZip">Importe:</label>
-          <input type="number" class="form-control"  id="inputImporte" name="importe" #name="ngModel" 
-          [(ngModel)]="datosEmpresaService2.selectEmpresa.importe"  placeholder="Importe"
-          (change)="ora2(datosEmpresaService2.selectEmpresa.importe,empresaForm,$event)">
-        </div>
+        
 
         <div class="form-group col-md-3">
           <label for="inputZip">Subtotal:</label>
@@ -144,8 +172,10 @@
 
         <div class="form-group col-md-3">
           <label for="inputZip">IVA:</label>
-          <input type="text" class="form-control"  id="inputIVA" name="iva" #name="ngModel" 
-          [(ngModel)]="datosEmpresaService2.selectEmpresa.iva"  placeholder="IVA"> </div>
+          <input type="number" class="form-control"  id="inputIva" name="iva" #name="ngModel" 
+          [(ngModel)]="datosEmpresaService2.selectEmpresa.iva"  placeholder="1.16"
+          (change)="ora2(datosEmpresaService2.selectEmpresa.iva,empresaForm,$event)">
+        </div>
 
         <div class="form-group col-md-5">
           <label for="inputZip">Total:</label>
@@ -153,11 +183,6 @@
           [(ngModel)]="datosEmpresaService2.selectEmpresa.total"   placeholder="Total">{{tots}}</a>
         </div>
 
-        <div class="form-group col-md-5">
-          <label for="inputZip">Cambio:</label>
-          <a type="text" class="form-control"
-             placeholder="U.Med">{{cambio}}</a>
-        </div>
         
         
       </div>
@@ -167,8 +192,13 @@
       <button class="boton" type="submit" [disabled]="!empresaForm.valid" >Finalizar</button>
 
     </form>
+    
   </div>
+  
+  
+    
   <br>
+
 </main>
 
   

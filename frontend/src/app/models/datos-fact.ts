@@ -2,6 +2,8 @@ export class DatosFact {
     _id: string;
     nombreDeLaEmpresa: string;
     metodo:string;
+    forma:string;
+    cfdi:string;
     estatus:string;
     razon:string;
     fecha:any;

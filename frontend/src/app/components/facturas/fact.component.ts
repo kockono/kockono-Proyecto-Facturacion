@@ -244,6 +244,8 @@ export class FactComponent implements OnInit {
       _id: "",
       nombreDeLaEmpresa: "",
       metodo: "",
+      forma:'',
+      cfdi:'',
       estatus: "",
       razon: "",
       fecha: "",
