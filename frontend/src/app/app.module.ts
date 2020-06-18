@@ -14,9 +14,9 @@ import { MatFormFieldModule } from '@angular/material'
 
 // Components
 import { AppComponent } from './app.component';
-import { LoginComponent } from './Components/login/login.component';
-import { RegistroComponent } from './Components/registro/registro.component';
-import { PrincipalComponent } from './Components/principal/principal.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { DatosMiEmpresaComponent } from './components/datos-mi-empresa/datos-mi-empresa.component';
 import { BarraComponent } from './shared/barra/barra.component';

@@ -1,6 +1,6 @@
-import { PrincipalComponent } from './Components/principal/principal.component';
-import { LoginComponent } from './Components/login/login.component';
-import { RegistroComponent } from './Components/registro/registro.component';
+import { PrincipalComponent } from './components/principal/principal.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth.guard';
