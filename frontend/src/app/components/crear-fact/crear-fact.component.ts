@@ -83,12 +83,12 @@ export class CrearFactComponent implements OnInit {
    selectedCFDi: string = "";
 
    nada(form: NgForm){
-    console.log(form.value.nombre);
-    console.log(form.value.articulo);
-    console.log(form.value.unidades);
-    console.log(form.value.precio);
-    console.log(form.value.descuento);
-    console.log(form.value.uMed);
+    (form.value.nombre);
+    (form.value.articulo);
+    (form.value.unidades);
+    (form.value.precio);
+    (form.value.descuento);
+    (form.value.uMed);
           form.value.precio=this.precio;
           form.value.articulo=this.articulo;
           form.value.uMed=this.Umed;
@@ -104,14 +104,14 @@ export class CrearFactComponent implements OnInit {
       ]);
     this.sumado = +  ( form.value.precio*form.value.unidades)+this.sumado;
     this.tots=+(this.sumado*((this.iva/100)+1));
-    console.log(this.tots);
+    (this.tots);
     this.precio=null;
     this.articulo=null ;
     this.unidades=null ;
     this.descuento=null ;
     
     this.resetForm3();
-    console.log(this.te);
+    (this.te);
     }
     ora(ll: string, form: NgForm){
       for(let emp of this.articuloServicioService.DatosArtServ){ 
@@ -126,12 +126,12 @@ export class CrearFactComponent implements OnInit {
           form.value.uMed=this.Umed;
           this.descuento=0;
           form.value.descuento=this.descuento;
-          console.log(form.value.nombre);
-          console.log(form.value.articulo);
-          console.log(form.value.unidades);
-          console.log(form.value.precio);
-          console.log(form.value.descuento);
-          console.log(form.value.uMed);
+          (form.value.nombre);
+          (form.value.articulo);
+          (form.value.unidades);
+          (form.value.precio);
+          (form.value.descuento);
+          (form.value.uMed);
           break;
         }
       }
@@ -140,7 +140,7 @@ export class CrearFactComponent implements OnInit {
     ora2(ll: number, form: NgForm){
       this.iva= ll;
       this.tots=this.sumado*((this.iva/100)+1);
-      console.log(this.tots, this.cambio);
+      (this.tots, this.cambio);
     }
     
 

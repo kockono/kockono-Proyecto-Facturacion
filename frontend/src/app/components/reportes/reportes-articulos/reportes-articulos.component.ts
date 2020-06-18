@@ -48,6 +48,10 @@ export class ReportesArticulosComponent implements OnInit {
     resp.subscribe(res =>this.dataSource.data = res as ArticuloServicio[])
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   refrescarListaDeArtServ() {
     this.articuloServicioService.getDatosList().subscribe((res) => {
         this.articuloServicioService.DatosArtServ = res as ArticuloServicio[];

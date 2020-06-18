@@ -14,7 +14,7 @@ import "jspdf-autotable";
 import { async } from '@angular/core/testing';
 import { element } from 'protractor';
 //Creación de constante de la función del pdf
-const doc = new jsPDF();
+let doc = new jsPDF();
 
 @Component({
   selector: "app-fact",
@@ -223,14 +223,16 @@ export class FactComponent implements OnInit {
     
     doc.addImage(img, 'JPEG', 138, 20, 60, 20); //Margen Izq., Margen Superior, Largo de imagen, Ancho de imagen
     doc.output("dataurlnewwindow");//abre  una previsualización del pdf en el navegador sin descargar 
-    doc.save('Factura-'+this.datosEmpresaService.selectEmpresa.folio + this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa + '.pdf')
+    doc.save('Factura-'+this.datosEmpresaService.selectEmpresa.folio + this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa + '.pdf');
+    doc = new jsPDF();
   }
+  
+
   ngOnInit() {
     this.resetForm();
     this.refrescarListaDeEmpresa();
     this.refrescarListaDatosDatosEmisor();
     this.refrescarListaEmp();
-    console.log(this.datosEmpresaService.selectEmpresa);  
   }
  refrescarListaEmp() {
     this.datosMiEmpresaService.getDatosList().subscribe((res) => {

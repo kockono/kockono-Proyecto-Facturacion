@@ -20,7 +20,7 @@
           <th scope="col">#</th>
           <th scope="col">Folio</th>
           <th scope="col">Cliente</th>
-          <th scope="col">total</th>
+          <th scope="col">Total</th>
           <th scope="col">Estatus</th>
           <th scope="col">Ver</th>
           <!-- <th scope="col">Editar</th> -->
@@ -78,7 +78,7 @@
   </div>
   <br />
   <div class="contenedor" *ngIf="!ver">
-    <button class="button fact" (click)="GenerarPDF()">Descargar PDF</button>
+    <button class="button fact" (click)="GenerarPDF() ">Descargar PDF</button>
 
     <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
       <div class="form-row">
