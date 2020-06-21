@@ -10,8 +10,8 @@
   <label for="total">Codigo</label>
   <input type="radio" name="filtro" id="precio">
   <label for="estatus">Precio</label>
-  <input type="radio" name="filtro" id="uMed">
-  <label for="folio">U.Med</label>
+  <input type="radio" name="filtro" id="productoTipo">
+  <label for="productoTipo">Tipo</label>
 <mat-form-field>
   <mat-label>Buscador</mat-label>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Ej. Cancelado">
@@ -39,9 +39,14 @@
   </ng-container>
 
   <!-- Total Column -->
-  <ng-container matColumnDef="uMed" class="uMed">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header class="uMed"> U.Med </th>
-    <td mat-cell *matCellDef="let element" class="uMed"> {{element.uMed}} </td>
+  <ng-container matColumnDef="productoTipo" class="productoTipo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="productoTipo"> Tipo </th>
+    <td mat-cell *matCellDef="let element" class="productoTipo"> {{element.productoTipo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="productoGrupo" class="productoGrupo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="productoGrupo"> Grupo </th>
+    <td mat-cell *matCellDef="let element" class="productoGrupo"> {{element.productoGrupo}} </td>
   </ng-container>
 
 

@@ -15,7 +15,7 @@ import { ArticuloServicioService } from '../../../services/articulos-y-servicios
 export class ReportesArticulosComponent implements OnInit {
 
   ELEMENT_DATA: ArticuloServicio[];
-  displayedColumns: string[] = ['nombre', 'articuloServicio', 'precio', 'uMed'];
+  displayedColumns: string[] = ['nombre', 'articuloServicio', 'precio', 'productoTipo', 'productoGrupo'];
   dataSource = new MatTableDataSource<ArticuloServicio>(this.ELEMENT_DATA);
 
   constructor(public articuloServicioService: ArticuloServicioService) { }

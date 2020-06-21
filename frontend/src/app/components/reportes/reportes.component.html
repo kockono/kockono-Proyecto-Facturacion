@@ -39,6 +39,18 @@
     <td mat-cell *matCellDef="let element" class="cliente"> {{element.nombreDeLaEmpresa}} </td>
   </ng-container>
 
+  <!-- Metodo Column -->
+  <ng-container matColumnDef="metodo" class="metodo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="metodo"> M.Pago </th>
+    <td mat-cell *matCellDef="let element" class="metodo"> {{element.metodo}} </td>
+  </ng-container>
+
+  <!-- Forma Column -->
+  <ng-container matColumnDef="forma" class="forma">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="forma"> F.Pago </th>
+    <td mat-cell *matCellDef="let element" class="forma"> {{element.forma}} </td>
+  </ng-container>
+
   <!-- Total Column -->
   <ng-container matColumnDef="total" class="total">
     <th mat-header-cell *matHeaderCellDef mat-sort-header class="total"> Total </th>
@@ -65,4 +77,5 @@
 </div>
 
 </main>
+<app-reportes-clientes></app-reportes-clientes>
 <app-reportes-articulos></app-reportes-articulos>

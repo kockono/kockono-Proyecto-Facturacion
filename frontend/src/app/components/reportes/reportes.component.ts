@@ -19,7 +19,7 @@ import { ArticuloServicioService } from '../../services/articulos-y-servicios.se
 
 export class ReportesComponent implements OnInit {
   ELEMENT_DATA: DatosFact[];
-  displayedColumns: string[] = ['folio', 'nombreDeLaEmpresa', 'total', 'fecha', 'estatus'];
+  displayedColumns: string[] = ['folio', 'nombreDeLaEmpresa', 'metodo','forma', 'total', 'fecha', 'estatus'];
   dataSource = new MatTableDataSource<DatosFact>(this.ELEMENT_DATA);
 
   constructor(public datosEmpresaService2: DatosEmpresaService2) { }

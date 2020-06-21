@@ -49,7 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { ReportesArticulosComponent } from './components/reportes/reportes-articulos/reportes-articulos.component';
-
+import { ReportesClientesComponent } from './components/reportes/reportes-clientes/reportes-clientes.component';
 
 
 
@@ -79,6 +79,7 @@ import { ReportesArticulosComponent } from './components/reportes/reportes-artic
     CrearArticulosYServiciosComponent,
     ReportesComponent,
     ReportesArticulosComponent,
+    ReportesClientesComponent
 
   ],
   imports: [

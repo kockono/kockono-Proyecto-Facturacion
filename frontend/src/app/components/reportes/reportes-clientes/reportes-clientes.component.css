@@ -198,27 +198,27 @@
   
   }
   
-  #ArtServ:checked ~ #reportes .codigo, #ArtServ:checked ~ 
-  #reportes .precio, #ArtServ:checked ~ 
-  #reportes .productoTipo {
+  #cliente:checked ~ #reportes .correo, #cliente:checked ~ 
+  #reportes .metodo, #cliente:checked ~ 
+  #reportes .dias {
     display: none;
   }
   
-  #codigo:checked ~ #reportes .ArtServ, #codigo:checked ~ 
-  #reportes .precio, #codigo:checked ~ 
-  #reportes .productoTipo {
+  #correo:checked ~ #reportes .cliente, #correo:checked ~ 
+  #reportes .metodo, #correo:checked ~ 
+  #reportes .dias {
     display: none;
   }
   
-  #precio:checked ~ #reportes .ArtServ, #precio:checked ~ 
-  #reportes .codigo, #precio:checked ~ 
-  #reportes .productoTipo {
+  #metodo:checked ~ #reportes .cliente, #metodo:checked ~ 
+  #reportes .correo, #metodo:checked ~ 
+  #reportes .dias {
     display: none;
   }
   
-  #productoTipo:checked ~ #reportes .ArtServ, #productoTipo:checked ~ 
-  #reportes .codigo, #productoTipo:checked ~ 
-  #reportes .precio {
+  #dias:checked ~ #reportes .cliente, #dias:checked ~ 
+  #reportes .correo, #dias:checked ~ 
+  #reportes .metodo {
     display: none;
   }
   
