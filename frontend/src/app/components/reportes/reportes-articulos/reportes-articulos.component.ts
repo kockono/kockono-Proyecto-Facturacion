@@ -40,7 +40,15 @@ export class ReportesArticulosComponent implements OnInit {
       articuloServicio: "",
       nombre: "",
       precio: null,
-      uMed: ""
+      uMed: "",
+      unidadTipo:"",
+      unidadSubtipo:"",
+      unidadCodigo:"",
+      unidad:"",
+      productoTipo: "",
+      productoDivision:"",
+      productoGrupo:"",
+      productoClase:""
     }
   }
   public getAllArt(){

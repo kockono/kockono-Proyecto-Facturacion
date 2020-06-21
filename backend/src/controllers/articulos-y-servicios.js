@@ -10,7 +10,15 @@ router.post('/', (req, res) => {
         articuloServicio:req.body.articuloServicio,
         nombre:req.body.nombre,
         precio:req.body.precio,
-        uMed:req.body.uMed
+        uMed:req.body.uMed,
+        unidadTipo:req.body.unidadTipo,
+        unidadSubtipo:req.body.unidadSubtipo,
+        unidadCodigo:req.body.unidadCodigo,
+        unidad:req.body.unidad,
+        productoTipo:req.body.productoTipo,
+        productoDivision:req.body.productoDivision,
+        productoGrupo:req.body.productoGrupo,
+        productoClase:req.body.productoClase
     });
 
     
@@ -30,7 +38,15 @@ router.put('/:id', (req, res) => {
             articuloServicio:req.body.articuloServicio,
             nombre:req.body.nombre,
             precio:req.body.precio,
-            uMed:req.body.uMed
+            uMed:req.body.uMed,
+            unidadTipo:req.body.unidadTipo,
+            unidadSubtipo:req.body.unidadSubtipo,
+            unidadCodigo:req.body.unidadCodigo,
+            unidad:req.body.unidad,
+            productoTipo:req.body.productoTipo,
+            productoDivision:req.body.productoDivision,
+            productoGrupo:req.body.productoGrupo,
+            productoClase:req.body.productoClase
         });
 
     let ID = req.params.id;

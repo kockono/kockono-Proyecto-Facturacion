@@ -4,4 +4,13 @@ export class ArticuloServicio {
     nombre: string;
     precio: number;
     uMed: string;
+    unidadTipo: string;
+    unidadSubtipo: string;
+    unidadCodigo: string;
+    unidad: string;
+    productoTipo: string;
+    productoDivision: string;
+    productoGrupo: string;
+    productoClase: string;
+
 }

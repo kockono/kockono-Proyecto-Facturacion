@@ -89,7 +89,7 @@
           <input type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" 
           [(ngModel)]="datosEmpresaService2.selectEmpresa.razon" placeholder="Razon">
         </div>  
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <label for="inputState">Nombre: </label>
           <input type="text" list="Nombre" class="form-control busqueda" name="nombre" 
           [(ngModel)]='datosEmpresaService2.selectEmpresa.nombre' (change)="ora(datosEmpresaService2.selectEmpresa.nombre,empresaForm)" >
@@ -109,7 +109,7 @@
         <div class="form-group col-md-1">
           <label for="inputZip">Unidades:</label>
           <input type="number" class="form-control"   id="inputUnidades" name="unidades" 
-          #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.unidades" placeholder="Unidades">
+          #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.unidades" placeholder=1>
         </div>        
         <div class="form-group col-md-1">
           <label for="inputZip">Precio:</label>
@@ -121,7 +121,7 @@
           <a type="text" class="form-control"   id="inputDescuento" name="descuento" #name="ngModel"
            [(ngModel)]="datosEmpresaService2.selectEmpresa.descuento"  placeholder="Descto">{{descuento}}</a>
         </div>
-        <div class="form-group col-md-1">
+        <div class="form-group col-md-2">
           <label for="inputZip">U.Med:</label>
           <a type="text" class="form-control"   id="inputUMed" name="uMed" #name="ngModel"
            [(ngModel)]="datosEmpresaService2.selectEmpresa.uMed"  placeholder="U.Med">{{Umed}}</a>
@@ -134,7 +134,7 @@
 
         <div class="row form-group col-md-12" *ngFor="let row of te">
            
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-2">
            <a type="text" class="form-control">{{row[0]}}</a>
           </div>
           <div class="form-group col-md-2">
@@ -150,7 +150,7 @@
             <a type="text" class="form-control">{{row[4]}}</a>
           </div>
           
-          <div class="form-group col-md-1">
+          <div class="form-group col-md-2">
             <a type="text" class="form-control" >{{row[5]}}</a>
           </div>
           <div class="form-group col-md-1">

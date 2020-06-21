@@ -103,7 +103,7 @@ export class CrearFactComponent implements OnInit {
       form.value.unidades*form.value.precio  
       ]);
     this.sumado = +  ( form.value.precio*form.value.unidades)+this.sumado;
-    this.tots=+(this.sumado*((this.iva/100)+1));
+    this.tots=+(Math.round((this.sumado*((this.iva/100)+1)) * 100) / 100);
     (this.tots);
     this.precio=null;
     this.articulo=null ;
@@ -122,7 +122,7 @@ export class CrearFactComponent implements OnInit {
           form.value.articulo=this.articulo;
           this.unidades=1;
           form.value.unidades=this.unidades;
-          this.Umed=emp.uMed;
+          this.Umed=emp.unidad;
           form.value.uMed=this.Umed;
           this.descuento=0;
           form.value.descuento=this.descuento;
@@ -139,7 +139,7 @@ export class CrearFactComponent implements OnInit {
     }
     ora2(ll: number, form: NgForm){
       this.iva= ll;
-      this.tots=this.sumado*((this.iva/100)+1);
+      this.tots=Math.round((this.sumado*((this.iva/100)+1)) * 100) / 100;
       (this.tots, this.cambio);
     }
     
@@ -161,7 +161,15 @@ export class CrearFactComponent implements OnInit {
       articuloServicio: "",
       nombre: "",
       precio: null,
-      uMed: ""
+      uMed: "",
+      unidadTipo:"",
+      unidadSubtipo:"",
+      unidadCodigo:"",
+      unidad:"",
+      productoTipo: "",
+      productoDivision:"",
+      productoGrupo:"",
+      productoClase:""
     }
   }
  

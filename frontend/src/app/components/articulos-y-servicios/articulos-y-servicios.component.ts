@@ -16,6 +16,7 @@ export class ArticulosYServiciosComponent implements OnInit {
   ver = true;
   filterpost = '';
   
+  
   ngOnInit(){
     this.resetForm();
     this.refrescarListaDeArtServ();
@@ -38,7 +39,15 @@ export class ArticulosYServiciosComponent implements OnInit {
       articuloServicio: "",
       nombre: "",
       precio: null,
-      uMed: ""
+      uMed: "",
+      unidadTipo:"",
+      unidadSubtipo:"",
+      unidadCodigo:"",
+      unidad:"",
+      productoTipo: "",
+      productoDivision:"",
+      productoGrupo:"",
+      productoClase:""
     }
   }
   
