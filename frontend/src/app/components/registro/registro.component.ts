@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -43,4 +43,73 @@ export class RegistroComponent implements OnInit {
   }
 
 }
+}*/
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+declare var M: any;
+
+@Component({
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
+})
+export class RegistroComponent implements OnInit {
+
+  createFormGroup() {
+
+    return new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
+      password: new FormControl('', [Validators.required,Validators.pattern("^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\\D*\\d)[A-Za-z\\d!$%@#£€*?&]{8,}$")]),
+      confirmpassword: new FormControl('', [Validators.required,Validators.pattern("^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\\D*\\d)[A-Za-z\\d!$%@#£€*?&]{8,}$")])
+      
+      
+
+
+    });
+
+  }
+  
+  registroForm: FormGroup;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.registroForm = this.createFormGroup();
+
+  }
+
+  ngOnInit() {
+
+  }
+
+signUp() {
+  
+  if(this.registroForm.valid){
+    if(this.password.value == this.confirmpassword.value){
+          this.authService.signUp(this.registroForm.value)
+            .subscribe(res => {
+              localStorage.setItem('token', res.token);
+              this.router.navigate(['/principal'])
+            }, err => {
+              console.log(err);
+            })
+          }else{
+              window.alert("Las contraseñas no coinciden");           
+            }
+
+          }else{
+            console.log('no valido');
+            window.alert("Verifique que la información sea valida");
+          }
+        
+  
+
+}
+get email() {return this.registroForm.get('email');}
+get password() {return this.registroForm.get('password');}
+get confirmpassword() {return this.registroForm.get('confirmpassword');}
+
+
 }

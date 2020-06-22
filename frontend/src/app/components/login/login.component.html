@@ -1,5 +1,7 @@
 <app-barra></app-barra>
 
+
+<!--
 <div class="contenedor">
   <img  src="../assets/img/LogoFinal2.png">
   
@@ -25,4 +27,54 @@
 <button class="login" type="submit" routerLink="/registro">Registro</button>
 </div>
   </form>
+</div>
+-->
+
+<div class="contenedor">
+  <img  src="../assets/img/LogoFinal2.png">
+
+  <form [formGroup]="loginForm" (submit)="signIn()">
+
+      <div class="form-group">                 
+        <input type="email" formControlName="email" placeholder="Email" [class.is-invalid] = "email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="(email.invalid && email.touched) || email.dirty">
+          <small *ngIf="email.errors?.required" class="text-danger">Email requerido</small>
+          <small *ngIf="email.errors?.pattern" class="text-danger">ingresa un email valido</small>  
+        </div>
+      </div>
+  
+
+      <div class="form-group">    
+        <input type="password" formControlName="password"  placeholder="Contraseña"  [class.is-invalid] = "password.invalid && (password.dirty || password.touched)">  
+        <div *ngIf="(password.invalid && password.touched) || password.dirty">
+          <small *ngIf="password.errors?.required" class="text-danger">contraseña requerida</small>
+          <small *ngIf="password.errors?.pattern" class="text-danger">ingresa una contraseña valida</small>
+        </div>      
+      </div>
+
+
+
+      <label class="recordar"> <h6>Recordar Contraseña</h6>
+        <input type="checkbox">
+        <span class="checkbox"></span>
+      </label>
+      
+      <h6 ><a href="/recovery">¿Olvido su contraseña?</a></h6>
+     
+      
+        <div class="botones">  			
+      <button class="login" type="submit">Entrar</button>
+      <!--<button class="login" type="submit" routerLink="/registro">Registro</button>--> 
+      <h6 >¿Aún no tienes una cuenta?    <a href="/registro">Regístrate ahora</a></h6>
+      </div>
+
+
+
+
+
+
+
+  </form>
+
+
 </div>

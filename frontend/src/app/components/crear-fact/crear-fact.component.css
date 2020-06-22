@@ -14,7 +14,7 @@
     margin-left: auto;
     margin-top: 3%;
     min-height: 10em;
-    width: 80%;
+    width: 70%;
     padding: 1%;
     }
   
@@ -91,4 +91,8 @@
     .s-layout__content {
        margin-left: 10em;
     }
+  }
+
+  .is-invalid{
+    border: 1px solid rgb(255, 0, 0);
   }

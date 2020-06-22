@@ -17,4 +17,4 @@ const articulosYServiciosSchema = new Schema({
     productoClase : { type: String},
 })
 
-module.exports = model('articulos-y-servicios', articulosYServiciosSchema);
+module.exports = model('articulos-y-servicios', articulosYServiciosSchema); 

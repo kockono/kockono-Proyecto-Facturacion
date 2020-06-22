@@ -106,3 +106,8 @@
        margin-left: 10em;
     }
   }
+
+
+.is-invalid{
+  border: 1px solid rgb(255, 0, 0);
+}

@@ -16,6 +16,22 @@ import { format } from 'url';
   styleUrls: ['./crear-fact.component.css']
 })
 export class CrearFactComponent implements OnInit {
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
   matrix = [['a', 'b', 'c'],['d', 'e', 'f'],['g', 'h', 'i']];
   listaMetodo=["Contado (PUE)","Credito (PPD)"];
   listaForma=["Efectivo","Tarjeta","Vale/Otros","Transferencia electronica", "99 por definir"];
@@ -103,7 +119,7 @@ export class CrearFactComponent implements OnInit {
       form.value.unidades*form.value.precio  
       ]);
     this.sumado = +  ( form.value.precio*form.value.unidades)+this.sumado;
-    this.tots=+(Math.round((this.sumado*((this.iva/100)+1)) * 100) / 100);
+    this.tots=+(this.sumado*((this.iva/100)+1));
     (this.tots);
     this.precio=null;
     this.articulo=null ;
@@ -122,7 +138,7 @@ export class CrearFactComponent implements OnInit {
           form.value.articulo=this.articulo;
           this.unidades=1;
           form.value.unidades=this.unidades;
-          this.Umed=emp.unidad;
+          this.Umed=emp.uMed;
           form.value.uMed=this.Umed;
           this.descuento=0;
           form.value.descuento=this.descuento;
@@ -139,7 +155,7 @@ export class CrearFactComponent implements OnInit {
     }
     ora2(ll: number, form: NgForm){
       this.iva= ll;
-      this.tots=Math.round((this.sumado*((this.iva/100)+1)) * 100) / 100;
+      this.tots=this.sumado*((this.iva/100)+1);
       (this.tots, this.cambio);
     }
     
@@ -162,7 +178,7 @@ export class CrearFactComponent implements OnInit {
       nombre: "",
       precio: null,
       uMed: "",
-      unidadTipo:"",
+      unidadTipo: "",
       unidadSubtipo:"",
       unidadCodigo:"",
       unidad:"",

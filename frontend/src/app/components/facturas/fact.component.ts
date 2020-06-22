@@ -308,14 +308,14 @@ export class FactComponent implements OnInit {
     }
   }
 
-  onDelete(_id: string, form: NgForm) {
+ /* onDelete(_id: string, form: NgForm) {
     if (confirm("¿Estas seguro que deseas eliminarlo?") == true) {
       this.datosEmpresaService.deleteDato(_id).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         window.alert({ html: "Eliminado Correctamente", classes: "rounded" });
       });
     }
-  }
+  }*/
   cambiarEstatus(emp: DatosFact) {
     if (confirm("¿Estas seguro que deseas cancelarlo?") == true) {
       this.datosEmpresaService.selectEmpresa = emp;

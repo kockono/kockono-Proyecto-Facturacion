@@ -1,4 +1,4 @@
-<app-sidebar></app-sidebar> 
+<!--<app-sidebar></app-sidebar> 
 <main class="s-layout__content">
   <div class="centrarcards">
     <app-cards></app-cards>
@@ -35,7 +35,7 @@
         <td>{{emp.nombreDeLaEmpresa}}</td>
         <td>{{emp.estatus}}</td>
         <td class="b1">
-            <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
+            !-- <a a [routerLink]="[ '/cliente-ver']"> 
             <a class="action-btn" >
               <button class="button button1"  (click)="onEdit(emp)" (click)="ver=!ver "><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
             </a>        
@@ -271,5 +271,535 @@
       </tbody>
     </table>
 </div>
+  <br>
+</main>-->
+
+<app-sidebar></app-sidebar> 
+<main class="s-layout__content">
+  <div class="centrarcards">
+    <app-cards></app-cards>
+  </div>
+           <br>
+    <input type="text" class="form-control busqueda" name="filterpost" placeholder="Buscar" [(ngModel)]="filterpost">
+    <div class="plus">
+      <button class="button button1" type="submit" routerLink="/datos-emisor"><strong>Agregar</strong></button>
+      <a></a>
+    </div>
+<div class="contenedor">
+  <p style="text-align:center; font-size: 30px;"><strong>Clientes</strong></p>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Estatus</th>
+        <th scope="col">Ver</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Borrar</th>
+        <th scope="col">Facturas</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+     
+
+      <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa | filter:filterpost; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{emp.nombreDeLaEmpresa}}</td>
+        <td>{{emp.estatus}}</td>
+        <td class="b1">
+            <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
+            <a class="action-btn" >
+              <button class="button button1"  (click)="onEdit(emp)" (click)="ver=!ver "><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
+            </a>        
+          </td>
+          <td class="b2" > 
+            <a class="action-btn" (click)="onEdit(emp)" (click)="monstrar=!monstrar">
+              <button class="button button2"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" ></button>
+            </a>
+          </td>
+          <td class="b3">
+            <a class="action-btn"  (click)="onDelete()">
+              <button class="button button3"  ><img src="./../../../assets/img/basura.png" height="15px" widht="15px" ></button>
+            </a>
+          </td>
+          <td class="b4">
+            <a class="action-btn" (click)="onEdit(emp)" (click)="fact=!fact ">
+              <button class="button button4" ><img src="./../../../assets/img/0294f1b33cff18a6.png" height="15px" widht="15px" ></button>
+            </a>
+          </td>
+        
+    </tbody>
+    
+  </table>
+</div>
+<br><div class="contenedor" *ngIf="!monstrar">
+   
+  
+
+  <legend class="center"> Editar los Datos del Cliente</legend>
+    <form [formGroup]="empresaForm" (ngSubmit)="onSubmit()">
+       
+      <input type="hidden" formControlName="_id" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
+      <div class="form-row">
+
+      
+      
+
+
+      
+        <div class="form-group col-md-8">
+          <label for="inputEmail4" >Nombre del proveedor:</label>
+          <input type="text" class="form-control" formControlName="nombreDeLaEmpresa" [class.is-invalid] = "nombreDeLaEmpresa.invalid && (nombreDeLaEmpresa.dirty || nombreDeLaEmpresa.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa">
+          <div  *ngIf="(nombreDeLaEmpresa.invalid && nombreDeLaEmpresa.touched) || nombreDeLaEmpresa.dirty">
+            <small *ngIf="nombreDeLaEmpresa.errors?.required" class="text-danger">nombre de la empresa requerida</small>
+          </div> 
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputZip">Estatus:</label>
+          <input type="text" class="form-control" formControlName="estatus" [class.is-invalid] = "estatus.invalid && (estatus.dirty || estatus.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.estatus">
+          <div  *ngIf="(estatus.invalid && estatus.touched) || estatus.dirty">
+            <small *ngIf="estatus.errors?.required" class="text-danger">Estatus requerido</small>
+          </div> 
+        </div>
+
+        <div class="form-group col-md-8">
+          <label for="inputZip">Correo:</label>
+          <input type="email" class="form-control" formControlName="email"  [class.is-invalid] = "email.invalid && (email.dirty || email.touched)" placeholder="email@ejemplo.com"  [(ngModel)]="datosEmpresaService.selectEmpresa.email">
+          <div *ngIf="(email.invalid && email.touched) || email.dirty">      
+            <small *ngIf="email.errors?.required" class="text-danger">Email requerido</small>    
+            <small *ngIf="email.errors?.pattern" class="text-danger">Ingrese un email valido</small>  
+          </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputZip">Teléfono:</label>
+          <input type="telefono" class="form-control" formControlName="telefono"  [class.is-invalid] = "telefono.invalid && (telefono.dirty || telefono.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.telefono">
+          <div  *ngIf="(telefono.invalid && telefono.touched) || telefono.dirty">
+            <small *ngIf="telefono.errors?.required" class="text-danger">Telefono requerido</small>
+          </div> 
+        </div>
+
+        <div class="form-group col-md-5">
+          <label for="inputZip">Método:</label>
+          <input type="text" class="form-control"  formControlName="metodo" [class.is-invalid] = "metodo.invalid && (metodo.dirty || metodo.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.metodo">
+          <div  *ngIf="(metodo.invalid && metodo.touched) || metodo.dirty">
+            <small *ngIf="metodo.errors?.required" class="text-danger">Metodo requerido</small>
+          </div> 
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="inputZip">Días:</label>
+          <input type="number" min="1" class="form-control" formControlName="dias" [class.is-invalid] = "dias.invalid && (dias.dirty || dias.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.dias">
+          <div  *ngIf="(dias.invalid && dias.touched) || dias.dirty">
+            <small *ngIf="dias.errors?.required" class="text-danger">Dias requerido</small>
+          </div> 
+        </div>
+
+        <div class="form-group col-md-5"  >
+          <label for="inputZip">RFC:</label>
+          <input type="text" class="form-control"formControlName="rfc" [class.is-invalid] = "rfc.invalid && (rfc.dirty || rfc.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.rfc">
+          <div  *ngIf="(rfc.invalid && rfc.touched) || rfc.dirty">
+            <small *ngIf="rfc.errors?.required" class="text-danger">rfc requerido</small>
+          </div> 
+        </div>
+
+
+      <div class="form-group col-md-7">
+        <label for="inputZip">Razón Social:</label>
+        <input type="text" class="form-control"  formControlName="razon" [class.is-invalid] = "razon.invalid && (razon.dirty || razon.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.razon">
+        <div  *ngIf="(razon.invalid && razon.touched) || razon.dirty">
+          <small *ngIf="razon.errors?.required" class="text-danger">Razón social requerida</small>
+        </div> 
+      </div>  
+  
+      
+      <legend class="center"><h4>     Dirección    </h4></legend>
+      
+
+      <div class="form-group col-md-6">
+        <label for="inputZip">Calle</label>
+        <input type="text" class="form-control" formControlName="calle" [class.is-invalid] = "calle.invalid && (calle.dirty || calle.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.calle">
+        <div  *ngIf="(calle.invalid && calle.touched) || calle.dirty">
+          <small *ngIf="calle.errors?.required" class="text-danger">calle requerida</small>
+        </div> 
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputZip">Colonia:</label>
+        <input type="text" class="form-control" formControlName="colonia" [class.is-invalid] = "colonia.invalid && (colonia.dirty || colonia.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.colonia">
+        <div  *ngIf="(colonia.invalid && colonia.touched) || colonia.dirty">
+          <small *ngIf="colonia.errors?.required" class="text-danger">Colonia requerida</small>
+        </div> 
+      </div>
+
+  
+      <div class="form-group col-md-1">
+        <label for="inputZip">Num.Int:</label>
+        <input type="text" class="form-control" formControlName="numInterior" [class.is-invalid] = "numInterior.invalid && (numInterior.dirty || numInterior.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.numInterior">
+        <div  *ngIf="(numInterior.invalid && numInterior.touched) || numInterior.dirty">
+          <small *ngIf="numInterior.errors?.required" class="text-danger">Numero interior requerido</small>
+        </div> 
+      </div>
+
+      <div class="form-group col-md-1">
+        <label for="inputZip">Num.Ext:</label>
+        <input type="text" class="form-control" formControlName="numExterior" [class.is-invalid] = "numExterior.invalid && (numExterior.dirty || numExterior.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.numExterior">
+        <div  *ngIf="(numExterior.invalid && numExterior.touched) || numExterior.dirty">
+          <small *ngIf="numExterior.errors?.required" class="text-danger">Numero Exterior requerido</small>
+        </div> 
+      </div>
+  
+      <div class="form-group col-md-1">
+        <label for="inputZip">C.P:</label>
+        <input type="text" class="form-control" formControlName="cp" [class.is-invalid] = "cp.invalid && (cp.dirty || cp.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.cp">
+        <div  *ngIf="(cp.invalid && cp.touched) || cp.dirty">
+          <small *ngIf="cp.errors?.required" class="text-danger">Codigo postal requerido</small>
+        </div> 
+      </div>
+
+      <div class="form-group col-md-2">
+        <label for="inputZip">Municipio:</label>
+        <input type="text" class="form-control" formControlName="municipio" [class.is-invalid] = "municipio.invalid && (municipio.dirty || municipio.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.municipio">
+        <div  *ngIf="(municipio.invalid && municipio.touched) || municipio.dirty">
+          <small *ngIf="municipio.errors?.required" class="text-danger">municipio requerido</small>
+        </div> 
+      </div>
+  
+      <div class="form-group col-md-2">
+        <label for="inputZip">Localidad:</label>
+        <input type="text" class="form-control" formControlName="localidad" [class.is-invalid] = "localidad.invalid && (localidad.dirty || localidad.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.localidad">
+        <div  *ngIf="(localidad.invalid && localidad.touched) || localidad.dirty">
+          <small *ngIf="localidad.errors?.required" class="text-danger">localidad requerida</small>
+        </div> 
+      </div>
+
+      <div class="form-group col-md-2">
+        <label for="inputZip">Estado:</label>
+        <input type="text" class="form-control" formControlName="estado" [class.is-invalid] = "estado.invalid && (estado.dirty || estado.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.estado">
+        <div  *ngIf="(estado.invalid && estado.touched) || estado.dirty">
+          <small *ngIf="estado.errors?.required" class="text-danger">estado requerido</small>
+        </div> 
+      </div>
+  
+      <div class="form-group col-md-2">
+        <label for="inputZip">Pais:</label>
+        <input type="text" class="form-control" formControlName="pais" [class.is-invalid] = "pais.invalid && (pais.dirty || pais.touched)"  [(ngModel)]="datosEmpresaService.selectEmpresa.pais">
+        <div  *ngIf="(pais.invalid && pais.touched) || pais.dirty">
+          <small *ngIf="pais.errors?.required" class="text-danger">pais requerido</small>
+        </div>
+       </div>
+   
+
+
+  
+
+
+
+
+
+
+
+      
+     
+
+
+
+     </div>
+      <button class="btn btn-custom right" type="button"  (click)="resetForm()" > Reset </button>
+      <button class="boton" type="submit">Finalizar</button>      
+    </form>  
+  </div>
+<br>
+
+
+
+
+
+
+  <div class="contenedor" *ngIf="!ver">
+    <form [formGroup]="empresaForm" (ngSubmit)="onSubmit()">
+      <div class="form-row" >
+       
+    
+    
+          <legend class="center">Ver los Datos del Proveedor</legend>
+          <input type="hidden" formControlName="_id" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
+
+
+         
+            <div class="form-group col-md-8">
+              <label for="inputEmail4" >Nombre del proveedor:</label>
+              <input type="text" class="form-control" formControlName="nombreDeLaEmpresa" [(ngModel)]="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa"  disabled>
+            </div>
+      
+            <div class="form-group col-md-4">
+              <label for="inputZip">Estatus:</label>
+              <input type="text" class="form-control" formControlName="estatus" [(ngModel)]="datosEmpresaService.selectEmpresa.estatus"  disabled>
+              
+            </div>
+      
+            <div class="form-group col-md-8">
+              <label for="inputZip">Correo:</label>
+              <input type="email" class="form-control" formControlName="email" [(ngModel)]="datosEmpresaService.selectEmpresa.email"disabled>
+             
+            </div>
+      
+            <div class="form-group col-md-4">
+              <label for="inputZip">Teléfono:</label>
+              <input type="telefono" class="form-control" formControlName="telefono" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono" disabled>
+             
+            </div>
+      
+            <div class="form-group col-md-5">
+              <label for="inputZip">Método:</label>
+              <input type="text" class="form-control"  formControlName="metodo" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" disabled>
+             
+            </div>
+      
+            <div class="form-group col-md-2">
+              <label for="inputZip">Días:</label>
+              <input type="number" min="1" class="form-control" formControlName="dias" [(ngModel)]="datosEmpresaService.selectEmpresa.dias"  disabled>
+             
+            </div>
+      
+            <div class="form-group col-md-5"  >
+              <label for="inputZip">RFC:</label>
+              <input type="text" class="form-control"formControlName="rfc" [(ngModel)]="datosEmpresaService.selectEmpresa.rfc" disabled>
+             
+            </div>
+      
+      
+          <div class="form-group col-md-7">
+            <label for="inputZip">Razón Social:</label>
+            <input type="text" class="form-control"  formControlName="razon" [(ngModel)]="datosEmpresaService.selectEmpresa.razon" disabled> 
+           
+          </div>  
+      
+          
+          <legend class="center"><h4>     Dirección    </h4></legend>
+          
+      
+          <div class="form-group col-md-6">
+            <label for="inputZip">Calle</label>
+            <input type="text" class="form-control" formControlName="calle" [(ngModel)]="datosEmpresaService.selectEmpresa.calle" disabled>
+            
+          </div>
+      
+          <div class="form-group col-md-4">
+            <label for="inputZip">Colonia:</label>
+            <input type="text" class="form-control" formControlName="colonia" [(ngModel)]="datosEmpresaService.selectEmpresa.colonia" disabled> 
+            
+          </div>
+      
+      
+          <div class="form-group col-md-1">
+            <label for="inputZip">Num.Int:</label>
+            <input type="text" class="form-control" formControlName="numInterior" [(ngModel)]="datosEmpresaService.selectEmpresa.numInterior"  disabled>
+          
+          </div>
+      
+          <div class="form-group col-md-1">
+            <label for="inputZip">Num.Ext:</label>
+            <input type="text" class="form-control" formControlName="numExterior" [(ngModel)]="datosEmpresaService.selectEmpresa.numExterior" disabled>
+            
+          </div>
+      
+          <div class="form-group col-md-1">
+            <label for="inputZip">C.P:</label>
+            <input type="text" class="form-control" formControlName="cp" [(ngModel)]="datosEmpresaService.selectEmpresa.cp" disabled>
+            
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Municipio:</label>
+            <input type="text" class="form-control" formControlName="municipio" [(ngModel)]="datosEmpresaService.selectEmpresa.municipio" disabled>
+             
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Localidad:</label>
+            <input type="text" class="form-control" formControlName="localidad" [(ngModel)]="datosEmpresaService.selectEmpresa.localidad" disabled>
+           
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Estado:</label>
+            <input type="text" class="form-control" formControlName="estado" [(ngModel)]="datosEmpresaService.selectEmpresa.estado" disabled>
+            
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Pais:</label>
+            <input type="text" class="form-control" formControlName="pais" [(ngModel)]="datosEmpresaService.selectEmpresa.pais" disabled>
+            
+           </div>
+         
+      
+      
+      
+         </div>
+      </form>    
+   
+      </div>
+
+<br>
+<div class="contenedor" *ngIf="!fact">
+  
+    <p style="text-align:center; font-size: 30px;"><strong>Facturas</strong></p>
+    <table class="table">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Folio</th>
+          <th scope="col">Estatus</th>
+          <th scope="col">Total</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Cliente</th>
+        </tr>
+      </thead>
+      <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="datosEmpresaService.selectEmpresa._id" >
+      <tbody>
+        <tr *ngFor="let emp2 of datosEmpresaService2.DatosEmpresa; let i = index" [ngStyle]="{'background-color' : (emp2.estatus == 'Cancelado') ? '#BCBCBC' : 'white'}">
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()" >{{emp2.folio}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{emp2.estatus}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{emp2.total}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{emp2.fecha}}</td>
+          <td *ngIf="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa.toString()==emp2.nombreDeLaEmpresa.toString()">{{datosEmpresaService.selectEmpresa.nombreDeLaEmpresa}}</td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+
+
+
+
+
+  <div class="contenedor" *ngIf="!ver">
+    <form [formGroup]="empresaForm" (ngSubmit)="onSubmit()">
+      <div class="form-row" >
+       
+    
+    
+          <legend class="center">Ver los Datos del Proveedor</legend>
+          <input type="hidden" formControlName="_id" [(ngModel)]="datosEmpresaService.selectEmpresa._id">
+
+
+         
+            <div class="form-group col-md-8">
+              <label for="inputEmail4" >Nombre del proveedor:</label>
+              <input type="text" class="form-control" formControlName="nombreDeLaEmpresa" [(ngModel)]="datosEmpresaService.selectEmpresa.nombreDeLaEmpresa"  disabled>
+            </div>
+      
+            <div class="form-group col-md-4">
+              <label for="inputZip">Estatus:</label>
+              <input type="text" class="form-control" formControlName="estatus" [(ngModel)]="datosEmpresaService.selectEmpresa.estatus"  disabled>
+              
+            </div>
+      
+            <div class="form-group col-md-8">
+              <label for="inputZip">Correo:</label>
+              <input type="email" class="form-control" formControlName="email" [(ngModel)]="datosEmpresaService.selectEmpresa.email"disabled>
+             
+            </div>
+      
+            <div class="form-group col-md-4">
+              <label for="inputZip">Teléfono:</label>
+              <input type="telefono" class="form-control" formControlName="telefono" [(ngModel)]="datosEmpresaService.selectEmpresa.telefono" disabled>
+             
+            </div>
+      
+            <div class="form-group col-md-5">
+              <label for="inputZip">Método:</label>
+              <input type="text" class="form-control"  formControlName="metodo" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" disabled>
+             
+            </div>
+      
+            <div class="form-group col-md-2">
+              <label for="inputZip">Días:</label>
+              <input type="number" min="1" class="form-control" formControlName="dias" [(ngModel)]="datosEmpresaService.selectEmpresa.dias"  disabled>
+             
+            </div>
+      
+            <div class="form-group col-md-5"  >
+              <label for="inputZip">RFC:</label>
+              <input type="text" class="form-control"formControlName="rfc" [(ngModel)]="datosEmpresaService.selectEmpresa.rfc" disabled>
+             
+            </div>
+      
+      
+          <div class="form-group col-md-7">
+            <label for="inputZip">Razón Social:</label>
+            <input type="text" class="form-control"  formControlName="razon" [(ngModel)]="datosEmpresaService.selectEmpresa.razon" disabled> 
+           
+          </div>  
+      
+          
+          <legend class="center"><h4>     Dirección    </h4></legend>
+          
+      
+          <div class="form-group col-md-6">
+            <label for="inputZip">Calle</label>
+            <input type="text" class="form-control" formControlName="calle" [(ngModel)]="datosEmpresaService.selectEmpresa.calle" disabled>
+            
+          </div>
+      
+          <div class="form-group col-md-4">
+            <label for="inputZip">Colonia:</label>
+            <input type="text" class="form-control" formControlName="colonia" [(ngModel)]="datosEmpresaService.selectEmpresa.colonia" disabled> 
+            
+          </div>
+      
+      
+          <div class="form-group col-md-1">
+            <label for="inputZip">Num.Int:</label>
+            <input type="text" class="form-control" formControlName="numInterior" [(ngModel)]="datosEmpresaService.selectEmpresa.numInterior"  disabled>
+          
+          </div>
+      
+          <div class="form-group col-md-1">
+            <label for="inputZip">Num.Ext:</label>
+            <input type="text" class="form-control" formControlName="numExterior" [(ngModel)]="datosEmpresaService.selectEmpresa.numExterior" disabled>
+            
+          </div>
+      
+          <div class="form-group col-md-1">
+            <label for="inputZip">C.P:</label>
+            <input type="text" class="form-control" formControlName="cp" [(ngModel)]="datosEmpresaService.selectEmpresa.cp" disabled>
+            
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Municipio:</label>
+            <input type="text" class="form-control" formControlName="municipio" [(ngModel)]="datosEmpresaService.selectEmpresa.municipio" disabled>
+             
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Localidad:</label>
+            <input type="text" class="form-control" formControlName="localidad" [(ngModel)]="datosEmpresaService.selectEmpresa.localidad" disabled>
+           
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Estado:</label>
+            <input type="text" class="form-control" formControlName="estado" [(ngModel)]="datosEmpresaService.selectEmpresa.estado" disabled>
+            
+          </div>
+      
+          <div class="form-group col-md-2">
+            <label for="inputZip">Pais:</label>
+            <input type="text" class="form-control" formControlName="pais" [(ngModel)]="datosEmpresaService.selectEmpresa.pais" disabled>
+            
+           </div>
+         
+      
+      
+      
+         </div>
+      </form>    
+   
+      </div>
   <br>
 </main>

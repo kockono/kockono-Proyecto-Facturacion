@@ -41,14 +41,14 @@ export class ReportesArticulosComponent implements OnInit {
       nombre: "",
       precio: null,
       uMed: "",
-      unidadTipo:"",
+      unidadTipo: "",
       unidadSubtipo:"",
       unidadCodigo:"",
       unidad:"",
       productoTipo: "",
       productoDivision:"",
       productoGrupo:"",
-      productoClase:""
+      productoClase:"",
     }
   }
   public getAllArt(){

@@ -1,11 +1,11 @@
-<app-sidebar></app-sidebar>
+<!-- <app-sidebar></app-sidebar>
 <main class="s-layout__content">
 <div class="centrarcards">
   <app-cards></app-cards>
 </div>
 
     <br> 
-    <!-- Aqui iba el buscador -->
+    <-- Aqui iba el buscador --
     <div class="plus">
       <button class="button button1" type="submit" routerLink="/crear-articulos-y-servicios"><strong>Nuevo</strong></button>
       <a></a>
@@ -34,15 +34,15 @@
       <form #ArtServForm="ngForm" (ngSubmit)="onSubmit(ArtServForm)">
 
       </form>
-      <!-- No mostraba datos por el filter -->
+      <-- No mostraba datos por el filter --
       <tr *ngFor="let emp of articuloServicioService.DatosArtServ  let i = index">
         <th scope="row">{{i+1}}</th>
         <td>{{emp.articuloServicio}}</td>
         <td>{{emp.nombre}}</td>
         <td>{{emp.precio}}</td>
-        <td>{{emp.unidad}}</td>
+        <td>{{emp.uMed}}</td>
         <td class="b1">
-            <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
+            !-- <a a [routerLink]="[ '/cliente-ver']"> --
             <a class="action-btn" >
               <button class="button button1"  (click)="onEdit(emp)" (click)="ver=!ver"><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
             </a>        
@@ -81,121 +81,11 @@
             <label for="inputZip">Precio:</label>
             <input type="text" class="form-control"   id="inputPrecio" name="precio" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.precio" placeholder="Ejem: 1000">
           </div> 
-          <div class="form-group col-md-12">
-            <label>Unidad de medida</label>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputState">Tipo: </label>
-            <input type="text" list="Tipo" class="form-control busqueda" name="unidadTipo"
-            [(ngModel)]='articuloServicioService.selectArtServ.unidadTipo' (change)="ore(articuloServicioService.selectArtServ.unidadTipo,ArtServForm)">
-            <datalist  id="Tipo">
-              <!-- <select> -->
-                <div *ngFor="let emp of unidades2">
-                <div *ngIf="emp.parent==null">
-                <option   [value]="emp.Nombre"></option>  
-                </div>
-              </div>
-              <!-- </select> -->
-            </datalist> 
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">Sub Tipo: </label>
-            <input type="text" list="Subtipo"  class="form-control busqueda" name="unidadSubtipo"
-            [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo' (change)="ore2(articuloServicioService.selectArtServ.unidadSubtipo,ArtServForm)">
-            <datalist  id="Subtipo">
-              <!-- <select> -->
-                <div *ngFor="let emp of unidades2">
-                <div *ngIf="emp.parent==parents">
-                <option   [value]="emp.Nombre"></option>  
-              </div>
-              </div>
-              <!-- </select> -->
-            </datalist> 
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">Unidad: </label>
-            <input type="text" list="Codigo"  class="form-control busqueda" name="Codigo"
-            [(ngModel)]='Codigo' (change)="ore3(Codigo,ArtServForm)">
-            <datalist  id="Codigo">
-              <!-- <select> -->
-                <div *ngFor="let emp of unidades2">
-                <div *ngIf="emp.parent==parents2">
-                <option   [value]="emp.Desc"></option>  
-              </div>
-              </div>
-              <!-- </select> -->
-            </datalist> 
-          </div>
-          <div class="form-group col-md-1">
-            
-            <label for="inputState">Codigo: </label>
-            <a type="text" class="form-control">{{parents3}}</a>
-            <input type="hidden" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' [value]="parents3">
-             
-          </div>
-    
-          
-          <div class="form-group col-md-12">
-            <label>Producto o servicio</label>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputState">Tipo: </label>
-            <input type="text" list="STipo" class="form-control busqueda" name="productoTipo"
-            [(ngModel)]='articuloServicioService.selectArtServ.productoTipo' (change)="sore(articuloServicioService.selectArtServ.productoTipo,ArtServForm)">
-            <datalist  id="STipo">
-              <!-- <select> -->
-                <div *ngFor="let emp of productooserv">
-                <div *ngIf="emp.Parent==null">
-                <option   [value]="emp.Nombre"></option>  
-                </div>
-              </div>
-              <!-- </select> -->
-            </datalist> 
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">Divicion: </label>
-            <input type="text" list="SSubtipo"  class="form-control busqueda" name="productoDivision"
-            [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="sore2(articuloServicioService.selectArtServ.productoDivision,ArtServForm)">
-            <datalist  id="SSubtipo">
-              <!-- <select> -->
-                <div *ngFor="let emp of productooserv">
-                <div *ngIf="emp.Parent==sparents">
-                <option   [value]="emp.Nombre"></option>  
-              </div>
-              </div>
-              <!-- </select> -->
-            </datalist> 
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">Grupo: </label>
-            <input type="text" list="SCodigo"  class="form-control busqueda" name="productoGrupo"
-            [(ngModel)]='articuloServicioService.selectArtServ.productoGrupo' (change)="sore3(articuloServicioService.selectArtServ.productoGrupo,ArtServForm)">
-            <datalist  id="SCodigo">
-              <!-- <select> -->
-                <div *ngFor="let emp of productooserv">
-                <div *ngIf="emp.Parent==sparents2">
-                <option   [value]="emp.Nombre"></option>  
-              </div>
-              </div>
-              <!-- </select> -->
-            </datalist> 
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">Clase: </label>
-            <input type="text" list="SClase"  class="form-control busqueda" name="productoClase"
-            [(ngModel)]='articuloServicioService.selectArtServ.productoClase' (change)="sore4(articuloServicioService.selectArtServ.productoClase,ArtServForm)">
-            <datalist  id="SClase">
-              <!-- <select> -->
-                <div *ngFor="let emp of productooserv">
-                <div *ngIf="emp.Parent==sparents3">
-                <option   [value]="emp.Nombre"></option>  
-              </div>
-              </div>
-              <!-- </select> -->
-            </datalist> 
-          </div>
-          
-        </div>
+          <div class="form-group col-md-3">
+            <label for="inputZip">U.Med:</label>
+            <input type="text" class="form-control"   id="inputUMed" name="uMed" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.uMed" placeholder="Ejem: Kg, Metros, NA">
+          </div> 
+    </div>
     <button class="btn btn-custom right" type="button"  (click)="resetForm(ArtServForm)" > Reset </button>
     <button class="boton" type="submit" [disabled]="!ArtServForm.valid" >Finalizar</button>
   </form>
@@ -213,66 +103,445 @@
           </div> 
           <div class="form-group col-md-3">
             <label for="inputZip">Nombre:</label>
-            <a type="text" class="form-control"    name="nombre" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.nombre" placeholder="Ejem: Laptop">{{articuloServicioService.selectArtServ.nombre}}</a>
+            <a type="text" class="form-control"   id="inputNombre" name="nombre" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.nombre" placeholder="Ejem: Laptop">{{articuloServicioService.selectArtServ.nombre}}</a>
           </div>
           <div class="form-group col-md-3">
             <label for="inputZip">Precio:</label>
-            <a type="text" class="form-control"    name="precio" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.precio" placeholder="Ejem: 1000">{{articuloServicioService.selectArtServ.precio}}</a>
+            <a type="text" class="form-control"   id="inputPrecio" name="precio" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.precio" placeholder="Ejem: 1000">{{articuloServicioService.selectArtServ.precio}}</a>
           </div> 
-          <div class="form-group col-md-12">
-            <label>Unidad de medida</label>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Tipo:</label>
-            <a type="text"  class="form-control"  name="unidadTipo"  #name="ngModel" [(ngModel)]='articuloServicioService.selectArtServ.unidadTipo'>{{articuloServicioService.selectArtServ.unidadTipo}}</a>
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputZip">Sub Tipo:</label>
-            <a type="text"  class="form-control"  name="unidadSubtipo" #name="ngModel"  [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo'>{{articuloServicioService.selectArtServ.unidadSubtipo}}</a>
-
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputZip">Unidad:</label>
-            <a type="text"   class="form-control" name="unidad" #name="ngModel"       [(ngModel)]='articuloServicioService.selectArtServ.unidad'>{{articuloServicioService.selectArtServ.unidad}}</a>
-
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Codigo:</label>
-            <a type="text"   class="form-control" name="unidadCodigo" #name="ngModel"       [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo'>{{articuloServicioService.selectArtServ.unidadCodigo}}</a>
-
-          </div>
-    
-          
-          <div class="form-group col-md-12">
-            <label>Producto o servicio</label>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Tipo: </label>
-            <a type="text"  class="form-control"name="productoTipo" #name="ngModel"
-            [(ngModel)]='articuloServicioService.selectArtServ.productoTipo'>{{articuloServicioService.selectArtServ.productoTipo}}</a>
-
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputZip">Divicion: </label>
-            <a type="text"  class="form-control" name="productoDivision" #name="ngModel"
-            [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' >{{articuloServicioService.selectArtServ.productoDivision}}</a>
-
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputZip">Grupo: </label>
-            <a type="text" class="form-control"  name="productoGrupo" #name="ngModel"
-            [(ngModel)]='articuloServicioService.selectArtServ.productoGrupo'>{{articuloServicioService.selectArtServ.productoGrupo}}</a>
-
-          </div>
-          <div class="form-group col-md-12">
-            <label for="inputZip">Clase: </label>
-            <a type="text" class="form-control" name="productoClase" #name="ngModel"
-            [(ngModel)]='articuloServicioService.selectArtServ.productoClase'>{{articuloServicioService.selectArtServ.productoClase}}</a>
-
-          </div>
-
+          <div class="form-group col-md-3">
+            <label for="inputZip">U.Med:</label>
+            <a type="text" class="form-control"   id="inputUMed" name="uMed" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.uMed" placeholder="Ejem: Kg, Metros, NA">{{articuloServicioService.selectArtServ.uMed}}</a>
+          </div> 
         </div>
       </form>
       </div>
-      <br>
+    </main> -->
+
+    <app-sidebar></app-sidebar>
+<main class="s-layout__content">
+<div class="centrarcards">
+  <app-cards></app-cards>
+</div>
+
+    <br> 
+    <!-- Aqui iba el buscador -->
+    <div class="plus">
+      <button class="button button1" type="submit" routerLink="/crear-articulos-y-servicios"><strong>Nuevo</strong></button>
+      <a></a>
+    </div>
+
+
+   
+<div class="contenedor">
+  <p style="text-align:center; font-size: 30px;"><strong>Articulos y servicios</strong></p>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+
+        <th scope="col">#</th>
+        <th scope="col">Articulo o Servicio</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col">U.Med</th>
+        <th scope="col">Ver</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Borrar</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+     
+      <!-- No mostraba datos por el filter -->
+      <tr *ngFor="let emp of articuloServicioService.DatosArtServ  let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{emp.articuloServicio}}</td>
+        <td>{{emp.nombre}}</td>
+        <td>{{emp.precio}}</td>
+        <td>{{emp.uMed}}</td>
+        <td class="b1">
+            <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
+            <a class="action-btn" >
+              <button class="button button1"  (click)="onEdit(emp)" (click)="ver=!ver"><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
+            </a>        
+          </td>
+          <td class="b2" > 
+            <a class="action-btn" (click)="onEdit(emp)" (click)="monstrar=!monstrar">
+              <button class="button button2"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" ></button>
+            </a>
+          </td>
+          <td class="b3">
+            <a class="action-btn" (click)="onDelete(emp._id, ArtServForm)">
+              <button class="button button3" ><img src="./../../../assets/img/basura.png" height="15px" widht="15px" ></button>
+            </a>
+          </td>
+        
+    </tbody>
+    
+  </table>
+</div>
+<br><div class="contenedor" *ngIf="!monstrar">
+    <legend > Editar Articulos/Servicios</legend>
+  
+    <form [formGroup]="ArtServForm" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="_id" [(ngModel)]="articuloServicioService.selectArtServ._id">
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputZip">Articulo o Servicio:</label>
+       
+        <input type="text" class="form-control" formControlName="articuloServicio" [class.is-invalid] = "articuloServicio.invalid && (articuloServicio.dirty || articuloServicio.touched)" [(ngModel)]="articuloServicioService.selectArtServ.articuloServicio" placeholder="Ejem: Gabinete, Monitor, Agua">
+          <div  *ngIf="(articuloServicio.invalid && articuloServicio.touched) || articuloServicio.dirty">
+            <small *ngIf="articuloServicio.errors?.required" class="text-danger">Articulo o servicio requerido</small>
+          </div> 
+      </div> 
+      <div class="form-group col-md-6">
+        <label for="inputZip">Nombre:</label>
+       
+        <input type="text" class="form-control" formControlName="nombre" [class.is-invalid] = "nombre.invalid && (nombre.dirty || nombre.touched)" [(ngModel)]="articuloServicioService.selectArtServ.nombre" placeholder="Ejem: Laptop">
+        <div  *ngIf="(nombre.invalid && nombre.touched) || nombre.dirty">
+          <small *ngIf="nombre.errors?.required" class="text-danger">Nombre requerido</small>
+        </div> 
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputZip">Precio:</label>
+  
+        <input type="number" min="1" class="form-control" formControlName="precio" [class.is-invalid] = "precio.invalid && (precio.dirty || precio.touched)" [(ngModel)]="articuloServicioService.selectArtServ.precio" placeholder="Ejem: 1000">
+        <div  *ngIf="(precio.invalid && precio.touched) || precio.dirty">
+          <small *ngIf="precio.errors?.required" class="text-danger">Precio requerido</small>
+        </div> 
+      </div> 
+    
+
+
+
+      <div class="form-group col-md-12">
+        <label>Unidad de medida</label>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">Tipo: </label>
+        
+        <input type="text"  list="Tipo" class="form-control" formControlName="unidadTipo" [class.is-invalid] = "unidadTipo.invalid && (unidadTipo.dirty || unidadTipo.touched)"
+        [(ngModel)]="articuloServicioService.selectArtServ.unidadTipo"  (change)="ore(articuloServicioService.selectArtServ.unidadTipo,ArtServForm)">
+        <div  *ngIf="(unidadTipo.invalid && unidadTipo.touched) || unidadTipo.dirty">
+          <small *ngIf="unidadTipo.errors?.required" class="text-danger">unidad tipo requerido</small>
+        </div> 
+        <datalist  id="Tipo">          
+            <div *ngFor="let emp of unidades2">
+            <div *ngIf="emp.parent==null">
+            <option   [value]="emp.Nombre"></option>  
+            </div>
+          </div>
+        
+        </datalist> 
+      </div> 
+      
+       <div class="form-group col-md-4">
+        <label for="inputState">Sub Tipo: </label>
+       
+        <input type="text" list="Subtipo"  class="form-control" formControlName="unidadSubtipo" [class.is-invalid] = "unidadSubtipo.invalid && (unidadSubtipo.dirty || unidadSubtipo.touched)"
+        [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo'    (change)="ore2(articuloServicioService.selectArtServ.unidadSubtipo,ArtServForm)">
+        <div  *ngIf="(unidadSubtipo.invalid && unidadSubtipo.touched) || unidadSubtipo.dirty">
+          <small *ngIf="unidadSubtipo.errors?.required" class="text-danger">unidad subtipo requerido</small>
+        </div> 
+        
+        <datalist  id="Subtipo">
+          
+            <div *ngFor="let emp of unidades2">
+            <div *ngIf="emp.parent==parents">
+            <option   [value]="emp.Nombre"></option>  
+          </div>
+          </div>
+        
+        </datalist> 
+      </div>
+      
+      
+     
+      <div class="form-group col-md-4">
+        <label for="inputState">Unidad: </label>
+       
+        <input type="text" list="Unidad"  class="form-control" formControlName="unidad" [class.is-invalid] = "unidad.invalid && (unidad.dirty || unidad.touched)"
+        [(ngModel)]='articuloServicioService.selectArtServ.unidad'  (change)="ore3(articuloServicioService.selectArtServ.unidad,ArtServForm)"          >
+    <div  *ngIf="(unidad.invalid && unidad.touched) || unidad.dirty">
+      <small *ngIf="unidad.errors?.required" class="text-danger">unidad subtipo requerido</small>
+    </div> 
+        <datalist  id="Unidad">
+          
+            <div *ngFor="let emp of unidades2">
+            <div *ngIf="emp.parent==parents2">
+            <option   [value]="emp.Desc"></option>  
+          </div>
+          </div>
+        
+        </datalist> 
+      </div>
+
+
+
+
+      <div class="form-group col-md-1">
+        
+        <label for="inputState">Codigo: </label>
+        <a type="text" class="form-control">{{parents3}}</a>
+        <input type="hidden" formControlName="unidadCodigo" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' [value]="parents3">
+         
+      </div>
+
+      
+      <div class="form-group col-md-12">
+        <label>Producto o servicio</label>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">Tipo: </label>
+       
+        <input type="text" list="STipo"  class="form-control" formControlName="productoTipo" [class.is-invalid] = "productoTipo.invalid && (productoTipo.dirty || productoTipo.touched)"
+        [(ngModel)]='articuloServicioService.selectArtServ.productoTipo'  (change)="sore(articuloServicioService.selectArtServ.productoTipo,ArtServForm)"    >
+    <div  *ngIf="(productoTipo.invalid && productoTipo.touched) || productoTipo.dirty">
+      <small *ngIf="productoTipo.errors?.required" class="text-danger">Tipo requerido</small>
+    </div> 
+      
+      
+        <datalist  id="STipo">
+          
+            <div *ngFor="let emp of productooserv">
+            <div *ngIf="emp.Parent==null">
+            <option   [value]="emp.Nombre"></option>  
+            </div>
+          </div>
+        
+        </datalist> 
+      </div>
+
+
+
+
+
+
+      <div class="form-group col-md-4">
+        <label for="inputState">Division: </label>
+       
+        <input type="text" list="SSubtipo"  class="form-control" formControlName="productoDivision" [class.is-invalid] = "productoDivision.invalid && (productoDivision.dirty || productoDivision.touched)"
+        [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="sore2(articuloServicioService.selectArtServ.productoDivision,ArtServForm)"  >
+    <div  *ngIf="(productoDivision.invalid && productoDivision.touched) || productoDivision.dirty">
+      <small *ngIf="productoDivision.errors?.required" class="text-danger">Division requerido</small>
+    </div> 
+       
+       
+       
+        <datalist  id="SSubtipo">
+          
+            <div *ngFor="let emp of productooserv">
+            <div *ngIf="emp.Parent==sparents">
+            <option   [value]="emp.Nombre"></option>  
+          </div>
+          </div>
+        
+        </datalist> 
+      </div>
+
+
+
+
+
+      <div class="form-group col-md-4">
+        <label for="inputState">Grupo: </label>
+        
+        <input type="text" list="SCodigo"  class="form-control" formControlName="productoGrupo" [class.is-invalid] = "productoGrupo.invalid && (productoGrupo.dirty || productoGrupo.touched)"
+        [(ngModel)]='articuloServicioService.selectArtServ.productoGrupo' (change)="sore3(articuloServicioService.selectArtServ.productoGrupo,ArtServForm)" >
+    <div  *ngIf="(productoGrupo.invalid && productoGrupo.touched) || productoGrupo.dirty">
+      <small *ngIf="productoGrupo.errors?.required" class="text-danger">Grupo requerido</small>
+    </div> 
+       
+       
+        <datalist  id="SCodigo">
+          
+            <div *ngFor="let emp of productooserv">
+            <div *ngIf="emp.Parent==sparents2">
+            <option   [value]="emp.Nombre"></option>  
+          </div>
+          </div>
+      
+        </datalist> 
+      </div>
+
+
+
+      <div class="form-group col-md-4">
+        <label for="inputState">Clase: </label>
+       
+     
+        <input type="text"  list="SClase" class="form-control" formControlName="productoClase" [class.is-invalid] = "productoClase.invalid && (productoClase.dirty || productoClase.touched)"
+        [(ngModel)]='articuloServicioService.selectArtServ.productoClase' (change)="sore4(articuloServicioService.selectArtServ.productoClase,ArtServForm)">
+    <div  *ngIf="(productoClase.invalid && productoClase.touched) || productoClase.dirty">
+      <small *ngIf="productoClase.errors?.required" class="text-danger">Clase requerido</small>
+    </div> 
+     
+        <datalist  id="SClase">
+          
+            <div *ngFor="let emp of productooserv">
+            <div *ngIf="emp.Parent==sparents3">
+            <option   [value]="emp.Nombre"></option>  
+          </div>
+          </div>
+          
+        </datalist> 
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <button class="btn btn-custom right" type="button"  (click)="resetForm()" > Reset </button>
+    <button class="boton" type="submit" >Finalizar</button>
+  </form>
+  </div>
+
+
+
+
+
+
+
+
+
+<br><div class="contenedor" *ngIf="!ver">
+  <form [formGroup]="ArtServForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="_id" [(ngModel)]="articuloServicioService.selectArtServ._id">
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputZip">Articulo o Servicio:</label>
+     
+      <input type="text" class="form-control" formControlName="articuloServicio"  [(ngModel)]="articuloServicioService.selectArtServ.articuloServicio"  disabled>
+        
+    </div> 
+    <div class="form-group col-md-6">
+      <label for="inputZip">Nombre:</label>
+     
+      <input type="text" class="form-control" formControlName="nombre"  [(ngModel)]="articuloServicioService.selectArtServ.nombre"  disabled>
+       
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputZip">Precio:</label>
+
+      <input type="text" class="form-control" formControlName="precio" [(ngModel)]="articuloServicioService.selectArtServ.precio"  disabled>
+     
+    </div> 
+
+    <div class="form-group col-md-12">
+      <label>Unidad de medida</label>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputState">Tipo: </label>
+      
+      <input type="text"  list="Tipo" class="form-control" formControlName="unidadTipo"
+      [(ngModel)]="articuloServicioService.selectArtServ.unidadTipo"  (change)="ore(articuloServicioService.selectArtServ.unidadTipo,ArtServForm)"     disabled>
+      <datalist  id="Tipo">          
+        <div *ngFor="let emp of unidades2">
+        <div *ngIf="emp.parent==null">
+        <option   [value]="emp.Nombre"></option>  
+        </div>
+      </div>
+    
+    </datalist>
+    </div> 
+    
+     <div class="form-group col-md-4">
+      <label for="inputState">Sub Tipo: </label>
+     
+      <input type="text" list="Subtipo"  class="form-control" formControlName="unidadSubtipo" 
+      [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo'    (change)="ore2(articuloServicioService.selectArtServ.unidadSubtipo,ArtServForm)" disabled>
+     
+    </div>
+    
+    
+   
+    <div class="form-group col-md-4">
+      <label for="inputState">Unidad: </label>
+     
+      <input type="text" list="Unidad"  class="form-control" formControlName="unidad" 
+      [(ngModel)]='articuloServicioService.selectArtServ.unidad'  (change)="ore3(articuloServicioService.selectArtServ.unidad,ArtServForm)"    disabled      >
+  
+    </div>
+
+
+
+
+    <div class="form-group col-md-1">
+      
+      <label for="inputState">Codigo: </label>
+      <a type="text" class="form-control">{{parents3}}</a>
+      <input type="hidden" formControlName="unidadCodigo" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' [value]="parents3" disabled>
+       
+    </div>
+
+    
+    <div class="form-group col-md-12">
+      <label>Producto o servicio</label>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputState">Tipo: </label>
+     
+      <input type="text" list="STipo"  class="form-control" formControlName="productoTipo" 
+      [(ngModel)]='articuloServicioService.selectArtServ.productoTipo'  (change)="sore(articuloServicioService.selectArtServ.productoTipo,ArtServForm)"  disabled  >
+
+    </div>
+
+
+
+
+
+
+    <div class="form-group col-md-4">
+      <label for="inputState">Division: </label>
+     
+      <input type="text" list="SSubtipo"  class="form-control" formControlName="productoDivision" 
+      [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="sore2(articuloServicioService.selectArtServ.productoDivision,ArtServForm)"  disabled>
+  
+    </div>
+
+
+
+
+
+    <div class="form-group col-md-4">
+      <label for="inputState">Grupo: </label>
+      
+      <input type="text" list="SCodigo"  class="form-control" formControlName="productoGrupo"
+      [(ngModel)]='articuloServicioService.selectArtServ.productoGrupo' (change)="sore3(articuloServicioService.selectArtServ.productoGrupo,ArtServForm)" disabled>
+ 
+     
+     
+    </div>
+
+
+
+    <div class="form-group col-md-4">
+      <label for="inputState">Clase: </label>
+     
+   
+      <input type="text"  list="SClase" class="form-control" formControlName="productoClase" 
+      [(ngModel)]='articuloServicioService.selectArtServ.productoClase' (change)="sore4(articuloServicioService.selectArtServ.productoClase,ArtServForm)" disabled>
+  
+     
+    </div>
+
+
+
+
+
+
+
+   
+  </div>
+</form>
+      </div>
     </main>
