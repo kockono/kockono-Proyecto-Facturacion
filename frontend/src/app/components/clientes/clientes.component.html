@@ -282,7 +282,7 @@
            <br>
     <input type="text" class="form-control busqueda" name="filterpost" placeholder="Buscar" [(ngModel)]="filterpost">
     <div class="plus">
-      <button class="button button1" type="submit" routerLink="/datos-emisor"><strong>Agregar</strong></button>
+      <button class="button arriba" type="submit" routerLink="/datos-emisor"><strong>Agregar</strong></button>
       <a></a>
     </div>
 <div class="contenedor">
@@ -304,35 +304,39 @@
     <tbody>
      
 
-      <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa | filter:filterpost; let i = index">
-        <th scope="row">{{i+1}}</th>
+      <tr *ngFor="let emp of datosEmpresaService.DatosEmpresa | filter:filterpost | paginate: { itemsPerPage: 5, currentPage: pageActual }  ;let i = index">
+        <th scope="row">  {{ 5 * (pageActual - 1) + (i+1) }} 
+          </th>
         <td>{{emp.nombreDeLaEmpresa}}</td>
         <td>{{emp.estatus}}</td>
         <td class="b1">
             <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
             <a class="action-btn" >
-              <button class="button button1"  (click)="onEdit(emp)" (click)="ver=!ver "><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
+              <button class="button ver"  (click)="onEdit(emp)" (click)="ver=!ver "><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
             </a>        
           </td>
           <td class="b2" > 
             <a class="action-btn" (click)="onEdit(emp)" (click)="monstrar=!monstrar">
-              <button class="button button2"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" ></button>
+              <button class="button editar"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" ></button>
             </a>
           </td>
           <td class="b3">
             <a class="action-btn"  (click)="onDelete()">
-              <button class="button button3"  ><img src="./../../../assets/img/basura.png" height="15px" widht="15px" ></button>
+              <button class="button borrar"  ><img src="./../../../assets/img/basura.png" height="15px" widht="15px" ></button>
             </a>
           </td>
           <td class="b4">
             <a class="action-btn" (click)="onEdit(emp)" (click)="fact=!fact ">
-              <button class="button button4" ><img src="./../../../assets/img/0294f1b33cff18a6.png" height="15px" widht="15px" ></button>
+              <button class="button fact" ><img src="./../../../assets/img/0294f1b33cff18a6.png" height="15px" widht="15px" ></button>
             </a>
           </td>
         
     </tbody>
     
   </table>
+  <pagination-controls previousLabel="Anterior"
+  nextLabel="Siguiente" (pageChange)="pageActual = $event">
+  </pagination-controls>
 </div>
 <br><div class="contenedor" *ngIf="!monstrar">
    

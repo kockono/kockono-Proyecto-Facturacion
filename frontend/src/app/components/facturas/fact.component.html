@@ -5,7 +5,7 @@
   </div>
   <br>
   <div class="plus">
-    <button class="button button1" type="submit" routerLink="/crear-fact">
+    <button class="button arriba" type="submit" routerLink="/crear-fact">
       <strong>Generar</strong>
     </button>
     <a></a>
@@ -30,7 +30,7 @@
       <tbody>
         <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)"></form>
         <tr
-          *ngFor="let emp of datosEmpresaService.DatosEmpresa; let i = index"
+          *ngFor="let emp of datosEmpresaService.DatosEmpresa | paginate: { itemsPerPage: 5, currentPage: pageActual }  ;let i = index"
           [ngStyle]="{
             'background-color': emp.estatus == 'Cancelado' ? '#BCBCBC' : 'white'
           }"
@@ -44,7 +44,7 @@
             <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
             <a class="action-btn">
               <button
-                class="button button1"
+                class="button ver"
                 (click)="onEdit(emp)"
                 (click)="ver = !ver"
               >
@@ -63,9 +63,9 @@
           </td> -->
           <td class="b3">
             <a class="action-btn" (click)="cambiarEstatus(emp)">
-              <button class="button button3">
+              <button class="button borrar">
                 <img
-                  src="./../../../assets/img/basura.png"
+                  src="./../../../assets/img/cancelar.png"
                   height="15px"
                   widht="15px"
                 />
@@ -75,10 +75,13 @@
         </tr>
       </tbody>
     </table>
+    <pagination-controls previousLabel="Anterior"
+    nextLabel="Siguiente" (pageChange)="pageActual = $event">
+    </pagination-controls>
   </div>
   <br />
   <div class="contenedor" *ngIf="!ver">
-    <button class="button fact" (click)="GenerarPDF() ">Descargar PDF</button>
+    <button class="button pdf" (click)="GenerarPDF() ">Descargar PDF</button>
 
     <form #empresaForm="ngForm" (ngSubmit)="onSubmit(empresaForm)">
       <div class="form-row">

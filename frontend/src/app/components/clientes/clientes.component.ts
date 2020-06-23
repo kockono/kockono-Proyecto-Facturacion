@@ -16,6 +16,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ClientesComponent implements OnInit {
 
+  pageActual: number=1;
+
+
+
   createFormGroup() {
 
     return new FormGroup({

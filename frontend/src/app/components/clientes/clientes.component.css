@@ -1,5 +1,4 @@
 
-
 .plus{
   text-align:left;
   font-size: 30px;
@@ -21,7 +20,7 @@
   padding-bottom: 4%;
 }
 .button {
-  background-color: rgb(49, 110, 180); /* Green */
+  background-color: rgb(49, 110, 180); 
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -31,61 +30,64 @@
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
-  border-radius: 10px;
 }
-.button1 {
-  background-color: rgb(49, 110, 180);
+.arriba {
+  margin-left: 10px;
+  background-color: rgba(0, 162, 255, 0);
   color: black; 
-  border: 2px solid rgb(0, 0, 0);
-  
-  border-radius: 10px;
+  border-radius: 10%;
 }
-
-.button1:hover {
+.arriba:hover {
   background-color: rgb(9, 60, 119);
-  color:  rgb(49, 110, 180); 
-  
+  color: rgb(255, 255, 255); 
   border-radius: 10px;
 }
-
-.button2 {
-  background-color: rgb(50, 153, 96);
+.ver {
+  background-color: rgba(31, 101, 158, 0.774);
   color: black; 
-  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10%;
+  box-shadow: 3px 3px;
+}
+
+.ver:hover {
+  background-color: rgb(9, 60, 119);
+  color: black; 
+  }
+
+.editar {
+  background-color: rgb(50, 153, 50);
+  color: black; 
+  border-radius: 10%;
+  box-shadow: 3px 3px;
+}
+
+.editar:hover {
+  background-color: rgb(14, 92, 27);
+  color: black; 
+  }
+
+.borrar {
+background-color: rgba(211, 46, 46, 0.884);
+  color: black; 
+  border-radius: 10%;
+  box-shadow: 3px 3px;
+}
+
+.borrar:hover {
+  background-color: #8f2828f1;
+  color: black; 
+}
+.fact {
+  background-color: rgb(235, 191, 47);
+    color: black; 
+    border-radius: 10%;
+    box-shadow: 3px 3px;
+  }
   
-  border-radius: 10px;
-}
-
-.button2:hover {
-  background-color: rgb(14, 92, 49);
-  color:  rgb(49, 110, 180);
-  
-  border-radius: 10px;
-}
-
-.button3 {
-  background-color: rgb(235, 20, 20); 
-  color: black; 
-  border: 2px solid #000000;
-}
-
-.button3:hover {
-  background-color: #803030;
-  color: rgb(231, 24, 24);
-}
-
-.button4 {
-  background-color:  #C2C61D; 
-  color: black; 
-  border: 2px solid #000000;
-}
-
-.button4:hover {
-  background-color: rgb(147, 150, 17);
-  color: rgb(231, 24, 24);
-}
-
-
+  .fact:hover {
+    background-color: rgb(182, 149, 40);
+    color: black; 
+  }
 .boton {
   background-color: #214296;
   border: none;
@@ -122,7 +124,24 @@
   margin-top: 0%;
   min-height: 10em;
   padding: 1%;
-  
+  font-size: 20px;
+}
+
+.tablas{
+  overflow: auto;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0%;
+  width: 98%;
+  height: 75%;
+  margin-top: 0%;
+  min-height: 10em;
+  padding: 1%;
   font-size: 20px;
 }
 
@@ -195,7 +214,6 @@ th, td {
      margin-left: 10em;
   }
 }
-
 
 .is-invalid{
   border: 1px solid rgb(255, 0, 0);

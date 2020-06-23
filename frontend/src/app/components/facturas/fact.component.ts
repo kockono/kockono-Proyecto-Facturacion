@@ -23,6 +23,9 @@ let doc = new jsPDF();
   providers: [DatosEmpresaService2,DatosEmpresaService,DatosMiEmpresaService],
 })
 export class FactComponent implements OnInit {
+  pageActual: number=1;
+
+
   /* El servicio de Facturas se guardó en una variable: datosEmpresaService */
   constructor( 
     public datosEmpresaService: DatosEmpresaService2,
@@ -99,11 +102,13 @@ export class FactComponent implements OnInit {
         {
           date: this.datosEmpresaService.selectEmpresa.fecha,
           code: this.datosEmpresaService.selectEmpresa.folio,
+          est: this.datosEmpresaService.selectEmpresa.estatus
         },
       ],
       columns: [
         { header: "Fecha y hora", dataKey: "date" },
         { header: "Folio", dataKey: "code" },
+        { header: "Estatus", dataKey: "est" }
       ],
       //styles: { halign: "rigth", cellWidth: "auto", fontSize: 10 },
     });

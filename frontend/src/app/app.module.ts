@@ -54,6 +54,8 @@ import { ReportesClientesComponent } from './components/reportes/reportes-client
 
 
 
+//Paginacion
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -99,8 +101,8 @@ import { ReportesClientesComponent } from './components/reportes/reportes-client
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
-    MatFormFieldModule
-    
+    MatFormFieldModule,
+    NgxPaginationModule
   ],
   providers: [
     AuthGuard,

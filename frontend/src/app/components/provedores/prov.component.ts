@@ -13,6 +13,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ProvComponent implements OnInit {
 
+  pageActual: number=1;
+
+
   createFormGroup() {
 
     return new FormGroup({
