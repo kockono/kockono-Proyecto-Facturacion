@@ -127,7 +127,7 @@
     <br> 
     <!-- Aqui iba el buscador -->
     <div class="plus">
-      <button class="button button1" type="submit" routerLink="/crear-articulos-y-servicios"><strong>Nuevo</strong></button>
+      <button class="button arriba" type="submit" routerLink="/crear-articulos-y-servicios"><strong>Nuevo</strong></button>
       <a></a>
     </div>
 
@@ -162,17 +162,17 @@
         <td class="b1">
             <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
             <a class="action-btn" >
-              <button class="button button1"  (click)="onEdit(emp)" (click)="ver=!ver"><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
+              <button class="button ver"  (click)="onEdit(emp)" (click)="ver=!ver"><img src="./../../../assets/img/ojo.png" height="15px" widht="15px" ></button>
             </a>        
           </td>
           <td class="b2" > 
             <a class="action-btn" (click)="onEdit(emp)" (click)="monstrar=!monstrar">
-              <button class="button button2"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" ></button>
+              <button class="button editar"><img src="./../../../assets/img/mod.png" height="15px" widht="15px" ></button>
             </a>
           </td>
           <td class="b3">
             <a class="action-btn" (click)="onDelete(emp._id, ArtServForm)">
-              <button class="button button3" ><img src="./../../../assets/img/basura.png" height="15px" widht="15px" ></button>
+              <button class="button borrar" ><img src="./../../../assets/img/basura.png" height="15px" widht="15px" ></button>
             </a>
           </td>
         
