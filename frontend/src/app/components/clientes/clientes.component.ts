@@ -133,7 +133,9 @@ export class ClientesComponent implements OnInit {
       subtotal:null,
       total:null,
       iva:null,
-      artarr:[null]
+      artarr:[null],
+      fechaExpir:'',
+      dineroRest:null
     }
   }
   onSubmit(){

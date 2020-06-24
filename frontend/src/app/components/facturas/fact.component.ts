@@ -294,6 +294,8 @@ export class FactComponent implements OnInit {
       total: null,
       iva: null,
       artarr: [null],
+      fechaExpir:'',
+      dineroRest:null
     };
   }
   onSubmit(form: NgForm) {

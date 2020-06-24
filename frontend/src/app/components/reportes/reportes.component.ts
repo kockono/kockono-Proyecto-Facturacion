@@ -89,7 +89,11 @@ applyFilter(filterValue: string) {
       subtotal:null,
       total:null,
       iva:null,
-      artarr:[]
+      artarr:[],
+      fechaExpir:'',
+      dineroRest:null
+
+
     }
   }
   onSubmit(form: NgForm){

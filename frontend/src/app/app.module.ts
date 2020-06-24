@@ -56,6 +56,7 @@ import { ReportesClientesComponent } from './components/reportes/reportes-client
 
 //Paginacion
 import {NgxPaginationModule} from 'ngx-pagination';
+import { TimeComponent } from './time/time.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CrearArticulosYServiciosComponent,
     ReportesComponent,
     ReportesArticulosComponent,
-    ReportesClientesComponent
+    ReportesClientesComponent,
+    TimeComponent
 
   ],
   imports: [

@@ -8,7 +8,7 @@ import { DatosEmisor } from '../../models/datos-emisor';
 import { ArticuloServicioService } from '../../services/articulos-y-servicios.service'
 import { ArticuloServicio } from '../../models/articulos-y-servicios'
 import { format } from 'url';
-
+import * as moment from 'moment'; // add this 1 of 4
 
 @Component({
   selector: 'app-crear-fact',
@@ -16,22 +16,6 @@ import { format } from 'url';
   styleUrls: ['./crear-fact.component.css']
 })
 export class CrearFactComponent implements OnInit {
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
   matrix = [['a', 'b', 'c'],['d', 'e', 'f'],['g', 'h', 'i']];
   listaMetodo=["Contado (PUE)","Credito (PPD)"];
   listaForma=["Efectivo","Tarjeta","Vale/Otros","Transferencia electronica", "99 por definir"];
@@ -74,12 +58,19 @@ export class CrearFactComponent implements OnInit {
   ta=[];
   tots:number;
   iva:number;
+  fech:any;
+  met:string;
+  din:number;
+  di:number;
+  dias:number;
+  now:any;
 
 
   year:any;   month:any;  day:any;  hours:any;  minutes:any;  time:any;  seconds:any;
 
     constructor(public articuloServicioService: ArticuloServicioService, private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService ) {
     this.day = new Date().getDate();
+    this.now = moment().locale('es').format('MMMM Do YYYY, h:mm:ss a'); // add this 2 of 4
     this.month = new Date().getMonth()+1;
     this.year = new Date().getFullYear();
     this.hours = new Date().getHours();
@@ -161,12 +152,14 @@ export class CrearFactComponent implements OnInit {
     
 
   ngOnInit() {
+    
     this.resetForm2();
     this.resetFormArt();
     this.refrescarListaDeEmpresa();
     this.refrescarListaDeEmpresa2();
     this.refrescarListaDeArtServ();
     this.folio = 0;
+    
 
   }
   resetFormArt(form?: NgForm) {
@@ -265,7 +258,9 @@ export class CrearFactComponent implements OnInit {
       subtotal:null,
       total:null,
       iva:null,
-      artarr:[null]
+      artarr:[null],
+      fechaExpir:'',
+      dineroRest:null
     }
   }
   resetForm3(form?: NgForm) {
@@ -297,7 +292,9 @@ export class CrearFactComponent implements OnInit {
       subtotal:form.value.subtotal,
       total:form.value.total,
       iva:form.value.iva,
-      artarr:[null]
+      artarr:[null],
+      fechaExpir:form.value.fechaExpir,
+      dineroRest:null
     }
   }
   /* De momento no quitar funcion nada */
@@ -306,13 +303,29 @@ export class CrearFactComponent implements OnInit {
     if(form.value._id == ""){
       if(this.folio==0){this.folio=1}
       form.value.folio = this.folio.toString();
-      form.value.estatus = "Habilitado";
-      form.value.fecha = this.day+"/"+this.month+"/"+this.year+"  "+this.hours+":"+this.minutes;
+           
+      this.now=moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
+        form.value.fecha=this.now;
+      if(this.met=="Contado (PUE)"){
+        form.value.estatus = "Pagado de contado";
+        form.value.dineroRest=0;
+      }else{if(this.met=="Credito (PPD)"){
+        this.now = moment().locale('es');
+        this.now.add(this.di, 'days');
+        form.value.fechaExpir=this.now.format('MMM Do YY');
+        this.fech=this.now.format('MMMM  Do YYYY');
+        this.now = moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
+      }
+        
+        form.value.estatus = "Habilitado";
+        form.value.dineroRest=this.tots.toString();} 
       // this.datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa=this.folio.toString();
       form.value.artarr=this.te;
+      form.value.metodo=this.met;
       form.value.subtotal=this.sumado.toString();
       form.value.total=this.tots.toString();
       form.value.iva=this.iva;
+      
       this.datosEmpresaService2.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         window.alert("Se Guardo Correctamente");
@@ -337,8 +350,23 @@ export class CrearFactComponent implements OnInit {
     this.articuloServicioService.selectArtServ = emp;
   }
 
-  selectCliente(name) {
-    this.selectedCliente=name;
+  eso(name, form) {
+    console.log(name.toString);
+    for(let emp of this.datosEmpresaService.DatosEmpresa){
+      if(emp.nombreDeLaEmpresa==name){
+        form.value.metodo=emp.metodo;
+        this.met=emp.metodo;
+        form.value.dias=emp.dias;
+        this.di=emp.dias;
+        if(emp.metodo=="Credito (PPD)"){
+          this.now = moment().locale('es');
+          this.now.add(this.di, 'days');
+          form.value.fechaExpir=this.now.format('MMM Do YY');
+          this.fech=this.now.format('MMMM  Do YYYY');
+          this.now = moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
+        }
+      }
+    }
 }
 selectMetodo(name) {
   this.selectedMetodo=name;

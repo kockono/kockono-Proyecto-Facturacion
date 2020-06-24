@@ -8,107 +8,72 @@
 
     <legend class="center">Nuevo Articulos y servicios</legend>
   
-   
-      <form [formGroup]="ArtServForm" (ngSubmit)="onSubmit()">
-      <input type="hidden" formControlName="_id" [(ngModel)]="articuloServicioService.selectArtServ._id">
+    <form #ArtServForm="ngForm" (ngSubmit)="onSubmit(ArtServForm)">
+      <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ._id">
 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputZip">Articulo o Servicio:</label>
-       
-        <input type="text" class="form-control" formControlName="articuloServicio" [class.is-invalid] = "articuloServicio.invalid && (articuloServicio.dirty || articuloServicio.touched)" placeholder="Ejem: Gabinete, Monitor, Agua">
-          <div  *ngIf="(articuloServicio.invalid && articuloServicio.touched) || articuloServicio.dirty">
-            <small *ngIf="articuloServicio.errors?.required" class="text-danger">Articulo o servicio requerido</small>
-          </div> 
+        <input type="text" class="form-control"   id="inputArticuloServicio" name="articuloServicio" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.articuloServicio" placeholder="Ejem: Gabinete, Monitor, Agua">
       </div> 
       <div class="form-group col-md-6">
         <label for="inputZip">Nombre:</label>
-       
-        <input type="text" class="form-control" formControlName="nombre" [class.is-invalid] = "nombre.invalid && (nombre.dirty || nombre.touched)" placeholder="Ejem: Laptop">
-        <div  *ngIf="(nombre.invalid && nombre.touched) || nombre.dirty">
-          <small *ngIf="nombre.errors?.required" class="text-danger">Nombre requerido</small>
-        </div> 
+        <input type="text" class="form-control"   id="inputNombre" name="nombre" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.nombre" placeholder="Ejem: Laptop">
       </div>
       <div class="form-group col-md-4">
         <label for="inputZip">Precio:</label>
-  
-        <input type="number" min="1" class="form-control" formControlName="precio" [class.is-invalid] = "precio.invalid && (precio.dirty || precio.touched)" placeholder="Ejem: 1000">
-        <div  *ngIf="(precio.invalid && precio.touched) || precio.dirty">
-          <small *ngIf="precio.errors?.required" class="text-danger">Precio requerido</small>
-        </div> 
+        <input type="text" class="form-control"   id="inputPrecio" name="precio" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.precio" placeholder="Ejem: 1000">
       </div> 
-     
-
       <div class="form-group col-md-12">
         <label>Unidad de medida</label>
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">Tipo: </label>
-        
-        <input type="text"  list="Tipo" class="form-control busqueda" formControlName="unidadTipo" [class.is-invalid]="unidadTipo.invalid && (unidadTipo.dirty || unidadTipo.touched)"
-            (change)="ore(articuloServicioService.selectArtServ.unidadTipo,ArtServForm)">
-        <div  *ngIf="(unidadTipo.invalid && unidadTipo.touched) || unidadTipo.dirty">
-          <small *ngIf="unidadTipo.errors?.required" class="text-danger">unidad tipo requerido</small>
-        </div> 
-        <datalist  id="Tipo">          
+        <input type="text" list="Tipo" class="form-control busqueda" name="unidadTipo"
+        [(ngModel)]='articuloServicioService.selectArtServ.unidadTipo' (change)="ore(articuloServicioService.selectArtServ.unidadTipo,ArtServForm)">
+        <datalist  id="Tipo">
+          <!-- <select> -->
             <div *ngFor="let emp of unidades2">
             <div *ngIf="emp.parent==null">
             <option   [value]="emp.Nombre"></option>  
             </div>
           </div>
-        
+          <!-- </select> -->
         </datalist> 
-      </div> 
-      
-       <div class="form-group col-md-4">
+      </div>
+      <div class="form-group col-md-4">
         <label for="inputState">Sub Tipo: </label>
-       
-        <input type="text" list="Subtipo"  class="form-control busqueda" formControlName="unidadSubtipo" [class.is-invalid] = "unidadSubtipo.invalid && (unidadSubtipo.dirty || unidadSubtipo.touched)"
-            (change)="ore2(articuloServicioService.selectArtServ.unidadSubtipo,ArtServForm)">
-        <div  *ngIf="(unidadSubtipo.invalid && unidadSubtipo.touched) || unidadSubtipo.dirty">
-          <small *ngIf="unidadSubtipo.errors?.required" class="text-danger">unidad subtipo requerido</small>
-        </div> 
-        
+        <input type="text" list="Subtipo"  class="form-control busqueda" name="unidadSubtipo"
+        [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo' (change)="ore2(articuloServicioService.selectArtServ.unidadSubtipo,ArtServForm)">
         <datalist  id="Subtipo">
-          
+          <!-- <select> -->
             <div *ngFor="let emp of unidades2">
             <div *ngIf="emp.parent==parents">
             <option   [value]="emp.Nombre"></option>  
           </div>
           </div>
-        
+          <!-- </select> -->
         </datalist> 
       </div>
-      
-      
-     
       <div class="form-group col-md-4">
         <label for="inputState">Unidad: </label>
-       
-        <input type="text" list="Unidad"  class="form-control busqueda" formControlName="unidad" [class.is-invalid] = "unidad.invalid && (unidad.dirty || unidad.touched)"
-        (change)="ore3(articuloServicioService.selectArtServ.unidad,ArtServForm)"          >
-    <div  *ngIf="(unidad.invalid && unidad.touched) || unidad.dirty">
-      <small *ngIf="unidad.errors?.required" class="text-danger">unidad subtipo requerido</small>
-    </div> 
+        <input type="text" list="Unidad"  class="form-control busqueda" name="unidad"
+        [(ngModel)]='articuloServicioService.selectArtServ.unidad' (change)="ore3(articuloServicioService.selectArtServ.unidad,ArtServForm)">
         <datalist  id="Unidad">
-          
+          <!-- <select> -->
             <div *ngFor="let emp of unidades2">
             <div *ngIf="emp.parent==parents2">
             <option   [value]="emp.Desc"></option>  
           </div>
           </div>
-        
+          <!-- </select> -->
         </datalist> 
       </div>
-
-
-
-
       <div class="form-group col-md-1">
         
         <label for="inputState">Codigo: </label>
         <a type="text" class="form-control">{{parents3}}</a>
-        <input type="hidden" formControlName="unidadCodigo" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' [value]="parents3">
+        <input type="hidden" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' [value]="parents3">
          
       </div>
 
@@ -118,125 +83,64 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">Tipo: </label>
-       
-        <input type="text" list="STipo"  class="form-control busqueda" formControlName="productoTipo" [class.is-invalid] = "productoTipo.invalid && (productoTipo.dirty || productoTipo.touched)"
-        (change)="sore(articuloServicioService.selectArtServ.productoTipo,ArtServForm)"    >
-    <div  *ngIf="(productoTipo.invalid && productoTipo.touched) || productoTipo.dirty">
-      <small *ngIf="productoTipo.errors?.required" class="text-danger">Tipo requerido</small>
-    </div> 
-      
-      
+        <input type="text" list="STipo" class="form-control busqueda" name="productoTipo"
+        [(ngModel)]='articuloServicioService.selectArtServ.productoTipo' (change)="sore(articuloServicioService.selectArtServ.productoTipo,ArtServForm)">
         <datalist  id="STipo">
-          
+          <!-- <select> -->
             <div *ngFor="let emp of productooserv">
             <div *ngIf="emp.Parent==null">
             <option   [value]="emp.Nombre"></option>  
             </div>
           </div>
-        
+          <!-- </select> -->
         </datalist> 
       </div>
-
-
-
-
-
-
       <div class="form-group col-md-4">
-        <label for="inputState">Division: </label>
-       
-        <input type="text" list="SSubtipo"  class="form-control busqueda" formControlName="productoDivision" [class.is-invalid] = "productoDivision.invalid && (productoDivision.dirty || productoDivision.touched)"
-        (change)="sore2(articuloServicioService.selectArtServ.productoDivision,ArtServForm)"  >
-    <div  *ngIf="(productoDivision.invalid && productoDivision.touched) || productoDivision.dirty">
-      <small *ngIf="productoDivision.errors?.required" class="text-danger">Division requerido</small>
-    </div> 
-       
-       
-       
+        <label for="inputState">Divicion: </label>
+        <input type="text" list="SSubtipo"  class="form-control busqueda" name="productoDivision"
+        [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="sore2(articuloServicioService.selectArtServ.productoDivision,ArtServForm)">
         <datalist  id="SSubtipo">
-          
+          <!-- <select> -->
             <div *ngFor="let emp of productooserv">
             <div *ngIf="emp.Parent==sparents">
             <option   [value]="emp.Nombre"></option>  
           </div>
           </div>
-        
+          <!-- </select> -->
         </datalist> 
       </div>
-
-
-
-
-
       <div class="form-group col-md-4">
         <label for="inputState">Grupo: </label>
-        
-        <input type="text" list="SCodigo"  class="form-control busqueda" formControlName="productoGrupo" [class.is-invalid] = "productoGrupo.invalid && (productoGrupo.dirty || productoGrupo.touched)"
-        (change)="sore3(articuloServicioService.selectArtServ.productoGrupo,ArtServForm)" >
-    <div  *ngIf="(productoGrupo.invalid && productoGrupo.touched) || productoGrupo.dirty">
-      <small *ngIf="productoGrupo.errors?.required" class="text-danger">Grupo requerido</small>
-    </div> 
-       
-       
+        <input type="text" list="SCodigo"  class="form-control busqueda" name="productoGrupo"
+        [(ngModel)]='articuloServicioService.selectArtServ.productoGrupo' (change)="sore3(articuloServicioService.selectArtServ.productoGrupo,ArtServForm)">
         <datalist  id="SCodigo">
-          
+          <!-- <select> -->
             <div *ngFor="let emp of productooserv">
             <div *ngIf="emp.Parent==sparents2">
             <option   [value]="emp.Nombre"></option>  
           </div>
           </div>
-      
+          <!-- </select> -->
         </datalist> 
       </div>
-
-
-
       <div class="form-group col-md-4">
         <label for="inputState">Clase: </label>
-       
-     
-        <input type="text"  list="SClase" class="form-control busqueda" formControlName="productoClase" [class.is-invalid] = "productoClase.invalid && (productoClase.dirty || productoClase.touched)"
-        (change)="sore4(articuloServicioService.selectArtServ.productoClase,ArtServForm)">
-    <div  *ngIf="(productoClase.invalid && productoClase.touched) || productoClase.dirty">
-      <small *ngIf="productoClase.errors?.required" class="text-danger">Clase requerido</small>
-    </div> 
-     
+        <input type="text" list="SClase"  class="form-control busqueda" name="productoClase"
+        [(ngModel)]='articuloServicioService.selectArtServ.productoClase' (change)="sore4(articuloServicioService.selectArtServ.productoClase,ArtServForm)">
         <datalist  id="SClase">
-          
+          <!-- <select> -->
             <div *ngFor="let emp of productooserv">
             <div *ngIf="emp.Parent==sparents3">
             <option   [value]="emp.Nombre"></option>  
           </div>
           </div>
-          
+          <!-- </select> -->
         </datalist> 
       </div>
-
- <!--
-
-
-
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      
     </div>
-    <button class="btn btn-custom right" type="button"  (click)="resetForm()" > Reset </button>
-    <button class="boton" type="submit" >Finalizar</button>
+    <button class="btn btn-custom right" type="button"  (click)="resetForm(ArtServForm)" > Reset </button>
+    <button class="boton" type="submit" [disabled]="!ArtServForm.valid" >Finalizar</button>
   </form>
   </div>
 </div>

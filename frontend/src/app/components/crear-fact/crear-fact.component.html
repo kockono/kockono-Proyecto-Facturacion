@@ -22,46 +22,70 @@
         <div class="form-group col-md-5">
           <label for="inputZip">Fecha:</label>
           <a type="text" class="form-control" id="inputFecha" name="fecha" #name="ngModel" 
-          [(ngModel)]="datosEmpresaService2.selectEmpresa.fecha" placeholder="Fecha">{{day+"/"+month+"/"+year +" "+hours+":"+minutes+" UTC"}}</a>
+          [(ngModel)]="datosEmpresaService2.selectEmpresa.fecha" placeholder="Fecha">{{now}}</a>
+        </div>
+        <div class="form-group col-md-5">
+          <label for="inputZip">Fecha Expir:</label>
+          <a type="text" class="form-control" id="inputFecha" name="fechaExpir" >{{fech}}</a>
         </div>
         <div class="form-group col-md-4">
           <label for="inputState">Cliente: </label>
-          <input type="text" list="Clientes" class="form-control busqueda" name="nombreDeLaEmpresa" [(ngModel)]='selectedClientes' (change)="selectEmpresa(selectedClientes)">
+          <input type="text" list="Clientes" class="form-control busqueda" name="nombreDeLaEmpresa" [(ngModel)]='selectedClientes' (change)="eso(selectedClientes,empresaForm)">
           <datalist  id="Clientes">
             <!-- <select> -->
               <option  *ngFor="let emp of datosEmpresaService.DatosEmpresa" [value]="emp.nombreDeLaEmpresa"></option>  
             <!-- </select> -->
           </datalist>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <label for="inputState">Metodo de pago: </label>
-          <input type="text" list="Metodo" class="form-control busqueda" name="metodo" [(ngModel)]='selectedMetodo' (change)="selectEmpresa(selectedMetodo)">
-          <datalist id="Metodo" >
-            <!-- <select> -->
-              <option *ngFor="let emp of listaMetodo" [value]="emp"></option>  
-              
-            <!-- </select> -->
-          </datalist>
+        <a type="text" class="form-control"  name="metodo"#name="ngModel" 
+        [(ngModel)]="datosEmpresaService2.selectEmpresa.metodo" >{{met}}</a>
+          
+        </div>
+        <div class="form-group col-md-1">
+          <label for="inputState">Dias: </label>
+        <a type="text" class="form-control" name="dias">{{di}}</a>
         </div>
         <div class="form-group col-md-4">
           <label for="inputState">Forma de pago: </label>
-          <input type="text"  list="Forma" class="form-control busqueda" name="forma"[(ngModel)]='selectedForma' (change)="selectEmpresa(selectedForma)">
-          <datalist id="Forma" >
-            <!-- <select> -->
-              <option *ngFor="let emp of listaForma" [value]="emp"></option>  
-               
-            <!-- </select> -->
-          </datalist>
-        </div>
+          <select type="text" class="form-control"  name="forma" #name="ngModel" 
+          [(ngModel)]="datosEmpresaService2.selectEmpresa.forma">
+            <option value="99 por definir">99 por definir</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta">Tarjeta</option>
+            <option value="Vale/Otros">Vale/Otros</option>
+            <option value="Transferencia electronica">Transferencia electronica</option>
+          </select>
+          </div>
         <div class="form-group col-md-4">
           <label for="inputState">CFDi: </label>
-          <input type="text"  list="CFDi" class="form-control busqueda" name="cfdi" [(ngModel)]='selectedCFDi' (change)="selectEmpresa(selectedCFDi)" >
-          <datalist id="CFDi" >
-            <!-- <select> -->
-              <option *ngFor="let emp of listaCFDi" [value]="emp"></option>  
-               
-            <!-- </select> -->
-          </datalist>
+          <select type="text" class="form-control"  name="cfdi" #name="ngModel" 
+          [(ngModel)]="datosEmpresaService2.selectEmpresa.cfdi">
+            <option value="P01 Por Definir">P01 Por Definir</option>
+            <option value="G01 Adquisiscion de mercancia">G01 Adquisiscion de mercancia</option>
+            <option value="G02 Devoluciones, Descuentos o Bonificaciones">G02 Devoluciones, Descuentos o Bonificaciones</option>
+            <option value="G03 Gastos en General">G03 Gastos en General</option>
+            <option value="I01 Construcciones">I01 Construcciones</option>
+            <option value="I02 Mobiliario y Equipo de Oficina por Inversiones">I02 Mobiliario y Equipo de Oficina por Inversiones</option>
+            <option value="I02 Mobiliario y Equipo de Oficina por Inversiones">I02 Mobiliario y Equipo de Oficina por Inversiones</option>
+            <option value="I03 Equipo de Transporte">I03 Equipo de Transporte</option>
+            <option value="I04 Equipo de Cómputo y Accesorios">I04 Equipo de Cómputo y Accesorios</option>
+            <option value="I05 Dados, Troqueles, Moldes, Matrices y Herramental">I05 Dados, Troqueles, Moldes, Matrices y Herramental</option>
+            <option value="I06 Comunicaciones Telefónicas">I06 Comunicaciones Telefónicas</option>
+            <option value="I07 Comunicaciones Satelitales">I07 Comunicaciones Satelitales</option>
+            <option value="I08 Otra Maquinaria y Equipo">I08 Otra Maquinaria y Equipo</option>
+            <option value="D01 Honorarios Médicos, Dentales y Gastos Hospitalarios">D01 Honorarios Médicos, Dentales y Gastos Hospitalarios</option>
+            <option value="D02 Gastos Médicos por Incapacidad o Discapacidad">D02 Gastos Médicos por Incapacidad o Discapacidad</option>
+            <option value="D03 Gastos Funerales">D03 Gastos Funerales</option>
+            <option value="D04 Donativos">D04 Donativos</option>
+            <option value="D05 Intereses Reales Efectivamente Pagados por Créditos Hipotecarios (Casa Habitación)">D05 Intereses Reales Efectivamente Pagados por Créditos Hipotecarios (Casa Habitación)</option>
+            <option value="D06 Aportaciones Voluntarias al SAR">D06 Aportaciones Voluntarias al SAR</option>
+            <option value="D07 Primas por Seguros de Gastos Médicos">D07 Primas por Seguros de Gastos Médicos</option>
+            <option value="D08 Gastos de Transportación Escolar Obligatoria">D08 Gastos de Transportación Escolar Obligatoria</option>
+            <option value="D09 Depósitos en Cuentas para el Ahorro, Primas que tengan como Base Planes de Pensiones">D09 Depósitos en Cuentas para el Ahorro, Primas que tengan como Base Planes de Pensiones</option>
+            <option value="D010 Pagos por Servicios Educativos (Colegiaturas)">D010 Pagos por Servicios Educativos (Colegiaturas)</option>
+          </select>
         </div>
         
         <div class="form-group col-md-3">

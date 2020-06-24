@@ -25,4 +25,6 @@ export class DatosFact {
     total:number;
     iva: number;
     artarr: any[];
+    fechaExpir:any;
+    dineroRest:number;
   }

@@ -32,7 +32,10 @@ router.post('/', (req, res) => {
         total:req.body.total,
         iva:req.body.iva,
         /*Nuevo*/
-        artarr:req.body.artarr
+        artarr:req.body.artarr,
+
+        fechaExpir:req.body.fechaExpir,
+        dineroRest:req.body.dineroRest
     });
 
     
@@ -74,7 +77,10 @@ router.put('/:id', (req, res) => {
             total:req.body.total,
             iva:req.body.iva,
             /*Nuevo*/
-            artarr:req.body.artarr
+            artarr:req.body.artarr,
+
+            fechaExpir:req.body.fechaExpir,
+            dineroRest:req.body.dineroRest
         });
 
     let ID = req.params.id;
