@@ -10,6 +10,8 @@ import { DatosMiEmpresa } from '../../models/datos-mi-empresa'; //Mi empresa
 //Módulos necesarios para generación del PDF
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+
+import * as moment from 'moment'; // add this 1 of 4
 // import { DatosEmpresaService } from '../../services/datos-prov.service';
 import { async } from '@angular/core/testing';
 import { element } from 'protractor';
@@ -24,6 +26,8 @@ let doc = new jsPDF();
 })
 export class FactComponent implements OnInit {
   pageActual: number=1;
+  
+  now:any;
 
 
   /* El servicio de Facturas se guardó en una variable: datosEmpresaService */
@@ -35,6 +39,8 @@ export class FactComponent implements OnInit {
     public datosMiEmpresaService: DatosMiEmpresaService,
   //datoMiEmpresaService - Mi Empresa
   ) {
+    
+    this.now = moment().locale('es').format('MMMM Do YYYY, h:mm:ss a'); // add this 2 of 4
     console.log(this.datosEmpresaService.selectEmpresa);  
 
   }
@@ -231,8 +237,26 @@ export class FactComponent implements OnInit {
     doc.save('Factura-'+this.datosEmpresaService.selectEmpresa.folio + this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa + '.pdf');
     doc = new jsPDF();
   }
-  
 
+  arrayAbono=[];
+  
+  nada(form: NgForm){
+    if(this.datosEmpresaService.selectEmpresa.dineroRest>0){
+    this.now=moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
+    this.arrayAbono.push([
+      this.now,
+      this.datosEmpresaService.selectEmpresa.dineroRest,
+      form.value.montoAbono,
+      (Math.round(100*(this.datosEmpresaService.selectEmpresa.dineroRest-form.value.montoAbono.toString())))/100
+    ]);
+    this.datosEmpresaService.selectEmpresa.dineroRest=(Math.round(100*(this.datosEmpresaService.selectEmpresa.dineroRest-form.value.montoAbono.toString())))/100
+  }if(this.datosEmpresaService.selectEmpresa.dineroRest==0){
+    this.datosEmpresaService.selectEmpresa.estatus="Pagado"
+  }
+
+
+
+}
   ngOnInit() {
     this.resetForm();
     this.refrescarListaDeEmpresa();

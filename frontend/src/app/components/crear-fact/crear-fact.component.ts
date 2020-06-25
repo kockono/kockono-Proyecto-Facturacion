@@ -310,15 +310,17 @@ export class CrearFactComponent implements OnInit {
         form.value.estatus = "Pagado de contado";
         form.value.dineroRest=0;
       }else{if(this.met=="Credito (PPD)"){
+        
         this.now = moment().locale('es');
         this.now.add(this.di, 'days');
         form.value.fechaExpir=this.now.format('MMM Do YY');
         this.fech=this.now.format('MMMM  Do YYYY');
         this.now = moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
-      }
-        
         form.value.estatus = "Habilitado";
         form.value.dineroRest=this.tots.toString();} 
+      }
+        
+        
       // this.datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa=this.folio.toString();
       form.value.artarr=this.te;
       form.value.metodo=this.met;
