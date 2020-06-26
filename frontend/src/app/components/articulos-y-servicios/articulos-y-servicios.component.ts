@@ -12,7 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   providers: [ArticuloServicioService]
 })
 export class ArticulosYServiciosComponent implements OnInit {
-
+  pageActual: number=1;
 
   createFormGroup() {
 

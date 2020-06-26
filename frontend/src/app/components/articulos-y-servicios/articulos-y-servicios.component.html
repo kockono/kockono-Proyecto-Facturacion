@@ -153,12 +153,12 @@
     <tbody>
      
       <!-- No mostraba datos por el filter -->
-      <tr *ngFor="let emp of articuloServicioService.DatosArtServ  let i = index">
-        <th scope="row">{{i+1}}</th>
+      <tr *ngFor="let emp of articuloServicioService.DatosArtServ  | paginate: { itemsPerPage: 5, currentPage: pageActual }  ;let i = index">
+        <th scope="row">{{ 5 * (pageActual - 1) + (i+1) }}</th>
         <td>{{emp.articuloServicio}}</td>
         <td>{{emp.nombre}}</td>
         <td>{{emp.precio}}</td>
-        <td>{{emp.uMed}}</td>
+        <td>{{emp.unidadTipo}}</td>
         <td class="b1">
             <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
             <a class="action-btn" >
@@ -179,6 +179,11 @@
     </tbody>
     
   </table>
+  <pagination-controls previousLabel="Anterior"
+  nextLabel="Siguiente" (pageChange)="pageActual = $event">
+  </pagination-controls>
+
+
 </div>
 <br><div class="contenedor" *ngIf="!monstrar">
     <legend > Editar Articulos/Servicios</legend>
@@ -216,7 +221,7 @@
 
 
       <div class="form-group col-md-12">
-        <label>Unidad de medida</label>
+        <legend>Unidad de medida</legend>
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">Tipo: </label>

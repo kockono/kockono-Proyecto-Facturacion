@@ -36,7 +36,7 @@
             'background-color': emp.estatus == 'Cancelado' ? '#BCBCBC' : 'white'
           }"
         >
-          <th scope="row">{{ i + 1 }}</th>
+          <th scope="row">{{ 5 * (pageActual - 1) + (i+1) }} </th>
           <td>{{ emp.folio }}</td>
           <td>{{ emp.nombreDeLaEmpresa }}</td>
           <td>{{ emp.total }}</td>
