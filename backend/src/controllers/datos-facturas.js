@@ -35,7 +35,9 @@ router.post('/', (req, res) => {
         artarr:req.body.artarr,
 
         fechaExpir:req.body.fechaExpir,
-        dineroRest:req.body.dineroRest
+        dineroRest:req.body.dineroRest,
+
+        abono:req.body.abono
     });
 
     
@@ -80,7 +82,10 @@ router.put('/:id', (req, res) => {
             artarr:req.body.artarr,
 
             fechaExpir:req.body.fechaExpir,
-            dineroRest:req.body.dineroRest
+            dineroRest:req.body.dineroRest,
+
+            abono:req.body.abono
+
         });
 
     let ID = req.params.id;

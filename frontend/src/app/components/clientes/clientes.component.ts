@@ -135,7 +135,8 @@ export class ClientesComponent implements OnInit {
       iva:null,
       artarr:[null],
       fechaExpir:'',
-      dineroRest:null
+      dineroRest:null,
+      abono:null
     }
   }
   onSubmit(){

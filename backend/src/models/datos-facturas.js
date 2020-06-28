@@ -29,7 +29,9 @@ const FacturasSchema = new Schema({
     artarr:{type:Array},
 
     fechaExpir:{type:String},
-        dineroRest:{type:Number}
+        dineroRest:{type:Number},
+    
+        abono:{type:Array}
 })
 
 module.exports = model('Fact', FacturasSchema);

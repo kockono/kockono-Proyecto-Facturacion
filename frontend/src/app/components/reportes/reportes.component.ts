@@ -91,7 +91,8 @@ applyFilter(filterValue: string) {
       iva:null,
       artarr:[],
       fechaExpir:'',
-      dineroRest:null
+      dineroRest:null,
+      abono:null
 
 
     }

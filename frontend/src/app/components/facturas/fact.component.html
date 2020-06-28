@@ -346,69 +346,60 @@
           >
         </div>
         <br>
-        <div *ngIf="datosEmpresaService.selectEmpresa.metodo=='Credito (PPD)'" class="form-row">
+          <div class="form-group col-md-12" *ngIf="datosEmpresaService.selectEmpresa.abono!=''">
+          
+            <label for="inputZip" class="b2 action-btn">Abonos:</label>
+            
+          </div>
+          <div class="form-group col-md-3" *ngIf="datosEmpresaService.selectEmpresa.abono!=''">
+            <label >Fecha</label>
+          </div> 
+          <div class="form-group col-md-3" *ngIf="datosEmpresaService.selectEmpresa.abono!=''">
+            <label >Monto</label>
+          </div> 
+          <div class="form-group col-md-3" *ngIf="datosEmpresaService.selectEmpresa.abono!=''">
+            <label >Restante</label>
+          </div>
+          <div class="row form-group col-md-12" *ngFor="let row of datosEmpresaService.selectEmpresa.abono" >
+           
+            <div class="form-group col-md-3">
+             <a type="text" class="form-control">{{row[0]}}</a>
+            </div>
+            <div class="form-group col-md-3">
+              <a type="text" class="form-control">{{row[2]}}</a>
+            </div>
+            <div class="form-group col-md-3">
+              <a type="text" class="form-control">{{row[3]}}</a>
+            </div>
+  
+        </div> 
+
+
+
+
         <div class="form-group col-md-12" >
           
-          <label for="inputZip" class="b2 action-btn">Abonos:</label>
+          <label for="inputZip" >Nuevo Abono:</label>
           
             <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
-            <a class="action-btn">
-              <button
-                class="button ver"
-                (click)="onEdit(emp)"
-                (click)="ver = !ver"
-              >
-                <img
-                  src="./../../../assets/img/ojo.png"
-                  height="15px"
-                  widht="15px"
-                />
-              </button>
-            </a>
+              
         </div>
         <div class="form-group col-md-3">
           <label >Fecha</label>
           <a   type="text" class="form-control">{{now}}</a>
         </div> 
-        <div class="form-group col-md-2">
-          <label >Restante</label>
-          <a   type="text" class="form-control" >{{datosEmpresaService.selectEmpresa.dineroRest}}</a>
-        </div> 
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
           <label >Monto</label>
           <input   type="number" class="form-control"
           name="montoAbono"  #name="ngModel"      [(ngModel)]="montoAbono" placeholder=0>
         </div> 
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
           <label >Deuda resultante:</label>
           <a  type="text" class="form-control"
-          name="dineroRest"
-          #name="ngModel"
-          [(ngModel)]="datosEmpresaService.selectEmpresa.dineroRest"
           >{{datosEmpresaService.selectEmpresa.dineroRest}}</a>
         </div> 
-        <div class="form-group col-md-3" >
-          
-          <label for="inputZip">Abonos:</label>
-          <br>
-          <button (click)="nada(empresaForm)" class="btn btn-custom right" type="button">+</button>
-        </div>
-        <div class="row form-group col-md-12" *ngFor="let row of arrayAbono">
-           
-          <div class="form-group col-md-3">
-           <a type="text" class="form-control">{{row[0]}}</a>
-          </div>
-          <div class="form-group col-md-2">
-            <a type="text" class="form-control">{{row[1]}}</a>
-          </div>
-          <div class="form-group col-md-2">
-            <a type="text" class="form-control">{{row[2]}}</a>
-          </div>
-          <div class="form-group col-md-2">
-            <a type="text" class="form-control">{{row[3]}}</a>
-          </div>
-
-      </div>  
+        
+         
 
        
         <!-- <div class="row form-group col-md-12" *ngFor="let row of datosEmpresaService.selectEmpresa.artarr">
@@ -444,13 +435,11 @@
 
       </div>  -->
         </div>
-        
 
 
 
-      </div>
-
-
+      <button class="btn btn-custom right" type="button" (click)="resetForm()" > Reset </button>
+      <button class="boton" type="submit">Finalizar</button>  
 
 
 

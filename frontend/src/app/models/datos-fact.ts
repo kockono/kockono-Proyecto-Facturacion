@@ -27,4 +27,6 @@ export class DatosFact {
     artarr: any[];
     fechaExpir:any;
     dineroRest:number;
+    abono: any[];
+
   }

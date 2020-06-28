@@ -243,12 +243,14 @@ export class FactComponent implements OnInit {
   nada(form: NgForm){
     if(this.datosEmpresaService.selectEmpresa.dineroRest>0){
     this.now=moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
-    this.arrayAbono.push([
+    this.datosEmpresaService.selectEmpresa.abono.push([
       this.now,
       this.datosEmpresaService.selectEmpresa.dineroRest,
       form.value.montoAbono,
       (Math.round(100*(this.datosEmpresaService.selectEmpresa.dineroRest-form.value.montoAbono.toString())))/100
     ]);
+    this.arrayAbono=this.datosEmpresaService.selectEmpresa.abono;
+
     this.datosEmpresaService.selectEmpresa.dineroRest=(Math.round(100*(this.datosEmpresaService.selectEmpresa.dineroRest-form.value.montoAbono.toString())))/100
   }if(this.datosEmpresaService.selectEmpresa.dineroRest==0){
     this.datosEmpresaService.selectEmpresa.estatus="Pagado"
@@ -319,17 +321,30 @@ export class FactComponent implements OnInit {
       iva: null,
       artarr: [null],
       fechaExpir:'',
-      dineroRest:null
+      dineroRest:null,
+      abono:null
     };
   }
   onSubmit(form: NgForm) {
+    this.nada(form);
     if (form.value._id == "") {
+
+
+      
       this.datosEmpresaService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
         window.alert("Se Guardo Correctamente");
       });
     } else {
+      form.value.abono=this.arrayAbono;
+      form.value.metodo=this.datosEmpresaService.selectEmpresa.metodo;
+      form.value.forma=this.datosEmpresaService.selectEmpresa.forma;
+      form.value.cfdi=this.datosEmpresaService.selectEmpresa.cfdi;
+      form.value.artarr=this.datosEmpresaService.selectEmpresa.artarr;
+      form.value.dineroRest=this.datosEmpresaService.selectEmpresa.dineroRest;
+      form.value.fechaExpir=this.datosEmpresaService.selectEmpresa.fechaExpir;
+      
       this.datosEmpresaService.putDatos(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();

@@ -260,7 +260,8 @@ export class CrearFactComponent implements OnInit {
       iva:null,
       artarr:[null],
       fechaExpir:'',
-      dineroRest:null
+      dineroRest:null,
+      abono:null,
     }
   }
   resetForm3(form?: NgForm) {
@@ -294,7 +295,8 @@ export class CrearFactComponent implements OnInit {
       iva:form.value.iva,
       artarr:[null],
       fechaExpir:form.value.fechaExpir,
-      dineroRest:null
+      dineroRest:null,
+      abono:null
     }
   }
   /* De momento no quitar funcion nada */
@@ -307,8 +309,13 @@ export class CrearFactComponent implements OnInit {
       this.now=moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
         form.value.fecha=this.now;
       if(this.met=="Contado (PUE)"){
+        this.now = moment().locale('es');
+        this.now.add(this.di, 'days');
+        form.value.fechaExpir=this.now.format('MMM Do YY');
+        this.fech=this.now.format('MMMM  Do YYYY');
+        this.now = moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
         form.value.estatus = "Pagado de contado";
-        form.value.dineroRest=0;
+        form.value.dineroRest=this.tots.toString();
       }else{if(this.met=="Credito (PPD)"){
         
         this.now = moment().locale('es');
@@ -360,13 +367,13 @@ export class CrearFactComponent implements OnInit {
         this.met=emp.metodo;
         form.value.dias=emp.dias;
         this.di=emp.dias;
-        if(emp.metodo=="Credito (PPD)"){
+        
           this.now = moment().locale('es');
           this.now.add(this.di, 'days');
           form.value.fechaExpir=this.now.format('MMM Do YY');
           this.fech=this.now.format('MMMM  Do YYYY');
           this.now = moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
-        }
+        
       }
     }
 }
