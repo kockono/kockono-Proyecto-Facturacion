@@ -198,8 +198,8 @@ th, td {
   .busqueda:focus {
     width: 98%;
   }
+  /* Main(contiene todo) */
 
-  /* Layout */
 .s-layout {
   display: flex;
   width: 100%;
@@ -207,9 +207,6 @@ th, td {
   margin-top: 0%;
 }
 
-.centrarcards{
-  margin-left: 20px;
-}
 .s-layout__content {
   justify-content: center;
   align-items: center;

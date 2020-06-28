@@ -61,7 +61,7 @@
     transform: scale(1.1);
     color: white;
     }
-  /* Layout */
+  /* Main(contiene todo) */
   .s-layout {
     display: flex;
     width: 100%;
@@ -69,9 +69,6 @@
     margin-top: 0%;
   }
   
-  .centrarcards{
-    margin-left: 20px;
-  }
   .s-layout__content {
     justify-content: center;
     align-items: center;

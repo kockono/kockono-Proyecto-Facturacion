@@ -35,8 +35,8 @@ a:hover {
   }
 
 
-/* Layout */
-.s-layout {
+ /* MAIN(tiene todo) */
+ .s-layout {
   display: flex;
   width: 100%;
   z-index:1;
@@ -138,8 +138,8 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 
-/* Mobile First */
-@media (min-width: 70em) {
+/* TELEFONO */
+@media (min-width: 80em) {
   .s-layout__content {
      margin-left: 2em;z-index:1;
   }
@@ -162,7 +162,7 @@ a:hover {
   }
 }
 
-@media (min-width: 68em) {
+@media (min-width: 80em) {
   .s-layout__content {z-index:1;
      margin-left: 10em;
   }

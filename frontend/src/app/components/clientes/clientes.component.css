@@ -187,7 +187,8 @@ th, td {
     width: 98%;
   }
 
-  /* Layout */
+  /* Main(contiene todo) */
+
 .s-layout {
   display: flex;
   width: 100%;
@@ -195,9 +196,6 @@ th, td {
   margin-top: 0%;
 }
 
-.centrarcards{
-  margin-left: 20px;
-}
 .s-layout__content {
   justify-content: center;
   align-items: center;
