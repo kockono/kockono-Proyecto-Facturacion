@@ -4,6 +4,7 @@ import { DatosEmpresaService } from '../../services/datos-prov.service';
 import { DatosEmisorProv } from '../../models/datos-emisor-prov';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DatosEmisor } from 'src/app/models/datos-emisor';
 
 @Component({
   selector: 'app-prov',
@@ -115,9 +116,9 @@ export class ProvComponent implements OnInit {
     window.alert("Verifique que la informacion este correcta");
   }
   }
-  onDelete(_id: string, empresaForm) {
+  onDelete(emp: DatosEmisor) {
     if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
-      this.datosEmpresaService.deleteDato(this._id.value).subscribe((res) =>{
+      this.datosEmpresaService.deleteDato(emp._id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);
         window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });

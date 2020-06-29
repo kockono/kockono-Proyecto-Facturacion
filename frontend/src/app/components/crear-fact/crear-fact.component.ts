@@ -64,6 +64,7 @@ export class CrearFactComponent implements OnInit {
   di:number;
   dias:number;
   now:any;
+  raz:string;
 
 
   year:any;   month:any;  day:any;  hours:any;  minutes:any;  time:any;  seconds:any;
@@ -128,8 +129,9 @@ export class CrearFactComponent implements OnInit {
           this.articulo=emp.articuloServicio;
           form.value.articulo=this.articulo;
           this.unidades=1;
+          
           form.value.unidades=this.unidades;
-          this.Umed=emp.uMed;
+          this.Umed=emp.unidad;
           form.value.uMed=this.Umed;
           this.descuento=0;
           form.value.descuento=this.descuento;
@@ -367,6 +369,8 @@ export class CrearFactComponent implements OnInit {
         this.met=emp.metodo;
         form.value.dias=emp.dias;
         this.di=emp.dias;
+        this.raz=emp.razon;
+        form.value.razon=this.raz;
         
           this.now = moment().locale('es');
           this.now.add(this.di, 'days');

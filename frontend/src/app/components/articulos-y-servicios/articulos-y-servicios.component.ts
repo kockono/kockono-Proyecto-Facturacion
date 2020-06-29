@@ -4,6 +4,7 @@ import { ArticuloServicioService } from '../../services/articulos-y-servicios.se
 import { ArticuloServicio } from '../../models/articulos-y-servicios'
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DatosEmisor } from 'src/app/models/datos-emisor';
 
 @Component({
   selector: 'app-articulos-y-servicios',
@@ -103,9 +104,9 @@ export class ArticulosYServiciosComponent implements OnInit {
   window.alert("Verifique que la informacion este correcta");
 }
 }
-  onDelete(_id: string, ArtServForm) {
+  onDelete(emp:DatosEmisor) {
     if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
-      this.articuloServicioService.deleteDato(this._id.value).subscribe((res) =>{
+      this.articuloServicioService.deleteDato(emp._id).subscribe((res) =>{
         this.refrescarListaDeArtServ();
         // this.resetForm(form);
         window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });
@@ -127,7 +128,7 @@ export class ArticulosYServiciosComponent implements OnInit {
   get productoTipo() {return this.ArtServForm.get('productoTipo');}
   get productoDivision() {return this.ArtServForm.get('productoDivision');}
   get productoGrupo() {return this.ArtServForm.get('productoGrupo');}
-  get  productoClase() {return this.ArtServForm.get('productoClase');}
+  get productoClase() {return this.ArtServForm.get('productoClase');}
 
 }
 

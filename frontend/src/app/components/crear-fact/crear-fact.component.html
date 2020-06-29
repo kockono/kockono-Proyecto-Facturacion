@@ -90,7 +90,7 @@
         <div class="form-group col-md-3">
           <label for="inputZip">Orden de compra:</label>
           <input type="text" class="form-control"   id="inputordenDeCompra" name="ordenDeCompra" #name="ngModel" 
-          [(ngModel)]="datosEmpresaService2.selectEmpresa.ordenDeCompra"  placeholder="Razon">
+          [(ngModel)]="datosEmpresaService2.selectEmpresa.ordenDeCompra"  placeholder="Orden">
         </div>
         <div class="form-group col-md-4">
           <label for="inputZip">Condiciones:</label>
@@ -109,8 +109,8 @@
         </div> 
         <div class="form-group col-md-12">
           <label for="inputZip">Razón Social:</label>
-          <input type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" 
-          [(ngModel)]="datosEmpresaService2.selectEmpresa.razon" placeholder="Razon">
+          <a type="text" class="form-control" id="inputRazon" name="razon" #name="ngModel" 
+          [(ngModel)]="datosEmpresaService2.selectEmpresa.razon" placeholder="Razon">{{raz}}</a>
         </div>  
         <div class="form-group col-md-2">
           <label for="inputState">Nombre: </label>

@@ -72,7 +72,7 @@ export class ClientesComponent implements OnInit {
   refrescarListaDeEmpresa2() {
     this.datosEmpresaService2.getDatosList().subscribe((res) => {
         this.datosEmpresaService2.DatosEmpresa = res as DatosFact[];
-    });
+    }); 
   }
   onEdit(emp: DatosEmisor) {
     this.datosEmpresaService.selectEmpresa = emp;
@@ -161,9 +161,9 @@ export class ClientesComponent implements OnInit {
 
   }
 }
-  onDelete() {
+  onDelete(emp: DatosEmisor) {
     if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
-      this.datosEmpresaService.deleteDato(this._id.value).subscribe((res) =>{
+      this.datosEmpresaService.deleteDato(emp._id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);
         window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });
