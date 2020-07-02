@@ -11,7 +11,6 @@ const FacturasSchema = new Schema({
     fecha:{type:String},
     monto:{type:Number},
     folio:{type:Number},
-    /* Nuevos campos agregados en base a la factura ejemplo */
     ordenDeCompra:{type:String},
     condiciones:{type:String},	
     vendedor:{type:String},
@@ -30,8 +29,10 @@ const FacturasSchema = new Schema({
 
     fechaExpir:{type:String},
         dineroRest:{type:Number},
-    
-        abono:{type:Array}
+        clientes:{
+        type: Schema.Types.ObjectId,
+        ref: 'cliente'
+    }
 })
 
-module.exports = model('Facturas', FacturasSchema);
+module.exports = model('Factura', FacturasSchema);

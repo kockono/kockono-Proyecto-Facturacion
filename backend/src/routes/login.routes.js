@@ -7,10 +7,7 @@ const bcryptjs = require('bcryptjs');
 router.post('/signup', async(req, res) => {
 
     const { email, password, oficina, altas, lectura, modificacion, bajas } = req.body;
-    
-    
-    const user = await Usuarios.findOne({email})
-    if(user) return res.status(401).send("El Email Ya existe");
+
     const newUser = new Usuarios ({
     email,
     password: bcryptjs.hashSync(password, 10),

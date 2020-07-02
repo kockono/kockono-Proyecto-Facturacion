@@ -2,10 +2,10 @@ const { Router } = require('express');
 const router = Router();
 let ObjectId = require('mongoose').Types.ObjectId;
 let facturas  = require('../models/datos-facturas');
+let Cliente = require('../models/datos-clientes');
+router.post('/:_id', async (req, res) => {
 
-router.post('/', (req, res) => {
-
-    let empresa = new facturas ({
+    let Factura = new facturas ({
 
         nombreDeLaEmpresa: req.body.nombreDeLaEmpresa,
         metodo:req.body.metodo,
@@ -36,15 +36,20 @@ router.post('/', (req, res) => {
 
         fechaExpir:req.body.fechaExpir,
         dineroRest:req.body.dineroRest,
-
-        abono:req.body.abono
     });
 
+    const clienteID = await Cliente.findById(req.params); //* Nos traemos el parametro id que es la id del cliente .
+    console.log(clienteID);
+    Factura.clientes = clienteID; 
     
-    empresa.save((err, doc)=>{
+        await Factura.save((err, doc)=>{
         if(!err) {res.send(doc)}
-        else {console.log('Error recibiendo datosEmpresa' + JSON.stringify(err, undefined, 2));}
+        else {console.log('Error recibiendo datos de la Factura' + JSON.stringify(err, undefined, 2));}
     });
+    clienteID.facturas.push(Factura); //* Aqui guardamos todo el cuerpo de la factura.
+
+    await clienteID.save();
+    res.send(Factura);
 });
 
 router.put('/:id', (req, res) => {
@@ -82,10 +87,7 @@ router.put('/:id', (req, res) => {
             artarr:req.body.artarr,
 
             fechaExpir:req.body.fechaExpir,
-            dineroRest:req.body.dineroRest,
-
-            abono:req.body.abono
-
+            dineroRest:req.body.dineroRest
         });
 
     let ID = req.params.id;

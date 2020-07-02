@@ -23,6 +23,10 @@ const FacturasSchema = new Schema({
     municipio : { type: String, require: true},
     localidad : { type: String, require: true},
     backup : { type: String, require: false},
+    facturas: [{
+        type: Schema.Types.ObjectId,
+        ref: 'factura'
+    }]
 })
 
-module.exports = model('Clientes', FacturasSchema);
+module.exports = model('Cliente', FacturasSchema);
