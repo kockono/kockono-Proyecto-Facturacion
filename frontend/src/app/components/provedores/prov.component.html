@@ -189,10 +189,13 @@
 
       <div class="form-group col-md-5">
         <label for="inputZip">Método:</label>
-        <input type="text" class="form-control"  formControlName="metodo" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo" [class.is-invalid] = "metodo.invalid && (metodo.dirty || metodo.touched)">
-        <div  *ngIf="(metodo.invalid && metodo.touched) || metodo.dirty">
-          <small *ngIf="metodo.errors?.required" class="text-danger">Metodo requerido</small>
-        </div> 
+        <select type="text" class="form-control"  formControlName="metodo" [class.is-invalid] = "metodo.invalid && (metodo.dirty || metodo.touched)" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo">
+          <option value="Credito (PPD)">Credito (PPD)</option>
+          <option value="Contado (PUE)">Contado (PUE)</option>
+          <div  *ngIf="(metodo.invalid && metodo.touched) || metodo.dirty">
+            <small *ngIf="metodo.errors?.required" class="text-danger">Metodo requerido</small>
+          </div> 
+        </select>
       </div>
 
       <div class="form-group col-md-2">

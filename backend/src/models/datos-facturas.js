@@ -34,4 +34,4 @@ const FacturasSchema = new Schema({
         abono:{type:Array}
 })
 
-module.exports = model('Fact', FacturasSchema);
+module.exports = model('Facturas', FacturasSchema);

@@ -63,6 +63,7 @@ export class CrearFactComponent implements OnInit {
   din:number;
   di:number;
   dias:number;
+  idCliente: string;
   now:any;
   raz:string;
 
@@ -89,6 +90,7 @@ export class CrearFactComponent implements OnInit {
    selectedMetodo: string = "";
    selectedForma: string = "";
    selectedCFDi: string = "";
+   selectedid: string = "";
 
    nada(form: NgForm){
     (form.value.nombre);
@@ -262,6 +264,7 @@ export class CrearFactComponent implements OnInit {
       iva:null,
       artarr:[null],
       fechaExpir:'',
+      idCliente: '',
       dineroRest:null,
       abono:null,
     }
@@ -297,6 +300,7 @@ export class CrearFactComponent implements OnInit {
       iva:form.value.iva,
       artarr:[null],
       fechaExpir:form.value.fechaExpir,
+      idCliente: form.value.idCliente,
       dineroRest:null,
       abono:null
     }
@@ -336,7 +340,7 @@ export class CrearFactComponent implements OnInit {
       form.value.subtotal=this.sumado.toString();
       form.value.total=this.tots.toString();
       form.value.iva=this.iva;
-      
+      form.value.idCliente= this.idCliente;
       this.datosEmpresaService2.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         window.alert("Se Guardo Correctamente");
@@ -370,6 +374,8 @@ export class CrearFactComponent implements OnInit {
         form.value.dias=emp.dias;
         this.di=emp.dias;
         this.raz=emp.razon;
+        form.value._id=emp._id;
+        this.idCliente=emp._id;
         form.value.razon=this.raz;
         
           this.now = moment().locale('es');

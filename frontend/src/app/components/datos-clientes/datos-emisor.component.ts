@@ -110,7 +110,7 @@ export class DatosEmisorComponent implements OnInit {
       colonia: new FormControl('', [Validators.required,]),
       estado: new FormControl('', [Validators.required,]),
       numExterior: new FormControl('', [Validators.required]),
-      numInterior: new FormControl('', [Validators.required]),
+      numInterior: new FormControl('', []),
       cp: new FormControl('', [Validators.required]),
       rfc: new FormControl('', [Validators.required,]),
       municipio: new FormControl('', [Validators.required,]),
@@ -168,18 +168,25 @@ export class DatosEmisorComponent implements OnInit {
   onSubmit(){
     if(this.empresaForm.valid){
       if(this._id.value == ""){
-      this.datosEmpresaService.postDatos(this.empresaForm.value).subscribe((res) => {
+      this.datosEmpresaService.postDatos(this.empresaForm.value).subscribe(res => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
         window.alert("Se Guardo Correctamente");
         this.router.navigateByUrl('/clientes');
         // window.location.reload();
+      }
+      ,err => {
+        console.log(err);
+        window.alert("El Nombre de la empresa ya existe, Necesita elegir uno nuevo");
       });
     }else{
-      this.datosEmpresaService.putDatos(this.empresaForm.value).subscribe((res)=>{
+      this.datosEmpresaService.putDatos(this.empresaForm.value).subscribe(res=>{
         this.resetForm();
         this.refrescarListaDeEmpresa();
         window.alert("Se Actualizo Correctamente");
+      }, err => {
+        console.log(err);
+        window.alert("El Nombre de la empresa ya existe, Necesita elegir uno nuevo");
       });
     }
   }else{

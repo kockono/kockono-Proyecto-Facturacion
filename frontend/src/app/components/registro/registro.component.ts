@@ -94,6 +94,7 @@ signUp() {
               this.router.navigate(['/principal'])
             }, err => {
               console.log(err);
+              window.alert("El correo ya existe, intenta iniciar sesión");
             })
           }else{
               window.alert("Las contraseñas no coinciden");           
@@ -103,6 +104,9 @@ signUp() {
             console.log('no valido');
             window.alert("Verifique que la información sea valida");
           }
+
+          
+          
         
   
 

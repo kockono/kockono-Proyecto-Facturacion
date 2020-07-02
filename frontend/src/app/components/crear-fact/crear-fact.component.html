@@ -36,6 +36,9 @@
             <!-- </select> -->
           </datalist>
         </div>
+
+        <label for="inputState" hidden>id: </label>
+        <a type="text" class="form-control"[(ngModel)]='selectedid' name="_id" hidden> {{idCliente}}</a>
         <div class="form-group col-md-2">
           <label for="inputState">Metodo de pago: </label>
         <a type="text" class="form-control"  name="metodo"#name="ngModel" 

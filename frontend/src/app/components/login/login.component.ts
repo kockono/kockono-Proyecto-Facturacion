@@ -52,8 +52,6 @@ import { Router } from '@angular/router';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-declare var M: any;
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -98,6 +96,8 @@ export class LoginComponent implements OnInit {
       console.log(res);
       localStorage.setItem('token', res.token);
       localStorage.setItem('currentUser', JSON.stringify(this.loginForm.value))
+      
+      console.log(this.loginForm.get('email'));
       this.router.navigate(['/principal']);
       
     }, err => {
@@ -112,5 +112,7 @@ export class LoginComponent implements OnInit {
   }
   get email() {return this.loginForm.get('email');}
   get password() {return this.loginForm.get('password');}
+
+  
 
 }
