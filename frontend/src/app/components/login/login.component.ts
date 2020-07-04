@@ -105,7 +105,7 @@ export class LoginComponent implements OnInit {
     })
 
   }else{
-    window.alert("Contraseña incorrecta o correo no valido");
+    window.alert("Contraseña incorrecta o correo no válido");
   }
 
 

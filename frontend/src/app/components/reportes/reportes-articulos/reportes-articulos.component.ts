@@ -71,7 +71,7 @@ export class ReportesArticulosComponent implements OnInit {
       this.articuloServicioService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeArtServ();
         console.log(this.articuloServicioService.selectArtServ.articuloServicio);
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
         
         
         // window.location.reload();
@@ -80,7 +80,7 @@ export class ReportesArticulosComponent implements OnInit {
       this.articuloServicioService.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeArtServ();
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
       });
     }
   }

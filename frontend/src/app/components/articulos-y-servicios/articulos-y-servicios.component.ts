@@ -88,24 +88,24 @@ export class ArticulosYServiciosComponent implements OnInit {
       this.articuloServicioService.postDatos(this.ArtServForm.value).subscribe((res) => {
         this.refrescarListaDeArtServ();
         console.log(this.articuloServicioService.selectArtServ.articuloServicio);
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
         // window.location.reload();
       });
     }else{
       this.articuloServicioService.putDatos(this.ArtServForm.value).subscribe((res)=>{
         this.resetForm();
         this.refrescarListaDeArtServ();
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
         this.monstrar=!this.monstrar;
       });
     }
 
   }else{
-  window.alert("Verifique que la informacion este correcta");
+  window.alert("Verifique que la información esté correcta");
 }
 }
   onDelete(emp:DatosEmisor) {
-    if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
+    if (confirm('¿Estás seguro que deseas eliminarlo?') == true) {
       this.articuloServicioService.deleteDato(emp._id).subscribe((res) =>{
         this.refrescarListaDeArtServ();
         // this.resetForm(form);

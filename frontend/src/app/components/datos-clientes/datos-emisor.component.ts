@@ -171,26 +171,26 @@ export class DatosEmisorComponent implements OnInit {
       this.datosEmpresaService.postDatos(this.empresaForm.value).subscribe(res => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
         this.router.navigateByUrl('/clientes');
         // window.location.reload();
       }
       ,err => {
         console.log(err);
-        window.alert("El Nombre de la empresa ya existe, Necesita elegir uno nuevo");
+        window.alert("El nombre de la empresa ya existe, elija uno nuevo");
       });
     }else{
       this.datosEmpresaService.putDatos(this.empresaForm.value).subscribe(res=>{
         this.resetForm();
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
       }, err => {
         console.log(err);
-        window.alert("El Nombre de la empresa ya existe, Necesita elegir uno nuevo");
+        window.alert("El nombre de la empresa ya existe, elija uno nuevo");
       });
     }
   }else{
-    window.alert("Verifique que la informacion este correcta");
+    window.alert("Verifique que la información esté correcta");
 
   }
   }

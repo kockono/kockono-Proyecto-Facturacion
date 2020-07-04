@@ -12,10 +12,10 @@
     <label for="correo">Correo</label>
 
     <input type="radio" name="filtro" id="metodo">
-    <label for="metodo">Metodo</label>
+    <label for="metodo">Método</label>
 
     <input type="radio" name="filtro" id="dias">
-    <label for="dias">Dias</label>
+    <label for="dias">Días</label>
   <mat-form-field>
     <mat-label>Buscador</mat-label>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Ej. Cancelado">
@@ -38,13 +38,13 @@
     </ng-container>
   
     <ng-container matColumnDef="metodo"  class="metodo">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="metodo"> Metodo </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="metodo"> Método </th>
       <td mat-cell *matCellDef="let element" class="metodo"> {{element.metodo}} </td>
     </ng-container>
   
     <!-- Total Column -->
     <ng-container matColumnDef="dias" class="dias">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="dias"> Dias </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="dias"> Días </th>
       <td mat-cell *matCellDef="let element" class="dias"> {{element.dias}} </td>
     </ng-container>
 

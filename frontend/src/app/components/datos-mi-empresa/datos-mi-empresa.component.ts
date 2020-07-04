@@ -156,18 +156,18 @@ onSubmit(){
     this.datosMiEmpresaService.postDatos(this.empresaForm.value).subscribe((res) => {
       this.refrescarListaDeEmpresa();
       console.log(this.datosMiEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-      window.alert("Se Guardo Correctamente");
+      window.alert("Se Guardó Correctamente");
     });
   }else{
     this.datosMiEmpresaService.putDatos(this.empresaForm.value).subscribe((res)=>{
       this.resetForm();
       this.refrescarListaDeEmpresa();
       // this.editar= !this.editar;
-      window.alert("Se Actualizo Correctamente");
+      window.alert("Se Actualizó Correctamente");
     });
   }
 }else{
-  window.alert("Verifique que la informacion este correcta");
+  window.alert("Verifique que la información esté correcta");
   
 }
 }

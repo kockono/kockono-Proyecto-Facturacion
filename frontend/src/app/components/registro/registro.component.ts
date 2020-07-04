@@ -101,7 +101,7 @@ signUp() {
             }
 
           }else{
-            console.log('no valido');
+            console.log('No válido');
             window.alert("Verifique que la información sea valida");
           }
 

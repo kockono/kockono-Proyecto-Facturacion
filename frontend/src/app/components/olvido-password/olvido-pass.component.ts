@@ -39,7 +39,7 @@ export class OlvidoPassComponent implements OnInit {
       console.log(err);
     })
   }else{
-    window.alert("Verifique que su correo este correcto");
+    window.alert("Verifique que su correo esté correcto");
 }
 }
 

@@ -167,7 +167,7 @@ export class DatosEmisorProvComponent implements OnInit {
     if(this._id.value == ""){
       this.datosEmpresaService.postDatos(this.empresaForm.value).subscribe((res) => {
         //console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
         
         this.router.navigateByUrl('/prov');
         // window.location.reload();
@@ -176,12 +176,12 @@ export class DatosEmisorProvComponent implements OnInit {
       this.datosEmpresaService.putDatos(this.empresaForm.value).subscribe((res)=>{
         this.resetForm();
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
       });
     
    }
   }else{
-    window.alert("Verifique que la informacion este correcta");
+    window.alert("Verifique que la información esté correcta");
   }
 }
 get _id() {return this.empresaForm.get('_id');}

@@ -335,7 +335,7 @@ export class FactComponent implements OnInit {
       this.datosEmpresaService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
       });
     } else {
       form.value.abono=this.arrayAbono;
@@ -349,7 +349,7 @@ export class FactComponent implements OnInit {
       this.datosEmpresaService.putDatos(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
         this.monstrar = !this.monstrar;
       });
     }
@@ -364,7 +364,7 @@ export class FactComponent implements OnInit {
     }
   }*/
   cambiarEstatus(emp: DatosFact) {
-    if (confirm("¿Estas seguro que deseas cancelarlo?") == true) {
+    if (confirm("¿Estás seguro que deseas cancelarlo?") == true) {
       this.datosEmpresaService.selectEmpresa = emp;
       this.datosEmpresaService.selectEmpresa.estatus = "Cancelado";
       this.datosEmpresaService.putCancelado(emp).subscribe();

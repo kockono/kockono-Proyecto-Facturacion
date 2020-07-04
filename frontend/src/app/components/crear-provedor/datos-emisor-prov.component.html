@@ -119,7 +119,7 @@
           <label for="inputEmail4" >Nombre del proveedor:</label>
           <input type="text" class="form-control" formControlName="nombreDeLaEmpresa" [class.is-invalid] = "nombreDeLaEmpresa.invalid && (nombreDeLaEmpresa.dirty || nombreDeLaEmpresa.touched)">
           <div  *ngIf="(nombreDeLaEmpresa.invalid && nombreDeLaEmpresa.touched) || nombreDeLaEmpresa.dirty">
-            <small *ngIf="nombreDeLaEmpresa.errors?.required" class="text-danger">nombre de la empresa requerida</small>
+            <small *ngIf="nombreDeLaEmpresa.errors?.required" class="text-danger">Nombre del proveedor requerido</small>
           </div> 
         </div>
 
@@ -136,7 +136,7 @@
           <input type="email" class="form-control" formControlName="email"  [class.is-invalid] = "email.invalid && (email.dirty || email.touched)" placeholder="email@ejemplo.com">
           <div *ngIf="(email.invalid && email.touched) || email.dirty">      
             <small *ngIf="email.errors?.required" class="text-danger">Email requerido</small>    
-            <small *ngIf="email.errors?.pattern" class="text-danger">Ingrese un email valido</small>  
+            <small *ngIf="email.errors?.pattern" class="text-danger">Ingrese un email válido</small>  
           </div>
         </div>
 
@@ -144,17 +144,17 @@
           <label for="inputZip">Teléfono:</label>
           <input type="telefono" class="form-control" formControlName="telefono"  [class.is-invalid] = "telefono.invalid && (telefono.dirty || telefono.touched)">
           <div  *ngIf="(telefono.invalid && telefono.touched) || telefono.dirty">
-            <small *ngIf="telefono.errors?.required" class="text-danger">Telefono requerido</small>
+            <small *ngIf="telefono.errors?.required" class="text-danger">Teléfono requerido</small>
           </div> 
         </div>
 
         <div class="form-group col-md-5">
           <label for="inputZip">Método:</label>
           <select type="text" class="form-control"  formControlName="metodo" [class.is-invalid] = "metodo.invalid && (metodo.dirty || metodo.touched)" [(ngModel)]="datosEmpresaService.selectEmpresa.metodo">
-            <option value="Credito (PPD)">Credito (PPD)</option>
+            <option value="Credito (PPD)">Crédito (PPD)</option>
             <option value="Contado (PUE)">Contado (PUE)</option>
             <div  *ngIf="(metodo.invalid && metodo.touched) || metodo.dirty">
-              <small *ngIf="metodo.errors?.required" class="text-danger">Metodo requerido</small>
+              <small *ngIf="metodo.errors?.required" class="text-danger">Método requerido</small>
             </div> 
           </select>
         </div>  
@@ -162,7 +162,7 @@
           <label for="inputZip">Días:</label>
           <input type="number" min="1" class="form-control" formControlName="dias" [class.is-invalid] = "dias.invalid && (dias.dirty || dias.touched)">
           <div  *ngIf="(dias.invalid && dias.touched) || dias.dirty">
-            <small *ngIf="dias.errors?.required" class="text-danger">Dias requerido</small>
+            <small *ngIf="dias.errors?.required" class="text-danger">Días requerido</small>
           </div> 
         </div>
 
@@ -170,7 +170,7 @@
           <label for="inputZip">RFC:</label>
           <input type="text" class="form-control"formControlName="rfc" [class.is-invalid] = "rfc.invalid && (rfc.dirty || rfc.touched)">
           <div  *ngIf="(rfc.invalid && rfc.touched) || rfc.dirty">
-            <small *ngIf="rfc.errors?.required" class="text-danger">rfc requerido</small>
+            <small *ngIf="rfc.errors?.required" class="text-danger">RFC requerido</small>
           </div> 
         </div>
 
@@ -179,7 +179,7 @@
         <label for="inputZip">Razón Social:</label>
         <input type="text" class="form-control"  formControlName="razon" [class.is-invalid] = "razon.invalid && (razon.dirty || razon.touched)">
         <div  *ngIf="(razon.invalid && razon.touched) || razon.dirty">
-          <small *ngIf="razon.errors?.required" class="text-danger">Razón social requerida</small>
+          <small *ngIf="razon.errors?.required" class="text-danger">Razón Social requerida</small>
         </div> 
       </div>  
   
@@ -191,7 +191,7 @@
         <label for="inputZip">Calle</label>
         <input type="text" class="form-control" formControlName="calle" [class.is-invalid] = "calle.invalid && (calle.dirty || calle.touched)">
         <div  *ngIf="(calle.invalid && calle.touched) || calle.dirty">
-          <small *ngIf="calle.errors?.required" class="text-danger">calle requerida</small>
+          <small *ngIf="calle.errors?.required" class="text-danger">Calle requerida</small>
         </div> 
       </div>
 
@@ -205,18 +205,18 @@
 
   
       <div class="form-group col-md-1">
-        <label for="inputZip">Num.Int:</label>
+        <label for="inputZip">No.Int:</label>
         <input type="text" class="form-control" formControlName="numInterior" [class.is-invalid] = "numInterior.invalid && (numInterior.dirty || numInterior.touched)">
         <div  *ngIf="(numInterior.invalid && numInterior.touched) || numInterior.dirty">
-          <small *ngIf="numInterior.errors?.required" class="text-danger">Numero interior requerido</small>
+          <small *ngIf="numInterior.errors?.required" class="text-danger">No. Int. requerido</small>
         </div> 
       </div>
 
       <div class="form-group col-md-1">
-        <label for="inputZip">Num.Ext:</label>
+        <label for="inputZip">No.Ext:</label>
         <input type="text" class="form-control" formControlName="numExterior" [class.is-invalid] = "numExterior.invalid && (numExterior.dirty || numExterior.touched)">
         <div  *ngIf="(numExterior.invalid && numExterior.touched) || numExterior.dirty">
-          <small *ngIf="numExterior.errors?.required" class="text-danger">Numero Exterior requerido</small>
+          <small *ngIf="numExterior.errors?.required" class="text-danger">No. Ext. requerido</small>
         </div> 
       </div>
   
@@ -224,7 +224,7 @@
         <label for="inputZip">C.P:</label>
         <input type="text" class="form-control" formControlName="cp" [class.is-invalid] = "cp.invalid && (cp.dirty || cp.touched)">
         <div  *ngIf="(cp.invalid && cp.touched) || cp.dirty">
-          <small *ngIf="cp.errors?.required" class="text-danger">Codigo postal requerido</small>
+          <small *ngIf="cp.errors?.required" class="text-danger">C.P. requerido</small>
         </div> 
       </div>
 
@@ -232,7 +232,7 @@
         <label for="inputZip">Municipio:</label>
         <input type="text" class="form-control" formControlName="municipio" [class.is-invalid] = "municipio.invalid && (municipio.dirty || municipio.touched)">
         <div  *ngIf="(municipio.invalid && municipio.touched) || municipio.dirty">
-          <small *ngIf="municipio.errors?.required" class="text-danger">municipio requerido</small>
+          <small *ngIf="municipio.errors?.required" class="text-danger">Municipio requerido</small>
         </div> 
       </div>
   
@@ -240,7 +240,7 @@
         <label for="inputZip">Localidad:</label>
         <input type="text" class="form-control" formControlName="localidad" [class.is-invalid] = "localidad.invalid && (localidad.dirty || localidad.touched)">
         <div  *ngIf="(localidad.invalid && localidad.touched) || localidad.dirty">
-          <small *ngIf="localidad.errors?.required" class="text-danger">localidad requerida</small>
+          <small *ngIf="localidad.errors?.required" class="text-danger">Localidad requerida</small>
         </div> 
       </div>
 
@@ -248,15 +248,15 @@
         <label for="inputZip">Estado:</label>
         <input type="text" class="form-control" formControlName="estado" [class.is-invalid] = "estado.invalid && (estado.dirty || estado.touched)">
         <div  *ngIf="(estado.invalid && estado.touched) || estado.dirty">
-          <small *ngIf="estado.errors?.required" class="text-danger">estado requerido</small>
+          <small *ngIf="estado.errors?.required" class="text-danger">Estado requerido</small>
         </div> 
       </div>
   
       <div class="form-group col-md-2">
-        <label for="inputZip">Pais:</label>
+        <label for="inputZip">País:</label>
         <input type="text" class="form-control" formControlName="pais" [class.is-invalid] = "pais.invalid && (pais.dirty || pais.touched)">
         <div  *ngIf="(pais.invalid && pais.touched) || pais.dirty">
-          <small *ngIf="pais.errors?.required" class="text-danger">pais requerido</small>
+          <small *ngIf="pais.errors?.required" class="text-danger">País requerido</small>
         </div>
        </div>
    

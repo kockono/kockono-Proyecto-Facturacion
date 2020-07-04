@@ -132,16 +132,16 @@
 
    
 <div class="contenedor">
-  <p style="text-align:center; font-size: 30px;"><strong>Articulos y servicios</strong></p>
+  <p style="text-align:center; font-size: 30px;"><strong>Artículos y Servicios</strong></p>
   <table class="table">
     <thead class="thead">
       <tr>
 
         <th scope="col">#</th>
-        <th scope="col">Articulo o Servicio</th>
+        <th scope="col">Artículo o Servicio</th>
         <th scope="col">Nombre</th>
         <th scope="col">Precio</th>
-        <th scope="col">U.Med</th>
+        <th scope="col">Ud.Med</th>
         <th scope="col">Ver</th>
         <th scope="col">Editar</th>
         <th scope="col">Borrar</th>
@@ -184,18 +184,18 @@
 
 </div>
 <br><div class="contenedor" *ngIf="!monstrar">
-    <legend > Editar Articulos/Servicios</legend>
+    <legend > Editar Artículos/Servicios</legend>
   
     <form [formGroup]="ArtServForm" (ngSubmit)="onSubmit()">
       <input type="hidden" formControlName="_id" [(ngModel)]="articuloServicioService.selectArtServ._id">
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputZip">Articulo o Servicio:</label>
+        <label for="inputZip">Artículo o Servicio:</label>
        
         <input type="text" class="form-control" formControlName="articuloServicio" [class.is-invalid] = "articuloServicio.invalid && (articuloServicio.dirty || articuloServicio.touched)" [(ngModel)]="articuloServicioService.selectArtServ.articuloServicio" placeholder="Ejem: Gabinete, Monitor, Agua">
           <div  *ngIf="(articuloServicio.invalid && articuloServicio.touched) || articuloServicio.dirty">
-            <small *ngIf="articuloServicio.errors?.required" class="text-danger">Articulo o servicio requerido</small>
+            <small *ngIf="articuloServicio.errors?.required" class="text-danger">Artículo o Servicio requerido</small>
           </div> 
       </div> 
       <div class="form-group col-md-6">
@@ -227,7 +227,7 @@
         <input type="text"  list="Tipo" class="form-control" formControlName="unidadTipo" [class.is-invalid] = "unidadTipo.invalid && (unidadTipo.dirty || unidadTipo.touched)"
         [(ngModel)]="articuloServicioService.selectArtServ.unidadTipo"  (change)="ore(articuloServicioService.selectArtServ.unidadTipo,ArtServForm)">
         <div  *ngIf="(unidadTipo.invalid && unidadTipo.touched) || unidadTipo.dirty">
-          <small *ngIf="unidadTipo.errors?.required" class="text-danger">unidad tipo requerido</small>
+          <small *ngIf="unidadTipo.errors?.required" class="text-danger">Unidad tipo requerido</small>
         </div> 
         <datalist  id="Tipo">          
             <div *ngFor="let emp of unidades2">
@@ -245,7 +245,7 @@
         <input type="text" list="Subtipo"  class="form-control" formControlName="unidadSubtipo" [class.is-invalid] = "unidadSubtipo.invalid && (unidadSubtipo.dirty || unidadSubtipo.touched)"
         [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo'    (change)="ore2(articuloServicioService.selectArtServ.unidadSubtipo,ArtServForm)">
         <div  *ngIf="(unidadSubtipo.invalid && unidadSubtipo.touched) || unidadSubtipo.dirty">
-          <small *ngIf="unidadSubtipo.errors?.required" class="text-danger">unidad subtipo requerido</small>
+          <small *ngIf="unidadSubtipo.errors?.required" class="text-danger">Unidad sub tipo requerido</small>
         </div> 
         
         <datalist  id="Subtipo">
@@ -267,7 +267,7 @@
         <input type="text" list="Unidad"  class="form-control" formControlName="unidad" [class.is-invalid] = "unidad.invalid && (unidad.dirty || unidad.touched)"
         [(ngModel)]='articuloServicioService.selectArtServ.unidad'  (change)="ore3(articuloServicioService.selectArtServ.unidad,ArtServForm)"          >
     <div  *ngIf="(unidad.invalid && unidad.touched) || unidad.dirty">
-      <small *ngIf="unidad.errors?.required" class="text-danger">unidad subtipo requerido</small>
+      <small *ngIf="unidad.errors?.required" class="text-danger">Unidad subtipo requerido</small>
     </div> 
         <datalist  id="Unidad">
           
@@ -285,7 +285,7 @@
 
       <div class="form-group col-md-1">
         
-        <label for="inputState">Codigo: </label>
+        <label for="inputState">Código: </label>
         <a type="text" class="form-control">{{parents3}}</a>
         <input type="hidden" formControlName="unidadCodigo" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' [value]="parents3">
          
@@ -293,7 +293,7 @@
 
       
       <div class="form-group col-md-12">
-        <label>Producto o servicio</label>
+        <label>Producto o Servicio</label>
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">Tipo: </label>
@@ -322,12 +322,12 @@
 
 
       <div class="form-group col-md-4">
-        <label for="inputState">Division: </label>
+        <label for="inputState">División: </label>
        
         <input type="text" list="SSubtipo"  class="form-control" formControlName="productoDivision" [class.is-invalid] = "productoDivision.invalid && (productoDivision.dirty || productoDivision.touched)"
         [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="sore2(articuloServicioService.selectArtServ.productoDivision,ArtServForm)"  >
     <div  *ngIf="(productoDivision.invalid && productoDivision.touched) || productoDivision.dirty">
-      <small *ngIf="productoDivision.errors?.required" class="text-danger">Division requerido</small>
+      <small *ngIf="productoDivision.errors?.required" class="text-danger">División requerido</small>
     </div> 
        
        
@@ -421,7 +421,7 @@
 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputZip">Articulo o Servicio:</label>
+      <label for="inputZip">Artículo o Servicio:</label>
      
       <input type="text" class="form-control" formControlName="articuloServicio"  [(ngModel)]="articuloServicioService.selectArtServ.articuloServicio"  disabled>
         
@@ -480,7 +480,7 @@
 
     <div class="form-group col-md-1">
       
-      <label for="inputState">Codigo: </label>
+      <label for="inputState">Código: </label>
       <a type="text" class="form-control">{{parents3}}</a>
       <input type="hidden" formControlName="unidadCodigo" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' [value]="parents3" disabled>
        
@@ -488,7 +488,7 @@
 
     
     <div class="form-group col-md-12">
-      <label>Producto o servicio</label>
+      <label>Producto o Servicio</label>
     </div>
     <div class="form-group col-md-2">
       <label for="inputState">Tipo: </label>
@@ -504,7 +504,7 @@
 
 
     <div class="form-group col-md-4">
-      <label for="inputState">Division: </label>
+      <label for="inputState">División: </label>
      
       <input type="text" list="SSubtipo"  class="form-control" formControlName="productoDivision" 
       [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="sore2(articuloServicioService.selectArtServ.productoDivision,ArtServForm)"  disabled>
