@@ -42,10 +42,7 @@ router.post('/:_id', async (req, res) => {
     console.log(clienteID);
     Factura.clientes = clienteID; 
     
-        await Factura.save((err, doc)=>{
-        if(!err) {res.send(doc)}
-        else {console.log('Error recibiendo datos de la Factura' + JSON.stringify(err, undefined, 2));}
-    });
+        await Factura.save();
     clienteID.facturas.push(Factura); //* Aqui guardamos todo el cuerpo de la factura.
 
     await clienteID.save();
