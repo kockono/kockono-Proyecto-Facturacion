@@ -106,7 +106,7 @@ export class DatosEmisorProvComponent implements OnInit {
       colonia: new FormControl('', [Validators.required,]),
       estado: new FormControl('', [Validators.required,]),
       numExterior: new FormControl('', [Validators.required]),
-      numInterior: new FormControl('', [Validators.required]),
+      numInterior: new FormControl('', []),
       cp: new FormControl('', [Validators.required]),
       rfc: new FormControl('', [Validators.required,]),
       municipio: new FormControl('', [Validators.required,]),

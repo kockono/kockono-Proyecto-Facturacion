@@ -14,7 +14,7 @@ export class DatosEmpresaService2 {
   constructor(private http: HttpClient) { }
 
   postDatos(emp: DatosFact){
-    return this.http.post(this.URL, emp)
+    return this.http.post(this.URL +`/${emp.idCliente}`, emp)
   }
   getDatosList(){
     return this.http.get(this.URL);

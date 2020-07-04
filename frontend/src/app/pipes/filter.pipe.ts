@@ -13,7 +13,6 @@ export class FilterPipe implements PipeTransform {
 
       if(post.nombreDeLaEmpresa.toLowerCase().indexOf(arg.toLowerCase())  > -1){
         resultadoPosts.push(post);
-        console.log("Sip");
       }
     }
     return resultadoPosts;

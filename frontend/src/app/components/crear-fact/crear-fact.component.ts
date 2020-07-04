@@ -66,7 +66,7 @@ export class CrearFactComponent implements OnInit {
   idCliente: string;
   now:any;
   raz:string;
-
+  
 
   year:any;   month:any;  day:any;  hours:any;  minutes:any;  time:any;  seconds:any;
 
@@ -82,7 +82,7 @@ export class CrearFactComponent implements OnInit {
     this.iva=16;
     this.tots=0;
     
-    
+     
 
    }
    filterpost = '';
@@ -308,6 +308,7 @@ export class CrearFactComponent implements OnInit {
   /* De momento no quitar funcion nada */
   
   onSubmit(form: NgForm){
+    console.log(this.idCliente);
     if(form.value._id == ""){
       if(this.folio==0){this.folio=1}
       form.value.folio = this.folio.toString();
