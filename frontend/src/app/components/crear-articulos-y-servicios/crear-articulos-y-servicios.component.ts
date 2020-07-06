@@ -114,22 +114,22 @@ productooserv=[
 unidades2=
 [
   {
-    Nombre:"Acustica",
+    Nombre:"Acústica",
     Desc:"",
     parent:null
   },
     { Nombre:"Decremento logarítmico",
       Desc:"",
-      parent:"Acustica"
+      parent:"Acústica"
     },
       { Nombre:"P41",
-        Desc:"Década (logaritmica)",
+        Desc:"Década (logarítmica)",
         parent:"Decremento logarítmico"
       },
       
     { Nombre:"Densidad de energía sonora, Volumétrica, energía de sonido",
       Desc:"",
-      parent:"Acustica"
+      parent:"Acústica"
     },
       { Nombre:"A60",
         Desc:"Erg por centímetro cúbico",
@@ -137,7 +137,7 @@ unidades2=
       },
     { Nombre:"Densidad superficial de la impedancia mecánica",
       Desc:"",
-      parent:"Acustica"
+      parent:"Acústica"
     },
       { Nombre:"A50",
         Desc:"Dina segundo por centímetro cúbico",
@@ -147,7 +147,7 @@ unidades2=
 
     { Nombre:"Exposición al sonido",
       Desc:"",
-      parent:"Acustica"
+      parent:"Acústica"
     },
       { Nombre:"P42",
         Desc:"Pascal por segundo cuadrado",
@@ -155,7 +155,7 @@ unidades2=
       },
   { Nombre:"Impedancia acústica",
     Desc:"",
-    parent:"Acustica"
+    parent:"Acústica"
   },
       { Nombre:"A52",
         Desc:"Dina segundo por centímetro a la quinta potencia",
@@ -270,7 +270,7 @@ sore4(ll: string, form: NgForm){
       this.articuloServicioService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeArtServ();
         console.log(this.articuloServicioService.selectArtServ.articuloServicio);
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
         
         this.router.navigateByUrl('/articulos-y-servicios');
         // window.location.reload();
@@ -279,7 +279,7 @@ sore4(ll: string, form: NgForm){
       this.articuloServicioService.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeArtServ();
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
       });
     }
   }

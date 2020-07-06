@@ -101,23 +101,23 @@ export class ProvComponent implements OnInit {
       this.datosEmpresaService.postDatos(this.empresaForm.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
         // window.location.reload();
       });
     }else{
       this.datosEmpresaService.putDatos(this.empresaForm.value).subscribe((res)=>{
         this.resetForm();
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
         this.monstrar=!this.monstrar;
       });
     }
   }else{
-    window.alert("Verifique que la informacion este correcta");
+    window.alert("Verifique que la información esté correcta");
   }
   }
   onDelete(emp: DatosEmisor) {
-    if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
+    if (confirm('¿Estás Seguro que deseas eliminarlo?') == true) {
       this.datosEmpresaService.deleteDato(emp._id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);

@@ -147,31 +147,31 @@ export class ClientesComponent implements OnInit {
       this.datosEmpresaService.postDatos(this.empresaForm.value).subscribe(res => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
         // window.location.reload();
       }
       ,err => {
         console.log(err);
-        window.alert("El Nombre de la empresa ya existe, Necesita elegir uno nuevo");
+        window.alert("El nombre de la empresa ya existe, elija uno nuevo");
       });
     }else{
       this.datosEmpresaService.putDatos(this.empresaForm.value).subscribe(res=>{
         this.resetForm();
         this.refrescarListaDeEmpresa();
         this.monstrar = !this.monstrar;
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
       }, err => {
         console.log(err);
-        window.alert("El Nombre de la empresa ya existe, Necesita elegir uno nuevo");
+        window.alert("El nombre de la empresa ya existe, elija uno nuevo");
       });
     }
   }else{
-    window.alert("Verifique que la informacion este correcta");
+    window.alert("Verifique que la información esté correcta");
 
   }
 }
   onDelete(emp: DatosEmisor) {
-    if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
+    if (confirm('¿Estas Seguro que deseas eliminarlo?') == true) {
       this.datosEmpresaService.deleteDato(emp._id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);

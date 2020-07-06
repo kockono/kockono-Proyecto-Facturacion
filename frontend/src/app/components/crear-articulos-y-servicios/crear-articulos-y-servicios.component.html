@@ -4,14 +4,14 @@
 
 <div class="contenedor">
 
-    <legend class="center">Nuevo Articulos y servicios</legend>
+    <legend class="center">Nuevo Artículos y Servicios</legend>
   
     <form #ArtServForm="ngForm" (ngSubmit)="onSubmit(ArtServForm)">
       <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ._id">
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputZip">Articulo o Servicio:</label>
+        <label for="inputZip">Artículo o Servicio:</label>
         <input type="text" class="form-control"   id="inputArticuloServicio" name="articuloServicio" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.articuloServicio" placeholder="Ejem: Gabinete, Monitor, Agua">
       </div> 
       <div class="form-group col-md-6">
@@ -69,7 +69,7 @@
       </div>
       <div class="form-group col-md-1">
         
-        <label for="inputState">Codigo: </label>
+        <label for="inputState">Código: </label>
         <a type="text" class="form-control">{{parents3}}</a>
         <input type="hidden" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' [value]="parents3">
          
@@ -77,7 +77,7 @@
 
       
       <div class="form-group col-md-12">
-        <legend class="center">Producto o servicio</legend>
+        <legend class="center">Producto o Servicio</legend>
       </div>
       <div class="form-group col-md-2">
         <label for="inputState">Tipo: </label>
@@ -94,7 +94,7 @@
         </datalist> 
       </div>
       <div class="form-group col-md-4">
-        <label for="inputState">Divicion: </label>
+        <label for="inputState">Divición: </label>
         <input type="text" list="SSubtipo"  class="form-control busqueda" name="productoDivision"
         [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="sore2(articuloServicioService.selectArtServ.productoDivision,ArtServForm)">
         <datalist  id="SSubtipo">

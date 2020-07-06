@@ -33,9 +33,11 @@ router.post('/:_id', async (req, res) => {
         iva:req.body.iva,
         /*Nuevo*/
         artarr:req.body.artarr,
+        
 
         fechaExpir:req.body.fechaExpir,
         dineroRest:req.body.dineroRest,
+        abono:req.body.abono,
     });
 
     const clienteID = await Cliente.findById(req.params); //* Nos traemos el parametro id que es la id del cliente .
@@ -84,7 +86,10 @@ router.put('/:id', (req, res) => {
             artarr:req.body.artarr,
 
             fechaExpir:req.body.fechaExpir,
-            dineroRest:req.body.dineroRest
+            dineroRest:req.body.dineroRest,
+
+            abono:req.body.abono,
+
         });
 
     let ID = req.params.id;

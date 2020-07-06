@@ -81,7 +81,7 @@ export class ReportesClientesComponent implements OnInit {
       this.datosEmpresaService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
         // window.location.reload();
       });
     }else{
@@ -89,12 +89,12 @@ export class ReportesClientesComponent implements OnInit {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
         this.monstrar = !this.monstrar;
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
       });
     }
   }
   onDelete(_id: string, form: NgForm) {
-    if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
+    if (confirm('¿Estás seguro que deseas eliminarlo ?') == true) {
       this.datosEmpresaService.deleteDato(_id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);

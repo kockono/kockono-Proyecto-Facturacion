@@ -39,7 +39,7 @@
         <input type="email" formControlName="email" placeholder="Email" [class.is-invalid] = "email.invalid && (email.dirty || email.touched)">
         <div *ngIf="(email.invalid && email.touched) || email.dirty">
           <small *ngIf="email.errors?.required" class="text-danger">Email requerido</small>
-          <small *ngIf="email.errors?.pattern" class="text-danger">ingresa un email valido</small>  
+          <small *ngIf="email.errors?.pattern" class="text-danger">Ingresa un email valido</small>  
         </div>
       </div>
   
@@ -47,8 +47,8 @@
       <div class="form-group">    
         <input type="password" formControlName="password"  placeholder="Contraseña"  [class.is-invalid] = "password.invalid && (password.dirty || password.touched)">  
         <div *ngIf="(password.invalid && password.touched) || password.dirty">
-          <small *ngIf="password.errors?.required" class="text-danger">contraseña requerida</small>
-          <small *ngIf="password.errors?.pattern" class="text-danger">ingresa una contraseña valida</small>
+          <small *ngIf="password.errors?.required" class="text-danger">Contraseña requerida</small>
+          <small *ngIf="password.errors?.pattern" class="text-danger">Ingresa una contraseña valida</small>
         </div>      
       </div>
 
@@ -59,7 +59,7 @@
         <span class="checkbox"></span>
       </label>
       
-      <h6 ><a href="/recovery">¿Olvido su contraseña?</a></h6>
+      <h6 ><a href="/recovery">¿Olvidó su contraseña?</a></h6>
      
       
         <div class="botones">  			

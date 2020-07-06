@@ -11,7 +11,7 @@
         <input type="email" class="form-control" formControlName="correo"  [class.is-invalid] = "correo.invalid && (correo.dirty || correo.touched)" placeholder="email@ejemplo.com">
           <div *ngIf="(correo.invalid && correo.touched) || correo.dirty">      
             <small *ngIf="correo.errors?.required" class="text-danger">Email requerido</small>    
-            <small *ngIf="correo.errors?.pattern" class="text-danger">Ingrese un email valido</small>  
+            <small *ngIf="correo.errors?.pattern" class="text-danger">Ingrese un email válido</small>  
           </div>
       </div>
   

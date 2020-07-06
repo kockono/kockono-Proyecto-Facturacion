@@ -32,7 +32,8 @@ const FacturasSchema = new Schema({
         clientes:{
         type: Schema.Types.ObjectId,
         ref: 'cliente'
-    }
+    },
+    abono:{type:Array}
 })
 
 module.exports = model('Factura', FacturasSchema);

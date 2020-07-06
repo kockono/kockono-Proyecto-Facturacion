@@ -342,9 +342,10 @@ export class CrearFactComponent implements OnInit {
       form.value.total=this.tots.toString();
       form.value.iva=this.iva;
       form.value.idCliente= this.idCliente;
+      form.value.razon=this.raz;
       this.datosEmpresaService2.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
         this.router.navigateByUrl('/fact');
         // window.location.reload();
       });
@@ -352,7 +353,7 @@ export class CrearFactComponent implements OnInit {
       this.datosEmpresaService2.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
       });
     }
   }

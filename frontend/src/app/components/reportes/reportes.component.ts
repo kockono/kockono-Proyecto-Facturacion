@@ -103,21 +103,21 @@ applyFilter(filterValue: string) {
       this.datosEmpresaService2.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardo Correctamente");
+        window.alert("Se Guardó Correctamente");
         // window.location.reload();
       });
     }else{
       this.datosEmpresaService2.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizo Correctamente");
+        window.alert("Se Actualizó Correctamente");
         this.monstrar=!this.monstrar;
       });
     }
   }
 
   onDelete(_id: string, form: NgForm) {
-    if (confirm('Estas Seguro que deseas eliminarlo ?') == true) {
+    if (confirm('¿Estás seguro que deseas eliminarlo?') == true) {
       this.datosEmpresaService2.deleteDato(_id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);
@@ -126,7 +126,7 @@ applyFilter(filterValue: string) {
     }
   }
   cambiarEstatus(emp: DatosFact){
-    if (confirm('Estas seguro que deseas cancelarlo ?') == true) {
+    if (confirm('¿Estás seguro que deseas cancelarlo?') == true) {
     this.datosEmpresaService2.selectEmpresa = emp;
     this.datosEmpresaService2.selectEmpresa.estatus = 'Cancelado';
     this.datosEmpresaService2.putCancelado(emp).subscribe();

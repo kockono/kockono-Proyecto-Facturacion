@@ -126,7 +126,7 @@
               <input type="text" class="form-control" formControlName="nombreDeLaEmpresa" [(ngModel)]="datosMiEmpresaService.selectEmpresa.nombreDeLaEmpresa"
               [class.is-invalid] = "nombreDeLaEmpresa.invalid && (nombreDeLaEmpresa.dirty || nombreDeLaEmpresa.touched)">
               <div  *ngIf="(nombreDeLaEmpresa.invalid && nombreDeLaEmpresa.touched) || nombreDeLaEmpresa.dirty">
-                <small *ngIf="nombreDeLaEmpresa.errors?.required" class="text-danger">nombre de la empresa requerida</small>
+                <small *ngIf="nombreDeLaEmpresa.errors?.required" class="text-danger">Nombre de la empresa requerida</small>
               </div> 
             </div> 
             <div class="form-group col-md-5">
@@ -134,21 +134,21 @@
               <input type="email" class="form-control" formControlName="email"  [(ngModel)]="datosMiEmpresaService.selectEmpresa.email" [class.is-invalid] = "email.invalid && (email.dirty || email.touched)" placeholder="email@ejemplo.com">
           <div *ngIf="(email.invalid && email.touched) || email.dirty">      
             <small *ngIf="email.errors?.required" class="text-danger">Email requerido</small>    
-            <small *ngIf="email.errors?.pattern" class="text-danger">Ingrese un email valido</small>  
+            <small *ngIf="email.errors?.pattern" class="text-danger">Ingrese un email válido</small>  
           </div>
             </div>
             <div class="form-group col-md-5">
               <label for="inputZip">Calle:</label>
               <input type="text" class="form-control" formControlName="calle" [(ngModel)]="datosMiEmpresaService.selectEmpresa.calle" [class.is-invalid] = "calle.invalid && (calle.dirty || calle.touched)">
               <div  *ngIf="(calle.invalid && calle.touched) || calle.dirty">
-                <small *ngIf="calle.errors?.required" class="text-danger">calle requerida</small>
+                <small *ngIf="calle.errors?.required" class="text-danger">Calle requerida</small>
               </div> 
             </div>
             <div class="form-group col-md-3">
-              <label for="inputZip">Numero:</label>
+              <label for="inputZip">Número:</label>
               <input type="text" class="form-control" formControlName="numero" [(ngModel)]="datosMiEmpresaService.selectEmpresa.numero" [class.is-invalid] = "numero.invalid && (numero.dirty || numero.touched)">
               <div  *ngIf="(numero.invalid && numero.touched) || numero.dirty">
-                <small *ngIf="numero.errors?.required" class="text-danger">Numero requerido</small>
+                <small *ngIf="numero.errors?.required" class="text-danger">Número requerido</small>
               </div> 
             </div> 
             <div class="form-group col-md-4">
@@ -159,38 +159,38 @@
               </div> 
             </div> 
             <div class="form-group col-md-5">
-              <label for="inputZip">Pais:</label>
+              <label for="inputZip">País:</label>
               <input type="text" class="form-control" formControlName="pais"[(ngModel)]="datosMiEmpresaService.selectEmpresa.pais" [class.is-invalid] = "pais.invalid && (pais.dirty || pais.touched)">                
               <div  *ngIf="(pais.invalid && pais.touched) || pais.dirty">       
-                <small *ngIf="pais.errors?.required" class="text-danger">pais requerido</small>     
+                <small *ngIf="pais.errors?.required" class="text-danger">País requerido</small>     
               </div>
             </div> 
             <div class="form-group col-md-3">
               <label for="inputZip">Estado:</label>
               <input type="text" class="form-control" formControlName="estado" [(ngModel)]="datosMiEmpresaService.selectEmpresa.estado"[class.is-invalid] = "estado.invalid && (estado.dirty || estado.touched)">       
               <div  *ngIf="(estado.invalid && estado.touched) || estado.dirty">        
-                <small *ngIf="estado.errors?.required" class="text-danger">estado requerido</small>        
+                <small *ngIf="estado.errors?.required" class="text-danger">Estado requerido</small>        
               </div> 
             </div>
             <div class="form-group col-md-4">
               <label for="inputZip">Municipio:</label>
               <input type="text" class="form-control" formControlName="municipio"[(ngModel)]="datosMiEmpresaService.selectEmpresa.municipio" [class.is-invalid] = "municipio.invalid && (municipio.dirty || municipio.touched)">
               <div  *ngIf="(municipio.invalid && municipio.touched) || municipio.dirty">
-                <small *ngIf="municipio.errors?.required" class="text-danger">municipio requerido</small>
+                <small *ngIf="municipio.errors?.required" class="text-danger">Municipio requerido</small>
               </div> 
             </div> 
             <div class="form-group col-md-3">
-                <label for="inputZip">CP:</label>
+                <label for="inputZip">C.P:</label>
                 <input type="text" class="form-control" formControlName="codigoPostal"[(ngModel)]="datosMiEmpresaService.selectEmpresa.codigoPostal" [class.is-invalid] = "codigoPostal.invalid && (codigoPostal.dirty || codigoPostal.touched)">
                 <div  *ngIf="(codigoPostal.invalid && codigoPostal.touched) || codigoPostal.dirty">
-                  <small *ngIf="codigoPostal.errors?.required" class="text-danger">Codigo postal requerido</small>
+                  <small *ngIf="codigoPostal.errors?.required" class="text-danger">C.P. requerido</small>
                 </div> 
               </div> 
               <div class="form-group col-md-5">
                 <label for="inputZip">RFC:</label>
                 <input type="text" class="form-control"formControlName="rfc" [(ngModel)]="datosMiEmpresaService.selectEmpresa.rfc"[class.is-invalid] = "rfc.invalid && (rfc.dirty || rfc.touched)">
                 <div  *ngIf="(rfc.invalid && rfc.touched) || rfc.dirty">
-                  <small *ngIf="rfc.errors?.required" class="text-danger">rfc requerido</small>
+                  <small *ngIf="rfc.errors?.required" class="text-danger">RFC requerido</small>
                 </div> 
               </div> 
           </div>
@@ -218,7 +218,7 @@
               <a type="text" class="form-control" name="calle" >{{dato.calle}}</a>
             </div>
             <div class="form-group col-md-3">
-              <label >Numero:</label>
+              <label >Número:</label>
               <a type="text" class="form-control"  name="numero" >{{dato.numero}}</a>
             </div>
             <div class="form-group col-md-4"> 
@@ -226,7 +226,7 @@
               <a type="number" class="form-control"  name="colonia" >{{dato.colonia}}</a>
             </div>
             <div class="form-group col-md-5"  >
-              <label >Pais:</label>
+              <label >País:</label>
               <a type="text" class="form-control" >{{dato.pais}}</a>
             </div>
             <div class="form-group col-md-3">

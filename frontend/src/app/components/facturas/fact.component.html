@@ -350,6 +350,9 @@
             
           </div>
           <div class="form-group col-md-3" *ngIf="datosEmpresaService.selectEmpresa.abono!=''">
+            <label >Metodo</label>
+          </div> 
+          <div class="form-group col-md-3" *ngIf="datosEmpresaService.selectEmpresa.abono!=''">
             <label >Fecha</label>
           </div> 
           <div class="form-group col-md-3" *ngIf="datosEmpresaService.selectEmpresa.abono!=''">
@@ -364,41 +367,64 @@
              <a type="text" class="form-control">{{row[0]}}</a>
             </div>
             <div class="form-group col-md-3">
-              <a type="text" class="form-control">{{row[2]}}</a>
-            </div>
+              <a type="text" class="form-control">{{row[1]}}</a>
+             </div>
             <div class="form-group col-md-3">
               <a type="text" class="form-control">{{row[3]}}</a>
+            </div>
+            <div class="form-group col-md-3">
+              <a type="text" class="form-control">{{row[4]}}</a>
             </div>
   
         </div> 
 
+        <button class="button pdf form-group col-md-3" (click)="GenerarPDF2()" *ngIf="datosEmpresaService.selectEmpresa.abono!=''"  >Complemento de pago</button>
 
 
 
-        <div class="form-group col-md-12" >
+
+        <div class="form-group col-md-12" *ngIf="datosEmpresaService.selectEmpresa.estatus!='Pagado'">
           
           <label for="inputZip" >Nuevo Abono:</label>
           
             <!-- <a a [routerLink]="[ '/cliente-ver']"> -->
-              
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-3" *ngIf="datosEmpresaService.selectEmpresa.estatus!='Pagado'">
           <label >Fecha</label>
           <a   type="text" class="form-control">{{now}}</a>
         </div> 
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-3" *ngIf="datosEmpresaService.selectEmpresa.estatus!='Pagado'">
           <label >Monto</label>
           <input   type="number" class="form-control"
           name="montoAbono"  #name="ngModel"      [(ngModel)]="montoAbono" placeholder=0>
+        </div>
+        <!-- <div class="form-group col-md-1" *ngIf="datosEmpresaService.selectEmpresa.estatus!='Pagado'">
+          <label >Modena</label>
+          <select type="text" class="form-control"  name="abonoMoneda" #name="abonoMoneda" 
+          [(ngModel)]="abonoMoneda">
+            <option value="99 por definir">MXN</option>
+            <option value="Efectivo">USD</option>
+          </select>
+        </div> -->
+        <div class="form-group col-md-3" *ngIf="datosEmpresaService.selectEmpresa.estatus!='Pagado'">
+          <label for="inputState">Forma de pago: </label>
+          <select type="text" class="form-control"  name="abonoMetodo" #name="ngModel" 
+          [(ngModel)]="abonoMetodo">
+            <option value="99 por definir">99 por definir</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta">Tarjeta</option>
+            <option value="Vale/Otros">Vale/Otros</option>
+            <option value="Transferencia electronica">Transferencia electronica</option>
+          </select>
         </div> 
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-3" *ngIf="datosEmpresaService.selectEmpresa.estatus!='Pagado'">
           <label >Deuda resultante:</label>
           <a  type="text" class="form-control"
           >{{datosEmpresaService.selectEmpresa.dineroRest}}</a>
         </div> 
         
-         
-
+        
+       
        
         <!-- <div class="row form-group col-md-12" *ngFor="let row of datosEmpresaService.selectEmpresa.artarr">
            
@@ -434,11 +460,9 @@
       </div>  -->
         </div>
 
-
-
-      <button class="btn btn-custom right" type="button" (click)="resetForm()" > Reset </button>
+        <div  *ngIf="datosEmpresaService.selectEmpresa.estatus!='Pagado'">
       <button class="boton" type="submit">Finalizar</button>  
-
+       </div>
 
 
     </form>
