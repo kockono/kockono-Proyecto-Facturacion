@@ -138,7 +138,9 @@
       <tr>
 
         <th scope="col">#</th>
+
         <th scope="col">Artículos o Servicio</th>
+
         <th scope="col">Nombre</th>
         <th scope="col">Precio</th>
         <th scope="col">Ud.Med</th>
@@ -191,11 +193,13 @@
 
     <div class="form-row">
       <div class="form-group col-md-6">
+
         <label for="inputZip">Artículos o Servicio:</label>
        
         <input type="text" class="form-control" formControlName="articuloServicio" [class.is-invalid] = "articuloServicio.invalid && (articuloServicio.dirty || articuloServicio.touched)" [(ngModel)]="articuloServicioService.selectArtServ.articuloServicio" placeholder="Ejem: Gabinete, Monitor, Agua">
           <div  *ngIf="(articuloServicio.invalid && articuloServicio.touched) || articuloServicio.dirty">
-            <small *ngIf="articuloServicio.errors?.required" class="text-danger">Artículos o Servicio requerido</small>
+            <small *ngIf="articuloServicio.errors?.required" class="text-danger">Artículo o Servicio requerido</small>
+
           </div> 
       </div> 
       <div class="form-group col-md-6">
@@ -245,7 +249,9 @@
         <input type="text" list="Subtipo"  class="form-control" formControlName="unidadSubtipo" [class.is-invalid] = "unidadSubtipo.invalid && (unidadSubtipo.dirty || unidadSubtipo.touched)"
         [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo'    (change)="ore2(articuloServicioService.selectArtServ.unidadSubtipo,ArtServForm)">
         <div  *ngIf="(unidadSubtipo.invalid && unidadSubtipo.touched) || unidadSubtipo.dirty">
-          <small *ngIf="unidadSubtipo.errors?.required" class="text-danger">Unidad subtipo requerido</small>
+
+          <small *ngIf="unidadSubtipo.errors?.required" class="text-danger">Unidad sub tipo requerido</small>
+
         </div> 
         
         <datalist  id="Subtipo">
@@ -421,7 +427,9 @@
 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputZip">Artículos o Servicio:</label>
+
+      <label for="inputZip">Artículo o Servicio:</label>
+
      
       <input type="text" class="form-control" formControlName="articuloServicio"  [(ngModel)]="articuloServicioService.selectArtServ.articuloServicio"  disabled>
         

@@ -94,7 +94,9 @@ export class ReportesClientesComponent implements OnInit {
     }
   }
   onDelete(_id: string, form: NgForm) {
+
     if (confirm('¿Estás seguro que deseas eliminarlo ?') == true) {
+
       this.datosEmpresaService.deleteDato(_id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);

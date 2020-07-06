@@ -39,6 +39,7 @@
         <div *ngIf="(password.invalid && password.touched) || password.dirty">
           <small *ngIf="password.errors?.required" class="text-danger">Contraseña  requerida</small>
           <small *ngIf="password.errors?.pattern" class="text-danger">Ingresa una contraseña válida, mínimo ocho caracteres, al menos una letra minuscula, una mayuscula y un número</small>
+
         </div>  
     </div>
 
@@ -52,6 +53,7 @@
     </div>
 
     <label class="recordar"> Acepto las <a href="/politicas">Políticas de Privacidad</a>
+
       <input type="checkbox">
       <span class="checkbox"></span>
     </label>

@@ -101,6 +101,7 @@ export class ArticulosYServiciosComponent implements OnInit {
     }
 
   }else{
+
   window.alert("Verifique que la informacion esté correcta");
 }
 }

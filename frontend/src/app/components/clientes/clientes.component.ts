@@ -171,7 +171,9 @@ export class ClientesComponent implements OnInit {
   }
 }
   onDelete(emp: DatosEmisor) {
+
     if (confirm('¿Estas Seguro que deseas eliminarlo?') == true) {
+
       this.datosEmpresaService.deleteDato(emp._id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);

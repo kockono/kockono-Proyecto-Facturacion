@@ -40,6 +40,7 @@
         <div *ngIf="(email.invalid && email.touched) || email.dirty">
           <small *ngIf="email.errors?.required" class="text-danger">Email requerido</small>
           <small *ngIf="email.errors?.pattern" class="text-danger">Ingresa un email valido</small>  
+
         </div>
       </div>
   
@@ -49,6 +50,7 @@
         <div *ngIf="(password.invalid && password.touched) || password.dirty">
           <small *ngIf="password.errors?.required" class="text-danger">Contraseña requerida</small>
           <small *ngIf="password.errors?.pattern" class="text-danger">Ingresa una contraseña valida</small>
+
         </div>      
       </div>
 

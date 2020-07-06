@@ -202,7 +202,7 @@
         <label for="inputZip">Días:</label>
         <input type="number" min="1" class="form-control" formControlName="dias" [(ngModel)]="datosEmpresaService.selectEmpresa.dias" [class.is-invalid] = "dias.invalid && (dias.dirty || dias.touched)">
         <div  *ngIf="(dias.invalid && dias.touched) || dias.dirty">
-          <small *ngIf="dias.errors?.required" class="text-danger">Dias requerido</small>
+          <small *ngIf="dias.errors?.required" class="text-danger">Días requerido</small>
         </div> 
       </div>
 
@@ -245,10 +245,12 @@
 
 
     <div class="form-group col-md-1">
+
       <label for="inputZip">No. Int:</label>
       <input type="text" class="form-control" formControlName="numInterior" [(ngModel)]="datosEmpresaService.selectEmpresa.numInterior" [class.is-invalid] = "numInterior.invalid && (numInterior.dirty || numInterior.touched)">
       <div  *ngIf="(numInterior.invalid && numInterior.touched) || numInterior.dirty">
-        <small *ngIf="numInterior.errors?.required" class="text-danger">No. requerido</small>
+        <small *ngIf="numInterior.errors?.required" class="text-danger">No. Interior requerido</small>
+
       </div> 
     </div>
 
@@ -256,7 +258,8 @@
       <label for="inputZip">No. Ext:</label>
       <input type="text" class="form-control" formControlName="numExterior" [(ngModel)]="datosEmpresaService.selectEmpresa.numExterior" [class.is-invalid] = "numExterior.invalid && (numExterior.dirty || numExterior.touched)">
       <div  *ngIf="(numExterior.invalid && numExterior.touched) || numExterior.dirty">
-        <small *ngIf="numExterior.errors?.required" class="text-danger">No. requerido</small>
+        <small *ngIf="numExterior.errors?.required" class="text-danger">No. Exterior requerido</small>
+
       </div> 
     </div>
 

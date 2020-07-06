@@ -117,7 +117,9 @@ export class ProvComponent implements OnInit {
   }
   }
   onDelete(emp: DatosEmisor) {
+
     if (confirm('¿Estás Seguro que deseas eliminarlo?') == true) {
+
       this.datosEmpresaService.deleteDato(emp._id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);
