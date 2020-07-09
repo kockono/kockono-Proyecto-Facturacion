@@ -40,13 +40,13 @@
         <label for="inputState" hidden>id: </label>
         <a type="text" class="form-control"[(ngModel)]='selectedid' name="_id" hidden> {{idCliente}}</a>
         <div class="form-group col-md-2">
-          <label for="inputState">Metodo de pago: </label>
+          <label for="inputState">Método de pago: </label>
         <a type="text" class="form-control"  name="metodo"#name="ngModel" 
         [(ngModel)]="datosEmpresaService2.selectEmpresa.metodo" >{{met}}</a>
           
         </div>
         <div class="form-group col-md-1">
-          <label for="inputState">Dias: </label>
+          <label for="inputState">Días: </label>
         <a type="text" class="form-control" name="dias">{{di}}</a>
         </div>
         <div class="form-group col-md-4">
@@ -57,7 +57,7 @@
             <option value="Efectivo">Efectivo</option>
             <option value="Tarjeta">Tarjeta</option>
             <option value="Vale/Otros">Vale/Otros</option>
-            <option value="Transferencia electronica">Transferencia electronica</option>
+            <option value="Transferencia electronica">Transferencia electrónica</option>
           </select>
           </div>
         <div class="form-group col-md-4">
@@ -65,7 +65,7 @@
           <select type="text" class="form-control"  name="cfdi" #name="ngModel" 
           [(ngModel)]="datosEmpresaService2.selectEmpresa.cfdi">
             <option value="P01 Por Definir">P01 Por Definir</option>
-            <option value="G01 Adquisiscion de mercancia">G01 Adquisiscion de mercancia</option>
+            <option value="G01 Adquisiscion de mercancia">G01 Adquisición de mercancía</option>
             <option value="G02 Devoluciones, Descuentos o Bonificaciones">G02 Devoluciones, Descuentos o Bonificaciones</option>
             <option value="G03 Gastos en General">G03 Gastos en General</option>
             <option value="I01 Construcciones">I01 Construcciones</option>
@@ -73,7 +73,7 @@
             <option value="I02 Mobiliario y Equipo de Oficina por Inversiones">I02 Mobiliario y Equipo de Oficina por Inversiones</option>
             <option value="I03 Equipo de Transporte">I03 Equipo de Transporte</option>
             <option value="I04 Equipo de Cómputo y Accesorios">I04 Equipo de Cómputo y Accesorios</option>
-            <option value="I05 Dados, Troqueles, Moldes, Matrices y Herramental">I05 Dados, Troqueles, Moldes, Matrices y Herramental</option>
+            <option value="I05 Dados, Troqueles, Moldes, Matrices y Herramental">I05 Dados, Troqueles, Moldes, Matríces y Herramental</option>
             <option value="I06 Comunicaciones Telefónicas">I06 Comunicaciones Telefónicas</option>
             <option value="I07 Comunicaciones Satelitales">I07 Comunicaciones Satelitales</option>
             <option value="I08 Otra Maquinaria y Equipo">I08 Otra Maquinaria y Equipo</option>
@@ -106,9 +106,9 @@
           [(ngModel)]="datosEmpresaService2.selectEmpresa.vendedor"  placeholder="Vendedor">
         </div>
         <div class="form-group col-md-5">
-          <label for="inputZip">Via de embarque:</label>
+          <label for="inputZip">Vía de embarque:</label>
           <input type="text" class="form-control"   id="inputViaDeEmbarque" name="viaDeEmbarque" #name="ngModel" 
-          [(ngModel)]="datosEmpresaService2.selectEmpresa.viaDeEmbarque"   placeholder="Via de embarque">
+          [(ngModel)]="datosEmpresaService2.selectEmpresa.viaDeEmbarque"   placeholder="Vía de embarque">
         </div> 
         <div class="form-group col-md-12">
           <label for="inputZip">Razón Social:</label>
@@ -127,13 +127,13 @@
         </div> 
 
         <div class="form-group col-md-2">
-          <label for="inputZip">Articulo:</label>
+          <label for="inputZip">Artículo:</label>
           <a type="text" class="form-control"   id="inputArticulo" name="articulo" 
           #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.articulo"  placeholder="Articulo">{{articulo}}</a>
         </div>
 
         <div class="form-group col-md-1">
-          <label for="inputZip">Unidades:</label>
+          <label for="inputZip">Uds.:</label>
           <input type="number" class="form-control"   id="inputUnidades" name="unidades" 
           #name="ngModel" [(ngModel)]="datosEmpresaService2.selectEmpresa.unidades" placeholder=1>
         </div>        
@@ -143,12 +143,12 @@
            [(ngModel)]="datosEmpresaService2.selectEmpresa.precio"   placeholder="Precio">{{precio}}</a>
         </div>
         <div class="form-group col-md-1">
-          <label for="inputZip">Descto.:</label>
+          <label for="inputZip">Desct.:</label>
           <a type="text" class="form-control"   id="inputDescuento" name="descuento" #name="ngModel"
            [(ngModel)]="datosEmpresaService2.selectEmpresa.descuento"  placeholder="Descto">{{descuento}}</a>
         </div>
         <div class="form-group col-md-2">
-          <label for="inputZip">U.Med:</label>
+          <label for="inputZip">U.Med.:</label>
           <a type="text" class="form-control"   id="inputUMed" name="uMed" #name="ngModel"
            [(ngModel)]="datosEmpresaService2.selectEmpresa.uMed"  placeholder="U.Med">{{Umed}}</a>
         </div> 

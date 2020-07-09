@@ -139,7 +139,7 @@
 
         <th scope="col">#</th>
 
-        <th scope="col">Artículos o Servicio</th>
+        <th scope="col">Artículos o Servicios</th>
 
         <th scope="col">Nombre</th>
         <th scope="col">Precio</th>
@@ -194,7 +194,7 @@
     <div class="form-row">
       <div class="form-group col-md-6">
 
-        <label for="inputZip">Artículos o Servicio:</label>
+        <label for="inputZip">Artículo o Servicio</label>
        
         <input type="text" class="form-control" formControlName="articuloServicio" [class.is-invalid] = "articuloServicio.invalid && (articuloServicio.dirty || articuloServicio.touched)" [(ngModel)]="articuloServicioService.selectArtServ.articuloServicio" placeholder="Ejem: Gabinete, Monitor, Agua">
           <div  *ngIf="(articuloServicio.invalid && articuloServicio.touched) || articuloServicio.dirty">
