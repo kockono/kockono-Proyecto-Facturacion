@@ -29,8 +29,8 @@
         </div>
         <div class="form-group col-md-4">
           <label for="inputState">Cliente: </label>
-          <input type="text" list="Clientes" class="form-control busqueda" name="nombreDeLaEmpresa" [(ngModel)]='selectedClientes' (change)="eso(selectedClientes,empresaForm)">
-          <datalist  id="Clientes">
+          <input type="text" list="Cliente" class="form-control busqueda" name="nombreDeLaEmpresa" [(ngModel)]="selectedCliente" (change)="eso(selectedCliente,empresaForm)">
+          <datalist  id="Cliente">
             <!-- <select> -->
               <option  *ngFor="let emp of datosEmpresaService.DatosEmpresa" [value]="emp.nombreDeLaEmpresa"></option>  
             <!-- </select> -->
@@ -201,7 +201,7 @@
           <label for="inputZip">IVA:</label>
           <input type="number" class="form-control"  id="inputIva" name="iva" #name="ngModel" 
           [(ngModel)]="datosEmpresaService2.selectEmpresa.iva"  placeholder="16"
-          (change)="ora2(datosEmpresaService2.selectEmpresa.iva,empresaForm,$event)">
+          (change)="ora2(datosEmpresaService2.selectEmpresa.iva,empresaForm)">
         </div>
 
         <div class="form-group col-md-5">

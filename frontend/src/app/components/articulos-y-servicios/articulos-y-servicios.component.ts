@@ -15,63 +15,257 @@ import { DatosEmisor } from 'src/app/models/datos-emisor';
 export class ArticulosYServiciosComponent implements OnInit {
   pageActual: number=1;
 
-  createFormGroup() {
 
-    return new FormGroup({
-      _id: new FormControl(''),
-      nombre: new FormControl('', [Validators.required, ]),
-      precio: new FormControl('', [Validators.required]),
-      articuloServicio: new FormControl('', [Validators.required,]),
-      uMed: new FormControl(''),
-      unidadTipo: new FormControl('', [Validators.required,]),
-      unidadSubtipo:new FormControl('', [Validators.required,]),
-      unidadCodigo:new FormControl('',),
-      unidad:new FormControl('', [Validators.required,]),
-      productoTipo:new FormControl('', [Validators.required,]),
-      productoDivision:new FormControl('', [Validators.required,]),
-      productoGrupo:new FormControl('', [Validators.required,]),
-      productoClase:new FormControl('', [Validators.required,]),
-      
-     
-      
-
-
-    });
-  }
-  ArtServForm : FormGroup;
 
   constructor( public articuloServicioService: ArticuloServicioService ) {
 
-    this.ArtServForm = this.createFormGroup();
+    
    }
   monstrar = true;
   ver = true;
   filterpost = '';
+
+
+
+  parents="";
+  parents2="";
+  parents3="";
+  
+  sparents="";
+  sparents2="";
+  sparents3="";
+  sparents4="";
+  
+  productooserv=[
+    {
+      Nombre:"Producto",
+      Desc:"",
+      Parent:null
+    },
+    {
+      Nombre:"Alimentos, Bebidas y Tabaco",
+      Desc:"",
+      Parent:"Producto"
+    },
+    {
+      Nombre:"Aceites y grasas comestibles",
+      Desc:"",
+      Parent:"Alimentos, Bebidas y Tabaco"
+    },
+    {
+      Nombre:"50151600 - Grasas y aceites animales comestibles",
+      Desc:"",
+      Parent:"Aceites y grasas comestibles"
+    },
+    {
+      Nombre:"50151500 - Grasas y aceites vegetales comestibles",
+      Desc:"",
+      Parent:"Aceites y grasas comestibles"
+    },
+    {
+      Nombre:"Alimentos preparados y conservados",
+      Desc:"",
+      Parent:"Alimentos, Bebidas y Tabaco"
+    },
+    {
+      Nombre:"50191500 - Sopas y estofados",
+      Desc:"",
+      Parent:"Alimentos preparados y conservados"
+    },
+    {
+      Nombre:"50192100 - Botanas",
+      Desc:"",
+      Parent:"Alimentos preparados y conservados"
+    },
+  
+  
+    {
+      Nombre:"Servicio",
+      Desc:"",
+      Parent:null
+    },
+    {
+      Nombre:"Organizaciones y Clubes",
+      Desc:"",
+      Parent:"Servicio"
+    },
+    {
+      Nombre:"Clubes",
+      Desc:"",
+      Parent:"Organizaciones y Clubes"
+    },
+    {
+      Nombre:"94121500 - Clubes deportivos",
+      Desc:"",
+      Parent:"Clubes"
+    },
+    {
+      Nombre:"94121600 - Clubes de hobbies (Membresías)",
+      Desc:"",
+      Parent:"Clubes"
+    },
+    {
+      Nombre:"Organizaciones laborales",
+      Desc:"",
+      Parent:"Organizaciones y Clubes"
+    },
+    {
+      Nombre:"94101500 - Asociaciones de negocios",
+      Desc:"",
+      Parent:"Organizaciones laborales"
+    },
+    {
+      Nombre:"94101600 - Asociaciones profesionales",
+      Desc:"",
+      Parent:"Organizaciones laborales"
+    }
+  ];
+  
+  
+  
+  unidades2=
+  [
+    {
+      Nombre:"Acústica",
+      Desc:"",
+      parent:null
+    },
+      { Nombre:"Decremento logarítmico",
+        Desc:"",
+        parent:"Acústica"
+      },
+        { Nombre:"P41",
+          Desc:"Década (logarítmica)",
+          parent:"Decremento logarítmico"
+        },
+        
+      { Nombre:"Densidad de energía sonora, Volumétrica, energía de sonido",
+        Desc:"",
+        parent:"Acústica"
+      },
+        { Nombre:"A60",
+          Desc:"Erg por centímetro cúbico",
+          parent:"Densidad de energía sonora, Volumétrica, energía de sonido"
+        },
+      { Nombre:"Densidad superficial de la impedancia mecánica",
+        Desc:"",
+        parent:"Acústica"
+      },
+        { Nombre:"A50",
+          Desc:"Dina segundo por centímetro cúbico",
+          parent:"Densidad superficial de la impedancia mecánica"
+        },
+  
+  
+      { Nombre:"Exposición al sonido",
+        Desc:"",
+        parent:"Acústica"
+      },
+        { Nombre:"P42",
+          Desc:"Pascal por segundo cuadrado",
+          parent:"Exposición al sonido"
+        },
+    { Nombre:"Impedancia acústica",
+      Desc:"",
+      parent:"Acústica"
+    },
+        { Nombre:"A52",
+          Desc:"Dina segundo por centímetro a la quinta potencia",
+          parent:"Impedancia acústica"
+        },
+        { Nombre:"M32",
+          Desc:"Segundos pascal por litro",
+          parent:"Impedancia acústica"
+        },
+        { Nombre:"C66 ",
+          Desc:"Segundos pascal por metro cúbico",
+          parent:"Impedancia acústica"
+        },
+  
+    
+    {
+      Nombre:"Calor",
+      Desc:"",
+      parent:null
+    },
+    { Nombre:"SubCalor 1",
+      Desc:"",
+      parent:"Calor"
+    },
+    { Nombre:"c1",
+      Desc:"1",
+      parent:"SubCalor 1"
+    },
+    { Nombre:"SubCalor 2",
+      Desc:"",
+      parent:"Calor"
+    },
+    { Nombre:"c2",
+      Desc:"2",
+      parent:"SubCalor 2"
+    },
+    { Nombre:"SubCalor 3",
+      Desc:"",
+      parent:"Calor"
+    },
+    { Nombre:"c3",
+      Desc:"3",
+      parent:"SubCalor 3"
+    },
+    { Nombre:"c4",
+      Desc:"4",
+      parent:"SubCalor 3"
+    }
+    
+  ];
+      
+  ore(ll: string, form: NgForm){
+    this.parents=ll
+  }
+  ore2(ll: string, form: NgForm){
+    this.parents2=ll
+  }
+  ore3(ll: string, form: NgForm){
+    for(let emp of this.unidades2){
+      if(ll==emp.Desc){
+        this.parents3=emp.Nombre;
+        break;
+      }
+    }
+  }
+  sore(ll: string, form: NgForm){
+    this.sparents=ll
+  }
+  sore2(ll: string, form: NgForm){
+    this.sparents2=ll
+  }
+  sore3(ll: string, form: NgForm){
+    this.sparents3=ll
+  }
+  sore4(ll: string, form: NgForm){
+        this.sparents4=ll;
+  }
+
+
   
   ngOnInit(){
     this.resetForm();
     this.refrescarListaDeArtServ();
   }
-  refrescarListaDeArtServ() {
-    this.articuloServicioService.getDatosList().subscribe((res) => {
-        this.articuloServicioService.DatosArtServ = res as ArticuloServicio[];
-    });
-  }
-  onEdit(emp: ArticuloServicio) {
-    this.articuloServicioService.selectArtServ = emp;
-                                
-  }
+  
 
-  resetForm() {
-    if(this.ArtServForm)
-    this.ArtServForm.reset();
+
+  
+  resetForm(form?: NgForm) {
+    if(form)
+      form.reset();
     this.articuloServicioService.selectArtServ = {
       _id: "",
       articuloServicio: "",
       nombre: "",
       precio: null,
       uMed: "",
-      unidadTipo: "",
+      unidadTipo:"",
       unidadSubtipo:"",
       unidadCodigo:"",
       unidad:"",
@@ -81,30 +275,38 @@ export class ArticulosYServiciosComponent implements OnInit {
       productoClase:""
     }
   }
-  
+
+  refrescarListaDeArtServ() {
+    this.articuloServicioService.getDatosList().subscribe((res) => {
+        this.articuloServicioService.DatosArtServ = res as ArticuloServicio[];
+    });
+  }
+
   onSubmit(form: NgForm){
-    if(this.ArtServForm.valid){
-      if(this._id.value == ""){
-      this.articuloServicioService.postDatos(this.ArtServForm.value).subscribe((res) => {
+    if(form.value._id == ""){
+      form.value.unidadCodigo=this.parents3.toString();
+      this.articuloServicioService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeArtServ();
         console.log(this.articuloServicioService.selectArtServ.articuloServicio);
         window.alert("Se Guardó Correctamente");
+        
+        //this.router.navigateByUrl('/articulos-y-servicios');
         // window.location.reload();
       });
     }else{
-      this.articuloServicioService.putDatos(this.ArtServForm.value).subscribe((res)=>{
-        this.resetForm();
+      this.articuloServicioService.putDatos(form.value).subscribe((res)=>{
+        this.resetForm(form);
         this.refrescarListaDeArtServ();
         window.alert("Se Actualizó Correctamente");
-        this.monstrar=!this.monstrar;
+        this.monstrar=!this.monstrar
       });
     }
+  }
 
-  }else{
+  onEdit(emp: ArticuloServicio) {
+    this.articuloServicioService.selectArtServ = emp;
+  }
 
-  window.alert("Verifique que la informacion esté correcta");
-}
-}
   onDelete(emp:DatosEmisor) {
     if (confirm('¿Estás Seguro que deseas eliminarlo?') == true) {
       this.articuloServicioService.deleteDato(emp._id).subscribe((res) =>{
@@ -117,19 +319,7 @@ export class ArticulosYServiciosComponent implements OnInit {
     
   }
 
-  get _id() {return this.ArtServForm.get('_id');}
-  get articuloServicio() {return this.ArtServForm.get('articuloServicio');}
-  get nombre() {return this.ArtServForm.get('nombre');}
-  get precio() {return this.ArtServForm.get('precio');}
-  get uMed() {return this.ArtServForm.get('uMed');}
-  get unidadTipo() {return this.ArtServForm.get('unidadTipo');}
-  get unidadSubtipo() {return this.ArtServForm.get('unidadSubtipo');}
-  get unidadCodigo() {return this.ArtServForm.get('unidadCodigo');}
-  get unidad() {return this.ArtServForm.get('unidad');}
-  get productoTipo() {return this.ArtServForm.get('productoTipo');}
-  get productoDivision() {return this.ArtServForm.get('productoDivision');}
-  get productoGrupo() {return this.ArtServForm.get('productoGrupo');}
-  get productoClase() {return this.ArtServForm.get('productoClase');}
+
 
 }
 

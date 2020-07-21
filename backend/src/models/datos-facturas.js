@@ -29,7 +29,7 @@ const FacturasSchema = new Schema({
 
     fechaExpir:{type:String},
         dineroRest:{type:Number},
-        clientes:{
+        idCliente:{
         type: Schema.Types.ObjectId,
         ref: 'cliente'
     },

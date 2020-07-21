@@ -116,7 +116,7 @@
 <main class="s-layout__content">
     <div class="contenedor"  >
           <legend class="center"> Datos de mi empresa </legend>
-          <form [formGroup]="empresaForm" (ngSubmit)="onSubmit(empresaForm)">
+          <form [formGroup]="empresaForm" (ngSubmit)="onSubmit()">
 
           <input type="hidden" formControlName="_id" [(ngModel)]="datosMiEmpresaService.selectEmpresa._id">
 

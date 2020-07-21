@@ -33,6 +33,7 @@ router.post('/:_id', async (req, res) => {
         iva:req.body.iva,
         /*Nuevo*/
         artarr:req.body.artarr,
+        idCliente:req.body.idCliente,
         
 
         fechaExpir:req.body.fechaExpir,
@@ -41,8 +42,8 @@ router.post('/:_id', async (req, res) => {
     });
 
     const clienteID = await Cliente.findById(req.params); //* Nos traemos el parametro id que es la id del cliente .
-    console.log(clienteID);
-    Factura.clientes = clienteID; 
+    //console.log(clienteID);
+    Factura.idCliente = clienteID; 
     
         await Factura.save();
     clienteID.facturas.push(Factura); //* Aqui guardamos todo el cuerpo de la factura.
@@ -84,7 +85,7 @@ router.put('/:id', (req, res) => {
             iva:req.body.iva,
             /*Nuevo*/
             artarr:req.body.artarr,
-
+            idCliente:req.body.idCliente,
             fechaExpir:req.body.fechaExpir,
             dineroRest:req.body.dineroRest,
 

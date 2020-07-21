@@ -7,6 +7,8 @@ import { DatosFact } from "../../models/datos-fact"; //factura
 import { DatosEmpresaService2 } from "../../services/datos-fact.service"; //factura
 import { DatosMiEmpresaService } from '../../services/datos-mi-empresa.service'; //Mi empresa
 import { DatosMiEmpresa } from '../../models/datos-mi-empresa'; //Mi empresa
+import { ArticuloServicioService } from '../../services/articulos-y-servicios.service'
+import { ArticuloServicio } from '../../models/articulos-y-servicios'
 //Módulos necesarios para generación del PDF
 import jsPDF from "jspdf";
 import "jspdf-autotable";
@@ -22,7 +24,7 @@ let doc = new jsPDF();
   selector: "app-fact",
   templateUrl: "./fact.component.html",
   styleUrls: ["./fact.component.css"],
-  providers: [DatosEmpresaService2,DatosEmpresaService,DatosMiEmpresaService],
+  providers: [DatosEmpresaService2,DatosEmpresaService,DatosMiEmpresaService,ArticuloServicio, ArticuloServicioService],
 })
 export class FactComponent implements OnInit {
   pageActual: number=1;
@@ -32,6 +34,7 @@ export class FactComponent implements OnInit {
 
   /* El servicio de Facturas se guardó en una variable: datosEmpresaService */
   constructor( 
+    public articuloServicioService: ArticuloServicioService,
     public datosEmpresaService: DatosEmpresaService2,
   //datosEmpresaService2 -  Factura
     public datosEmpresaService2: DatosEmpresaService,
@@ -55,9 +58,12 @@ export class FactComponent implements OnInit {
   codigoP='';
   RFC='';
   timinus='';
-
+folio=0;
 
   empNombre='';
+  counter(int) {
+    this.folio = int;
+}
   GenerarPDF2() {
     
     // doc.autoTable({
@@ -86,7 +92,7 @@ export class FactComponent implements OnInit {
           headStyles: { halign: "left" },
           styles: {cellPadding: 1},
           columns: [{ header: this.datosMiEmpresaService.DatosEmpresa[0].nombreDeLaEmpresa, dataKey: "uno" }],
-        });
+        }); //esto se queda as{i}
         //doc.autoTable({
         //  theme: ["plain"],
         //  startY: 0,
@@ -194,17 +200,13 @@ export class FactComponent implements OnInit {
             rowPageBreak: "avoid",
             body: this.datosEmpresaService.selectEmpresa.abono,//easy peasy
             columns: [
-              { header: "Metodo", dataKey: "metodo" },
-              { header: "Fecha", dataKey: "Fecha" },
-              { header: "Ingreso faltante", dataKey: "codigo" },
-              { header: "Monto", dataKey: "cantidad" },
-              { header: "Ingreso restante", dataKey: "precio u." }
-              
+              { header: "Modo de pago", dataKey: "articulo" },
+              { header: "Fecha", dataKey: "codigo" },
+              { header: "Deuda inicial", dataKey: "cantidad" },
+              { header: "Monto", dataKey: "precio u." },
+              { header: "Deuda restante", dataKey: "precio u." }
             ],
           });
-          
-          
-          
         doc.autoTable({
           theme: ["grid"],
           // startY: 180,
@@ -380,12 +382,12 @@ export class FactComponent implements OnInit {
         rowPageBreak: "avoid",
         body: this.datosEmpresaService.selectEmpresa.artarr,//easy peasy
         columns: [
-          { header: "Articulo", dataKey: "articulo" },
-          { header: "Codigo", dataKey: "codigo" },
+          { header: "Artículo", dataKey: "articulo" },
+          { header: "Código", dataKey: "codigo" },
           { header: "Cantidad", dataKey: "cantidad" },
-          { header: "Precio u.", dataKey: "precio u." },
+          { header: "Precio Uni.", dataKey: "precio u." },
           { header: "Desc.", dataKey: "descuento" },
-          { header: "U.med", dataKey: "umed" },
+          { header: "Ud.Med.", dataKey: "umed" },
           { header: "Suma", dataKey: "suma" },
         ],
       });
@@ -423,8 +425,154 @@ export class FactComponent implements OnInit {
     doc.save('Factura-'+this.datosEmpresaService.selectEmpresa.folio + this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa + '.pdf');
     doc = new jsPDF();
   }
-
+  filterpost = '';
+  selectedCliente: string = "";
+  selectedMetodo: string = "";
+  selectedForma: string = "";
+  selectedCFDi: string = "";
+  selectedid: string = "";
+  selectedValue: string;
+  selectedCar: string;    
+  sumado:number;
+  i: number;
+  precio:number;
+  articulo: string  ;
+  unidades:  number ;
+  descuento: number  ;
+  Umed:  string  ;
+  cambio:number;
+  te=[];
+  ta=[];
+  tots:number;
+  iva:number;
+  fech:any;
+  met:string;
+  din:number;
+  di:number;
+  dias:number;
+  idCliente: string;
+  raz:string;
+  nada2(form: NgForm){
+    (form.value.nombre);
+    (form.value.articulo);
+    (form.value.unidades);
+    (form.value.precio);
+    (form.value.descuento);
+    (form.value.uMed);
+          form.value.precio=this.precio;
+          form.value.articulo=this.articulo;
+          form.value.uMed=this.Umed;
+          form.value.descuento=this.descuento;
+    this.te.push([
+      form.value.nombre,
+      form.value.articulo,
+      form.value.unidades, 
+      form.value.precio,
+      form.value.descuento,
+      form.value.uMed,
+      form.value.unidades*form.value.precio  
+      ]);
+    this.sumado = +  ( form.value.precio*form.value.unidades)+this.sumado;
+    this.tots=+(Math.round(100*(this.sumado*((this.iva/100)+1))))/100;
+    (this.tots);
+    this.precio=null;
+    this.articulo=null ;
+    this.unidades=null ;
+    this.descuento=null ;
+    
+    this.resetForm3();
+    (this.te);
+    }
+    ora(ll: string, form: NgForm){
+      for(let emp of this.articuloServicioService.DatosArtServ){ 
+        if(emp.nombre==ll){
+          this.precio=emp.precio;
+          form.value.precio=this.precio;
+          this.articulo=emp.articuloServicio;
+          form.value.articulo=this.articulo;
+          this.unidades=1;
+          form.value.unidades=this.unidades;
+          this.Umed=emp.unidad;
+          form.value.uMed=this.Umed;
+          this.descuento=0;
+          form.value.descuento=this.descuento;
+          (form.value.nombre);
+          (form.value.articulo);
+          (form.value.unidades);
+          (form.value.precio);
+          (form.value.descuento);
+          (form.value.uMed);
+          break;
+        }
+      }
+      
+    }
+    ora2(ll: number, form: NgForm){
+      this.iva= ll;
+      this.tots=(Math.round(100*(this.sumado*((this.iva/100)+1))))/100;
+      (this.tots, this.cambio);
+    }
+    resetForm3(form?: NgForm) {
+      if(form)
+        form.reset();
+        this.datosEmpresaService.selectEmpresa = {
+        _id: '',
+        nombreDeLaEmpresa: form.value.nombreDeLaEmpresa,
+        metodo: form.value.metodo,
+        forma: form.value.forma,
+        cfdi:form.value.cfdi,
+        estatus:form.value.estatus,
+        razon:form.value.razon,
+        fecha:form.value.fecha,
+        monto:null,
+        folio:null,
+        /* Nuevos campos agregados en base a la factura ejemplo */
+        ordenDeCompra: form.value.ordenDeCompra,
+        condiciones: form.value.condiciones,	
+        vendedor: form.value.vendedor,
+        viaDeEmbarque: form.value.viaDeEmbarque,
+        unidades:null,
+        articulo: '',	
+        nombre: null,
+        precio:null,
+        descuento:null,
+        uMed: '',
+        importe:form.value.import,	
+        subtotal:form.value.subtotal,
+        total:form.value.total,
+        iva:form.value.iva,
+        artarr:[null],
+        fechaExpir:form.value.fechaExpir,
+        idCliente: form.value.idCliente,
+        dineroRest:null,
+        abono:null
+      }
+    }
+  eso(name, form) {
+    console.log(name.toString);
+    for(let emp of this.datosEmpresaService2.DatosEmpresa){
+      if(emp.nombreDeLaEmpresa==name){
+        form.value.metodo=emp.metodo;
+        this.met=emp.metodo;
+        form.value.dias=emp.dias;
+        this.di=emp.dias;
+        this.raz=emp.razon;
+        form.value._id=emp._id;
+        this.idCliente=emp._id;
+        form.value.razon=this.raz;
+        
+          this.now = moment().locale('es');
+          this.now.add(this.di, 'days');
+          form.value.fechaExpir=this.now.format('MMM Do YY');
+          this.fech=this.now.format('MMMM  Do YYYY');
+          this.now = moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
+        
+      }
+    }
+}
   arrayAbono=[];
+  montoAbono=null;
+  abonoMetodo="";
   nada(form: NgForm){
     if(this.datosEmpresaService.selectEmpresa.dineroRest>0){
     this.now=moment().locale('es').format('MMMM Do YYYY, h:mm:ss a');
@@ -449,6 +597,7 @@ export class FactComponent implements OnInit {
 
 }
   ngOnInit() {
+    
     this.resetForm();
     this.refrescarListaDeEmpresa();
     this.refrescarListaDatosDatosEmisor();
@@ -460,7 +609,6 @@ export class FactComponent implements OnInit {
       this.datosMiEmpresaService.DatosEmpresa = res as DatosMiEmpresa[]; 
     });
   }
-  
   refrescarListaDeEmpresa() {
     this.datosEmpresaService.getDatosList().subscribe((res) => {
       this.datosEmpresaService.DatosEmpresa = res as DatosFact[]; 
@@ -476,11 +624,9 @@ export class FactComponent implements OnInit {
       this.datosEmpresaService2.DatosEmpresa = res as DatosEmisor[];
     });
   }
-
   onEdit(emp: DatosFact) {
     this.datosEmpresaService.selectEmpresa = emp;
   }
-
   resetForm(form?: NgForm) {
     if (form) form.reset();
     /* El servicio de Facturas se guardo en una variable: datosEmpresaService */
@@ -517,12 +663,8 @@ export class FactComponent implements OnInit {
     };
   }
   onSubmit(form: NgForm) {
-    if(this.datosEmpresaService.selectEmpresa.dineroRest>0){
     this.nada(form);
     if (form.value._id == "") {
-
-
-      
       this.datosEmpresaService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
@@ -537,7 +679,6 @@ export class FactComponent implements OnInit {
       form.value.dineroRest=this.datosEmpresaService.selectEmpresa.dineroRest;
       form.value.fechaExpir=this.datosEmpresaService.selectEmpresa.fechaExpir;
       form.value.estatus=this.datosEmpresaService.selectEmpresa.estatus;
-      
       this.datosEmpresaService.putDatos(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
@@ -546,17 +687,25 @@ export class FactComponent implements OnInit {
       });
     }
   }
-  }
-  
-
- /* onDelete(_id: string, form: NgForm) {
-    if (confirm("¿Estas seguro que deseas eliminarlo?") == true) {
-      this.datosEmpresaService.deleteDato(_id).subscribe((res) => {
+  onSubmit2(form: NgForm) {
+    form.value._id = "";
+    if (form.value._id == "") {
+      form.value.abono=this.arrayAbono;
+      form.value.metodo=this.datosEmpresaService.selectEmpresa.metodo;
+      form.value.forma=this.datosEmpresaService.selectEmpresa.forma;
+      form.value.cfdi=this.datosEmpresaService.selectEmpresa.cfdi;
+      form.value.artarr=this.datosEmpresaService.selectEmpresa.artarr;
+      form.value.dineroRest=this.datosEmpresaService.selectEmpresa.dineroRest;
+      form.value.fechaExpir=this.datosEmpresaService.selectEmpresa.fechaExpir;
+      form.value.estatus=this.datosEmpresaService.selectEmpresa.estatus;
+      this.datosEmpresaService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
-        window.alert({ html: "Eliminado Correctamente", classes: "rounded" });
+        console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
+        window.alert("Se Guardó Correctamente");
       });
     }
-  }*/
+  }
+  
   cambiarEstatus(emp: DatosFact) {
     if (confirm("¿Estás seguro que deseas cancelarlo?") == true) {
       this.datosEmpresaService.selectEmpresa = emp;
