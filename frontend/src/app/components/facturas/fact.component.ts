@@ -57,6 +57,7 @@ export class FactComponent implements OnInit {
   Localidad='';
   codigoP='';
   RFC='';
+  id='';
   timinus='';
 folio=0;
 
@@ -552,6 +553,7 @@ folio=0;
     console.log(name.toString);
     for(let emp of this.datosEmpresaService2.DatosEmpresa){
       if(emp.nombreDeLaEmpresa==name){
+        this.id=emp._id;
         form.value.metodo=emp.metodo;
         this.met=emp.metodo;
         form.value.dias=emp.dias;
@@ -688,8 +690,8 @@ folio=0;
     }
   }
   onSubmit2(form: NgForm) {
-    form.value._id = "";
-    if (form.value._id == "") {
+    
+      
       form.value.abono=this.arrayAbono;
       form.value.metodo=this.datosEmpresaService.selectEmpresa.metodo;
       form.value.forma=this.datosEmpresaService.selectEmpresa.forma;
@@ -703,7 +705,7 @@ folio=0;
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
         window.alert("Se Guardó Correctamente");
       });
-    }
+    
   }
   
   cambiarEstatus(emp: DatosFact) {

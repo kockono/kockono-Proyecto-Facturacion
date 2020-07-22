@@ -92,7 +92,9 @@
   </div>
   <br />
   <div class="contenedor" *ngIf="!monstrar">
-
+    <div  *ngFor="let emp of datosEmpresaService.DatosEmpresa; let i = index">
+      {{counter(i+2)}}
+    </div>
     <form #empresaForm="ngForm" (ngSubmit)="onSubmit2(empresaForm)">
       <div class="form-row">
         <input
@@ -101,12 +103,12 @@
           #name="ngModel"
           [(ngModel)]="datosEmpresaService.selectEmpresa._id"
         />
-        <a
+        <input
           type="hidden"
           name="idCliente"
           #name="ngModel"
           [(ngModel)]="datosEmpresaService.selectEmpresa.idCliente"
-        ></a>
+        />
         <legend class="center">Sustitucion de Factura</legend>
         <div class="form-group col-md-4">
           <label for="inputFolio">Folio:</label>
@@ -117,7 +119,7 @@
             name="folio"
             #name="ngModel"
             [(ngModel)]="datosEmpresaService.selectEmpresa.folio"
-            placeholder="Folio"
+           
             >
         </div>
         <div class="form-group col-md-4">
