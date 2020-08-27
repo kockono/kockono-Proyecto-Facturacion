@@ -16,7 +16,6 @@ import * as moment from 'moment'; // add this 1 of 4
   styleUrls: ['./crear-fact.component.css']
 })
 export class CrearFactComponent implements OnInit {
-  matrix = [['a', 'b', 'c'],['d', 'e', 'f'],['g', 'h', 'i']];
   listaMetodo=["Contado (PUE)","Credito (PPD)"];
   listaForma=["Efectivo","Tarjeta","Vale/Otros","Transferencia electronica", "99 por definir"];
   listaCFDi=[
