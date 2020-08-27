@@ -219,51 +219,26 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputState">Tipo: </label>
-      <input type="text" list="Tipo" class="form-control" name="unidadTipo"
+      <input type="text" list="Tipo" class="form-control " name="unidadTipo"
       [(ngModel)]='articuloServicioService.selectArtServ.unidadTipo' (change)="ore(articuloServicioService.selectArtServ.unidadTipo,ArtServForm)">
       <datalist  id="Tipo">
         <!-- <select> -->
           <div *ngFor="let emp of unidades2">
-          <div *ngIf="emp.parent==null">
           <option   [value]="emp.Nombre"></option>  
-          </div>
         </div>
         <!-- </select> -->
       </datalist> 
     </div>
     <div class="form-group col-md-4">
-      <label for="inputState">Sub Tipo: </label>
-      <input type="text" list="Subtipo"  class="form-control" name="unidadSubtipo"
-      [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo' (change)="ore2(articuloServicioService.selectArtServ.unidadSubtipo,ArtServForm)">
-      <datalist  id="Subtipo">
-        <!-- <select> -->
-          <div *ngFor="let emp of unidades2">
-          <div *ngIf="emp.parent==parents">
-          <option   [value]="emp.Nombre"></option>  
-        </div>
-        </div>
-        <!-- </select> -->
-      </datalist> 
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">Unidad: </label>
-      <input type="text" list="Unidad"  class="form-control" name="unidad"
-      [(ngModel)]='articuloServicioService.selectArtServ.unidad' (change)="ore3(articuloServicioService.selectArtServ.unidad,ArtServForm)">
-      <datalist  id="Unidad">
-        <!-- <select> -->
-          <div *ngFor="let emp of unidades2">
-          <div *ngIf="emp.parent==parents2">
-          <option   [value]="emp.Desc"></option>  
-        </div>
-        </div>
-        <!-- </select> -->
-      </datalist> 
+      <label for="inputState">Nombre: </label>
+      <a type="text" class="form-control">{{tip}}</a>
+      <input type="hidden" name="unidadSubtipo" [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo'>
     </div>
     <div class="form-group col-md-1">
       
       <label for="inputState">Código: </label>
-      <a type="text" class="form-control">{{parents3}}</a>
-      <input type="hidden" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' [value]="parents3">
+      <a type="text" class="form-control">{{cla}}</a>
+      <input type="hidden" name="unidadCodigo" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo'>
        
     </div>
 
@@ -373,46 +348,23 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputState">Tipo: </label>
-      
-      <input type="text"  list="Tipo" class="form-control" name="unidadTipo" #name="ngModel"
-      [(ngModel)]="articuloServicioService.selectArtServ.unidadTipo"  (change)="ore(articuloServicioService.selectArtServ.unidadTipo,ArtServForm)"     disabled>
-      <datalist  id="Tipo">          
-        <div *ngFor="let emp of unidades2">
-        <div *ngIf="emp.parent==null">
-        <option   [value]="emp.Nombre"></option>  
+      <input type="text" list="Tipo" class="form-control " name="unidadTipo"
+      [(ngModel)]='articuloServicioService.selectArtServ.unidadTipo' (change)="ore(articuloServicioService.selectArtServ.unidadTipo,ArtServForm)" disabled>
+      <datalist  id="Tipo">
+        <!-- <select> -->
+          <div *ngFor="let emp of unidades2">
+          <option   [value]="emp.Nombre"></option>  
         </div>
-      </div>
-    
-    </datalist>
-    </div> 
-    
-     <div class="form-group col-md-4">
-      <label for="inputState">Sub Tipo: </label>
-     
-      <input type="text" list="Subtipo"  class="form-control" name="unidadSubtipo" #name="ngModel"
-      [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo'    (change)="ore2(articuloServicioService.selectArtServ.unidadSubtipo,ArtServForm)" disabled>
-     
+        <!-- </select> -->
+      </datalist> 
     </div>
-    
-    
-   
     <div class="form-group col-md-4">
-      <label for="inputState">Unidad: </label>
-     
-      <input type="text" list="Unidad"  class="form-control"  name="unidad" #name="ngModel"
-      [(ngModel)]='articuloServicioService.selectArtServ.unidad'  (change)="ore3(articuloServicioService.selectArtServ.unidad,ArtServForm)"    disabled      >
-  
+      <label for="inputState">Nombre: </label>
+      <input type="text" name="unidadSubtipo" [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo' disabled>
     </div>
-
-
-
-
     <div class="form-group col-md-1">
-      
       <label for="inputState">Código: </label>
-      <a type="text" class="form-control">{{parents3}}</a>
-      <input type="hidden" name="unidadCodigo" #name="ngModel" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' [value]="parents3" disabled>
-       
+      <input type="text" name="unidadCodigo" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' disabled>
     </div>
 
     

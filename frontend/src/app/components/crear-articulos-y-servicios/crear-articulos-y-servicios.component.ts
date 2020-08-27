@@ -15,9 +15,9 @@ export class CrearArticulosYServiciosComponent implements OnInit {
   constructor(private router: Router, public articuloServicioService: ArticuloServicioService ) { }
   
 
-parents="";
-parents2="";
-parents3="";
+nom="";
+cla="";
+tip="";
 
 sparents="";
 sparents2="";
@@ -111,116 +111,179 @@ productooserv=[
 
 
 
-unidades2=
+unidades2 =
 [
   {
-    Nombre:"Acústica",
-    Desc:"",
-    parent:null
+    Tipo: "Multiplos / Fracciones / Decimales",
+    Clave: "H87",
+    Nombre: "Pieza"
   },
-    { Nombre:"Decremento logarítmico",
-      Desc:"",
-      parent:"Acústica"
-    },
-      { Nombre:"P41",
-        Desc:"Década (logarítmica)",
-        parent:"Decremento logarítmico"
-      },
-      
-    { Nombre:"Densidad de energía sonora, Volumétrica, energía de sonido",
-      Desc:"",
-      parent:"Acústica"
-    },
-      { Nombre:"A60",
-        Desc:"Erg por centímetro cúbico",
-        parent:"Densidad de energía sonora, Volumétrica, energía de sonido"
-      },
-    { Nombre:"Densidad superficial de la impedancia mecánica",
-      Desc:"",
-      parent:"Acústica"
-    },
-      { Nombre:"A50",
-        Desc:"Dina segundo por centímetro cúbico",
-        parent:"Densidad superficial de la impedancia mecánica"
-      },
-
-
-    { Nombre:"Exposición al sonido",
-      Desc:"",
-      parent:"Acústica"
-    },
-      { Nombre:"P42",
-        Desc:"Pascal por segundo cuadrado",
-        parent:"Exposición al sonido"
-      },
-  { Nombre:"Impedancia acústica",
-    Desc:"",
-    parent:"Acústica"
-  },
-      { Nombre:"A52",
-        Desc:"Dina segundo por centímetro a la quinta potencia",
-        parent:"Impedancia acústica"
-      },
-      { Nombre:"M32",
-        Desc:"Segundos pascal por litro",
-        parent:"Impedancia acústica"
-      },
-      { Nombre:"C66 ",
-        Desc:"Segundos pascal por metro cúbico",
-        parent:"Impedancia acústica"
-      },
-
-  
   {
-    Nombre:"Calor",
-    Desc:"",
-    parent:null
+    Tipo: "Unidades de venta",
+    Clave: "EA",
+    Nombre: "Elemento"
   },
-  { Nombre:"SubCalor 1",
-    Desc:"",
-    parent:"Calor"
+  {
+    Tipo: "Unidades especificas de la industria (varias)",
+    Clave: "E48",
+    Nombre: "Unidad de Servicio"
   },
-  { Nombre:"c1",
-    Desc:"1",
-    parent:"SubCalor 1"
+  {
+    Tipo: "Unidades de venta",
+    Clave: "ACT",
+    Nombre: "Actividad"
   },
-  { Nombre:"SubCalor 2",
-    Desc:"",
-    parent:"Calor"
+  {
+    Tipo: "Mecanica",
+    Clave: "KGM",
+    Nombre: "Kilogramo"
   },
-  { Nombre:"c2",
-    Desc:"2",
-    parent:"SubCalor 2"
+  {
+    Tipo: "Unidades especificas de la industria (varias)",
+    Clave: "E51",
+    Nombre: "Trabajo"
   },
-  { Nombre:"SubCalor 3",
-    Desc:"",
-    parent:"Calor"
+  {
+    Tipo: "Diversos",
+    Clave: "A9",
+    Nombre: "Tarifa"
   },
-  { Nombre:"c3",
-    Desc:"3",
-    parent:"SubCalor 3"
+  {
+    Tipo: "Tiempo y Espacio",
+    Clave: "MTR",
+    Nombre: "Metro"
   },
-  { Nombre:"c4",
-    Desc:"4",
-    parent:"SubCalor 3"
+  {
+    Tipo: "Diversos",
+    Clave: "AB",
+    Nombre: "Paquete a granel"
+  },
+  {
+    Tipo: "Unidades especificas de la industria (varias)",
+    Clave: "BB",
+    Nombre: "Caja base"
+  },
+  {
+    Tipo: "Unidades de venta",
+    Clave: "KT",
+    Nombre: "Kit"
+  },
+  {
+    Tipo: "Unidades de venta",
+    Clave: "SET",
+    Nombre: "Conjunto"
+  },
+  {
+    Tipo: "Tiempo y Espacio",
+    Clave: "LTR",
+    Nombre: "Litro"
+  },
+  {
+    Tipo: "Unidades de empaque",
+    Clave: "XBX",
+    Nombre: "Caja"
+  },
+  {
+    Tipo: "Tiempo y Espacio",
+    Clave: "MON",
+    Nombre: "Mes"
+  },
+  {
+    Tipo: "Tiempo y Espacio",
+    Clave: "HUR",
+    Nombre: "Hora"
+  },
+  {
+    Tipo: "Tiempo y Espacio",
+    Clave: "MTK",
+    Nombre: "Metro cuadrado"
+  },
+  {
+    Tipo: "Diversos",
+    Clave: "11",
+    Nombre: "Equipos"
+  },
+  {
+    Tipo: "Mecanica",
+    Clave: "MGM",
+    Nombre: "Miligramo"
+  },
+  {
+    Tipo: "Unidades de empaque",
+    Clave: "XPK",
+    Nombre: "Paquete"
+  },
+  {
+    Tipo: "Unidades de empaque",
+    Clave: "XKI",
+    Nombre: "Kit (Conjunto de piezas)"
+  },
+  {
+    Tipo: "Diversos",
+    Clave: "AS",
+    Nombre: "Variedad"
+  },
+  {
+    Tipo: "Mecanica",
+    Clave: "GRM",
+    Nombre: "Gramo"
+  },
+  {
+    Tipo: "Numeros enteros / Numeros / Ratios",
+    Clave: "PR",
+    Nombre: "Par"
+  },
+  {
+    Tipo: "Unidades de venta",
+    Clave: "DPC",
+    Nombre: "Docenas de piezas"
+  },
+  {
+    Tipo: "Unidades de empaque",
+    Clave: "xun",
+    Nombre: "Unidad"
+  },
+  {
+    Tipo: "Tiempo y Espacio",
+    Clave: "DAY",
+    Nombre: "Día"
+  },
+  {
+    Tipo: "Unidades de empaque",
+    Clave: "XLT",
+    Nombre: "Lote"
+  },
+  {
+    Tipo: "Diversos",
+    Clave: "10",
+    Nombre: "Grupos"
+  },
+  {
+    Tipo: "Tiempo y Espacio",
+    Clave: "MLT",
+    Nombre: "Mililitro"
+  },
+  {
+    Tipo: "Unidades especificas de la industria (varias)",
+    Clave: "E54",
+    Nombre: "Viaje"
   }
   
 ];
     
-ore(ll: string, form: NgForm){
-  this.parents=ll
-}
-ore2(ll: string, form: NgForm){
-  this.parents2=ll
-}
-ore3(ll: string, form: NgForm){
+ore(tipose: string, form: NgForm){
   for(let emp of this.unidades2){
-    if(ll==emp.Desc){
-      this.parents3=emp.Nombre;
+    if(tipose==emp.Nombre){
+      this.cla=emp.Clave;
+      this.tip=emp.Tipo;
+      this.nom=emp.Nombre;
       break;
     }
   }
 }
+
+
+
 sore(ll: string, form: NgForm){
   this.sparents=ll
 }
@@ -266,7 +329,9 @@ sore4(ll: string, form: NgForm){
 
   onSubmit(form: NgForm){
     if(form.value._id == ""){
-      form.value.unidadCodigo=this.parents3.toString();
+      form.value.unidadTipo=this.nom;
+      form.value.unidadSubtipo=this.tip;
+      form.value.unidadCodigo=this.cla;
       this.articuloServicioService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeArtServ();
         console.log(this.articuloServicioService.selectArtServ.articuloServicio);

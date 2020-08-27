@@ -9,10 +9,7 @@ import { User } from '../../models/user'
 })
 export class SidebarComponent implements OnInit {
   usserLogged:User;
-  constructor(public authService: AuthService) {
-    
-    
-  }
+  constructor(public authService: AuthService) {  }
   
    dividirCadena(cadenaADividir) {
 
