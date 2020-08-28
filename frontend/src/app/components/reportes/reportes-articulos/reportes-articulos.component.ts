@@ -5,7 +5,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { ArticuloServicio } from '../../../models/articulos-y-servicios';
 import { ArticuloServicioService } from '../../../services/articulos-y-servicios.service';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-reportes-articulos',
   templateUrl: './reportes-articulos.component.html',
@@ -18,7 +18,7 @@ export class ReportesArticulosComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'articuloServicio', 'precio', 'productoTipo', 'productoGrupo'];
   dataSource = new MatTableDataSource<ArticuloServicio>(this.ELEMENT_DATA);
 
-  constructor(public articuloServicioService: ArticuloServicioService) { }
+  constructor(public articuloServicioService: ArticuloServicioService, private _snackBar: MatSnackBar) { }
   
   monstrar = true;
   ver = true;
@@ -30,6 +30,14 @@ export class ReportesArticulosComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.getAllArt();
+  }
+
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
   }
 
   resetForm(form?: NgForm) {
@@ -71,7 +79,7 @@ export class ReportesArticulosComponent implements OnInit {
       this.articuloServicioService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeArtServ();
         console.log(this.articuloServicioService.selectArtServ.articuloServicio);
-        window.alert("Se Guardó Correctamente");
+        this.openSnackBar('Se Guardo Correctamente', 'End');
         
         
         // window.location.reload();
@@ -80,7 +88,7 @@ export class ReportesArticulosComponent implements OnInit {
       this.articuloServicioService.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeArtServ();
-        window.alert("Se Actualizó Correctamente");
+        this.openSnackBar('Se Actualizo Correctamente', 'End');
       });
     }
   }

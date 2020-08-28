@@ -1,53 +1,7 @@
-/*import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
-
-declare var M: any;
-
-@Component({
-  selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
-})
-export class RegistroComponent implements OnInit {
-
-  user = {
-    email: '',
-    password: '',
-    password2: ''
-  }
-
-  countPassword: number = 6;
-
-  constructor(private authService: AuthService, private router: Router) {
-    this.countPassword = this.countPassword;
-
-  }
-
-  ngOnInit() {
-
-  }
-
-  signUp() {
-    if (this.user.password === this.user.password2) {
-          this.authService.signUp(this.user)
-            .subscribe(res => {
-              localStorage.setItem('token', res.token);
-              this.router.navigate(['/principal'])
-            }, err => {
-              console.log(err);
-            })
-        
-  }else{
-    
-  }
-
-}
-}*/
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 declare var M: any;
@@ -75,13 +29,21 @@ export class RegistroComponent implements OnInit {
   
   registroForm: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private _snackBar: MatSnackBar,private router: Router) {
     this.registroForm = this.createFormGroup();
 
   }
 
   ngOnInit() {
 
+  }
+
+  openSnackBar(message:string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
   }
 
 signUp() {
@@ -94,21 +56,16 @@ signUp() {
               this.router.navigate(['/principal'])
             }, err => {
               console.log(err);
-              window.alert("El correo ya existe, intenta iniciar sesión");
+              this.openSnackBar("El correo ya existe, intenta iniciar sesión", 'End');
             })
           }else{
-              window.alert("Las contraseñas no coinciden");           
+              this.openSnackBar("Las contraseñas no coinciden", 'End');           
             }
 
           }else{
             console.log('No válido');
-            window.alert("Verifique que la información sea valida");
+            this.openSnackBar("Verifique que la información sea valida", 'End');
           }
-
-          
-          
-        
-  
 
 }
 get email() {return this.registroForm.get('email');}

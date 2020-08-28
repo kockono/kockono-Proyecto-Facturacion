@@ -1,0 +1,102 @@
+<app-sidebar></app-sidebar>
+<main class="s-layout__content">
+  <div class="centrarcards">
+    <app-cards></app-cards>
+  </div>
+  <br>
+<div class="contenedor">
+
+    <h2>Nuevo catalogo</h2>
+      <form #catalogoForm="ngForm" (ngSubmit)="onSubmit(catalogoForm)">
+        <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="catalogoService.selectCatalogo._id">
+       
+        <div class="form-row">               
+          <div class="form-group col-md-4">
+            <label for="tipo">Tipo: </label>
+            <select type="text" class="form-control"  name="tipo" #name="ngModel" 
+            [(ngModel)]="catalogoService.selectCatalogo.tipo">
+              <option value="Producto">Producto</option>
+              <option value="Servicio">Servicio</option>
+            </select>
+            </div>
+
+          <div class="form-group col-md-6">
+            <label for="division">Division:</label>
+            <input type="text" class="form-control" id="division" name="division" #name="ngModel" [(ngModel)]="catalogoService.selectCatalogo.division" >
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="grupo">Grupo:</label>
+            <input type="text" class="form-control" id="grupo" name="grupo" #name="ngModel" [(ngModel)]="catalogoService.selectCatalogo.grupo" >
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="clase">Clase:</label>
+            <input type="text" class="form-control" id="clase" name="clase" #name="ngModel" [(ngModel)]="catalogoService.selectCatalogo.clase" >
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="clave">Clave de la clase:</label>
+            <input type="text" class="form-control" id="clave" name="clave" #name="ngModel" [(ngModel)]="catalogoService.selectCatalogo.clave" >
+          </div>
+        </div>
+        <button class="btn btn-custom right" type="button"  (click)="resetCatalogoForm(catalogoForm)" > Reset </button>
+        <button class="boton" type="submit">Guardar</button>
+      </form>
+  </div>
+
+<br>
+
+<div class="contenedor">
+    <mat-form-field>
+      <mat-label><i class="fas fa-search"></i>⠀Buscador</mat-label>
+      <input matInput (keyup)="applyFilter($event.target.value)" class="buscador" placeholder="Buscar">
+    </mat-form-field>
+    <h2>Catalogo Productos y Servicios</h2>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" >
+    
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+        <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+      </ng-container>
+
+      
+      <ng-container matColumnDef="division">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Division </th>
+        <td mat-cell *matCellDef="let element"> {{element.division}} </td>
+      </ng-container>
+    
+      
+      <ng-container matColumnDef="grupo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Grupo </th>
+        <td mat-cell *matCellDef="let element"> {{element.grupo}} </td>
+      </ng-container>
+    
+      
+      <ng-container matColumnDef="clase">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Clase </th>
+        <td mat-cell *matCellDef="let element"> {{element.clase}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="clave">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Clave de la Clase </th>
+        <td mat-cell *matCellDef="let element"> {{element.clave}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef> Editar </th>
+        <td mat-cell *matCellDef="let element"><button class="button editar" (click)="onEdit(element)"><i class="fas fa-edit"></i></button></td>
+      </ng-container>
+
+      <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+        <td mat-cell *matCellDef="let element"> <button class="button borrar" (click)="onDelete(element)"><i class="fas fa-trash-alt"></i></button></td>
+      </ng-container>
+    
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator  [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+  </main>

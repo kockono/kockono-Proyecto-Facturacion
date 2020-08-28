@@ -76,6 +76,7 @@ import { DatosMiEmpresaService } from '../../services/datos-mi-empresa.service';
 import { DatosMiEmpresa } from '../../models/datos-mi-empresa';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-datos-mi-empresa',
@@ -110,7 +111,7 @@ export class DatosMiEmpresaComponent implements OnInit {
 
 
   empresaForm : FormGroup;
-  constructor(public datosMiEmpresaService: DatosMiEmpresaService) { 
+  constructor(public datosMiEmpresaService: DatosMiEmpresaService, private _snackBar: MatSnackBar) { 
     this.empresaForm = this.createFormGroup();
   }
   editar=true;
@@ -148,7 +149,13 @@ export class DatosMiEmpresaComponent implements OnInit {
     }
   }
 
-
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
+  }
 
 onSubmit(){
   if(this.empresaForm.valid){
@@ -156,18 +163,18 @@ onSubmit(){
     this.datosMiEmpresaService.postDatos(this.empresaForm.value).subscribe((res) => {
       this.refrescarListaDeEmpresa();
       console.log(this.datosMiEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-      window.alert("Se Guardó Correctamente");
+      this.openSnackBar('Se Guardo Correctamente', 'End');
     });
   }else{
     this.datosMiEmpresaService.putDatos(this.empresaForm.value).subscribe((res)=>{
       this.resetForm();
       this.refrescarListaDeEmpresa();
       // this.editar= !this.editar;
-      window.alert("Se Actualizó Correctamente");
+      this.openSnackBar('Se Actualizo Correctamente', 'End');
     });
   }
 }else{
-  window.alert("Verifique que la información esté correcta");
+  this.openSnackBar('Verifique que la información esté correcta', 'End');
   
 }
 }

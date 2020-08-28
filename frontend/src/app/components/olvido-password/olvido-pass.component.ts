@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RecuperacionPasswordService } from '../../services/recuperacion-password.service';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -26,9 +26,17 @@ export class OlvidoPassComponent implements OnInit {
   
 
   empresaForm : FormGroup;
-  constructor(private recuperacionPassword: RecuperacionPasswordService, private router: Router) {
+  constructor(private recuperacionPassword: RecuperacionPasswordService, private _snackBar: MatSnackBar, private router: Router) {
     this.empresaForm = this.createFormGroup();
    }
+
+   openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
+  }
 
   recover(){
     if(this.empresaForm.valid){
@@ -39,7 +47,7 @@ export class OlvidoPassComponent implements OnInit {
       console.log(err);
     })
   }else{
-    window.alert("Verifique que su correo esté correcto");
+    this.openSnackBar('Verifique que su correo esté correcto', 'End');
 }
 }
 

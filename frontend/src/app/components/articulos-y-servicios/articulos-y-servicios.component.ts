@@ -6,6 +6,8 @@ import { ArticuloServicio } from '../../models/articulos-y-servicios'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatosEmisor } from 'src/app/models/datos-emisor';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-articulos-y-servicios',
   templateUrl: './articulos-y-servicios.component.html',
@@ -17,7 +19,7 @@ export class ArticulosYServiciosComponent implements OnInit {
 
 
 
-  constructor( public articuloServicioService: ArticuloServicioService ) {
+  constructor( public articuloServicioService: ArticuloServicioService, private _snackBar: MatSnackBar ) {
 
     
    }
@@ -315,7 +317,13 @@ export class ArticulosYServiciosComponent implements OnInit {
     this.refrescarListaDeArtServ();
   }
   
-
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
+  }
 
   
   resetForm(form?: NgForm) {
@@ -338,6 +346,7 @@ export class ArticulosYServiciosComponent implements OnInit {
     }
   }
 
+
   refrescarListaDeArtServ() {
     this.articuloServicioService.getDatosList().subscribe((res) => {
         this.articuloServicioService.DatosArtServ = res as ArticuloServicio[];
@@ -352,7 +361,7 @@ export class ArticulosYServiciosComponent implements OnInit {
       this.articuloServicioService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeArtServ();
         console.log(this.articuloServicioService.selectArtServ.articuloServicio);
-        window.alert("Se Guardó Correctamente");
+        this.openSnackBar('Se Guardo Correctamente', 'End');
         
         //this.router.navigateByUrl('/articulos-y-servicios');
         // window.location.reload();
@@ -361,7 +370,7 @@ export class ArticulosYServiciosComponent implements OnInit {
       this.articuloServicioService.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeArtServ();
-        window.alert("Se Actualizó Correctamente");
+        this.openSnackBar('Se Actualizo Correctamente', 'End');
         this.monstrar=!this.monstrar
       });
     }
@@ -376,7 +385,7 @@ export class ArticulosYServiciosComponent implements OnInit {
       this.articuloServicioService.deleteDato(emp._id).subscribe((res) =>{
         this.refrescarListaDeArtServ();
         // this.resetForm(form);
-        window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });
+        this.openSnackBar('Eliminado Correctamente', 'End' );
         
       });
     }

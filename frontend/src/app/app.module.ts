@@ -11,6 +11,7 @@ import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatSortModule } from '@angular/material/sort'
 import { MatInputModule } from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Components
 import { AppComponent } from './app.component';
@@ -34,7 +35,7 @@ import { CrearFactComponent } from './components/crear-fact/crear-fact.component
 import { ArticulosYServiciosComponent } from './components/articulos-y-servicios/articulos-y-servicios.component';
 import { CrearArticulosYServiciosComponent } from './components/crear-articulos-y-servicios/crear-articulos-y-servicios.component';
 import { ReportesComponent } from './components/reportes/reportes.component';
-
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 // Seguridad
 import { TokenInterceptorService } from './services/token-interceptor.service';
@@ -56,6 +57,7 @@ import { ReportesClientesComponent } from './components/reportes/reportes-client
 
 //Paginacion
 import {NgxPaginationModule} from 'ngx-pagination';
+
 
 
 @NgModule({
@@ -83,7 +85,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CrearArticulosYServiciosComponent,
     ReportesComponent,
     ReportesArticulosComponent,
-    ReportesClientesComponent
+    ReportesClientesComponent,
+    CatalogoComponent
 
   ],
   imports: [
@@ -102,7 +105,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatSortModule,
     MatInputModule,
     MatFormFieldModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSnackBarModule
   ],
   providers: [
     AuthGuard,

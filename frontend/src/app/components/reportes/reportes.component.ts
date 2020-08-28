@@ -7,7 +7,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { ArticuloServicio } from '../../models/articulos-y-servicios';
 import { ArticuloServicioService } from '../../services/articulos-y-servicios.service';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-reportes',
   templateUrl: './reportes.component.html',
@@ -22,7 +22,7 @@ export class ReportesComponent implements OnInit {
   displayedColumns: string[] = ['folio', 'nombreDeLaEmpresa', 'metodo','forma', 'total', 'fecha', 'estatus'];
   dataSource = new MatTableDataSource<DatosFact>(this.ELEMENT_DATA);
 
-  constructor(public datosEmpresaService2: DatosEmpresaService2) { }
+  constructor(public datosEmpresaService2: DatosEmpresaService2, private _snackBar: MatSnackBar) { }
   
   monstrar = true;
   ver = true;
@@ -35,6 +35,14 @@ export class ReportesComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.getAllFact();
+  }
+
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
   }
 
 public getAllFact(){
@@ -103,14 +111,14 @@ applyFilter(filterValue: string) {
       this.datosEmpresaService2.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService2.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardó Correctamente");
+        this.openSnackBar('Se Guardo Correctamente', 'End');
         // window.location.reload();
       });
     }else{
       this.datosEmpresaService2.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizó Correctamente");
+        this.openSnackBar('Se Actualizo Correctamente', 'End');
         this.monstrar=!this.monstrar;
       });
     }
@@ -121,7 +129,7 @@ applyFilter(filterValue: string) {
       this.datosEmpresaService2.deleteDato(_id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);
-        window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });
+        this.openSnackBar('Eliminado Correctamente', 'End' );
       });
     }
   }

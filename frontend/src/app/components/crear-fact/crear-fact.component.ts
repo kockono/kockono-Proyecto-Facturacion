@@ -10,6 +10,7 @@ import { ArticuloServicio } from '../../models/articulos-y-servicios'
 import { format } from 'url';
 import * as moment from 'moment'; // add this 1 of 4
 
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-crear-fact',
   templateUrl: './crear-fact.component.html',
@@ -69,7 +70,7 @@ export class CrearFactComponent implements OnInit {
 
   year:any;   month:any;  day:any;  hours:any;  minutes:any;  time:any;  seconds:any;
 
-    constructor(public articuloServicioService: ArticuloServicioService, private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService ) {
+    constructor(public articuloServicioService: ArticuloServicioService, private router: Router, public datosEmpresaService2: DatosEmpresaService2, public datosEmpresaService: DatosEmpresaService, private _snackBar: MatSnackBar ) {
     this.day = new Date().getDate();
     this.now = moment().locale('es').format('MMMM Do YYYY, h:mm:ss a'); // add this 2 of 4
     this.month = new Date().getMonth()+1;
@@ -183,6 +184,14 @@ export class CrearFactComponent implements OnInit {
       productoGrupo:"",
       productoClase:""
     }
+  }
+
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
   }
  
   
@@ -344,7 +353,7 @@ export class CrearFactComponent implements OnInit {
       form.value.razon=this.raz;
       this.datosEmpresaService2.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
-        window.alert("Se Guardó Correctamente");
+        this.openSnackBar('Se Guardo Correctamente', 'End');
         this.router.navigateByUrl('/fact');
         // window.location.reload();
       });
@@ -352,7 +361,7 @@ export class CrearFactComponent implements OnInit {
       this.datosEmpresaService2.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizó Correctamente");
+        this.openSnackBar('Se Actualizo Correctamente', 'End');
       });
     }
   }

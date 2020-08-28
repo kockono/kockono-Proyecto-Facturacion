@@ -9,6 +9,7 @@ import { DatosMiEmpresaService } from '../../services/datos-mi-empresa.service';
 import { DatosMiEmpresa } from '../../models/datos-mi-empresa'; //Mi empresa
 import { ArticuloServicioService } from '../../services/articulos-y-servicios.service'
 import { ArticuloServicio } from '../../models/articulos-y-servicios'
+import { MatSnackBar } from '@angular/material/snack-bar';
 //Módulos necesarios para generación del PDF
 import jsPDF from "jspdf";
 import "jspdf-autotable";
@@ -41,6 +42,7 @@ export class FactComponent implements OnInit {
   //datosEmpresaService - Clientes
     public datosMiEmpresaService: DatosMiEmpresaService,
   //datoMiEmpresaService - Mi Empresa
+    private _snackBar: MatSnackBar
   ) {
     
     this.now = moment().locale('es').format('MMMM Do YYYY, h:mm:ss a'); // add this 2 of 4
@@ -422,6 +424,15 @@ folio=0;
     doc.save('Factura-'+this.datosEmpresaService.selectEmpresa.folio + this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa + '.pdf');
     doc = new jsPDF();
   }
+
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
+  }
+
   filterpost = '';
   selectedCliente: string = "";
   selectedMetodo: string = "";
@@ -666,7 +677,7 @@ folio=0;
       this.datosEmpresaService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardó Correctamente");
+        this.openSnackBar('Se Guardo Correctamente', 'End');
       });
     } else {
       form.value.abono=this.arrayAbono;
@@ -680,7 +691,7 @@ folio=0;
       this.datosEmpresaService.putDatos(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizó Correctamente");
+        this.openSnackBar('Se Actualizo Correctamente', 'End');
         this.monstrar = !this.monstrar;
       });
     }
@@ -699,7 +710,7 @@ folio=0;
       this.datosEmpresaService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardó Correctamente");
+        this.openSnackBar('Se Guardo Correctamente', 'End');
       });
     
   }

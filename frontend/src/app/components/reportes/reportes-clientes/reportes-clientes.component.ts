@@ -5,6 +5,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { DatosEmpresaService } from '../../../services/datos-empresa.service';
 import { DatosEmisor } from '../../../models/datos-emisor';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-reportes-clientes',
   templateUrl: './reportes-clientes.component.html',
@@ -12,7 +13,7 @@ import { DatosEmisor } from '../../../models/datos-emisor';
 })
 export class ReportesClientesComponent implements OnInit {
 
-  constructor(private datosEmpresaService: DatosEmpresaService) { }
+  constructor(private datosEmpresaService: DatosEmpresaService,private _snackBar: MatSnackBar) { }
   ELEMENT_DATA: DatosEmisor[];
   displayedColumns: string[] = ['nombreDeLaEmpresa', 'email', 'metodo', 'dias', 'estatus'];
   dataSource = new MatTableDataSource<DatosEmisor>(this.ELEMENT_DATA);
@@ -29,6 +30,14 @@ export class ReportesClientesComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.getAllEmp();
+  }
+
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
   }
 
   public getAllEmp(){
@@ -81,7 +90,7 @@ export class ReportesClientesComponent implements OnInit {
       this.datosEmpresaService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardó Correctamente");
+        this.openSnackBar('Se Guardo Correctamente', 'End');
         // window.location.reload();
       });
     }else{
@@ -89,7 +98,7 @@ export class ReportesClientesComponent implements OnInit {
         this.resetForm(form);
         this.refrescarListaDeEmpresa();
         this.monstrar = !this.monstrar;
-        window.alert("Se Actualizó Correctamente");
+        this.openSnackBar('Se Actualizo Correctamente', 'End');
       });
     }
   }
@@ -100,7 +109,7 @@ export class ReportesClientesComponent implements OnInit {
       this.datosEmpresaService.deleteDato(_id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);
-        window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });
+        this.openSnackBar('Eliminado Correctamente', 'End' );
         
       });
     }

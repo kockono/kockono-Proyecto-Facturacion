@@ -83,7 +83,7 @@ import { DatosEmpresaService } from '../../services/datos-prov.service';
 import { DatosEmisorProv } from '../../models/datos-emisor-prov';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-datos-emisor-prov',
@@ -121,13 +121,21 @@ export class DatosEmisorProvComponent implements OnInit {
   }
 
     empresaForm : FormGroup;
-  constructor(private router: Router, public datosEmpresaService: DatosEmpresaService) { 
+  constructor(private router: Router, private _snackBar: MatSnackBar, public datosEmpresaService: DatosEmpresaService) { 
     this.empresaForm = this.createFormGroup();
   }
 
   ngOnInit() {
     this.resetForm();
     this.refrescarListaDeEmpresa();
+  }
+
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
   }
 
   resetForm() {
@@ -167,7 +175,7 @@ export class DatosEmisorProvComponent implements OnInit {
     if(this._id.value == ""){
       this.datosEmpresaService.postDatos(this.empresaForm.value).subscribe((res) => {
         //console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardó Correctamente");
+        this.openSnackBar('Se Guardo Correctamente', 'End');
         
         this.router.navigateByUrl('/prov');
         // window.location.reload();
@@ -176,12 +184,12 @@ export class DatosEmisorProvComponent implements OnInit {
       this.datosEmpresaService.putDatos(this.empresaForm.value).subscribe((res)=>{
         this.resetForm();
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizó Correctamente");
+        this.openSnackBar('Se Actualizo Correctamente', 'End');
       });
     
    }
   }else{
-    window.alert("Verifique que la información esté correcta");
+    this.openSnackBar('Verifique que la información esté correcta', 'End');
   }
 }
 get _id() {return this.empresaForm.get('_id');}

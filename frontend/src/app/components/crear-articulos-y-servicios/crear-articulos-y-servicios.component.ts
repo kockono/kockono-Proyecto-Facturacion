@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ArticuloServicioService } from '../../services/articulos-y-servicios.service'
 import { ArticuloServicio } from '../../models/articulos-y-servicios'
 
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-crear-articulos-y-servicios',
   templateUrl: './crear-articulos-y-servicios.component.html',
@@ -12,7 +13,7 @@ import { ArticuloServicio } from '../../models/articulos-y-servicios'
 
 export class CrearArticulosYServiciosComponent implements OnInit {
 
-  constructor(private router: Router, public articuloServicioService: ArticuloServicioService ) { }
+  constructor(private router: Router, private _snackBar: MatSnackBar, public articuloServicioService: ArticuloServicioService ) { }
   
 
 nom="";
@@ -301,6 +302,14 @@ sore4(ll: string, form: NgForm){
     this.refrescarListaDeArtServ();
   }
 
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
+  }
+
   resetForm(form?: NgForm) {
     if(form)
       form.reset();
@@ -335,7 +344,7 @@ sore4(ll: string, form: NgForm){
       this.articuloServicioService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeArtServ();
         console.log(this.articuloServicioService.selectArtServ.articuloServicio);
-        window.alert("Se Guardó Correctamente");
+        this.openSnackBar('Se Guardo Correctamente', 'End');
         
         this.router.navigateByUrl('/articulos-y-servicios');
         // window.location.reload();
@@ -344,7 +353,7 @@ sore4(ll: string, form: NgForm){
       this.articuloServicioService.putDatos(form.value).subscribe((res)=>{
         this.resetForm(form);
         this.refrescarListaDeArtServ();
-        window.alert("Se Actualizó Correctamente");
+        this.openSnackBar('Se Actualizo Correctamente', 'End');
       });
     }
   }

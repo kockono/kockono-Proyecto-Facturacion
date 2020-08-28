@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -75,7 +75,8 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private authService: AuthService, private router: Router)
+  constructor(private authService: AuthService, private router: Router, 
+    private _snackBar: MatSnackBar)
     { 
       this.loginForm = this.createFormGroup();
 
@@ -88,6 +89,14 @@ export class LoginComponent implements OnInit {
   onClickMe(){
     
   } 
+
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
+  }
 
   signIn(){
     if(this.loginForm.valid){
@@ -105,7 +114,7 @@ export class LoginComponent implements OnInit {
     })
 
   }else{
-    window.alert("Contraseña incorrecta o correo no válido");
+    this.openSnackBar('Contraseña incorrecta o correo no válido', 'End');
   }
 
 

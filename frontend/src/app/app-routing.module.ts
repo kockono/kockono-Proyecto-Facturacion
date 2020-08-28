@@ -19,6 +19,7 @@ import { DatosMiEmpresaComponent } from './components/datos-mi-empresa/datos-mi-
 import { ArticulosYServiciosComponent } from './components/articulos-y-servicios/articulos-y-servicios.component';
 import { CrearArticulosYServiciosComponent } from './components/crear-articulos-y-servicios/crear-articulos-y-servicios.component';
 import { ReportesComponent } from './components/reportes/reportes.component';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 
 const routes: Routes = [
@@ -40,7 +41,8 @@ const routes: Routes = [
  {path: 'datos-mi-empresa', component: DatosMiEmpresaComponent, canActivate:[AuthGuard]},
  {path: 'articulos-y-servicios', component: ArticulosYServiciosComponent, canActivate:[AuthGuard]},
  {path: 'crear-articulos-y-servicios', component: CrearArticulosYServiciosComponent, canActivate:[AuthGuard]},
- {path: 'reportes', component: ReportesComponent, canActivate:[AuthGuard]}
+ {path: 'reportes', component: ReportesComponent, canActivate:[AuthGuard]},
+ {path: 'catalogo', component: CatalogoComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

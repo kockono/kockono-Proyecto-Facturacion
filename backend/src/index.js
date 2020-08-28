@@ -15,9 +15,10 @@ app.use(express.urlencoded({ extended: true })); // parse application/x-www-form
 // Rutas
 app.use('/api', require('./routes/login.routes'));
 app.use('/recover', require('./controllers/email'));
+app.use('/catalogo', require('./controllers/catalogo'));
+app.use('/facturas', require('./controllers/datos-facturas'));
 app.use('/clientes', require('./controllers/datos-clientes'));
 app.use('/provedores', require('./controllers/datos-provedor'));
-app.use('/facturas', require('./controllers/datos-facturas'));
 app.use('/datos-mi-empresa', require('./controllers/datos-mi-empresa'))
 app.use('/articulos-y-servicios', require('./controllers/articulos-y-servicios'))
 

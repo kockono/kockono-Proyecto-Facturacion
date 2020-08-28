@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatosEmpresaService } from '../../services/datos-prov.service';
 import { DatosEmisorProv } from '../../models/datos-emisor-prov';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatosEmisor } from 'src/app/models/datos-emisor';
 
@@ -47,7 +47,7 @@ export class ProvComponent implements OnInit {
 
   empresaForm : FormGroup;
 
-  constructor(public datosEmpresaService: DatosEmpresaService) {
+  constructor(public datosEmpresaService: DatosEmpresaService, private _snackBar: MatSnackBar) {
     this.empresaForm = this.createFormGroup();
    }
 
@@ -59,6 +59,15 @@ export class ProvComponent implements OnInit {
     this.resetForm();
     this.refrescarListaDeEmpresa();
   }
+
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
+  }
+
   refrescarListaDeEmpresa() {
     this.datosEmpresaService.getDatosList().subscribe((res) => {
         this.datosEmpresaService.DatosEmpresa = res as DatosEmisorProv[];
@@ -101,19 +110,19 @@ export class ProvComponent implements OnInit {
       this.datosEmpresaService.postDatos(this.empresaForm.value).subscribe((res) => {
         this.refrescarListaDeEmpresa();
         console.log(this.datosEmpresaService.selectEmpresa.nombreDeLaEmpresa);
-        window.alert("Se Guardó Correctamente");
+        this.openSnackBar('Se Guardo Correctamente', 'End');
         // window.location.reload();
       });
     }else{
       this.datosEmpresaService.putDatos(this.empresaForm.value).subscribe((res)=>{
         this.resetForm();
         this.refrescarListaDeEmpresa();
-        window.alert("Se Actualizó Correctamente");
+        this.openSnackBar('Se Actualizo Correctamente', 'End');
         this.monstrar=!this.monstrar;
       });
     }
   }else{
-    window.alert("Verifique que la información esté correcta");
+    this.openSnackBar('Verifique que la información esté correcta', 'End');
   }
   }
   onDelete(emp: DatosEmisor) {
@@ -123,7 +132,7 @@ export class ProvComponent implements OnInit {
       this.datosEmpresaService.deleteDato(emp._id).subscribe((res) =>{
         this.refrescarListaDeEmpresa();
         // this.resetForm(form);
-        window.alert({ html: 'Eliminado Correctamente', classes: 'rounded' });
+        this.openSnackBar('Eliminado Correctamente', 'End' );
         
       });
     }
