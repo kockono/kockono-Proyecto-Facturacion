@@ -15,6 +15,7 @@ const articulosYServiciosSchema = new Schema({
     productoDivision : { type: String},
     productoGrupo : { type: String},
     productoClase : { type: String},
+    productoClave : { type: Number},
 })
 
 module.exports = model('articulos-y-servicios', articulosYServiciosSchema); 

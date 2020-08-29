@@ -12,5 +12,6 @@ export class ArticuloServicio {
     productoDivision: string;
     productoGrupo: string;
     productoClase: string;
+    productoClave:number;
 
 }

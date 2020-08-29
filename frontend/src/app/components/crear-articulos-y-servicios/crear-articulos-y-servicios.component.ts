@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ArticuloServicioService } from '../../services/articulos-y-servicios.service'
 import { ArticuloServicio } from '../../models/articulos-y-servicios'
+import { CatalogoService } from '../../services/catalogo.service';
+import { Catalogo } from '../../models/catalogo';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
@@ -12,103 +14,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 
 export class CrearArticulosYServiciosComponent implements OnInit {
+  clav: number;
+  elTipo: string;
+  laDivision: string;
+  elGrupo: string;
 
-  constructor(private router: Router, private _snackBar: MatSnackBar, public articuloServicioService: ArticuloServicioService ) { }
+  constructor(private router: Router, private _snackBar: MatSnackBar, public articuloServicioService: ArticuloServicioService, public catalogoService: CatalogoService ) { }
   
 
 nom="";
 cla="";
 tip="";
-
-sparents="";
-sparents2="";
-sparents3="";
-sparents4="";
-
-productooserv=[
-  {
-    Nombre:"Producto",
-    Desc:"",
-    Parent:null
-  },
-  {
-    Nombre:"Alimentos, Bebidas y Tabaco",
-    Desc:"",
-    Parent:"Producto"
-  },
-  {
-    Nombre:"Aceites y grasas comestibles",
-    Desc:"",
-    Parent:"Alimentos, Bebidas y Tabaco"
-  },
-  {
-    Nombre:"50151600 - Grasas y aceites animales comestibles",
-    Desc:"",
-    Parent:"Aceites y grasas comestibles"
-  },
-  {
-    Nombre:"50151500 - Grasas y aceites vegetales comestibles",
-    Desc:"",
-    Parent:"Aceites y grasas comestibles"
-  },
-  {
-    Nombre:"Alimentos preparados y conservados",
-    Desc:"",
-    Parent:"Alimentos, Bebidas y Tabaco"
-  },
-  {
-    Nombre:"50191500 - Sopas y estofados",
-    Desc:"",
-    Parent:"Alimentos preparados y conservados"
-  },
-  {
-    Nombre:"50192100 - Botanas",
-    Desc:"",
-    Parent:"Alimentos preparados y conservados"
-  },
-
-
-  {
-    Nombre:"Servicio",
-    Desc:"",
-    Parent:null
-  },
-  {
-    Nombre:"Organizaciones y Clubes",
-    Desc:"",
-    Parent:"Servicio"
-  },
-  {
-    Nombre:"Clubes",
-    Desc:"",
-    Parent:"Organizaciones y Clubes"
-  },
-  {
-    Nombre:"94121500 - Clubes deportivos",
-    Desc:"",
-    Parent:"Clubes"
-  },
-  {
-    Nombre:"94121600 - Clubes de hobbies (Membresías)",
-    Desc:"",
-    Parent:"Clubes"
-  },
-  {
-    Nombre:"Organizaciones laborales",
-    Desc:"",
-    Parent:"Organizaciones y Clubes"
-  },
-  {
-    Nombre:"94101500 - Asociaciones de negocios",
-    Desc:"",
-    Parent:"Organizaciones laborales"
-  },
-  {
-    Nombre:"94101600 - Asociaciones profesionales",
-    Desc:"",
-    Parent:"Organizaciones laborales"
-  }
-];
 
 
 
@@ -285,21 +201,31 @@ ore(tipose: string, form: NgForm){
 
 
 
-sore(ll: string, form: NgForm){
-  this.sparents=ll
+getTipo(tipo: string, form: NgForm) {
+  this.elTipo=tipo;
+  form.value.productoTipo = tipo;
 }
-sore2(ll: string, form: NgForm){
-  this.sparents2=ll
+getDivision(div: string, form: NgForm){
+  this.laDivision=div;
+  form.value.productoDivision=div;
 }
-sore3(ll: string, form: NgForm){
-  this.sparents3=ll
+getGrupo(gpo: string, form: NgForm){
+  this.elGrupo=gpo;
+  form.value.productoGrupo=gpo;
 }
-sore4(ll: string, form: NgForm){
-      this.sparents4=ll;
+getClase(clas: string, form: NgForm){
+  form.value.productoClase=clas;
+  for (let cat of this.catalogoService.info) {
+    if (clas == cat.clase) {
+      this.clav = cat.clave;
+    }
+  }
 }
+
   ngOnInit() {
     this.resetForm();
     this.refrescarListaDeArtServ();
+    this.refrescarCatalogos();
   }
 
   openSnackBar(message: string, action?: string) {
@@ -307,6 +233,12 @@ sore4(ll: string, form: NgForm){
       duration: 2500,
       verticalPosition: 'top',
       horizontalPosition: 'right',
+    });
+  }
+
+  refrescarCatalogos() {
+    this.catalogoService.getDatosList().subscribe((res) => {
+      this.catalogoService.DatosCatalogo = res as Catalogo[];
     });
   }
 
@@ -326,7 +258,8 @@ sore4(ll: string, form: NgForm){
       productoTipo: "",
       productoDivision:"",
       productoGrupo:"",
-      productoClase:""
+      productoClase:"",
+      productoClave:null
     }
   }
 
@@ -341,6 +274,8 @@ sore4(ll: string, form: NgForm){
       form.value.unidadTipo=this.nom;
       form.value.unidadSubtipo=this.tip;
       form.value.unidadCodigo=this.cla;
+
+      form.value.productoClave=this.clav;
       this.articuloServicioService.postDatos(form.value).subscribe((res) => {
         this.refrescarListaDeArtServ();
         console.log(this.articuloServicioService.selectArtServ.articuloServicio);

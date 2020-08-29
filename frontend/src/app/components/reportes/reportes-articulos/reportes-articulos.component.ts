@@ -57,6 +57,7 @@ export class ReportesArticulosComponent implements OnInit {
       productoDivision:"",
       productoGrupo:"",
       productoClase:"",
+      productoClave:null
     }
   }
   public getAllArt(){

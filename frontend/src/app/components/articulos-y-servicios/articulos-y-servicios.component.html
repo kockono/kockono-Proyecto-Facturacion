@@ -248,59 +248,56 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputState">Tipo: </label>
-      <input type="text" list="STipo" class="form-control" name="productoTipo"
-      [(ngModel)]='articuloServicioService.selectArtServ.productoTipo' (change)="sore(articuloServicioService.selectArtServ.productoTipo,ArtServForm)">
-      <datalist  id="STipo">
+      <input type="text" list="TTipo" class="form-control" name="productoTipo"
+      [(ngModel)]='articuloServicioService.selectArtServ.productoTipo' (change)="getTipo(articuloServicioService.selectArtServ.productoTipo,ArtServForm)">
+      <datalist  id="TTipo">
         <!-- <select> -->
-          <div *ngFor="let emp of productooserv">
-          <div *ngIf="emp.Parent==null">
-          <option   [value]="emp.Nombre"></option>  
-          </div>
+          <div *ngFor="let cat of catalogoService.info">
+          <option [value]="cat.tipo"></option>  
         </div>
         <!-- </select> -->
       </datalist> 
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">Divición: </label>
-      <input type="text" list="SSubtipo"  class="form-control" name="productoDivision"
-      [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="sore2(articuloServicioService.selectArtServ.productoDivision,ArtServForm)">
-      <datalist  id="SSubtipo">
+    <div class="form-group col-md-2">
+      <label for="inputState">Division: </label>
+      <input type="text" list="DTipo" class="form-control" name="productoDivision"
+      [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="getDivision(articuloServicioService.selectArtServ.productoDivision,ArtServForm)">
+      <datalist  id="DTipo">
         <!-- <select> -->
-          <div *ngFor="let emp of productooserv">
-          <div *ngIf="emp.Parent==sparents">
-          <option   [value]="emp.Nombre"></option>  
-        </div>
+          <div *ngFor="let cat of catalogoService.info">
+          <option [value]="cat.division"></option>  
         </div>
         <!-- </select> -->
       </datalist> 
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">Grupo: </label>
-      <input type="text" list="SCodigo"  class="form-control" name="productoGrupo"
-      [(ngModel)]='articuloServicioService.selectArtServ.productoGrupo' (change)="sore3(articuloServicioService.selectArtServ.productoGrupo,ArtServForm)">
-      <datalist  id="SCodigo">
+    <div class="form-group col-md-2">
+      <label for="productoGrupo">Grupo: </label>
+      <input type="text" list="GTipo" class="form-control" name="productoGrupo"
+      [(ngModel)]='articuloServicioService.selectArtServ.productoGrupo' (change)="getGrupo(articuloServicioService.selectArtServ.productoGrupo,ArtServForm)">
+      <datalist  id="GTipo">
         <!-- <select> -->
-          <div *ngFor="let emp of productooserv">
-          <div *ngIf="emp.Parent==sparents2">
-          <option   [value]="emp.Nombre"></option>  
-        </div>
+          <div *ngFor="let cat of catalogoService.info">
+          <option [value]="cat.grupo"></option>  
         </div>
         <!-- </select> -->
       </datalist> 
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">Clase: </label>
-      <input type="text" list="SClase"  class="form-control" name="productoClase"
-      [(ngModel)]='articuloServicioService.selectArtServ.productoClase' (change)="sore4(articuloServicioService.selectArtServ.productoClase,ArtServForm)">
-      <datalist  id="SClase">
+    <div class="form-group col-md-2">
+      <label for="productoClase">Clase: </label>
+      <input type="text" list="CTipo" class="form-control" name="productoClase"
+      [(ngModel)]='articuloServicioService.selectArtServ.productoClase' (change)="getClase(articuloServicioService.selectArtServ.productoClase,ArtServForm)">
+      <datalist  id="CTipo">
         <!-- <select> -->
-          <div *ngFor="let emp of productooserv">
-          <div *ngIf="emp.Parent==sparents3">
-          <option   [value]="emp.Nombre"></option>  
-        </div>
+          <div *ngFor="let cat of catalogoService.info">
+          <option [value]="cat.clase"></option>  
         </div>
         <!-- </select> -->
       </datalist> 
+    </div>
+    <div class="form-group col-md-3">
+      <label for="productoClave">Clave:</label>
+        <a class="form-control">{{clav}}</a>              
+        <input type="hidden" id="productoClave" class="form-control" name="productoClave" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.productoClave">
     </div>
     
   </div>
@@ -359,11 +356,11 @@
       </datalist> 
     </div>
     <div class="form-group col-md-4">
-      <label for="inputState">Nombre: </label>
+      <label for="unidadSubtipo">Nombre: </label>
       <input type="text" name="unidadSubtipo" [(ngModel)]='articuloServicioService.selectArtServ.unidadSubtipo' disabled>
     </div>
     <div class="form-group col-md-1">
-      <label for="inputState">Código: </label>
+      <label for="unidadCodigo">Código: </label>
       <input type="text" name="unidadCodigo" [(ngModel)]='articuloServicioService.selectArtServ.unidadCodigo' disabled>
     </div>
 
@@ -373,49 +370,55 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputState">Tipo: </label>
-     
-      <input type="text" list="STipo"  class="form-control"  name="productoTipo" #name="ngModel"
-      [(ngModel)]='articuloServicioService.selectArtServ.productoTipo'  (change)="sore(articuloServicioService.selectArtServ.productoTipo,ArtServForm)"  disabled  >
-
+      <input type="text" list="TTipo" class="form-control" name="productoTipo"
+      [(ngModel)]='articuloServicioService.selectArtServ.productoTipo' (change)="getTipo(articuloServicioService.selectArtServ.productoTipo,ArtServForm)" disabled>
+      <datalist  id="TTipo" disabled>
+        <!-- <select> -->
+          <div *ngFor="let cat of catalogoService.info">
+          <option [value]="cat.tipo"></option>  
+        </div>
+        <!-- </select> -->
+      </datalist> 
     </div>
-
-
-
-
-
-
-    <div class="form-group col-md-4">
-      <label for="inputState">División: </label>
-     
-      <input type="text" list="SSubtipo"  class="form-control"  name="productoDivision" #name="ngModel"
-      [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="sore2(articuloServicioService.selectArtServ.productoDivision,ArtServForm)"  disabled>
-  
+    <div class="form-group col-md-2">
+      <label for="inputState">Division: </label>
+      <input type="text" list="DTipo" class="form-control" name="productoDivision"
+      [(ngModel)]='articuloServicioService.selectArtServ.productoDivision' (change)="getDivision(articuloServicioService.selectArtServ.productoDivision,ArtServForm)" disabled>
+      <datalist  id="DTipo" disabled>
+        <!-- <select> -->
+          <div *ngFor="let cat of catalogoService.info">
+          <option [value]="cat.division"></option>  
+        </div>
+        <!-- </select> -->
+      </datalist> 
     </div>
-
-
-
-
-
-    <div class="form-group col-md-4">
-      <label for="inputState">Grupo: </label>
-      
-      <input type="text" list="SCodigo"  class="form-control" name="productoGrupo" #name="ngModel"
-      [(ngModel)]='articuloServicioService.selectArtServ.productoGrupo' (change)="sore3(articuloServicioService.selectArtServ.productoGrupo,ArtServForm)" disabled>
- 
-     
-     
+    <div class="form-group col-md-2">
+      <label for="productoGrupo">Grupo: </label>
+      <input type="text" list="GTipo" class="form-control" name="productoGrupo"
+      [(ngModel)]='articuloServicioService.selectArtServ.productoGrupo' (change)="getGrupo(articuloServicioService.selectArtServ.productoGrupo,ArtServForm)" disabled>
+      <datalist  id="GTipo" disabled>
+        <!-- <select> -->
+          <div *ngFor="let cat of catalogoService.info">
+          <option [value]="cat.grupo"></option>  
+        </div>
+        <!-- </select> -->
+      </datalist> 
     </div>
-
-
-
-    <div class="form-group col-md-4">
-      <label for="inputState">Clase: </label>
-     
-   
-      <input type="text"  list="SClase" class="form-control" name="productoClase" #name="ngModel"
-      [(ngModel)]='articuloServicioService.selectArtServ.productoClase' (change)="sore4(articuloServicioService.selectArtServ.productoClase,ArtServForm)" disabled>
-  
-     
+    <div class="form-group col-md-2">
+      <label for="productoClase">Clase: </label>
+      <input type="text" list="CTipo" class="form-control" name="productoClase"
+      [(ngModel)]='articuloServicioService.selectArtServ.productoClase' (change)="getClase(articuloServicioService.selectArtServ.productoClase,ArtServForm)" disabled>
+      <datalist  id="CTipo" disabled>
+        <!-- <select> -->
+          <div *ngFor="let cat of catalogoService.info">
+          <option [value]="cat.clase"></option>  
+        </div>
+        <!-- </select> -->
+      </datalist> 
+    </div>
+    <div class="form-group col-md-3">
+      <label for="productoClave">Clave:</label>           
+        <input type="text" id="productoClave" class="form-control" name="productoClave" #name="ngModel" [(ngModel)]="articuloServicioService.selectArtServ.productoClave" disabled>
     </div>
 
 

@@ -18,7 +18,8 @@ router.post('/', (req, res) => {
         productoTipo:req.body.productoTipo,
         productoDivision:req.body.productoDivision,
         productoGrupo:req.body.productoGrupo,
-        productoClase:req.body.productoClase
+        productoClase:req.body.productoClase,
+        productoClave:req.body.productoClave
     });
 
     
@@ -46,7 +47,8 @@ router.put('/:id', (req, res) => {
             productoTipo:req.body.productoTipo,
             productoDivision:req.body.productoDivision,
             productoGrupo:req.body.productoGrupo,
-            productoClase:req.body.productoClase
+            productoClase:req.body.productoClase,
+            productoClave:req.body.productoClave
         });
 
     let ID = req.params.id;

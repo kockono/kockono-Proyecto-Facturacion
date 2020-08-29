@@ -133,7 +133,7 @@ export class CrearFactComponent implements OnInit {
           this.unidades=1;
           
           form.value.unidades=this.unidades;
-          this.Umed=emp.unidad;
+          this.Umed=emp.unidadTipo;
           form.value.uMed=this.Umed;
           this.descuento=0;
           form.value.descuento=this.descuento;
@@ -182,7 +182,8 @@ export class CrearFactComponent implements OnInit {
       productoTipo: "",
       productoDivision:"",
       productoGrupo:"",
-      productoClase:""
+      productoClase:"",
+      productoClave:null
     }
   }
 
